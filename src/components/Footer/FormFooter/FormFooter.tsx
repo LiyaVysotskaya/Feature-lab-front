@@ -8,7 +8,7 @@ type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   values: { [key: string]: string };
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  errors: { [key: string]: string };
+  // errors: { [key: string]: string };
   isValid: boolean | undefined;
   isLoading: boolean | undefined;
 };
@@ -17,7 +17,7 @@ export const FormFooter: React.FC<IFormProps> = ({
   onSubmit,
   values,
   handleChange,
-  errors,
+  // errors,
   isValid,
   isLoading,
 }) => {
@@ -57,6 +57,9 @@ export const FormFooter: React.FC<IFormProps> = ({
       <fieldset className={s.fieldset}>
         <div className={s.contact}>
           <div className={s.inputContainer}>
+            {/* <div className={s.textContainer}> */}
+            <span className={cl(s.textClue, { [s.textClueError]: false })}>Имя</span>
+            {/* </div> */}
             <input
               className={s.input}
               aria-label="Input name"
@@ -70,17 +73,16 @@ export const FormFooter: React.FC<IFormProps> = ({
               pattern={nameRegEx}
               required
             />{' '}
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
-            </div>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.name })}>
+          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.name })}>
             {errors.name}
-          </span>
+          </span> */}
         </div>
         <div className={s.contact}>
           <div className={s.inputContainer}>
+            {/* <div className={s.textContainer}> */}
+            <span className={cl(s.textClue, { [s.textClueError]: false })}>Email / телефон</span>
+            {/* </div> */}
             <input
               className={s.input}
               aria-label="Input email"
@@ -94,19 +96,16 @@ export const FormFooter: React.FC<IFormProps> = ({
               pattern={emailRegEx}
               required
             />
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
-                Email / телефон
-              </span>
-            </div>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.email })}>
+          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.email })}>
             {errors.email}
-          </span>
+          </span> */}
         </div>
         <div className={s.contact}>
           <div className={s.inputContainer}>
+            {/* <div className={s.textContainer}> */}
+            <span className={cl(s.textClue, { [s.textClueError]: false })}>О проекте</span>
+            {/* </div> */}
             <textarea
               className={s.input}
               aria-label="Textarea project"
@@ -119,16 +118,10 @@ export const FormFooter: React.FC<IFormProps> = ({
               rows={1}
               required
             />
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
-                О проекте
-              </span>
-            </div>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.project })}>
+          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.project })}>
             {errors.project}
-          </span>
+          </span> */}
         </div>
       </fieldset>
       <label className={s.checkboxContainer} htmlFor="checkboxConfidential">
