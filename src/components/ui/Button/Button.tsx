@@ -6,6 +6,7 @@ import Spinner from './svg/Icon-SpinnerGap.svg?svgr';
 export interface IButtonProps {
   className?: string;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
   theme: 'promo' | 'white' | 'blue';
   text?: string;
   isLoading?: boolean;
@@ -14,6 +15,7 @@ export interface IButtonProps {
 
 export const Button: FC<IButtonProps> = ({
   className = '',
+  type = 'button',
   onClick = () => {},
   theme,
   text = '',
@@ -26,7 +28,7 @@ export const Button: FC<IButtonProps> = ({
         <button
           disabled={disabled}
           onClick={onClick}
-          type="button"
+          type={type}
           className={cl(s.btn, s.promo, className)}>
           <div className={s.disk_out}>
             <div className={s.disk_in}>
@@ -48,7 +50,7 @@ export const Button: FC<IButtonProps> = ({
             <button
               disabled={disabled}
               onClick={onClick}
-              type="button"
+              type={type}
               className={cl(s.disk, {
                 [s.disk_white]: theme === 'white',
                 [s.disk_blue]: theme === 'blue',

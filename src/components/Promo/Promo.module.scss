@@ -89,7 +89,7 @@
   font-family: var(--title-h-3-font-family, 'Germano-Regular', sans-serif);
   font-size: var(--title-h-3-font-size, 64px);
   font-weight: var(--title-h-3-font-weight, 400);
-  line-height: var(--title-h-3-line-height, 64px);
+  line-height: 1;
   color: var(--white, #fff);
   text-align: left;
 }
@@ -140,8 +140,6 @@
 
   .headline {
     font-size: var(--title-h-4-font-size, 48px);
-    font-weight: var(--title-h-4-font-weight, 400);
-    line-height: var(--title-h-4-line-height, 48px);
   }
 }
 
@@ -191,6 +189,12 @@
   }
 }
 
+@media screen and (width <= 500px) {
+  .headline {
+    font-size: var(--title-tel-h-1-font-size, 40px);
+  }
+}
+
 @media screen and (width <= 360px) {
   .promo {
     min-height: 760px;
@@ -203,8 +207,8 @@
 
   .title {
     margin-left: 0;
-    font-size: 90px;
-    line-height: 88px;
+    font-size: 25vw; // 90px on 360px width
+    line-height: 0.98; // 88px;
     letter-spacing: 0;
   }
 
@@ -217,11 +221,5 @@
   .headlines {
     max-width: 90%;
     margin: 0 0 0 15px;
-  }
-
-  .headline {
-    font-size: var(--title-tel-h-1-font-size, 40px);
-    font-weight: var(--title-tel-h-1-font-weight, 400);
-    line-height: var(--title-tel-h-1-line-height, 40px);
   }
 }
