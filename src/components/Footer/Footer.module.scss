@@ -1,5 +1,33 @@
 @use '../../styles/variables/global.scss';
 
+.footer,
+.footer * {
+  box-sizing: border-box;
+}
+
 .footer {
+  display: flex;
+  background: var(--darkblue, #002d63);
+  flex-shrink: 0;
+  max-width: 1920px;
   width: 100%;
+  height: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.footerContainer {
+  display: flex;
+  margin: 140px auto 122px;
+}
+
+.footerTitle {
+  color: var(--white, #ffffff);
+  text-align: left;
+  font-family: var(--title-h-1-font-family, "Germano-Regular", sans-serif);
+  font-size: var(--title-h-1-font-size, 140px);
+  line-height: var(--title-h-1-line-height, 120px);
+  font-weight: var(--title-h-1-font-weight, 400);
+  width: 565px;
+  text-transform: uppercase;
 }
