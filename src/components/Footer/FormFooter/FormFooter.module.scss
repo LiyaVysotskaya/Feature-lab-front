@@ -27,9 +27,10 @@
 
 .contact {
   margin-top: 28px;
-  border-bottom: 3px solid var(--white, #FFF);
+  border-bottom: 3px solid var(--white, #fff);
   padding: 12px 24px;
-  height: 86px;
+  min-height: 86px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,12 +43,12 @@
 .inputContainer {
   max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
-  height: 62px;
+  min-height: 62px;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 20px;
   position: relative;
-  align-items: center;
 }
 
 .input {
@@ -57,9 +58,9 @@
   width: 100%;
   border: none;
   resize: none;
-  color: var(--white, #FFF);
+  color: var(--white, #fff);
   text-align: left;
-  font-family: var(--text-1-font-family, "GostTypeB-Standard", sans-serif);
+  font-family: var(--text-1-font-family, 'GostTypeB-Standard', sans-serif);
   font-size: var(--text-1-font-size, 32px);
   line-height: var(--text-1-line-height, 38px);
   font-weight: var(--text-1-font-weight, 400);
@@ -68,7 +69,7 @@
   background-color: transparent;
 
   &::placeholder {
-    color: var(--white-60, #A8BED8);
+    color: var(--white-60, #a8bed8);
     text-align: left;
     flex: 1;
   }
@@ -80,4 +81,131 @@
 
 textarea::placeholder {
   line-height: 38px;
+}
+
+// .inputError {
+//   padding: 12px 120px 0px 220px;
+//   color: var(--error, #bf1700);
+//   text-align: left;
+//   font-family: var(--title-h-4-font-family, 'Germano-Regular', sans-serif);
+//   font-size: var(--title-h-4-font-size, 48px);
+//   line-height: var(--title-h-4-line-height, 48px);
+//   font-weight: var(--title-h-4-font-weight, 400);
+//   flex: 1;
+//   display: none;
+
+//   &Active {
+//     display: flex;
+//   }
+// }
+
+// .textContainer {
+//   max-width: calc(150px + (200 - 150) * ((100vw - 1280px) / (1920 - 1280)));
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .textNumber {
+//   color: var(--white, #ffffff);
+//   text-align: left;
+//   font-family: var(--title-h-3-molot-font-family, 'Molot-Regular', sans-serif);
+//   font-size: var(--title-h-3-molot-font-size, 80px);
+//   line-height: var(--title-h-3-molot-line-height, 80px);
+//   font-weight: var(--title-h-3-molot-font-weight, 400);
+//   font-style: normal;
+//   position: relative;
+//   transition: all 0.2s ease;
+//   -webkit-text-stroke: 3.5px var(--darkblue);
+
+//   &Error {
+//     color: var(--error, #bf1700) !important;
+//     -webkit-text-stroke: var(--error, #bf1700);
+//   }
+// }
+
+.textClue {
+  color: var(--darkblue-50, #8096b1);
+  text-align: left;
+  font-family: var(--text-3-font-family, 'GostTypeB-Standard', sans-serif);
+  font-size: var(--text-3-font-size, 20px);
+  line-height: var(--text-3-line-height, 24px);
+  font-weight: var(--text-3-font-weight, 400);
+  position: relative;
+  display: none;
+
+  &Error {
+    color: var(--error, #bf1700);
+  }
+}
+
+.checkboxContainer {
+  margin-top: 32px;
+  margin-left: calc(322px + (452 - 322) * ((100vw - 1280px) / (1920 - 1280)));
+  margin-bottom: 800px;
+  max-width: calc(698px + (1028 - 698) * ((100vw - 1280px) / (1920 - 1280)));
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.checkboxText {
+  margin: 0;
+  padding: 0;
+  color: var(--dark-blue, #002d63);
+  font-family: GOST type B;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px;
+
+  &:before {
+    content: '';
+    display: flex;
+    position: absolute;
+    left: -72px;
+    top: 18px;
+    width: 40px;
+    height: 40px;
+    background-image: url(./checkbox/checkbox.svg);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.checkboxTextConfidential {
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+}
+
+.checkbox:checked + .checkboxText:before {
+  background-image: url(./checkbox/checkboxChecked.svg);
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.input:focus + .textClue {
+  display: flex;
+}
+
+.input:not(:placeholder-shown) + .textContainer {
+  .textNumber {
+    color: var(--dark-blue, #002d63);
+  }
 }

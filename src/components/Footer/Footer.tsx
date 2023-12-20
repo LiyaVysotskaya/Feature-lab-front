@@ -9,7 +9,7 @@ type IFooterProps = {};
 const Footer: React.FC<IFooterProps> = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const { values, handleChange, isValid, resetForm } = useFormAndValidation({
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
     name: '',
     email: '',
     project: '',
@@ -31,6 +31,7 @@ const Footer: React.FC<IFooterProps> = () => {
       <div className={s.footerContainer}>
         <h2 className={s.footerTitle}>Связаться с нами</h2>
         <FormFooter
+          errors={errors}
           handleChange={handleChange}
           onSubmit={handleSubmit}
           isValid={isValid}
