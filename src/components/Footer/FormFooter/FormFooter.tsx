@@ -2,7 +2,16 @@ import cl from 'classnames';
 import React, { ChangeEvent, FormEvent, useRef } from 'react';
 import s from './FormFooter.module.scss';
 import { Button } from '../../ui/Button/Button';
-import { emailRegEx, nameRegEx } from '../../../constants/constants';
+import {
+  EMAIL_REG_EX,
+  MAX_LENGTH_EMAIL,
+  MAX_LENGTH_NAME,
+  MAX_LENGTH_PROJECT,
+  MIN_LENGTH_EMAIL,
+  MIN_LENGTH_NAME,
+  MIN_LENGTH_PROJECT,
+  NAME_REG_EX,
+} from '../../../constants/constants';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -58,7 +67,7 @@ export const FormFooter: React.FC<IFormProps> = ({
         <div className={s.contact}>
           <div className={s.inputContainer}>
             {/* <div className={s.textContainer}> */}
-            <span className={cl(s.textClue, { [s.textClueError]: false })}>Имя</span>
+            {/* <span className={cl(s.textClue, { [s.textClueError]: false })}>Имя</span> */}
             {/* </div> */}
             <input
               className={s.input}
@@ -68,9 +77,9 @@ export const FormFooter: React.FC<IFormProps> = ({
               name="name"
               type="text"
               placeholder="Имя"
-              minLength={2}
-              maxLength={60}
-              pattern={nameRegEx}
+              minLength={MIN_LENGTH_NAME}
+              maxLength={MAX_LENGTH_NAME}
+              pattern={NAME_REG_EX}
               required
             />{' '}
           </div>
@@ -81,7 +90,7 @@ export const FormFooter: React.FC<IFormProps> = ({
         <div className={s.contact}>
           <div className={s.inputContainer}>
             {/* <div className={s.textContainer}> */}
-            <span className={cl(s.textClue, { [s.textClueError]: false })}>Email / телефон</span>
+            {/* <span className={cl(s.textClue, { [s.textClueError]: false })}>Email / телефон</span> */}
             {/* </div> */}
             <input
               className={s.input}
@@ -90,10 +99,10 @@ export const FormFooter: React.FC<IFormProps> = ({
               onChange={onInputChange}
               name="email"
               type="email"
-              placeholder="Email / телефон"
-              minLength={6}
-              maxLength={60}
-              pattern={emailRegEx}
+              placeholder="Email / Телефон"
+              minLength={MIN_LENGTH_EMAIL}
+              maxLength={MAX_LENGTH_EMAIL}
+              pattern={EMAIL_REG_EX}
               required
             />
           </div>
@@ -104,7 +113,7 @@ export const FormFooter: React.FC<IFormProps> = ({
         <div className={s.contact}>
           <div className={s.inputContainer}>
             {/* <div className={s.textContainer}> */}
-            <span className={cl(s.textClue, { [s.textClueError]: false })}>О проекте</span>
+            {/* <span className={cl(s.textClue, { [s.textClueError]: false })}>О проекте</span> */}
             {/* </div> */}
             <textarea
               className={s.input}
@@ -113,8 +122,8 @@ export const FormFooter: React.FC<IFormProps> = ({
               onChange={onTextareaChange}
               name="project"
               placeholder="О вашем проекте"
-              minLength={15}
-              maxLength={500}
+              minLength={MIN_LENGTH_PROJECT}
+              maxLength={MAX_LENGTH_PROJECT}
               rows={1}
               required
             />

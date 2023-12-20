@@ -7,7 +7,7 @@ import Main from '../Main/Main';
 import { PopupContact } from '../PopupContact/PopupContact';
 
 const App: React.FC = () => {
-  const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(true);
+  const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(false);
 
   const closePopupContactPopups = () => {
     setPopupContactIsOpen(false);

@@ -8,7 +8,7 @@
 }
 
 .fieldset {
-  max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
+  max-width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,15 +26,23 @@
 // }
 
 .contact {
+  margin-top: 28px;
   border-bottom: 3px solid var(--white, #FFF);
   padding: 12px 24px;
+  height: 86px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .inputContainer {
   max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
+  height: 62px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -42,17 +50,14 @@
   align-items: center;
 }
 
-
-
 .input {
   margin: 0;
   padding: 0;
   max-width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
-  height: 62px;
   border: none;
   resize: none;
-  color: var(--white-60, #a8bed8);
+  color: var(--white, #FFF);
   text-align: left;
   font-family: var(--text-1-font-family, "GostTypeB-Standard", sans-serif);
   font-size: var(--text-1-font-size, 32px);
@@ -63,6 +68,8 @@
   background-color: transparent;
 
   &::placeholder {
+    color: var(--white-60, #A8BED8);
+    text-align: left;
     flex: 1;
   }
 
@@ -72,5 +79,5 @@
 }
 
 textarea::placeholder {
-  // line-height: 62px;
+  line-height: 38px;
 }

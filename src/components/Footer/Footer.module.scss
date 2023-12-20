@@ -19,6 +19,7 @@
 .footerContainer {
   display: flex;
   margin: 140px auto 122px;
+  // align-items: center;
 }
 
 .footerTitle {
@@ -29,5 +30,6 @@
   line-height: var(--title-h-1-line-height, 120px);
   font-weight: var(--title-h-1-font-weight, 400);
   width: 565px;
+  height: fit-content;
   text-transform: uppercase;
 }

@@ -25,6 +25,7 @@ const Footer: React.FC<IFooterProps> = () => {
       project: '',
     });
   };
+
   return (
     <footer className={s.footer}>
       <div className={s.footerContainer}>
