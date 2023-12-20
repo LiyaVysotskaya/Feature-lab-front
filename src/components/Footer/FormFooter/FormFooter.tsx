@@ -39,7 +39,7 @@ export const FormFooter: React.FC<IFormProps> = ({
     originalFontSize.current = originalFontSize.current || e.target.style.fontSize;
     const textLength = e.target.value?.length;
     e.target.style.fontSize =
-      textLength > 20 ? `${80 - (textLength - 20)}px` : originalFontSize.current;
+      textLength > 20 ? `${32 - textLength / 9}px` : originalFontSize.current;
 
     handleChange(e);
   };
