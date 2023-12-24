@@ -151,7 +151,7 @@ export const FormFooter: React.FC<IFormProps> = ({
       <Button
         className={s.button}
         type="submit"
-        theme="white"
+        theme="blue"
         text="Отправить"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}

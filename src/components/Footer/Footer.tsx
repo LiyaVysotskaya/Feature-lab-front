@@ -29,7 +29,7 @@ const Footer: React.FC<IFooterProps> = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerContainer}>
-        <h2 className={s.footerTitle}>Связаться с нами</h2>
+        <h2 className={s.footerTitle}>Свяжитесь с нами</h2>
         <FormFooter
           errors={errors}
           handleChange={handleChange}
@@ -39,14 +39,14 @@ const Footer: React.FC<IFooterProps> = () => {
           isLoading={isLoading}
         />
       </div>
-
+      {/*
       <div className={s.basementContainer}>
         <Link className={s.basementElement} />
         <p className={s.basementElement} />
         <p className={s.basementElement} />
         <Link className={s.basementElement} />
         <p className={s.basementElement} />
-      </div>
+      </div> */}
     </footer>
   );
 };

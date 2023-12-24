@@ -1,10 +1,10 @@
 .form {
+  margin-bottom: 122px;
   display: flex;
-  position: relative;
   flex-direction: column;
   width: 100%;
-  box-sizing: border-box;
   position: relative;
+  height: fit-content;
 }
 
 .fieldset {
@@ -17,17 +17,17 @@
   border: none;
 }
 
-// .button {
-//   position: absolute;
-//   bottom: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   z-index: 1;
-// }
+.button {
+  position: absolute;
+  top: -50%;
+  left: 90%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
 
 .contact {
   margin-top: 28px;
-  border-bottom: 3px solid var(--white, #fff);
+  border-bottom:  3px solid var(--white, #fff);
   padding: 12px 24px;
   min-height: 86px;
   height: 100%;
@@ -142,7 +142,7 @@ textarea::placeholder {
 .checkboxContainer {
   margin-top: 32px;
   margin-left: calc(322px + (452 - 322) * ((100vw - 1280px) / (1920 - 1280)));
-  margin-bottom: 800px;
+  // margin-bottom: 122px;
   max-width: calc(698px + (1028 - 698) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
   display: flex;
