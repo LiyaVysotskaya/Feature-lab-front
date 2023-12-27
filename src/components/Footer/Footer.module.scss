@@ -18,11 +18,12 @@
 
 .footerContainer {
   display: flex;
-  margin: 140px auto 100px;
+  margin: 140px 0 100px 100px;
 }
 
 .footerTitle {
   margin-top: 86px;
+  margin-right: 50px;
   color: var(--white, #ffffff);
   text-align: left;
   font-family: var(--title-h-1-font-family, "Germano-Regular", sans-serif);
