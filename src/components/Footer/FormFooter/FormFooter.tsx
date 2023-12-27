@@ -64,7 +64,7 @@ export const FormFooter: React.FC<IFormProps> = ({
   return (
     <form className={s.form} method="POST" onSubmit={onSubmit}>
       <fieldset className={s.fieldset}>
-        <div className={s.contact}>
+        <div className={cl(s.contact, { [s.contactError]: errors.name })}>
           <div className={s.inputContainer}>
             <input
               className={s.input}
@@ -87,7 +87,7 @@ export const FormFooter: React.FC<IFormProps> = ({
             {errors.name}
           </span> */}
         </div>
-        <div className={s.contact}>
+        <div className={cl(s.contact, { [s.contactError]: errors.email })}>
           <div className={s.inputContainer}>
             <input
               className={s.input}
@@ -110,7 +110,7 @@ export const FormFooter: React.FC<IFormProps> = ({
             {errors.email}
           </span> */}
         </div>
-        <div className={s.contact}>
+        <div className={cl(s.contact, { [s.contactError]: errors.project })}>
           <div className={s.inputContainer}>
             <textarea
               className={s.input}

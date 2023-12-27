@@ -19,16 +19,16 @@
 
 .button {
   position: absolute;
-  top: -50%;
-  left: 90%;
-  transform: translateX(-50%);
+  top: 5%;
+  left: 65%;
+  // transform: translateX(-50%);
   z-index: 1;
 }
 
 .contact {
   margin-top: 28px;
-  border-bottom:  3px solid var(--white, #fff);
-  padding: 12px 24px;
+  border-bottom: 3px solid var(--white, #fff);
+  padding: 12px 24px 9px;
   min-height: 86px;
   height: 100%;
   display: flex;
@@ -38,16 +38,19 @@
   &:first-of-type {
     margin-top: 0;
   }
+
+  &Error {
+    border-color: var(--error-for-dark, #FA391F);
+  }
 }
 
 .inputContainer {
   max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
   min-height: 62px;
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column-reverse;
-  gap: 20px;
   position: relative;
 }
 
@@ -56,6 +59,7 @@
   padding: 0;
   max-width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
+  height: 38px;
   border: none;
   resize: none;
   color: var(--white, #fff);
@@ -67,6 +71,7 @@
   flex: 1;
   outline: none;
   background-color: transparent;
+  overflow: auto;
 
   &::placeholder {
     color: var(--white-60, #a8bed8);
@@ -80,7 +85,7 @@
 }
 
 textarea::placeholder {
-  line-height: 38px;
+  line-height: 40px;
 }
 
 // .inputError {
@@ -135,7 +140,7 @@ textarea::placeholder {
   display: none;
 
   &Error {
-    color: var(--error, #bf1700);
+    color: var(--error-for-dark, #FA391F);
   }
 }
 
