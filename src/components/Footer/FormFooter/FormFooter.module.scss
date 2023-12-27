@@ -71,7 +71,7 @@
   flex: 1;
   outline: none;
   background-color: transparent;
-  overflow: auto;
+  caret-color: var(--electric, #0049D8);
 
   &::placeholder {
     color: var(--white-60, #a8bed8);

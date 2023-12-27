@@ -64,6 +64,7 @@
   flex: 1;
   outline: none;
   background-color: transparent;
+  caret-color: var(--electric, #0049D8);
 
   &::placeholder {
     color: var(--darkblue-50, #8096b1);
