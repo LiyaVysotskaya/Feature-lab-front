@@ -34,6 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   &:first-of-type {
     margin-top: 0;
@@ -47,8 +48,6 @@
 .inputContainer {
   max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
-  min-height: 62px;
-  height: fit-content;
   display: flex;
   flex-direction: column-reverse;
   position: relative;
@@ -85,7 +84,7 @@
 }
 
 textarea::placeholder {
-  line-height: 40px;
+  line-height: 38px;
 }
 
 // .inputError {
