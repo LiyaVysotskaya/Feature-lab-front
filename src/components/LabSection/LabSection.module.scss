@@ -112,6 +112,16 @@
   }
 }
 
+@media screen and (width <= 1360px) {
+  .cardPosition {
+    --side-offset: 140px;
+  }
+
+  .card {
+    max-width: 370px;
+  }
+}
+
 @media screen and (width <= 1280px) {
   .sectionTitle {
     padding: 0 0 0 50px;
@@ -131,13 +141,9 @@
       line-height: 1.17; // 28px; /* 116.667% */
     }
   }
-
-  .cardPosition {
-    --side-offset: 140px;
-  }
 }
 
-@media screen and (width <= 1000px) {
+@media screen and (width <= 1120px) {
   .card {
     row-gap: 8px;
     max-width: 240px;
@@ -152,6 +158,12 @@
       font-size: 20px;
       line-height: 1.2; // 24px; /* 120% */
     }
+  }
+}
+
+@media screen and (width <= 820px) {
+  .cardPosition {
+    --side-offset: 120px;
   }
 }
 

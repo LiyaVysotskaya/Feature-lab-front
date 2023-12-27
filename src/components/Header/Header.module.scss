@@ -9,7 +9,7 @@
   transition: all 300ms ease-in;
 
   &_hidden {
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -120%, 0); // +20% to hide shadow of carousel menu when header hidden
   }
 }
 
@@ -64,12 +64,14 @@
 .listItem {
   position: relative;
 
-  font-family: var(--text-1-font-family, 'GostTypeB-Standard', sans-serif);
-  font-size: var(--text-1-font-size, 32px);
-  line-height: var(--text-1-line-height, 38px);
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 32px;
+  line-height: 1.19; // 38px;
   color: var(--darkblue, #002d63);
 
   &:hover:not(:first-child):hover {
+    // not the first child because the 1st listItem's SubmenuOpen becomes much larger when hovered
+    // it contains the Competencies subMenu when hovered
     background: var(
       --radialblue-45,
       radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
@@ -77,22 +79,21 @@
   }
 }
 
-.btn {
-  &SubmenuOpen {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.btnSubmenuOpen {
+  position: relative;
+  z-index: 1;
 
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    text-decoration: underline;
+  width: 100%;
 
-    &:hover {
-      background: var(
-        --radialblue-45,
-        radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
-      );
-    }
+  &:hover {
+    background: var(
+      --radialblue-45,
+      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
+    );
   }
 }
 
@@ -101,6 +102,10 @@
 }
 
 .link {
+  &ToMainPage {
+    display: none;
+  }
+
   &Active {
     position: relative;
     z-index: 1;
@@ -129,8 +134,8 @@
   }
 
   .listItem {
-    font-size: var(--text-2-font-size, 24px);
-    line-height: var(--text-2-line-height, 28px);
+    font-size: 24px;
+    line-height: 1.17; // 28px;
   }
 }
 
@@ -141,15 +146,21 @@
   }
 
   .listItem {
-    font-size: calc(var(--text-2-font-size, 24px) * 0.8);
-    line-height: calc(var(--text-2-line-height, 28px) * 0.8);
+    font-size: calc(24px * 0.8);
+    line-height: calc(1.17 * 0.8);
   }
 }
 
 @media screen and (width <= 768px) {
   .content {
+    position: relative;
+    z-index: 1;
+
     justify-content: space-between;
+
     padding: 8px 32px;
+
+    background: var(--white, #fff);
   }
 
   .arrow {
@@ -170,7 +181,7 @@
   .nav {
     position: absolute;
     top: 10%;
-    right: 2%;
+    right: 3.4%;
 
     padding: 0;
 
@@ -204,13 +215,19 @@
   }
 
   .listItem {
-    font-size: var(--text-2-font-size, 24px);
-    line-height: var(--text-2-line-height, 28px);
+    font-size: 24px;
+    line-height: 1.17; // 28px;
 
     &SubMenu {
       display: flex;
       flex-direction: column;
       align-items: start;
+    }
+  }
+
+  .link {
+    &ToMainPage {
+      display: block;
     }
   }
 }

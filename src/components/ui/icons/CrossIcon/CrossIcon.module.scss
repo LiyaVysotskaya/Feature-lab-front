@@ -1,5 +1,6 @@
 .crossIcon {
   cursor: pointer;
+  line-height: 0;
 
   &:hover path {
     stroke: var(--darkblue);

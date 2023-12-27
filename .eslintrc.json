@@ -32,6 +32,7 @@
     "jsx-a11y/no-static-element-interactions": 1, // roles for all interactive divs
     "react/button-has-type": 1, // 'submit' is default so unexpected submit event can occure
     "import/no-extraneous-dependencies": 0, // we know better where to install packages
+    "react/prop-types": "off", // It's better to use them, but TypeScript helps enough
     "css-modules/no-unused-class": [1, { "camelCase": true }],
     "css-modules/no-undef-class": [2, { "camelCase": true }],
     "react/jsx-props-no-spreading": "off",

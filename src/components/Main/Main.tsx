@@ -1,22 +1,12 @@
 import { FC } from 'react';
-import { Competencies } from '../Competencies/Competencies';
-import { Promo } from '../Promo/Promo';
-import styles from './Main.module.scss';
-import { LabSection } from '../LabSection/LabSection';
+import s from './Main.module.scss';
 
 interface IProps {
   children?: React.ReactNode;
 }
 
 const Main: FC<IProps> = ({ children = null }) => {
-  return (
-    <main className={styles.main}>
-      {children}
-      <Promo />
-      <Competencies />
-      <LabSection />
-    </main>
-  );
+  return <main className={s.main}>{children}</main>;
 };
 
 export default Main;

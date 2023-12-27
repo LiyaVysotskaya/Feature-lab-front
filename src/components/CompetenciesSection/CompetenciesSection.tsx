@@ -1,17 +1,16 @@
 import cl from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
-
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PlusBtn from './svg/plus.svg?svgr';
-import s from './Competencies.module.scss';
+import { v4 as uuidv4 } from 'uuid';
+import s from './CompetenciesSection.module.scss';
 import { cards } from './mockData';
+import PlusBtn from './svg/plus.svg?svgr';
 
-export interface ICompetenciesProps {
+export interface ICompetenciesSectionProps {
   className?: string;
 }
 
-export const Competencies: FC<ICompetenciesProps> = ({ className = '' }) => {
+export const CompetenciesSection: FC<ICompetenciesSectionProps> = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const handlePlusBtnClick = (url: string) => {

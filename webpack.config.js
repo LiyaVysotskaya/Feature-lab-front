@@ -11,7 +11,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'main.js',
-      publicPath: '',
+      publicPath: '/',
     },
     mode: 'development',
     devServer: {
@@ -49,9 +49,7 @@ module.exports = (env) => {
               options: {
                 modules: {
                   auto: (resPath) => resPath.includes('.module.scss'),
-                  localIdentName: isDev
-                    ? '[path][name]__[local]--[hash:base64:5]'
-                    : '[hash:base64:8]',
+                  localIdentName: isDev ? '[local]--[hash:base64:5]' : '[hash:base64:8]',
                 },
               },
             },
