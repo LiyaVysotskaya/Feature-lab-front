@@ -9,12 +9,14 @@ import { Header } from '../Header/Header';
 import Main from '../Main/Main';
 import { PopupContact } from '../PopupContact/PopupContact';
 import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
+import { PopupPrivacyPolicy } from '../PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
 import s from './App.module.scss';
 
 const App: React.FC = () => {
   const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(false);
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = React.useState(false);
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = React.useState(false);
 
   const closePopupContactPopups = () => {
     setPopupContactIsOpen(false);
@@ -22,6 +24,10 @@ const App: React.FC = () => {
 
   const closePopupFeedbackPopup = () => {
     setIsPopupFeedbackOpen(false);
+  };
+
+  const closePopupPrivacyPolicyPopup = () => {
+    setIsPopupPrivacyPolicyOpen(false);
   };
 
   return (
@@ -39,6 +45,10 @@ const App: React.FC = () => {
 
       <PopupContact isOpen={isPopupContactOpen} onClose={closePopupContactPopups} />
       <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
+      <PopupPrivacyPolicy
+        isOpen={isPopupPrivacyPolicyOpen}
+        onClose={closePopupPrivacyPolicyPopup}
+      />
 
       <Footer />
       <CookiesToastContainer />
