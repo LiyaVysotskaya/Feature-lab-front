@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import s from './ProductsSection.module.scss';
 
-import { products } from './productsMockData';
+import { products } from '../../_mockData/productsMockData';
 
 export interface IProductsSectionProps {
   className?: string;
