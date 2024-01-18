@@ -30,6 +30,10 @@ const App: React.FC = () => {
     setIsPopupPrivacyPolicyOpen(false);
   };
 
+  const openPopupPrivacyPolicy = () => {
+    setIsPopupPrivacyPolicyOpen(true);
+  };
+
   return (
     <div className={s.page}>
       <Header />
@@ -43,7 +47,11 @@ const App: React.FC = () => {
         </Routes>
       </Main>
 
-      <PopupContact isOpen={isPopupContactOpen} onClose={closePopupContactPopups} />
+      <PopupContact
+        isOpen={isPopupContactOpen}
+        onClose={closePopupContactPopups}
+        openPrivacyPolicyPopup={openPopupPrivacyPolicy}
+      />
       <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}

@@ -7,9 +7,14 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 type IPopupProps = {
   onClose: () => void;
   isOpen: boolean;
+  openPrivacyPolicyPopup: () => void;
 };
 
-export const PopupContact: React.FC<IPopupProps> = ({ onClose, isOpen }) => {
+export const PopupContact: React.FC<IPopupProps> = ({
+  onClose,
+  isOpen,
+  openPrivacyPolicyPopup,
+}) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
@@ -40,6 +45,7 @@ export const PopupContact: React.FC<IPopupProps> = ({ onClose, isOpen }) => {
           onClick={onClose}
         />
         <FormContact
+          openPrivacyPolicyPopup={openPrivacyPolicyPopup}
           handleChange={handleChange}
           onSubmit={handleSubmit}
           errors={errors}

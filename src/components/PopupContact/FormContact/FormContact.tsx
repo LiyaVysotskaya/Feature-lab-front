@@ -14,6 +14,7 @@ import {
 } from '../../../constants/constants';
 
 type IFormProps = {
+  openPrivacyPolicyPopup: () => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   values: { [key: string]: string };
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -23,6 +24,7 @@ type IFormProps = {
 };
 
 export const FormContact: React.FC<IFormProps> = ({
+  openPrivacyPolicyPopup,
   onSubmit,
   values,
   handleChange,
@@ -34,6 +36,10 @@ export const FormContact: React.FC<IFormProps> = ({
 
   const originalFontSize = useRef<string>();
   const originalTextareaHeight = useRef<string>();
+
+  const handleButtonClick = () => {
+    openPrivacyPolicyPopup();
+  };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     originalFontSize.current = originalFontSize.current || e.target.style.fontSize;
@@ -152,7 +158,9 @@ export const FormContact: React.FC<IFormProps> = ({
         />
         <span className={s.checkboxText}>
           Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
-          <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
+          <span className={s.checkboxTextConfidential} onClick={handleButtonClick}>
+            политикой конфиденциальности
+          </span>
         </span>
       </label>
       <Button

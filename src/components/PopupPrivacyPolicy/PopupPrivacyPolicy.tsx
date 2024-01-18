@@ -323,25 +323,33 @@ export const PopupPrivacyPolicy: React.FC<PopupPrivacyPolicyProps> = ({ isOpen, 
                 Цели обработки персональных данных
               </p>
             </div>
-            <div className={s.popupPrivacyPolicy__content_item_text}>
-              <div>Цель обработки</div>
-              <div>
-                предоставление доступа Пользователю к сервисам, информации и/или материалам,
-                содержащимся на веб-сайте
+            <div className={`${s.popupPrivacyPolicy__content_item_text} ${s.one_column}`}>
+              <div className={s.content_item_text_point}>
+                <div>Цель обработки</div>
+                <div>
+                  предоставление доступа Пользователю к сервисам, информации и/или материалам,
+                  содержащимся на веб-сайте
+                </div>
               </div>
-              <div>Персональные данные</div>
-              <div>
-                <p>Электронный адрес</p>
-                <p>ФИО</p>
-                <p>Юридическое лицо</p>
+              <div className={s.content_item_text_point}>
+                <div>Персональные данные</div>
+                <div>
+                  <p>Электронный адрес</p>
+                  <p>ФИО</p>
+                  <p>Юридическое лицо</p>
+                </div>
               </div>
-              <div>Правовые основания</div>
-              <div>
-                Федеральный закон «Об информации, информационных технологиях и о защите информации»
-                от 27.07.2006 N 149-ФЗ
+              <div className={s.content_item_text_point}>
+                <div>Правовые основания</div>
+                <div>
+                  Федеральный закон «Об информации, информационных технологиях и о защите
+                  информации» от 27.07.2006 N 149-ФЗ
+                </div>
               </div>
-              <div>Виды обработки персональных данных</div>
-              <div>Отправка информационных писем на адрес электронной почты.</div>
+              <div className={s.content_item_text_point}>
+                <div>Виды обработки персональных данных</div>
+                <div>Отправка информационных писем на адрес электронной почты.</div>
+              </div>
             </div>
           </div>
           <div className={s.popupPrivacyPolicy__content_item}>
