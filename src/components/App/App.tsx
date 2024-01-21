@@ -13,7 +13,7 @@ import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastC
 import s from './App.module.scss';
 
 const App: React.FC = () => {
-  const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(false);
+  const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(true);
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = React.useState(false);
 
   const closePopupContactPopups = () => {

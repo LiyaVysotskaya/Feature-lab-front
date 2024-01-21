@@ -83,9 +83,6 @@ export const FormFooter: React.FC<IFormProps> = ({
               {errors.name || 'Имя'}
             </span>
           </div>
-          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.name })}>
-            {errors.name}
-          </span> */}
         </div>
         <div className={cl(s.contact, { [s.contactError]: errors.email })}>
           <div className={s.inputContainer}>
@@ -106,9 +103,6 @@ export const FormFooter: React.FC<IFormProps> = ({
               {errors.email || 'Email / телефон'}
             </span>
           </div>
-          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.email })}>
-            {errors.email}
-          </span> */}
         </div>
         <div className={cl(s.contact, { [s.contactError]: errors.project })}>
           <div className={s.inputContainer}>
@@ -128,9 +122,6 @@ export const FormFooter: React.FC<IFormProps> = ({
               {errors.project || 'О проекте'}
             </span>
           </div>
-          {/* <span className={cl(s.inputError, { [s.inputErrorActive]: errors.project })}>
-            {errors.project}
-          </span> */}
         </div>
       </fieldset>
       <label className={s.checkboxContainer} htmlFor="checkboxConfidential">

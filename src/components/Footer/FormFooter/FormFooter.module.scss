@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 100%;
   position: relative;
-  height: fit-content;
+  box-sizing: border-box;
 }
 
 .fieldset {
@@ -21,20 +21,20 @@
   position: absolute;
   top: 5%;
   left: 65%;
-  // transform: translateX(-50%);
   z-index: 1;
 }
 
 .contact {
+  box-sizing: border-box;
   margin-top: 28px;
   border-bottom: 3px solid var(--white, #fff);
-  padding: 12px 24px 9px;
+  align-items: center;
+  justify-content: center;
   min-height: 86px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  z-index: 2;
 
   &:first-of-type {
     margin-top: 0;
@@ -87,47 +87,6 @@ textarea::placeholder {
   line-height: 38px;
 }
 
-// .inputError {
-//   padding: 12px 120px 0px 220px;
-//   color: var(--error, #bf1700);
-//   text-align: left;
-//   font-family: var(--title-h-4-font-family, 'Germano-Regular', sans-serif);
-//   font-size: var(--title-h-4-font-size, 48px);
-//   line-height: var(--title-h-4-line-height, 48px);
-//   font-weight: var(--title-h-4-font-weight, 400);
-//   flex: 1;
-//   display: none;
-
-//   &Active {
-//     display: flex;
-//   }
-// }
-
-// .textContainer {
-//   max-width: calc(150px + (200 - 150) * ((100vw - 1280px) / (1920 - 1280)));
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .textNumber {
-//   color: var(--white, #ffffff);
-//   text-align: left;
-//   font-family: var(--title-h-3-molot-font-family, 'Molot-Regular', sans-serif);
-//   font-size: var(--title-h-3-molot-font-size, 80px);
-//   line-height: var(--title-h-3-molot-line-height, 80px);
-//   font-weight: var(--title-h-3-molot-font-weight, 400);
-//   font-style: normal;
-//   position: relative;
-//   transition: all 0.2s ease;
-//   -webkit-text-stroke: 3.5px var(--darkblue);
-
-//   &Error {
-//     color: var(--error, #bf1700) !important;
-//     -webkit-text-stroke: var(--error, #bf1700);
-//   }
-// }
-
 .textClue {
   color: var(--darkblue-50, #8096b1);
   text-align: left;
@@ -135,7 +94,6 @@ textarea::placeholder {
   font-size: var(--text-3-font-size, 20px);
   line-height: var(--text-3-line-height, 24px);
   font-weight: var(--text-3-font-weight, 400);
-  position: relative;
   display: none;
 
   &Error {
@@ -206,10 +164,4 @@ textarea::placeholder {
 
 .input:focus + .textClue {
   display: flex;
-}
-
-.input:not(:placeholder-shown) + .textContainer {
-  .textNumber {
-    color: var(--dark-blue, #002d63);
-  }
 }
