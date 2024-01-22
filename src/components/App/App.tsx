@@ -16,7 +16,7 @@ import s from './App.module.scss';
 const App: React.FC = () => {
   const [isPopupContactOpen, setPopupContactIsOpen] = React.useState(false);
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = React.useState(false);
-  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = React.useState(false);
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = React.useState(true);
 
   const closePopupContactPopups = () => {
     setPopupContactIsOpen(false);
