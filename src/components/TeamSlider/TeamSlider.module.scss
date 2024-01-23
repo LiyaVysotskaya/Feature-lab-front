@@ -1,0 +1,305 @@
+.TeamSliderSection,
+.TeamSliderSection * {
+  box-sizing: border-box;
+}
+
+.TeamSliderSection {
+  width: 100%;
+  height: 724px;
+  margin: 0 0 200px;
+  color: var(--dark-blue, #002d63);
+}
+
+.container {
+  width: 100%;
+  padding-top: 100px;
+}
+
+.sectionTitle {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 100px;
+
+  font-family: Germano, sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1; /* 100% 64px */
+  color: var(--darkblue, #002d63);
+  text-align: left;
+}
+
+.radiant {
+  position: absolute;
+  z-index: -10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  width: 600px;
+  height: 600px;
+
+  .gradient {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 75%);
+    border-radius: 500px;
+  }
+}
+
+.list {
+  padding-top: 80px;
+}
+
+.cardContainer {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+
+  max-width: 350px;
+
+  // padding-left: 90px;
+
+  &Picture {
+    position: relative;
+
+    width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    background-image: url('https://i.ibb.co/8By7nJT/photo.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    border-radius: 50%;
+
+    &:hover {
+      background-image: url('https://i.ibb.co/t2dnvXV/photo-With-Smile.jpg');
+    }
+  }
+
+  &Role {
+    align-self: flex-start;
+
+    margin-bottom: 30px;
+
+    font-family: 'GOST type B', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 28px; /* 116.667% */
+  }
+
+  &Name {
+    width: 100%;
+    margin-bottom: 10px;
+
+    font-family: Germano, sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 48px;
+    text-align: left;
+  }
+
+  &Description {
+    flex-wrap: wrap;
+
+    max-width: 350px;
+
+    font-family: 'GOST type B', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 38px; /* 118.75% */
+  }
+}
+
+.customLeftArrow {
+  left: 100px !important;
+}
+
+.customRightArrow {
+  // position: absolute;
+  right: 100px !important;
+}
+
+@media screen and (width <= 1450px) {
+  .card {
+    &Title {
+      font-size: 100px;
+      line-height: 1.2; // 120px; /* 120% */
+    }
+
+    &Info {
+      max-width: 490px;
+      font-size: 24px;
+      line-height: 1.17; // 28px; /* 116.667% */
+    }
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .TeamSliderSection {
+    height: 511px;
+    margin: 0 0 60px;
+  }
+
+  .TeamSliderTitle {
+    padding: 0 0 0 50px;
+  }
+
+  .list {
+    padding-top: 80px;
+  }
+
+  .card {
+    &Picture {
+      width: 225px;
+      height: 225px;
+      margin-bottom: 7px;
+    }
+
+    &Name {
+      margin-bottom: 7px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &Role {
+      margin-bottom: 22.5px;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    &Description {
+      max-width: 260px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  .radiant {
+    width: 450px;
+    height: 450px;
+  }
+
+  .customLeftArrow {
+    left: 50px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .customRightArrow {
+    right: 50px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (width <= 1000px) {
+  .product {
+    &Title {
+      font-size: 64px;
+      line-height: 1; // 64px; /* 100% */
+    }
+
+    &Info {
+      max-width: 252px;
+      font-size: 16px;
+      line-height: 1.13; // 18px; /* 112.5% */
+    }
+
+    &Footer {
+      font-size: 20px;
+      line-height: 1.2; // 24px; /* 120% */
+    }
+  }
+}
+
+@media screen and (width <= 768px) {
+  .sectionTitle {
+    padding-left: 32px;
+    line-height: 48px;
+  }
+
+  .slider {
+    padding-top: 97px;
+  }
+}
+
+@media screen and (width <= 730px) {
+  .divider {
+    display: none;
+  }
+
+  .product {
+    &Footer {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (width <= 650px) {
+  .divider {
+    display: none;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .product {
+    &Header {
+      flex-direction: column;
+      row-gap: 8px;
+      align-items: flex-start;
+    }
+
+    &Title {
+      font-size: 40px;
+    }
+
+    &Info {
+      max-width: 100%;
+      margin-bottom: 8px;
+    }
+
+    &Footer {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (width <= 360px) {
+  .sectionTitle {
+    padding: 0 0 0 16px;
+    font-size: 24px;
+  }
+
+  .list {
+    padding: 0 16px;
+  }
+}
