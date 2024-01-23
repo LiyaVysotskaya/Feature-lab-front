@@ -1,6 +1,7 @@
 /* eslint-disable css-modules/no-unused-class */
 /* eslint-disable no-irregular-whitespace */
 import Overlay from '../Overlay/Overlay';
+import { CrossInCircleIcon } from '../ui/icons';
 import s from './PopupPrivacyPolicy.module.scss';
 
 type PopupPrivacyPolicyProps = {
@@ -12,12 +13,9 @@ export const PopupPrivacyPolicy: React.FC<PopupPrivacyPolicyProps> = ({ isOpen, 
   return (
     <Overlay onClose={onClose} isOpen={isOpen}>
       <div className={s.popupContainer}>
-        <button
-          className={s.closeButton}
-          type="button"
-          aria-label="Close popup"
-          onClick={onClose}
-        />
+        <button className={s.closeButton} type="button" onClick={onClose}>
+          <CrossInCircleIcon />
+        </button>
         <div className={s.popupPrivacyPolicy__wrapper}>
           <div className={s.popupTitle}>
             <h2 className={s.popupTitle__text}>Политика конфиденциальности</h2>
