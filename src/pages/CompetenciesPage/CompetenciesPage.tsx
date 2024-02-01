@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Outlet, useMatch } from 'react-router-dom';
-import Main from '../../components/Main/Main';
+import { Main } from '../../components/Main/Main';
 import { ROUTE_COMPETENCIES } from '../../constants/constants';
 import { BottomGridSection } from './BottomGridSection/BottomGridSection';
 import { TopGridSection } from './TopGridSection/TopGridSection';

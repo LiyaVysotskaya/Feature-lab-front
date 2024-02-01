@@ -7,8 +7,6 @@ interface IMainProps {
   className?: string;
 }
 
-const Main: FC<IMainProps> = ({ children = null, className = '' }) => {
+export const Main: FC<IMainProps> = ({ children = null, className = '' }) => {
   return <main className={cl(s.main, className)}>{children}</main>;
 };
-
-export default Main;

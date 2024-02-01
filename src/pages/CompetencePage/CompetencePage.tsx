@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { LeadSection } from '../../components/LeadSection/LeadSection';
-import Main from '../../components/Main/Main';
+import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { ProductsSection } from '../../components/ProductsSection/ProductsSection';
 import s from './CompetencePage.module.scss';

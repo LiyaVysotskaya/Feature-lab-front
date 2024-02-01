@@ -10,12 +10,11 @@ import {
 } from '../../constants/constants';
 import { CompetencePage } from '../../pages/CompetencePage/CompetencePage';
 import { CompetenciesPage } from '../../pages/CompetenciesPage/CompetenciesPage';
-import Home from '../../pages/Home/Home';
+import { Home } from '../../pages/Home/Home';
 import { LabPage } from '../../pages/LabPage/LabPage';
 import { ProductPage } from '../../pages/ProductPage/ProductPage';
 import Footer from '../Footer/Footer';
 import { Header } from '../Header/Header';
-import Main from '../Main/Main';
 import { PopupContact } from '../PopupContact/PopupContact';
 import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
 import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
