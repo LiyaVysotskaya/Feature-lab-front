@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { competencies } from '../../_mockData/CompetenciesMockData';
 import Logo from '../../assets/svg/logo.svg';
-import { ROUTE_COMPETENCIES, ROUTE_DOCSHABLON } from '../../constants/constants';
+import { ROUTE_COMPETENCIES, ROUTE_DOCSHABLON, ROUTE_ED_TECH } from '../../constants/constants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';
 import s from './Header.module.scss';
@@ -109,7 +109,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to="/some-route1"
+                  to={ROUTE_ED_TECH}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Лаборатория
                 </NavLink>
