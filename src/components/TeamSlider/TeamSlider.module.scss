@@ -10,11 +10,6 @@
   color: var(--dark-blue, #002d63);
 }
 
-.container {
-  width: 100%;
-  padding-top: 100px;
-}
-
 .sectionTitle {
   width: 100%;
   margin: 0;
@@ -29,45 +24,22 @@
   text-align: left;
 }
 
-.radiant {
-  position: absolute;
-  z-index: -10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.slider {
+  padding-top: 80px;
+}
 
+.item {
   display: flex;
   flex-direction: column;
-  column-gap: 8px;
   align-items: center;
-  justify-content: center;
 
-  width: 600px;
-  height: 600px;
-
-  .gradient {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 75%);
-    border-radius: 500px;
-  }
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 
-.list {
-  padding-top: 80px;
-}
-
-.cardContainer {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
+[class*='react-multi-carousel-item--active'] {
+  opacity: 1;
+  filter: grayscale(0);
 }
 
 .card {
@@ -78,14 +50,21 @@
 
   max-width: 350px;
 
-  // padding-left: 90px;
-
   &Picture {
     position: relative;
-
     width: 300px;
     height: 300px;
     margin-bottom: 30px;
+  }
+
+  &Photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 100%;
 
     text-align: center;
 
@@ -137,42 +116,38 @@
   }
 }
 
+.radiant {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  height: 600px;
+
+  background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 75%);
+}
+
 .customLeftArrow {
-  left: 100px !important;
+  position: absolute;
+  left: 100px;
 }
 
 .customRightArrow {
-  // position: absolute;
-  right: 100px !important;
+  position: absolute;
+  right: 100px;
+}
+
+@media screen and (width <= 1600px) {
+  .radiant {
+    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 70%);
+  }
 }
 
 @media screen and (width <= 1450px) {
-  .card {
-    &Title {
-      font-size: 100px;
-      line-height: 1.2; // 120px; /* 120% */
-    }
-
-    &Info {
-      max-width: 490px;
-      font-size: 24px;
-      line-height: 1.17; // 28px; /* 116.667% */
-    }
-  }
-}
-
-@media screen and (width <= 1280px) {
   .TeamSliderSection {
     height: 511px;
-    margin: 0 0 60px;
-  }
-
-  .TeamSliderTitle {
-    padding: 0 0 0 50px;
-  }
-
-  .list {
-    padding-top: 80px;
+    margin: 0 0 160px;
   }
 
   .card {
@@ -207,99 +182,115 @@
   }
 
   .customLeftArrow {
+    top: 224px;
     left: 50px;
     width: 80px;
     height: 80px;
   }
 
   .customRightArrow {
+    top: 224px;
     right: 50px;
     width: 80px;
     height: 80px;
   }
 }
 
-@media screen and (width <= 1000px) {
-  .product {
-    &Title {
-      font-size: 64px;
-      line-height: 1; // 64px; /* 100% */
-    }
+@media screen and (width <= 1280px) {
+  .sectionTitle {
+    padding-left: 50px;
+  }
 
-    &Info {
-      max-width: 252px;
-      font-size: 16px;
-      line-height: 1.13; // 18px; /* 112.5% */
-    }
-
-    &Footer {
-      font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
+  .card {
+    &Picture {
+      margin-bottom: 22px;
     }
   }
 }
 
 @media screen and (width <= 768px) {
+  .TeamSliderSection {
+    height: 511px;
+    margin-bottom: 120px;
+  }
+
   .sectionTitle {
     padding-left: 32px;
+    font-size: 48px;
     line-height: 48px;
   }
 
   .slider {
     padding-top: 97px;
   }
-}
 
-@media screen and (width <= 730px) {
-  .divider {
-    display: none;
+  [class*='react-multi-carousel-item--active'] .card {
+    position: relative;
+    left: 30px;
+    transition: left 0.5s ease;
   }
 
-  .product {
-    &Footer {
-      flex-direction: column;
-    }
-  }
-}
-
-@media screen and (width <= 650px) {
-  .divider {
-    display: none;
+  [class*='react-multi-carousel-item--active'] {
+    opacity: 1;
+    filter: grayscale(0);
+    transition:
+      opacity 0.1s ease,
+      filter 0.1s ease; // Плавные переходы для opacity и filter
   }
 
-  .sectionTitle {
-    font-size: 24px;
+  [class*='react-multi-carousel-item--active']
+    + [class*='react-multi-carousel-item--active']
+    .card {
+    position: relative;
+    left: -30px;
+    transition: left 0.5s ease;
   }
 
-  .product {
-    &Header {
-      flex-direction: column;
-      row-gap: 8px;
-      align-items: flex-start;
-    }
+  .customLeftArrow {
+    top: 240px;
+    left: 30px;
+  }
 
-    &Title {
-      font-size: 40px;
-    }
-
-    &Info {
-      max-width: 100%;
-      margin-bottom: 8px;
-    }
-
-    &Footer {
-      flex-direction: column;
-    }
+  .customRightArrow {
+    top: 240px;
+    right: 30px;
   }
 }
 
 @media screen and (width <= 360px) {
   .sectionTitle {
     padding: 0 0 0 16px;
-    font-size: 24px;
+    line-height: 24px;
   }
 
-  .list {
-    padding: 0 16px;
+  .slider {
+    padding-top: 32px;
+  }
+
+  .item {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  [class*='react-multi-carousel-item--active'] .card {
+    left: 0;
+  }
+
+  .radiant {
+    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 66%);
+  }
+
+  .customLeftArrow {
+    top: 193px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .customRightArrow {
+    top: 193px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
   }
 }

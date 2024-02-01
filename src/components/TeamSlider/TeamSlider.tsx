@@ -1,12 +1,13 @@
-import cl from 'classnames';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { v4 as uuidv4 } from 'uuid';
 import { FC } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { CarouselProps, ResponsiveType } from 'react-multi-carousel/lib/types';
+import cl from 'classnames';
+import { useMediaQuery } from 'react-responsive';
+import { v4 as uuidv4 } from 'uuid';
+import { ArrowInCircleIcon } from '../ui/icons';
 import s from './TeamSlider.module.scss';
 import { cards } from './mockData';
-import { ArrowInCircleIcon } from '../ui/icons';
 
 export interface TeamSliderProps {
   className?: string;
@@ -16,38 +17,71 @@ const leftArrow = <ArrowInCircleIcon reverse className={s.customLeftArrow} />;
 const rightArrow = <ArrowInCircleIcon className={s.customRightArrow} />;
 
 export const TeamSlider: FC<TeamSliderProps> = ({ className = '' }) => {
-  const settings = {
-    className: 'center',
-    centerMode: true,
-    infinite: true,
-    centerPadding: '240px',
-    slidesToShow: 3,
-    speed: 500,
-    initialSlide: 1,
-    arrows: true,
-    useTransform: true,
-    prevArrow: leftArrow,
-    nextArrow: rightArrow,
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  const responsive: ResponsiveType = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1921 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 1920, min: 1281 },
+      items: 3,
+    },
+    smallDesktop: {
+      breakpoint: { max: 1280, min: 1070 },
+      items: 3,
+    },
+    1070: {
+      breakpoint: { max: 1069, min: 769 },
+      items: 2,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 561 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 560, min: 0 },
+      items: 1,
+    },
   };
+
+  const carouselProps: CarouselProps = {
+    additionalTransfrom: 0,
+    itemClass: s.item,
+    arrows: true,
+    centerMode: !isMobile,
+    containerClass: 'container',
+    draggable: true,
+    focusOnSelect: false,
+    infinite: true,
+    keyBoardControl: true,
+    minimumTouchDrag: 80,
+    customRightArrow: rightArrow,
+    customLeftArrow: leftArrow,
+    responsive,
+    sliderClass: s.slider,
+    slidesToSlide: 1,
+    swipeable: true,
+    children: '',
+  };
+
   return (
     <section className={cl(s.TeamSliderSection, className)}>
       <h2 className={s.sectionTitle}>Команда</h2>
-      <Slider {...settings}>
+      <Carousel {...carouselProps}>
         {cards.map((card) => (
-          <div className={s.cardContainer} key={uuidv4()}>
-            <div className={s.card}>
-              <div className={s.cardPicture}>
-                <div className={s.radiant}>
-                  <div className={s.gradient} />
-                </div>
-              </div>
-              <h3 className={s.cardName}>{card.name}</h3>
-              <div className={s.cardRole}>{card.role}</div>
-              <div className={s.cardDescription}>{card.description}</div>
+          <div className={s.card} key={uuidv4()}>
+            <div className={s.cardPicture}>
+              <div className={s.radiant} />
+              <div className={s.cardPhoto} />
             </div>
+            <h3 className={s.cardName}>{card.name}</h3>
+            <div className={s.cardRole}>{card.role}</div>
+            <div className={s.cardDescription}>{card.description}</div>
           </div>
         ))}
-      </Slider>
+      </Carousel>
     </section>
   );
 };
