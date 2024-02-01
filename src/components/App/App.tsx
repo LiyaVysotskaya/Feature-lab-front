@@ -36,22 +36,21 @@ const App: React.FC = () => {
   return (
     <div className={s.page}>
       <Header />
-      <Main>
-        <Routes>
-          <Route path={ROUTE_HOME} element={<Home />} />
-          <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
-            <Route path={SUBROUTE_GAMEDEV} element={<CompetencePage />} />
-            <Route path="some-other-route" element={<CompetencePage />} />
-          </Route>
 
-          <Route path={ROUTE_ED_TECH} element={<LabPage />} />
+      <Routes>
+        <Route path={ROUTE_HOME} element={<Home />} />
+        <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
+          <Route path={SUBROUTE_GAMEDEV} element={<CompetencePage />} />
+          <Route path="some-other-route" element={<CompetencePage />} />
+        </Route>
 
-          <Route path={ROUTE_PRODUCTS} element={<ProductPage />}>
-            <Route path={SUBROUTE_DOCSHABLON} element={<ProductPage />} />
-            <Route path="some-other-product-subroute" element={<ProductPage />} />
-          </Route>
-        </Routes>
-      </Main>
+        <Route path={ROUTE_ED_TECH} element={<LabPage />} />
+
+        <Route path={ROUTE_PRODUCTS} element={<ProductPage />}>
+          <Route path={SUBROUTE_DOCSHABLON} element={<ProductPage />} />
+          <Route path="some-other-product-subroute" element={<ProductPage />} />
+        </Route>
+      </Routes>
 
       <PopupContact isOpen={isPopupContactOpen} onClose={closePopupContactPopups} />
       <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
