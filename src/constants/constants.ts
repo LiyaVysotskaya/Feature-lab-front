@@ -9,6 +9,7 @@ export const MAX_LENGTH_PROJECT = 500;
 
 export const ROUTE_HOME = '/';
 export const ROUTE_COMPETENCIES = '/competencies';
+export const ROUTE_ED_TECH = '/ed-tech';
 export const ROUTE_PRODUCTS = '/products';
 
 // COMPETENCIES subroutes

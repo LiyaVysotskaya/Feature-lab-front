@@ -1,13 +1,35 @@
 .section {
   display: grid;
-  grid-template-columns: 430px 430px auto;
-  grid-template-rows: 380px 300px 460px;
+  grid-template-columns: 600px 1fr 1fr;
+  grid-template-rows: auto 230px minmax(230px, auto) minmax(322px, auto);
   gap: 40px;
 
+  box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
-  margin: 20px 0 100px;
+  margin: 0 0 20px;
   padding: 0;
+
+  &Title {
+    margin: 0 0 20px;
+
+    font-family: Molot, sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1; // 80px; /* 100% */
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1280px) {
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 40px;
+    }
+
+    @media screen and (width <= 360px) {
+    }
+  }
 
   &Text {
     font-family: Germano, sans-serif;
@@ -32,37 +54,53 @@
 
   &Cell {
     &_1 {
-      // СИСТЕМЫ ВЗАИМОДЕЙСТВИЯ
-      grid-column: 1 / span 2;
+      // title
+      grid-column: 2 / span 2;
       grid-row: 1 / span 1;
     }
 
     &_2 {
-      // text
-      grid-column: 3 / span 1;
-      grid-row: 1 / span 3;
+      // WEB-РАЗРАБОТКА
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
     }
 
     &_3 {
-      // GAMEDEV
-      grid-column: 1 / span 1;
-      grid-row: 2 / span 1;
-    }
-
-    &_4 {
-      // УПРАВЛЕНИЕ ДАННЫМИ
-      grid-column: 2 / span 1;
+      // MACHINE LEARNING
+      grid-column: 2 / span 2;
       grid-row: 2 / span 2;
     }
 
+    &_4 {
+      // РАЗРАБОТКА ПРИЛОЖЕНИЙ
+      grid-column: 2 / span 1;
+      grid-row: 4 / span 1;
+    }
+
     &_5 {
-      // МОБИЛЬНАЯ РАЗРАБОТКА
+      // BLOCKCHAIN
+      grid-column: 3 / span 1;
+      grid-row: 4 / span 1;
+    }
+
+    &_6 {
+      // text
       grid-column: 1 / span 1;
-      grid-row: 3 / span 1;
+      grid-row: 3 / span 2;
     }
   }
 
+  @media screen and (width <= 1600px) {
+    grid-template-columns: 440px 1fr 1fr;
+  }
+
+  @media screen and (width <= 1430px) {
+    padding: 0 50px;
+  }
+
   @media screen and (width <= 1280px) {
+    grid-template-columns: 440px auto auto;
+    grid-template-rows: auto 84px minmax(230px, auto) minmax(322px, auto);
     padding: 0 50px;
   }
 
@@ -80,6 +118,7 @@
   flex-direction: column;
   gap: 20px;
 
+  box-sizing: border-box;
   padding: 20px;
 
   background: var(--white, #fff);
@@ -135,5 +174,14 @@
   &:hover &Title {
     color: var(--white, #fff);
     text-decoration: underline;
+  }
+
+  @media screen and (width <= 1280px) {
+  }
+
+  @media screen and (width <= 768px) {
+  }
+
+  @media screen and (width <= 360px) {
   }
 }

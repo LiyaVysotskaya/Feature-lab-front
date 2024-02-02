@@ -1,12 +1,12 @@
 .section {
   display: grid;
-  grid-template-columns: 430px 430px auto;
-  grid-template-rows: 380px 300px 460px;
+  grid-template-columns: 430px 520px auto;
+  grid-template-rows: 380px auto;
   gap: 40px;
 
   width: 100%;
   max-width: var(--el-max-width);
-  margin: 20px 0 100px;
+  margin: 0 0 100px;
   padding: 0;
 
   &Text {
@@ -32,33 +32,23 @@
 
   &Cell {
     &_1 {
-      // СИСТЕМЫ ВЗАИМОДЕЙСТВИЯ
       grid-column: 1 / span 2;
       grid-row: 1 / span 1;
     }
 
     &_2 {
-      // text
       grid-column: 3 / span 1;
-      grid-row: 1 / span 3;
+      grid-row: 1 / span 2;
     }
 
     &_3 {
-      // GAMEDEV
       grid-column: 1 / span 1;
       grid-row: 2 / span 1;
     }
 
     &_4 {
-      // УПРАВЛЕНИЕ ДАННЫМИ
       grid-column: 2 / span 1;
-      grid-row: 2 / span 2;
-    }
-
-    &_5 {
-      // МОБИЛЬНАЯ РАЗРАБОТКА
-      grid-column: 1 / span 1;
-      grid-row: 3 / span 1;
+      grid-row: 2 / span 1;
     }
   }
 

@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { competencies } from '../../_mockData/CompetenciesMockData';
 import Logo from '../../assets/svg/logo.svg';
-import { ROUTE_COMPETENCIES, ROUTE_DOCSHABLON } from '../../constants/constants';
+import {
+  ROUTE_COMPETENCIES,
+  ROUTE_DOCSHABLON,
+  ROUTE_ED_TECH,
+  ROUTE_HOME,
+} from '../../constants/constants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';
 import s from './Header.module.scss';
@@ -73,13 +78,16 @@ export const Header: React.FC = () => {
           [s.headerContainer_bg_white]: currentScrollY > 1,
         })}>
         <div className={cl(s.content)}>
-          <Link to="/" className={s.logo}>
+          <Link to={ROUTE_HOME} className={s.logo}>
             <img title="Вернуться на главную" className={s.logo} src={Logo} alt="Logo" />
           </Link>
 
           <nav
             aria-label="Основное меню"
-            className={cl(s.nav, { [s.navProfile]: false, [s.navMobileVisible]: isNavMobileOpen })}
+            className={cl(s.nav, {
+              [s.navWithBorder]: currentScrollY < 3 && location.pathname !== ROUTE_HOME,
+              [s.navMobileVisible]: isNavMobileOpen,
+            })}
             id="navHeaderMenu">
             <ul className={cl(s.list)}>
               <li className={cl(s.listItem, s.linkToMainPage)}>
@@ -109,7 +117,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to="/some-route1"
+                  to={ROUTE_ED_TECH}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Лаборатория
                 </NavLink>
