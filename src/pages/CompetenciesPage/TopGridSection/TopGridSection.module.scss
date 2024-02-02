@@ -5,8 +5,10 @@
   gap: 40px;
 
   box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
   margin: 100px 0 20px;
-  padding: 0 100px;
+  padding: 0;
 
   &Title {
     margin: 0 0 20px;

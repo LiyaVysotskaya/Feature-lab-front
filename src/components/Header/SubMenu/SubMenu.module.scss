@@ -55,12 +55,12 @@
     line-height: 1.17; // 28px;
     color: var(--darkblue, #002d63);
     text-align: left;
+  }
 
-    &Active {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 5px;
-    }
+  &LinkActive {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
   }
 }
 
@@ -103,4 +103,9 @@
       line-height: 1.2; // 24px;
     }
   }
+}
+
+/* Stop playing transition for menus momentarily on viewport resize. */
+.stopTransition {
+  transition: none !important;
 }

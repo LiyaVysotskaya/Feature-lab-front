@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { competencies } from '../../_mockData/CompetenciesMockData';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import s from './CompetenciesSection.module.scss';
 import PlusBtn from './svg/plus.svg?svgr';
 
@@ -19,7 +20,7 @@ export const CompetenciesSection: FC<ICompetenciesSectionProps> = ({ className =
 
   return (
     <section className={cl(s.competencies, className)}>
-      <h2 className={s.sectionTitle}>Компетенции</h2>
+      <SectionTitle text="Компетенции" />
       <ul className={s.list}>
         {competencies.map((item, index) => (
           <li className={s.card} key={uuidv4()}>

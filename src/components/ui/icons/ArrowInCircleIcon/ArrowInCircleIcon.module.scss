@@ -8,12 +8,12 @@
 
   line-height: 0;
 
-  background: var(--white);
   border-radius: 69px;
 
   transition: 0.3s;
 
   &:hover {
+    background: var(--white);
     filter: drop-shadow(0 10px 20px rgb(0 45 99 / 30%));
   }
 
@@ -43,4 +43,3 @@
     height: 44px;
   }
 }
-

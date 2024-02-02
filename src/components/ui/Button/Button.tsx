@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { SpinnerIcon } from '../icons';
 import s from './Button.module.scss';
-import Spinner from './svg/Icon-SpinnerGap.svg?svgr';
 
 export interface IButtonProps {
   className?: string;
@@ -22,6 +22,13 @@ export const Button: FC<IButtonProps> = ({
   isLoading = false,
   disabled = false,
 }) => {
+  const spinnerColor = () => {
+    if (theme === 'white') {
+      return 'blue';
+    }
+    return 'white';
+  };
+
   return (
     <>
       {theme === 'promo' && (
@@ -31,7 +38,7 @@ export const Button: FC<IButtonProps> = ({
             onClick={onClick}
             type={type}
             className={cl(s.btn, s.promoBtn)}>
-            {!isLoading ? text : <Spinner className={cl(s.spinner)} />}
+            {!isLoading ? text : <SpinnerIcon theme="white" />}
           </button>
         </div>
       )}
@@ -47,15 +54,7 @@ export const Button: FC<IButtonProps> = ({
               [s.radiantBtn_white]: theme === 'white',
               [s.radiantBtn_blue]: theme === 'blue',
             })}>
-            {!isLoading ? (
-              text
-            ) : (
-              <Spinner
-                className={cl(s.spinner, {
-                  [s.spinner_blue]: theme === 'white',
-                })}
-              />
-            )}
+            {!isLoading ? text : <SpinnerIcon theme={spinnerColor()} />}
           </button>
         </div>
       )}

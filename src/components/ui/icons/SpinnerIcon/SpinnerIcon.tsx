@@ -11,6 +11,7 @@ export const SpinnerIcon: FC<SpinnerIconProps> = ({ theme = 'blue', className = 
   return (
     <div className={cl(s.spinnerIcon, className, theme && s[`spinnerIcon__${theme}`])}>
       <svg
+        className={cl(s.spinnerRotation)}
         xmlns="http://www.w3.org/2000/svg"
         width="128"
         height="128"

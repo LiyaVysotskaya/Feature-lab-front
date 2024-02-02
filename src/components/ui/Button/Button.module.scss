@@ -64,6 +64,7 @@
 .radiantBtnWrapper {
   --btn-size: 400px;
 
+  position: relative;
   width: var(--btn-size);
   height: var(--btn-size);
 
@@ -158,28 +159,6 @@
       &:disabled {
         border: none;
       }
-    }
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.spinner {
-  width: 128px;
-  height: 1; // 128px;
-  animation: rotate 2s linear infinite;
-
-  &_blue {
-    path {
-      stroke: var(--darkblue, #002d63); // same svg but stroke is blue
     }
   }
 }

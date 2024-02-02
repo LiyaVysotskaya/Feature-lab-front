@@ -1,12 +1,19 @@
 .plusIcon {
   cursor: pointer;
+
+  width: 80px;
+  height: 80px;
+
   line-height: 0;
+
   border-radius: 60px;
+
   transition: 0.3s box-shadow ease-in;
 
   & > svg {
     width: 100%;
     height: 100%;
+    transition: 0.3s transform;
   }
 
   &:focus,
@@ -16,17 +23,32 @@
   }
 }
 
+.pressed {
+  transform: rotate(45deg);
+}
+
+.unpressed {
+  transform: rotate(0);
+}
+
+@media screen and (width <= 1920px) {
+  .plusIcon {
+    width: calc(70px + (80 - 70) * ((100vw - 1280px) / (1920 - 1280)));
+    height: calc(70px + (80 - 70) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+}
+
 @media screen and (width <= 1280px) {
   .plusIcon {
-    width: 70px;
-    height: 70px;
+    width: calc(45px + (70 - 45) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(45px + (70 - 45) * ((100vw - 768px) / (1280 - 768)));
   }
 }
 
 @media screen and (width <= 768px) {
   .plusIcon {
-    width: 45px;
-    height: 45px;
+    width: calc(32px + (45 - 32) * ((100vw - 360px) / (768 - 360)));
+    height: calc(32px + (45 - 32) * ((100vw - 360px) / (768 - 360)));
 
     & rect,
     & line {

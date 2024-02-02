@@ -9,9 +9,18 @@ export const MAX_LENGTH_PROJECT = 500;
 
 export const ROUTE_HOME = '/';
 export const ROUTE_COMPETENCIES = '/competencies';
+export const ROUTE_ED_TECH = '/ed-tech';
+export const ROUTE_PRODUCTS = '/products';
 
-// competencies subroutes
+// COMPETENCIES subroutes
 export const SUBROUTE_GAMEDEV = `gamedev`;
 
+// PRODUCTS subroutes
+export const SUBROUTE_DOCSHABLON = `dockshablon`;
+
 // full route paths for subroutes
+// _COMPETENCIES:
 export const ROUTE_GAMEDEV = `${ROUTE_COMPETENCIES}/${SUBROUTE_GAMEDEV}`;
+
+// _PRODUCTS:
+export const ROUTE_DOCSHABLON = `${ROUTE_PRODUCTS}/${SUBROUTE_DOCSHABLON}`;

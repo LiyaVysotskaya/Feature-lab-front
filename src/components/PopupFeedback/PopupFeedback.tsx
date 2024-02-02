@@ -16,10 +16,10 @@ export const PopupFeedback: React.FC<PopupFeedbackProps> = ({ isOpen, onClose })
           <CrossIcon />
         </button>
         <div className={s.popupFeedback__content}>
-          <Text view="title-3" className={s.popupFeedback__text}>
+          <Text view="germano-3" className={s.popupFeedback__text}>
             Спасибо за ваш вопрос!
           </Text>
-          <Text view="title-3" className={s.popupFeedback__text}>
+          <Text view="germano-3" className={s.popupFeedback__text}>
             Мы свяжемся с вами в течение следующего рабочего дня.
           </Text>
         </div>
