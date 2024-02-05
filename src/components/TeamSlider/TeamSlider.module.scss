@@ -6,7 +6,6 @@
 .TeamSliderSection {
   width: 100%;
   height: 724px;
-  margin: 0 0 200px;
   color: var(--dark-blue, #002d63);
 }
 
@@ -147,7 +146,6 @@
 @media screen and (width <= 1450px) {
   .TeamSliderSection {
     height: 511px;
-    margin: 0 0 160px;
   }
 
   .card {
@@ -211,7 +209,6 @@
 @media screen and (width <= 768px) {
   .TeamSliderSection {
     height: 511px;
-    margin-bottom: 120px;
   }
 
   .sectionTitle {
@@ -235,7 +232,7 @@
     filter: grayscale(0);
     transition:
       opacity 0.1s ease,
-      filter 0.1s ease; // Плавные переходы для opacity и filter
+      filter 0.1s ease;
   }
 
   [class*='react-multi-carousel-item--active']

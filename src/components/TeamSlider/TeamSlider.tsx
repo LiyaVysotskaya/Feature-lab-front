@@ -5,11 +5,12 @@ import { CarouselProps, ResponsiveType } from 'react-multi-carousel/lib/types';
 import cl from 'classnames';
 import { useMediaQuery } from 'react-responsive';
 import { v4 as uuidv4 } from 'uuid';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { ArrowInCircleIcon } from '../ui/icons';
 import s from './TeamSlider.module.scss';
 import { cards } from './mockData';
 
-export interface TeamSliderProps {
+interface TeamSliderProps {
   className?: string;
 }
 
@@ -68,7 +69,7 @@ export const TeamSlider: FC<TeamSliderProps> = ({ className = '' }) => {
 
   return (
     <section className={cl(s.TeamSliderSection, className)}>
-      <h2 className={s.sectionTitle}>Команда</h2>
+      <SectionTitle text="Команда" />
       <Carousel {...carouselProps}>
         {cards.map((card) => (
           <div className={s.card} key={uuidv4()}>
