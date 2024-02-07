@@ -1,0 +1,12 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1fr 1fr);
+  gap: 20px;
+
+  width: 100%;
+}
+
+.card {
+  background-color: rgb(200 56 207);
+}
