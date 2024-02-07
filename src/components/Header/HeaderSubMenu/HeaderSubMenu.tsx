@@ -3,18 +3,18 @@ import { FC, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { competencies } from '../../../_mockData/CompetenciesMockData';
-import s from './SubMenu.module.scss';
+import s from './HeaderSubMenu.module.scss';
 
 export interface ISubMenuProps {
   className?: string;
   isVisible: boolean;
 }
 
-export const SubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) => {
+export const HeaderSubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) => {
   // prevent the flickering transition effect of submenu when the viewport is resized
   useEffect(() => {
     const handleResize = () => {
-      const submenuEl = document.getElementById('navSubmenu');
+      const submenuEl = document.getElementById('navHeaderSubmenu');
 
       if (submenuEl) {
         submenuEl.classList.add(s.stopTransition);
@@ -35,7 +35,7 @@ export const SubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) => {
   return (
     <nav
       aria-label="Компетенции"
-      id="navSubmenu"
+      id="navHeaderSubmenu"
       className={cl(
         s.submenu,
         {
