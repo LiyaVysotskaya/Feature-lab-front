@@ -1,0 +1,50 @@
+.submenu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  width: 100%;
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 0 48px;
+  }
+
+  &Item {
+    width: 100%;
+  }
+}
+
+.submenuTitle {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+
+.submenuLink {
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+  width: 100%;
+
+  &Active {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.submenuIcon {
+  min-width: 32px;
+  min-height: 32px;
+
+  @media screen and (width <= 1280px) {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  @media screen and (width <= 768px) {
+    min-width: 16px;
+    min-height: 16px;
+  }
+}
