@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: var(--el-max-width);
+  padding: 162px 0 0;
+
+  background-color: aquamarine;
+
+  &Content {
+    width: 100%;
+  }
+
+  @media screen and (width <= 1280px) {
+    padding: 134px 0 0;
+  }
+}
