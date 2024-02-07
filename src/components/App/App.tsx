@@ -82,7 +82,6 @@ const App: React.FC = () => {
             <Route key={item.url} path={item.url} element={<ProfileProject />} />
           ))}
 
-          <Route path={SUBROUTE_DOCSHABLON} element={<ProfileProject />} />
           <Route path={SUBROUTE_DOCS} element={<ProfileDocs />} />
           <Route path={SUBROUTE_SETTINGS} element={<ProfileSettings />} />
         </Route>
