@@ -51,6 +51,12 @@
 }
 
 .submenu {
+  margin-top: -24px;
+
+  @media screen and (width <= 1280px) {
+    margin-top: -12px;
+  }
+
   @media screen and (width <= 768px) {
     display: none;
   }
