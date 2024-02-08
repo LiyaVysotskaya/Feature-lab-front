@@ -71,6 +71,7 @@
 
   /* Size */
   --el-max-width: 1720px;
+  --el-offset-from-edge: calc((100vw - var(--el-max-width)) / 2);
   --section-title-font-size: 64px;
 
   @media screen and (width <= 1920px) {
