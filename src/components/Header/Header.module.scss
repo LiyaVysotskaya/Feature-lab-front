@@ -18,9 +18,16 @@
 }
 
 .headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
   width: 100%;
   max-width: 1920px;
+
   background: linear-gradient(0deg, #fff0 4.84%, #ffffff80 95.76%);
+
   transition: all 300ms ease-in;
 
   &_bg_white {
