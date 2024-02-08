@@ -1,24 +1,28 @@
 import cl from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { projects } from '../../_mockData/projectsMockData';
+import { projects } from '../../../_mockData/projectsMockData';
 import {
   ROUTE_HOME,
   ROUTE_PROFILE,
   ROUTE_PROFILE_DASHBOARD,
   ROUTE_PROFILE_DOCS,
   ROUTE_PROFILE_SETTINGS,
-} from '../../constants/constants';
-import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../ui/icons';
-import s from './ProfileNav.module.scss';
-import { ProfileNavLink } from './ProfileNavLink/ProfileNavLink';
-import { ProfileProjectsNav } from './ProfileProjectsNav/ProfileProjectsNav';
+} from '../../../constants/constants';
+import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
+import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
+import s from './ProfileNavMobile.module.scss';
 
-export const ProfileNav: React.FC = () => {
+export const ProfileNavMobile: React.FC = () => {
   const location = useLocation();
   const productsPages = projects.map((project) => `${ROUTE_PROFILE}/${project.url}`);
   const isProductsPage = productsPages.includes(location.pathname);
   const hasMultipleProducts = productsPages.length > 1;
   const navigate = useNavigate();
+
+  // if location path does not include profile page adress show nothing
+  if (!location.pathname.includes(ROUTE_PROFILE)) {
+    return null;
+  }
 
   return (
     <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
@@ -42,12 +46,6 @@ export const ProfileNav: React.FC = () => {
               isIconFilled={location.pathname === ROUTE_PROFILE_DASHBOARD || isProductsPage}
               text="Проекты"
             />
-          </li>
-        )}
-
-        {hasMultipleProducts && (
-          <li className={cl(s.submenu)}>
-            <ProfileProjectsNav />
           </li>
         )}
 

@@ -11,6 +11,7 @@ import {
   ROUTE_PROFILE,
 } from '../../constants/constants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
+import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
 import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';
 import { HeaderSubMenu } from './HeaderSubMenu/HeaderSubMenu';
 import Arrow from './svg/Icon-arrow.svg?svgr';
@@ -150,6 +151,7 @@ export const Header: React.FC = () => {
 
           <HamburgerBtn onClick={handleBurgerBtnClick} />
         </div>
+        <ProfileNavMobile />
       </div>
     </header>
   );

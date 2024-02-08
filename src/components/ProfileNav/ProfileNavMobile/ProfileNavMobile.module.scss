@@ -1,32 +1,31 @@
 .nav {
+  display: flex;
+  flex-direction: row;
+
   box-sizing: border-box;
   width: 100%;
-  max-width: 360px;
-  height: 800px;
-  margin: 0 75px 0 0;
 
   color: var(--dark-blue, #002d63);
 
   border-color: var(--darkblue, #002d63);
   border-style: solid;
-  border-width: 0 2px 0 0;
+  border-width: 0 0 2px;
 
-  @media screen and (width <= 1280px) {
-    max-width: 260px;
-    margin: 0 40px 0 0;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width > 768px) {
     display: none;
   }
 }
 
 .list {
+  overflow-x: scroll;
   display: flex;
-  flex-direction: column;
-  row-gap: 24px;
+  flex-direction: row;
+  column-gap: 16px;
+  justify-content: space-between;
 
-  width: 100%;
+  box-sizing: border-box;
+  min-width: 100%;
+  padding: 0 var(--el-offset-from-edge) 0;
 
   font-family: 'GOST type B', sans-serif;
   font-size: 32px;
@@ -45,20 +44,7 @@
 .listItem {
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 12px 0;
-}
-
-.submenu {
-  margin-top: -24px;
-
-  @media screen and (width <= 1280px) {
-    margin-top: -12px;
-  }
-
-  @media screen and (width <= 768px) {
-    display: none;
-  }
 }
 
 .button {
