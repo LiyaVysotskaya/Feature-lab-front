@@ -1,5 +1,6 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
+import { ProjectStagesSection } from '../../../components/ProjectStagesSection/ProjectStagesSection';
 import s from './ProfileProject.module.scss';
 
 interface IProfileProjectProps {
@@ -11,7 +12,7 @@ export const ProfileProject: FC<IProfileProjectProps> = ({ className = '' }) => 
     <div className={cl(s.project, className)}>
       {/* Компонент информации о проекте */}
 
-      {/* Компонент Этапы проекта */}
+      <ProjectStagesSection />
 
       {/* Компонент документы проекта */}
     </div>
