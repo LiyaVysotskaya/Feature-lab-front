@@ -1,7 +1,8 @@
 import cl from 'classnames';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { projects } from '../../_mockData/projectsMockData';
 import {
+  ROUTE_HOME,
   ROUTE_PROFILE,
   ROUTE_PROFILE_DASHBOARD,
   ROUTE_PROFILE_DOCS,
@@ -17,6 +18,7 @@ export const ProfileNav: React.FC = () => {
   const productsPages = projects.map((project) => `${ROUTE_PROFILE}/${project.url}`);
   const isProductsPage = productsPages.includes(location.pathname);
   const hasMultipleProducts = productsPages.length > 1;
+  const navigate = useNavigate();
 
   return (
     <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
@@ -58,7 +60,12 @@ export const ProfileNav: React.FC = () => {
         </li>
 
         <li className={cl(s.listItem)}>
-          <button type="button" className={cl(s.button)}>
+          <button
+            type="button"
+            className={cl(s.button)}
+            onClick={() => {
+              navigate(ROUTE_HOME);
+            }}>
             <SkipForwardIcon /> <span className={cl(s.buttonText)}>Выход</span>
           </button>
         </li>
