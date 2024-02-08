@@ -2,6 +2,7 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { Text } from '../ui/Text/Text';
 import s from './ProjectStagesSection.module.scss';
+import { ProjectStagesSlider } from './ProjectStagesSlider/ProjectStagesSlider';
 
 interface IProjectStagesProps {
   className?: string;
@@ -26,7 +27,7 @@ export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }
           Кратенькое описание что вообще происходит на этом этапе. На 2-3 строчки максимум.
         </Text>
       </div>
-      <div>слайдер</div>
+      <ProjectStagesSlider />
     </section>
   );
 };

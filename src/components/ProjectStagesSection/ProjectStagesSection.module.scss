@@ -1,7 +1,3 @@
-* {
-  outline: 1px solid #f00 !important;
-}
-
 .section {
   width: 100%;
   margin: 0;
@@ -10,14 +6,18 @@
 
 .columns {
   display: flex;
-  column-gap: 40px;
+  gap: 20px 40px;
   max-width: 1040px;
+
+  @media screen and (width <= 1000px) and (width > 768px) {
+    flex-direction: column;
+  }
 }
 
 .column {
   min-width: 520px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     min-width: 380px;
   }
 }
