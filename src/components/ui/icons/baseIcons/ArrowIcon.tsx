@@ -5,7 +5,7 @@ import s from './Icon.module.scss';
 
 export const ArrowIcon: FC<IconProps> = ({ filled = false, className = '' }) => {
   return (
-    <div className={cl(s.icon, className && className)}>
+    <div className={cl(s.icon, className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

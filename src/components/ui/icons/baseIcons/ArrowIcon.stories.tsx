@@ -25,13 +25,6 @@ export const Filled: Story = {
 
 export const FilledReverse: Story = {
   args: {
-    reverse: true,
     filled: true,
-  },
-};
-
-export const BasicReverse: Story = {
-  args: {
-    reverse: true,
   },
 };
