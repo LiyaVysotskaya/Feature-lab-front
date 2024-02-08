@@ -16,6 +16,10 @@
     max-width: 260px;
     margin: 0 40px 0 0;
   }
+
+  @media screen and (width <= 768px) {
+    display: none;
+  }
 }
 
 .list {
