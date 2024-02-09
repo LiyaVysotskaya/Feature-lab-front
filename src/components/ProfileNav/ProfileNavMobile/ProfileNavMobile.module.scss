@@ -44,7 +44,7 @@
 .listItem {
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 .button {
@@ -59,5 +59,9 @@
         radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
       );
     }
+  }
+
+  @media screen and (width <= 768px) {
+    column-gap: 5px;
   }
 }

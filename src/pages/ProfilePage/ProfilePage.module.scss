@@ -13,6 +13,10 @@
   }
 
   @media screen and (width <= 1280px) {
-    padding: 134px 0 0;
+    padding-top: 134px;
+  }
+
+  @media screen and (width <= 768px) {
+    padding-top: 146px;
   }
 }
