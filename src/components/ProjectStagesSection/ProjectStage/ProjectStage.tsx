@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { EllipseIcon } from '../../ui/icons';
 import s from './ProjectStage.module.scss';
 
-type StageProps = {
+type ProjectStageProps = {
   status: 'complete' | 'inProgress' | 'notStarted';
   index: number;
   className?: string;
@@ -11,12 +11,12 @@ type StageProps = {
   id?: string;
 };
 
-export const ProjectStage: FC<StageProps> = ({
+export const ProjectStage: FC<ProjectStageProps> = ({
   status,
-  id = '', // for autoscroll
+  id = '', // for autoscroll to stage that have status inProgress
   className = '',
   index,
-  isLast,
+  isLast = false,
 }) => {
   const stageState = status !== 'notStarted';
 
