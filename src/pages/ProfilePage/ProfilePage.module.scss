@@ -4,11 +4,13 @@
   align-items: flex-start;
   justify-content: space-between;
 
+  box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
   padding: 162px 0 0;
 
   &Content {
+    box-sizing: border-box;
     width: 100%;
   }
 
@@ -17,6 +19,7 @@
   }
 
   @media screen and (width <= 768px) {
+    max-width: 100%;
     padding-top: 146px;
   }
 }
