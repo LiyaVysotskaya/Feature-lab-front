@@ -39,21 +39,77 @@ export const projects = [
         stageName: 'Заключение контракта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Тестирование',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Тестирование',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Тестирование',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Тестирование',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Тестирование',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Тестирование',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Сдача проекта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Сдача проекта',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'inProgress' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Сдача проекта',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        dateOfEnd: 'какая-то дата в каком-то формате',
+      },
+      {
+        stageName: 'Сдача проекта',
+        stageInfo:
+          'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
+        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
     ],
@@ -100,21 +156,21 @@ export const projects = [
         stageName: 'Заключение контракта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Тестирование',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Сдача проекта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
     ],
@@ -161,21 +217,21 @@ export const projects = [
         stageName: 'Заключение контракта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Тестирование',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
       {
         stageName: 'Сдача проекта',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete', // complete, inProgress, notStarted
+        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
         dateOfEnd: 'какая-то дата в каком-то формате',
       },
     ],
