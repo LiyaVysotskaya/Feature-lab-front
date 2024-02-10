@@ -50,9 +50,9 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
         const { clientWidth } = stagesWrapper;
 
         // Show left gradient if scroll position is greater than 0
-        setShowLeftOverlay(scrollLeft > 0);
+        setShowLeftOverlay(scrollLeft > 3); // +3px for better UX
         // Show right gradient if scroll position is less than max scroll width
-        setShowRightOverlay(scrollLeft < scrollWidth - clientWidth);
+        setShowRightOverlay(scrollLeft < scrollWidth - clientWidth - 3); // scrollWidthMax - 3px for better UX
       }
     };
 
