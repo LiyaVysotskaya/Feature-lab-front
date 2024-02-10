@@ -17,7 +17,7 @@ export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }
             Текущий этап
           </Text>
           <Text view="germano-3" tag="h2" line className={cl(s.title)}>
-            Название этапа
+            Тестирование
           </Text>
           <Text view="gost-1" tag="p" className={cl(s.date)}>
             срок выполнения: 07.09.2023
