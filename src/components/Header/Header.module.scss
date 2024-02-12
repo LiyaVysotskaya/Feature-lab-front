@@ -92,7 +92,7 @@
 
   &WithBorder {
     @media screen and (width > 768px) {
-      border-color: var(--darkblue, #002d63);
+      border-color: var(--dark-blue, #002d63);
       border-style: solid;
       border-width: 0 0 2px;
     }
@@ -111,7 +111,7 @@
 
     visibility: hidden;
     opacity: 0;
-    border-color: var(--darkblue, #002d63);
+    border-color: var(--dark-blue, #002d63);
     border-style: solid;
     border-width: 0 0 2px;
     border-radius: 2px;
@@ -152,13 +152,13 @@
   font-family: GostTypeB-Standard, sans-serif;
   font-size: 32px;
   line-height: 1.19; // 38px;
-  color: var(--darkblue, #002d63);
+  color: var(--dark-blue, #002d63);
 
   &:hover:not(:first-child):hover {
     // not the first child because the 1st listItem's submenu becomes much larger when hovered
     // it contains the Competencies subMenu when hovered
     background: var(
-      --radialblue-45,
+      --radial-blue-45,
       radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
     );
   }
@@ -197,7 +197,7 @@
 
   &:hover {
     background: var(
-      --radialblue-45,
+      --radial-blue-45,
       radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
     );
   }

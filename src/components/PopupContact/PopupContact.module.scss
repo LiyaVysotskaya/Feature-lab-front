@@ -1,14 +1,14 @@
 .popupContainer {
-  margin: 100px auto 0;
   position: relative;
   z-index: 1;
 
   display: flex;
   flex-direction: column;
 
-  max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
   width: 100%;
+  max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
   height: fit-content;
+  margin: 100px auto 0;
 
   background-color: var(--white);
   border-radius: 8px;
@@ -16,33 +16,37 @@
 
 .popupTitle {
   margin: 100px auto 80px;
-  color: var(--darkblue, #002d63);
-  font-family: var(--title-h-1-molot-font-family, "Molot-Regular", sans-serif);
-  font-size: var(--title-h-1-molot-font-size, 128px);
-  line-height: var(--title-h-1-molot-line-height, 128px);
-  font-weight: var(--title-h-1-molot-font-weight, 400);
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 128px;
+  font-weight: 400;
+  line-height: 128px;
+  color: var(--dark-blue, #002d63);
 }
 
 .closeButton {
-  display: block;
-  object-fit: cover;
-  background-image: url(./close_button/close-btn.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  max-width: 80px;
-  width: 100%;
-  max-height: 80px;
-  height: 100%;
   position: absolute;
+  z-index: 2;
   top: 28px;
   right: 28px;
-  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  max-width: 80px;
+  height: 100%;
+  max-height: 80px;
+
+  object-fit: cover;
+  background-image: url('./close_button/close-btn.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media screen and (width <= 1430px) {
   .popupTitle {
-    font-size: var(--title-h-2-molot-font-size, 100px);
-    line-height: var(--title-h-2-molot-line-height, 100px);
+    font-size: 100px;
+    line-height: 100px;
   }
 }
 
@@ -52,17 +56,17 @@
   }
 
   .closeButton {
-    background-image: url(./close_button/close-btn-1280.svg);
     max-width: 70px;
     max-height: 70px;
+    background-image: url('./close_button/close-btn-1280.svg');
   }
 }
 
 @media screen and (width <= 1060px) {
   .popupTitle {
     margin-bottom: 60px;
-    font-size: var(--title-h-4-molot-font-size, 66px);
-    line-height: var(--title-h-4-molot-line-height, 66px);
+    font-size: 66px;
+    line-height: 66px;
   }
 }
 
@@ -72,35 +76,35 @@
   }
 
   .closeButton {
-    background-image: url(./close_button/close-btn-768.svg);
-    max-width: 45px;
-    max-height: 45px;
     top: 20px;
     right: 20px;
+
+    max-width: 45px;
+    max-height: 45px;
+
+    background-image: url('./close_button/close-btn-768.svg');
   }
 }
 
 @media screen and (width <= 690px) {
   .popupContainer {
-    margin: 0;
     max-width: 100%;
+    margin: 0;
     border-radius: 0;
   }
 
   .popupTitle {
-    font-size: calc(var(--title-h-4-molot-font-size, 66px) * 0.7);
-    line-height: calc(var(--title-h-4-molot-line-height, 66px) * 0.7);
+    font-size: calc(66px * 0.7);
+    line-height: calc(66px * 0.7);
   }
 }
-
 
 @media screen and (width <= 460px) {
   .popupTitle {
-    font-size: calc(var(--title-h-4-molot-font-size, 66px) * 0.5);
-    line-height: calc(var(--title-h-4-molot-line-height, 66px) * 0.5);
+    font-size: calc(66px * 0.5);
+    line-height: calc(66px * 0.5);
   }
 }
-
 
 @media screen and (width <= 360px) {
   .popupContainer {
@@ -109,21 +113,18 @@
 
   .popupTitle {
     margin: 80px auto 48px;
-    font-family: var(
-      --title-tel-h-2-molot-font-family,
-      "Molot-Regular",
-      sans-serif
-    );
-    font-size: var(--title-tel-h-2-molot-font-size, 30px);
-    line-height: var(--title-tel-h-2-molot-line-height, 30px);
+    font-family: Molot-Regular, sans-serif;
+    font-size: 30px;
+    line-height: 30px;
   }
 
   .closeButton {
     top: 16px;
     right: 16px;
-    background-image: url(./close_button/close-btn-360.svg);
+
     max-width: 32px;
     max-height: 32px;
+
+    background-image: url('./close_button/close-btn-360.svg');
   }
 }
-

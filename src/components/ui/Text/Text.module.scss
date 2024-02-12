@@ -1,6 +1,6 @@
 .text {
   font-weight: 400;
-  color: var(--darkblue, #002d63);
+  color: var(--dark-blue, #002d63);
   text-decoration-skip-ink: none;
 
   &__line {
@@ -12,7 +12,7 @@
   &__outlined {
     color: var(--white);
 
-    -webkit-text-stroke: 3.5px var(--darkblue);
+    -webkit-text-stroke: 3.5px var(--dark-blue);
   }
 
   &__molot {
