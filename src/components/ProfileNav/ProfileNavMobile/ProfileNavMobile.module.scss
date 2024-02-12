@@ -7,7 +7,7 @@
 
   color: var(--dark-blue, #002d63);
 
-  border-color: var(--darkblue, #002d63);
+  border-color: var(--dark-blue, #002d63);
   border-style: solid;
   border-width: 0 0 2px;
 
@@ -55,7 +55,7 @@
   &Text {
     &:hover {
       background: var(
-        --radialblue-45,
+        --radial-blue-45,
         radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
       );
     }

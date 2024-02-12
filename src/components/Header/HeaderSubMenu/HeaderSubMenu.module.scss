@@ -30,7 +30,7 @@
     padding: 20px 20px 28px;
 
     background: var(--white, #fff);
-    border-color: var(--darkblue, #002d63);
+    border-color: var(--dark-blue, #002d63);
     border-style: solid;
     border-width: 0 0 2px;
     border-radius: 2px;
@@ -42,7 +42,7 @@
 
     &:hover {
       background: var(
-        --radialblue-45,
+        --radial-blue-45,
         radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
       );
     }
@@ -53,7 +53,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 1.17; // 28px;
-    color: var(--darkblue, #002d63);
+    color: var(--dark-blue, #002d63);
     text-align: left;
   }
 

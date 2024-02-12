@@ -1,37 +1,43 @@
 .form {
+  position: relative;
+
   display: flex;
-  position: relative;
   flex-direction: column;
-  width: 100%;
+
   box-sizing: border-box;
-  position: relative;
+  width: 100%;
 }
 
 .fieldset {
-  max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
-  width: 100%;
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
   margin: 0;
   padding: 0;
+
   border: none;
 }
 
 .button {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
 }
 
 .contact {
-  border: solid var(--darkblue, #002d63);
-  border-width: 2px 0px;
-  padding: 6px 160px 22px;
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
-  z-index: 2;
+
+  padding: 6px 160px 22px;
+
+  border: solid var(--dark-blue, #002d63);
+  border-width: 2px 0;
 
   &:nth-of-type(2n) {
     border: none;
@@ -39,37 +45,43 @@
 }
 
 .inputContainer {
-  max-width: calc(1020px + (1400 - 1020) * ((100vw - 1280px) / (1920 - 1280)));
-  width: 100%;
+  position: relative;
+
   display: flex;
   flex-direction: row-reverse;
   gap: 20px;
-  position: relative;
   align-items: center;
+
+  width: 100%;
+  max-width: calc(1020px + (1400 - 1020) * ((100vw - 1280px) / (1920 - 1280)));
 }
 
 .input {
+  resize: none;
+
+  flex: 1;
+
+  width: 100%;
+  max-width: calc(850px + (1180 - 850) * ((100vw - 1280px) / (1920 - 1280)));
+  height: 80px;
   margin: 0;
   padding: 0;
-  max-width: calc(850px + (1180 - 850) * ((100vw - 1280px) / (1920 - 1280)));
-  width: 100%;
-  height: 80px;
-  border: none;
-  resize: none;
-  color: var(--dark-blue, #002D63);
-  font-family: var(--title-h-2-font-family, 'Germano-Regular', sans-serif);
-  font-size: var(--title-h-2-font-size, 80px);
-  line-height: var(--title-h-2-line-height, 80px);
-  font-weight: var(--title-h-2-font-weight, 400);
-  flex: 1;
-  outline: none;
+
+  font-family: Germano-Regular, sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 80px;
+  color: var(--dark-blue, #002d63);
+
   background-color: transparent;
+  border: none;
+  outline: none;
 
   &::placeholder {
-    color: var(--darkblue-50, #8096b1);
+    flex: 1;
+    color: var(--dark-blue-50, #8096b1);
     text-align: left;
     letter-spacing: -3.2px;
-    flex: 1;
   }
 
   &::-webkit-scrollbar {
@@ -82,15 +94,17 @@ textarea::placeholder {
 }
 
 .inputError {
-  padding: 12px 120px 0px 220px;
+  display: none;
+  flex: 1;
+
+  padding: 12px 120px 0 220px;
+
+  font-family: Germano-Regular, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 48px;
   color: var(--error, #bf1700);
   text-align: left;
-  font-family: var(--title-h-4-font-family, 'Germano-Regular', sans-serif);
-  font-size: var(--title-h-4-font-size, 48px);
-  line-height: var(--title-h-4-line-height, 48px);
-  font-weight: var(--title-h-4-font-weight, 400);
-  flex: 1;
-  display: none;
 
   &Active {
     display: flex;
@@ -98,37 +112,42 @@ textarea::placeholder {
 }
 
 .textContainer {
-  max-width: calc(150px + (200 - 150) * ((100vw - 1280px) / (1920 - 1280)));
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: calc(150px + (200 - 150) * ((100vw - 1280px) / (1920 - 1280)));
 }
 
 .textNumber {
-  color: var(--white, #ffffff);
-  text-align: left;
-  font-family: var(--title-h-3-molot-font-family, 'Molot-Regular', sans-serif);
-  font-size: var(--title-h-3-molot-font-size, 80px);
-  line-height: var(--title-h-3-molot-line-height, 80px);
-  font-weight: var(--title-h-3-molot-font-weight, 400);
-  font-style: normal;
   position: relative;
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 80px;
+  color: var(--white, #fff);
+  text-align: left;
+
   transition: all 0.2s ease;
-  -webkit-text-stroke: 3.5px var(--darkblue);
+
+  -webkit-text-stroke: 3.5px var(--dark-blue);
 
   &Error {
     color: var(--error, #bf1700) !important;
+
     -webkit-text-stroke: var(--error, #bf1700);
   }
 }
 
 .textClue {
-  color: var(--dark-blue, #002d63);
-  font-family: var(--title-tel-h-3-font-family, 'Germano-Regular', sans-serif);
-  font-size: var(--title-tel-h-2-font-size, 32px);
-  line-height: var(--title-tel-h-2-line-height, 32px);
-  font-weight: var(--title-tel-h-3-font-weight, 400);
   display: none;
+
+  font-family: Germano-Regular, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--dark-blue, #002d63);
 
   &Error {
     color: var(--error, #bf1700);
@@ -136,50 +155,61 @@ textarea::placeholder {
 }
 
 .checkboxContainer {
-  margin-top: 32px;
-  margin-left: calc(322px + (452 - 322) * ((100vw - 1280px) / (1920 - 1280)));
-  margin-bottom: 800px;
-  max-width: calc(698px + (1028 - 698) * ((100vw - 1280px) / (1920 - 1280)));
-  width: 100%;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 3;
+
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
-  cursor: pointer;
-  z-index: 3;
+
+  width: 100%;
+  max-width: calc(698px + (1028 - 698) * ((100vw - 1280px) / (1920 - 1280)));
+  margin-top: 32px;
+  margin-bottom: 800px;
+  margin-left: calc(322px + (452 - 322) * ((100vw - 1280px) / (1920 - 1280)));
 }
 
 .checkbox {
   position: absolute;
   z-index: -1;
-  opacity: 0;
+
   display: block;
+
   width: 0;
   height: 0;
+
+  opacity: 0;
 }
 
 .checkboxText {
   margin: 0;
   padding: 0;
-  color: var(--dark-blue, #002d63);
-  font-family: GOST type B;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 38px;
 
-  &:before {
+  font-family: 'GOST type B', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 38px;
+  color: var(--dark-blue, #002d63);
+
+  &::before {
     content: '';
-    display: flex;
+
     position: absolute;
-    left: -72px;
     top: 18px;
+    left: -72px;
+
+    display: flex;
+
     width: 40px;
     height: 40px;
-    background-image: url(./checkbox/checkbox.svg);
-    background-size: 40px 40px;
+
+    background-image: url('./checkbox/checkbox.svg');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 40px 40px;
   }
 }
 
@@ -188,8 +218,8 @@ textarea::placeholder {
   text-underline-offset: 5px;
 }
 
-.checkbox:checked + .checkboxText:before {
-  background-image: url(./checkbox/checkboxChecked.svg);
+.checkbox:checked + .checkboxText::before {
+  background-image: url('./checkbox/checkboxChecked.svg');
 }
 
 .input:focus::placeholder {
@@ -199,7 +229,8 @@ textarea::placeholder {
 .input:focus + .textContainer {
   .textNumber {
     color: var(--dark-blue, #002d63);
-   -webkit-text-stroke:unset;
+
+    -webkit-text-stroke: unset;
   }
 
   .textClue {
@@ -233,15 +264,16 @@ textarea::placeholder {
 
   .inputError {
     padding-left: 170px;
-    font-size: var(--title-tel-h-1-font-size, 40px);
-    line-height: var(--title-tel-h-1-line-height, 40px);
+    font-size: 40px;
+    line-height: 40px;
   }
 
   .textNumber {
-    -webkit-text-stroke: 3px var(--darkblue);
+    -webkit-text-stroke: 3px var(--dark-blue);
 
     &Error {
       color: var(--error, #bf1700) !important;
+
       -webkit-text-stroke: var(--error, #bf1700);
     }
   }
@@ -251,10 +283,10 @@ textarea::placeholder {
   }
 
   .checkboxContainer {
-    margin-top: 24px;
-    margin-left: calc(210px + (322 - 210) * ((100vw - 768px) / (1280 - 768)));
-    margin-bottom: 590px;
     max-width: calc(472px + (698 - 472) * ((100vw - 768px) / (1280 - 768)));
+    margin-top: 24px;
+    margin-bottom: 590px;
+    margin-left: calc(210px + (322 - 210) * ((100vw - 768px) / (1280 - 768)));
   }
 }
 
@@ -262,8 +294,8 @@ textarea::placeholder {
   .input {
     max-width: calc(259px + (544 - 259) * ((100vw - 360px) / (768 - 360)));
     height: 64px;
-    font-size: var(--title-h-3-font-size, 64px);
-    line-height: var(--title-h-3-line-height, 64px);
+    font-size: 64px;
+    line-height: 64px;
 
     &::placeholder {
       letter-spacing: 0;
@@ -275,19 +307,21 @@ textarea::placeholder {
   }
 
   .textNumber {
-    font-size: var(--title-h-4-molot-font-size, 66px);
-    line-height: var(--title-h-4-molot-line-height, 66px);
-    -webkit-text-stroke: 2px var(--darkblue);
+    font-size: 66px;
+    line-height: 66px;
+
+    -webkit-text-stroke: 2px var(--dark-blue);
 
     &Error {
       color: var(--error, #bf1700) !important;
+
       -webkit-text-stroke: var(--error, #bf1700);
     }
   }
 
   .textClue {
-    font-size: var(--title-tel-h-3-font-size, 24px);
-    line-height: var(--title-tel-h-3-line-height, 24px);
+    font-size: 24px;
+    line-height: 24px;
   }
 
   .checkboxContainer {
@@ -301,7 +335,7 @@ textarea::placeholder {
   }
 
   .contact {
-    padding: 4px 20px 12px 20px;
+    padding: 4px 20px 12px;
   }
 
   .inputContainer {
@@ -311,8 +345,8 @@ textarea::placeholder {
   .inputError {
     padding-top: 5px;
     padding-left: 120px;
-    font-size: var(--title-tel-h-2-font-size, 32px);
-    line-height: var(--title-tel-h-2-line-height, 32px);
+    font-size: 32px;
+    line-height: 32px;
   }
 
   .textContainer {
@@ -320,16 +354,16 @@ textarea::placeholder {
   }
 
   .checkboxContainer {
+    max-width: calc(272px + (472 - 272) * ((100vw - 360px) / (768 - 360)));
     margin-top: 27px;
     margin-left: calc(72px + (210 - 72) * ((100vw - 360px) / (768 - 360)));
-    max-width: calc(272px + (472 - 272) * ((100vw - 360px) / (768 - 360)));
   }
 
   .checkboxText {
     font-size: 20px;
     line-height: 24px;
 
-    &:before {
+    &::before {
       top: 4px;
       width: 40px;
       height: 40px;
@@ -340,8 +374,8 @@ textarea::placeholder {
 @media screen and (width <= 690px) {
   .input {
     height: 52px;
-    font-size: calc(var(--title-h-3-font-size, 64px) * 0.7);
-    line-height: calc(var(--title-h-3-line-height, 64px) * 0.7);
+    font-size: calc(64px * 0.7);
+    line-height: calc(64px * 0.7);
   }
 
   textarea::placeholder {
@@ -349,12 +383,14 @@ textarea::placeholder {
   }
 
   .textNumber {
-    font-size: var(--title-tel-h-1-molot-font-size, 40px);
-    line-height: var(--title-tel-h-1-molot-line-height, 40px);
-    -webkit-text-stroke: 1.2px var(--darkblue);
+    font-size: 40px;
+    line-height: 40px;
+
+    -webkit-text-stroke: 1.2px var(--dark-blue);
 
     &Error {
       color: var(--error, #bf1700) !important;
+
       -webkit-text-stroke: var(--error, #bf1700);
     }
   }
@@ -367,7 +403,7 @@ textarea::placeholder {
 
   .contact {
     padding: 8px 16px 14px;
-    border-width: 1px 0px;
+    border-width: 1px 0;
   }
 
   .inputContainer {
@@ -377,8 +413,8 @@ textarea::placeholder {
   .input {
     max-width: 259px;
     height: 52px;
-    font-size: var(--title-tel-h-2-font-size, 32px);
-    line-height: var(--title-tel-h-2-line-height, 32px);
+    font-size: 32px;
+    line-height: 32px;
   }
 
   textarea::placeholder {
@@ -387,8 +423,8 @@ textarea::placeholder {
 
   .inputError {
     padding: 8px 70px 0;
-    font-size: var(--title-tel-h-3-font-size, 24px);
-    line-height: var(--title-tel-h-3-line-height, 24px);
+    font-size: 24px;
+    line-height: 24px;
   }
 
   .textContainer {
@@ -396,30 +432,32 @@ textarea::placeholder {
   }
 
   .textNumber {
-    font-size: var(--title-tel-h-1-molot-font-size, 40px);
-    line-height: var(--title-tel-h-1-molot-line-height, 40px);
-    -webkit-text-stroke: 1.2px var(--darkblue);
+    font-size: 40px;
+    line-height: 40px;
+
+    -webkit-text-stroke: 1.2px var(--dark-blue);
 
     &Error {
       color: var(--error, #bf1700) !important;
+
       -webkit-text-stroke: var(--error, #bf1700);
     }
   }
 
   .checkboxContainer {
-    margin-top: 14px;
-    margin-left: 72px;
-    margin-bottom: 520px;
     max-width: 272px;
+    margin-top: 14px;
+    margin-bottom: 520px;
+    margin-left: 72px;
   }
 
   .checkboxText {
     font-size: 16px;
     line-height: 18px;
 
-    &:before {
-      left: -56px;
+    &::before {
       bottom: 14px;
+      left: -56px;
       width: 40px;
       height: 40px;
     }
