@@ -15,4 +15,5 @@ export { TelegramIcon } from './socialsIcons/TelegramIcon';
 export { WhatsupIcon } from './socialsIcons/WhatsupIcon';
 export { CrossInCircleIcon } from './CrossInCircleIcon/CrossInCircleIcon';
 export { SpinnerIcon } from './SpinnerIcon/SpinnerIcon';
+export { ArrowInCircleIcon } from './ArrowInCircleIcon/ArrowInCircleIcon';
 export { type IconProps } from './EllipseIcon/EllipseIcon';

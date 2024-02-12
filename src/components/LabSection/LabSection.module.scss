@@ -4,27 +4,17 @@
 }
 
 .labSection {
-  overflow: hidden;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   width: 100%;
-  padding-bottom: 300px;
-}
+  padding: 0 0 50px;
 
-.sectionTitle {
-  width: 100%;
-  margin: 0;
-  padding: 0 0 0 100px;
-
-  font-family: Germano, sans-serif;
-  font-size: 64px;
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1; /* 100% 64px */
-  color: var(--darkblue, #002d63);
-  text-align: left;
+  @media screen and (width <= 1280px) {
+    padding: 0;
+  }
 }
 
 .sectionContent {
@@ -32,15 +22,47 @@
 
   width: 100%;
   max-width: 1500px;
-  min-height: 850px;
+  min-height: 890px;
   margin: 100px 0 0;
+
+  @media screen and (width <= 1280px) {
+    max-width: 1118px;
+    min-height: 825px;
+    margin: 80px 0 0;
+  }
+
+  @media screen and (width <= 768px) {
+    width: 91vw;
+    min-height: 890px;
+    margin: 30px 0 0;
+  }
+
+  @media screen and (width <= 440px) {
+    min-height: 850px;
+  }
 }
 
 .labButton {
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media screen and (width <= 1280px) {
+    width: 280px;
+    height: 280px;
+  }
+
+  @media screen and (width <= 530px) {
+    width: 250px;
+    height: 250px;
+  }
+
+  @media screen and (width <= 440px) {
+    top: 48%;
+    width: 240px;
+    height: 240px;
+  }
 }
 
 .list {
@@ -53,7 +75,7 @@
   row-gap: 20px;
 
   width: 100%;
-  max-width: 450px;
+  max-width: 458px;
 
   &Number {
     font-family: Molot, sans-serif;
@@ -65,6 +87,20 @@
     text-align: center;
 
     -webkit-text-stroke: 3.5px var(--darkblue);
+
+    @media screen and (width <= 1120px) {
+      font-size: 80px;
+
+      -webkit-text-stroke: 2px var(--darkblue);
+    }
+
+    @media screen and (width <= 720px) {
+      font-size: 60px;
+    }
+
+    @media screen and (width <= 440px) {
+      font-size: 40px;
+    }
   }
 
   &Text {
@@ -77,11 +113,44 @@
     line-height: 1.19; // 38px; /* 118.75% */
     color: var(--dark-blue, #002d63);
     text-align: center;
+
+    @media screen and (width <= 1280px) {
+      font-size: 24px;
+      line-height: 1.17; // 28px; /* 116.667% */
+    }
+
+    @media screen and (width <= 1120px) {
+      font-size: 20px;
+      line-height: 1.2; // 24px; /* 120% */
+    }
+
+    @media screen and (width <= 720px) {
+      font-size: 16px;
+      line-height: 1.12; // 18px; /* 112.5% */
+    }
+  }
+
+  @media screen and (width <= 1360px) {
+    max-width: 370px;
+  }
+
+  @media screen and (width <= 1120px) {
+    row-gap: 8px;
+    max-width: 240px;
+  }
+
+  @media screen and (width <= 720px) {
+    max-width: 200px;
+  }
+
+  @media screen and (width <= 440px) {
+    max-width: 150px;
   }
 }
 
 .cardPosition {
-  --side-offset: 188px;
+  --side-offset: 12.5%;
+  --vertical-offset: 37%;
 
   position: absolute;
 
@@ -90,8 +159,7 @@
   }
 
   &_2 {
-    inset: 50% 0 auto auto;
-    transform: translate(0, -50%);
+    inset: var(--vertical-offset) 0 auto auto;
   }
 
   &_3 {
@@ -103,101 +171,16 @@
   }
 
   &_5 {
-    inset: 50% auto auto 0;
-    transform: translate(0, -50%);
+    inset: var(--vertical-offset) auto auto 0;
   }
 
   &_6 {
     inset: 0 auto auto var(--side-offset);
   }
-}
 
-@media screen and (width <= 1360px) {
-  .cardPosition {
-    --side-offset: 140px;
-  }
-
-  .card {
-    max-width: 370px;
-  }
-}
-
-@media screen and (width <= 1280px) {
-  .sectionTitle {
-    padding: 0 0 0 50px;
-  }
-
-  .sectionContent {
-    max-width: 1118px;
-    min-height: 800px;
-    margin: 80px 0 0;
-  }
-
-  .card {
-    max-width: 370px;
-
-    &Text {
-      font-size: 24px;
-      line-height: 1.17; // 28px; /* 116.667% */
-    }
-  }
-}
-
-@media screen and (width <= 1120px) {
-  .card {
-    row-gap: 8px;
-    max-width: 240px;
-
-    &Number {
-      font-size: 80px;
-
-      -webkit-text-stroke: 2px var(--darkblue);
-    }
-
-    &Text {
-      font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
-    }
-  }
-}
-
-@media screen and (width <= 820px) {
-  .cardPosition {
-    --side-offset: 120px;
-  }
-}
-
-@media screen and (width <= 768px) {
-  .sectionTitle {
-    font-size: 48px;
-  }
-
-  .sectionContent {
-    width: 91vw;
-    min-height: 870px;
-    margin: 30px 0 0;
-  }
-
-  .card {
-    row-gap: 8px;
-    max-width: 240px;
-
-    &Number {
-      font-size: 80px;
-
-      -webkit-text-stroke: 2px var(--darkblue);
-    }
-
-    &Text {
-      font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
-    }
-  }
-
-  .cardPosition {
+  @media screen and (width <= 768px) {
     --vertical-offset: 110px;
 
-    position: absolute;
     transform: translate(0, 0);
 
     &_1 {
@@ -214,11 +197,11 @@
     }
 
     &_4 {
-      inset: auto auto var(--vertical-offset) 0;
+      inset: 65.5% auto auto 0;
     }
 
     &_5 {
-      inset: auto 0 var(--vertical-offset) auto;
+      inset: 65.5% 0 auto auto;
     }
 
     &_6 {
@@ -226,59 +209,12 @@
       transform: translate(-50%, 0);
     }
   }
-}
 
-@media screen and (width <= 720px) {
-  .cardPosition {
-    --vertical-offset: 160px;
-  }
-}
-
-@media screen and (width <= 720px) {
-  .cardPosition {
+  @media screen and (width <= 720px) {
     --vertical-offset: 160px;
   }
 
-  .card {
-    max-width: 200px;
-
-    &Number {
-      font-size: 60px;
-    }
-
-    &Text {
-      font-size: 16px;
-      line-height: 1.12; // 18px; /* 112.5% */
-    }
-  }
-}
-
-@media screen and (width <= 440px) {
-  // <= 360px
-  .sectionTitle {
-    padding: 0 0 0 16px;
-    font-size: 24px;
-  }
-
-  .sectionContent {
-    width: 91vw;
-    min-height: 780px;
-  }
-
-  .card {
-    max-width: 150px;
-
-    &Number {
-      font-size: 40px;
-    }
-
-    &Text {
-      font-size: 16px;
-      line-height: 1.12; // 18px; /* 112.5% */
-    }
-  }
-
-  .cardPosition {
-    --vertical-offset: 120px;
+  @media screen and (width <= 440px) {
+    --vertical-offset: 14.5%;
   }
 }

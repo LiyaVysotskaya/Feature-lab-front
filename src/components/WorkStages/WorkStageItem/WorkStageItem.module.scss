@@ -1,0 +1,234 @@
+.stage {
+  overflow-y: hidden;
+  border-top: 2px solid var(--dark-blue, #002d63);
+
+  &Wrapper {
+    max-width: 1720px;
+    margin: 0 auto;
+    padding-top: 23px;
+  }
+
+  &Row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &Number {
+    width: 100%;
+    max-width: 200px;
+
+    color: var(--white, #fff);
+
+    transition: all 0.2s;
+
+    -webkit-text-stroke: 3.5px var(--darkblue);
+
+    &__filled {
+      color: var(--dark-blue, #002d63);
+
+      -webkit-text-stroke: initial;
+    }
+  }
+
+  &Text {
+    display: flex;
+    width: 100%;
+    max-width: 1290px;
+
+    &__hidden {
+      display: flex;
+      column-gap: 40px;
+    }
+  }
+}
+
+.extraPadding {
+  padding-bottom: 32px;
+}
+
+.content {
+  flex-basis: 50%;
+  max-width: 620px;
+}
+
+.dummyPlus {
+  width: 80px;
+}
+
+.inactive {
+  overflow-y: hidden;
+  max-height: 0;
+  padding-top: 0;
+  transition: all 0.4s;
+}
+
+.active {
+  overflow-y: visible;
+
+  max-height: 300px;
+  padding-top: 9px;
+  padding-bottom: 38px;
+
+  transition: all 0.4s;
+}
+
+@media screen and (width <= 1920px) {
+  .stage {
+    &Wrapper {
+      max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
+    }
+
+    &Number {
+      font-size: calc(100px + (128 - 100) * ((100vw - 1280px) / (1920 - 1280)));
+    }
+
+    &Text {
+      max-width: calc(862px + (1290 - 862) * ((100vw - 1280px) / (1920 - 1280)));
+      font-size: calc(100px + (140 - 100) * ((100vw - 1280px) / (1920 - 1280)));
+    }
+  }
+
+  .dummyPlus {
+    width: calc(70px + (80 - 70) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+
+  .content {
+    font-size: calc(24px + (32 - 24) * ((100vw - 1280px) / (1920 - 1280)));
+    line-height: calc(28px + (38 - 28) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .stage {
+    &Wrapper {
+      max-width: calc(704px + (1180 - 704) * ((100vw - 768px) / (1280 - 768)));
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    &Number {
+      max-width: calc(100px + (200 - 100) * ((100vw - 768px) / (1280 - 768)));
+      font-size: calc(66px + (100 - 66) * ((100vw - 768px) / (1280 - 768)));
+    }
+
+    &Text {
+      max-width: calc(535px + (862 - 535) * ((100vw - 768px) / (1280 - 768)));
+      font-size: calc(64px + (100 - 64) * ((100vw - 768px) / (1280 - 768)));
+      line-height: 1.2;
+
+      &__hidden {
+        column-gap: 24px;
+      }
+    }
+  }
+
+  .dummyPlus {
+    width: calc(45px + (70 - 45) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .extraPadding {
+    padding-bottom: 0;
+  }
+
+  .active {
+    padding-bottom: 6px;
+  }
+
+  .content {
+    flex-basis: 50%;
+    max-width: 419px;
+    font-size: 24px;
+    line-height: 1.17; // 28px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .stage {
+    &Wrapper {
+      padding-bottom: 18px;
+    }
+
+    &Number {
+      max-width: calc(49px + (100 - 49) * ((100vw - 360px) / (768 - 360)));
+      font-size: calc(40px + (66 - 40) * ((100vw - 360px) / (768 - 360)));
+
+      -webkit-text-stroke: 2px var(--darkblue);
+
+      &__filled {
+        -webkit-text-stroke: initial;
+      }
+    }
+
+    &Text {
+      max-width: calc(231px + (535 - 231) * ((100vw - 360px) / (768 - 360)));
+      font-size: calc(32px + (64 - 32) * ((100vw - 360px) / (768 - 360)));
+      line-height: 1;
+
+      &__hidden {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .dummyPlus {
+    width: calc(32px + (45 - 32) * ((100vw - 360px) / (768 - 360)));
+  }
+
+  .extraPadding {
+    padding-bottom: 0;
+  }
+
+  .active {
+    padding: 12px 0 0;
+
+    &:first-child {
+      padding-top: 16px;
+    }
+
+    &:last-child {
+      padding-bottom: 8px;
+    }
+  }
+
+  .content {
+    max-width: 494px;
+    font-size: 20px;
+    line-height: 1.2; // 24px;
+  }
+}
+
+@media screen and (width <= 540px) {
+  .collapsed {
+    width: 0;
+  }
+
+  .stageText__tel {
+    max-width: initial;
+  }
+}
+
+@media screen and (width <= 360px) {
+  .stage {
+    &Wrapper {
+      padding-top: 6px;
+      padding-bottom: 14px;
+    }
+  }
+
+  .extraPadding {
+    padding-bottom: 0;
+  }
+
+  .active {
+    padding: 16px 0 0;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  .collapsed {
+    width: 0;
+  }
+}

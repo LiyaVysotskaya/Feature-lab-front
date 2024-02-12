@@ -1,12 +1,12 @@
+import cl from 'classnames';
 import { FC } from 'react';
 import s from './Main.module.scss';
 
-interface IProps {
+interface IMainProps {
   children?: React.ReactNode;
+  className?: string;
 }
 
-const Main: FC<IProps> = ({ children = null }) => {
-  return <main className={s.main}>{children}</main>;
+export const Main: FC<IMainProps> = ({ children = null, className = '' }) => {
+  return <main className={cl(s.main, className)}>{children}</main>;
 };
-
-export default Main;

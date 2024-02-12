@@ -1,7 +1,8 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ROUTE_GAMEDEV } from '../../../constants/constants';
+import { v4 as uuidv4 } from 'uuid';
+import { competencies } from '../../../_mockData/CompetenciesMockData';
 import s from './SubMenuCarousel.module.scss';
 
 export interface ISubMenuCarouselProps {
@@ -12,56 +13,17 @@ export const SubMenuCarousel: FC<ISubMenuCarouselProps> = ({ className = '' }) =
   return (
     <nav aria-label="Компетенции" className={cl(s.carousel, className)}>
       <ul className={cl(s.carouselList)}>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Machine learning
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Web-разработка
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Управление данными
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Разработка приложений
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Мобильная разработка
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Blockchain
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to={ROUTE_GAMEDEV} className={s.carouselLink}>
-            Gamedev
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            ML&amp;AI
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            Данные
-          </NavLink>
-        </li>
-        <li className={s.carouselItem}>
-          <NavLink to="/" className={s.carouselLink}>
-            КХД
-          </NavLink>
-        </li>
+        {competencies.map((item) => (
+          <li className={s.carouselItem} key={uuidv4()}>
+            <NavLink
+              to={item.url}
+              className={({ isActive }) =>
+                cl(s.carouselLink, { [s.carouselLinkActive]: isActive })
+              }>
+              {item.title}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

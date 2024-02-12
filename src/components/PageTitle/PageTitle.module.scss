@@ -1,66 +1,55 @@
-.pageTitle {
-  margin-top: 100px;
-  margin-left: -35px; // combine with letter-spacing
-
-  font-family: Molot, sans-serif;
-  font-size: 410px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 0.78; // 600px; /* 93.75% */
-  color: var(--dark-blue, #002d63);
-  text-align: center;
-  letter-spacing: -12.8px;
-
-  @media screen and (width < 1920px) {
-    font-size: 33vw;
-  }
-
-  @media screen and (width <= 1280px) {
-    margin-top: 80px;
-    margin-left: -30px; // combine with letter-spacing
-
-    font-size: 35vw; // 450px;
-    line-height: 0.82; // 450px; /* 100% */
-    letter-spacing: -13.5px;
-  }
-
-  @media screen and (width <= 768px) {
-    margin-top: 125px;
-    margin-left: -18px; // combine with letter-spacing
-    font-size: 34.6vw; // 265px;
-    letter-spacing: -7.95px;
-  }
-
-  @media screen and (width <= 360px) {
-    margin-top: 130px;
-    margin-left: -8px; // combine with letter-spacing
-
-    font-size: 36.1vw; // 130px;
-    line-height: 0.85;
-    letter-spacing: -6.5px;
-  }
+.pageTitleWrap {
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0 auto;
 }
 
-.subTitleWrapper {
+.pageTitle {
   box-sizing: border-box;
   width: 100%;
-  margin: 0 0 100px;
-  padding: 0 100px;
+
+  // margin-left: -35px; // combine with letter-spacing
+  // padding: 0 100px;
+
+  font-family: Molot, sans-serif;
+
+  // font-size: 410px;
+  font-size: 145px;
+  font-weight: 400;
+  font-style: normal;
+
+  // line-height: 0.78; // 600px; /* 93.75% */
+  line-height: 1.1; // 600px; /* 93.75% */
+  color: var(--dark-blue, #002d63);
+
+  // text-align: center;
+  text-align: left;
+
+  // letter-spacing: -12.8px;
+
+  @media screen and (width < 1920px) {
+    // font-size: 33vw;
+  }
 
   @media screen and (width <= 1280px) {
-    margin: 0 0 80px;
-    padding: 0 50px;
+    // margin-left: -30px; // combine with letter-spacing
+    font-size: 15vw; // 450px;
+    // line-height: 0.82; // 450px; /* 100% */
+    // letter-spacing: -13.5px;
   }
 
   @media screen and (width <= 768px) {
-    margin: 0 0 52px;
-    padding: 0 32px;
-    border-width: 2px 0 0;
+    //   margin-left: -18px; // combine with letter-spacing
+    //   font-size: 34.6vw; // 265px;
+    //   letter-spacing: -7.95px;
   }
 
   @media screen and (width <= 360px) {
-    margin: 0 0 32px;
-    padding: 0 16px;
+    //   margin-left: -8px; // combine with letter-spacing
+
+    //   font-size: 36.1vw; // 130px;
+    //   line-height: 0.85;
+    //   letter-spacing: -6.5px;
   }
 }
 
@@ -84,11 +73,11 @@
   @media screen and (width <= 768px) {
     font-size: 24px;
     line-height: 1.17; // 28px; /* 116.667% */
+    border-width: 2px 0 0;
   }
 
   @media screen and (width <= 360px) {
     font-size: 20px;
     line-height: 1.2; // 24px; /* 120% */
-    border-width: 2px 0 0;
   }
 }

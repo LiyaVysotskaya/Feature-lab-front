@@ -4,12 +4,43 @@
   top: 0;
   left: 0;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 100%;
 
   transition: all 300ms ease-in;
 
   &_hidden {
     transform: translate3d(0, -120%, 0); // +20% to hide shadow of carousel menu when header hidden
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1920px;
+
+  background: linear-gradient(0deg, #fff0 4.84%, #ffffff80 95.76%);
+
+  transition: all 300ms ease-in;
+
+  &_bg_white {
+    background: var(--white, #fff);
+    box-shadow: 0 20px 20px -13px rgb(0 45 99 / 30%);
+
+    @media screen and (width <= 1280px) {
+      box-shadow: 0 10px 20px 0 rgb(0 45 99 / 30%);
+    }
+  }
+
+  @media screen and (width <= 768px) {
+    background: var(--white, #fff);
   }
 }
 
@@ -21,16 +52,18 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: 1920px;
+  max-width: var(--el-max-width);
   margin: 0 auto;
-  padding: 8px 100px;
+  padding: 8px 0;
 
-  background: linear-gradient(0deg, #fff0 4.84%, #ffffff80 95.76%);
+  @media screen and (width <= 1060px) {
+    column-gap: 20px;
+  }
 
-  transition: all 300ms ease-in;
-
-  &_bg_white {
-    background: var(--white, #fff);
+  @media screen and (width <= 768px) {
+    position: relative;
+    z-index: 1;
+    justify-content: space-between;
   }
 }
 
@@ -41,17 +74,55 @@
   height: 82px;
   margin: 0;
   padding: 0;
+
+  @media screen and (width <= 1280px) {
+    width: 52px;
+    height: 61px;
+  }
+
+  @media screen and (width <= 768px) {
+    width: 39px;
+    height: auto;
+  }
 }
 
 .nav {
   flex: 1;
   padding: 22px 48px;
 
-  &Profile {
+  &WithBorder {
+    @media screen and (width > 768px) {
+      border-color: var(--darkblue, #002d63);
+      border-style: solid;
+      border-width: 0 0 2px;
+    }
+  }
+
+  @media screen and (width <= 1280px) {
+    padding: 22px 20px;
+  }
+
+  @media screen and (width <= 768px) {
+    position: absolute;
+    top: 10%;
+    right: -1%;
+
+    padding: 0;
+
+    visibility: hidden;
+    opacity: 0;
     border-color: var(--darkblue, #002d63);
     border-style: solid;
     border-width: 0 0 2px;
+    border-radius: 2px;
+
+    transition: all 200ms ease-in;
   }
+}
+
+.navMobileVisible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .list {
@@ -59,6 +130,20 @@
   flex: 1;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    min-width: 250px;
+    padding: 53px 20px 28px;
+
+    background: var(--white, #fff);
+    box-shadow: var(--shadow-box-shadow, 0 10px 20px 0 rgb(0 45 99 / 30%));
+  }
 }
 
 .listItem {
@@ -70,12 +155,33 @@
   color: var(--darkblue, #002d63);
 
   &:hover:not(:first-child):hover {
-    // not the first child because the 1st listItem's SubmenuOpen becomes much larger when hovered
+    // not the first child because the 1st listItem's submenu becomes much larger when hovered
     // it contains the Competencies subMenu when hovered
     background: var(
       --radialblue-45,
       radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
     );
+  }
+
+  @media screen and (width <= 1280px) {
+    font-size: 24px;
+    line-height: 1.17; // 28px;
+  }
+
+  @media screen and (width <= 1060px) {
+    font-size: 19px;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 24px;
+  }
+}
+
+.listItemSubMenu {
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
   }
 }
 
@@ -99,6 +205,16 @@
 
 .arrow {
   display: none;
+
+  &_rotate {
+    transform-origin: center;
+    transform: rotate(180deg);
+  }
+
+  @media screen and (width <= 768px) {
+    display: block;
+    transition: transform 0.3s ease;
+  }
 }
 
 .link {
@@ -111,130 +227,15 @@
     z-index: 1;
     text-decoration: underline;
   }
-}
 
-@media screen and (width <= 1430px) {
-  .content {
-    padding: 8px 50px;
-  }
-}
-
-@media screen and (width <= 1280px) {
-  .content {
-    padding: 8px 50px;
-  }
-
-  .nav {
-    padding: 22px 20px;
-  }
-
-  .logo {
-    width: 52px;
-    height: 61px;
-  }
-
-  .listItem {
-    font-size: 24px;
-    line-height: 1.17; // 28px;
-  }
-}
-
-@media screen and (width <= 1060px) {
-  .content {
-    column-gap: 20px;
-    padding: 8px 30px;
-  }
-
-  .listItem {
-    font-size: calc(24px * 0.8);
-    line-height: calc(1.17 * 0.8);
-  }
-}
-
-@media screen and (width <= 768px) {
-  .content {
-    position: relative;
-    z-index: 1;
-
-    justify-content: space-between;
-
-    padding: 8px 32px;
-
-    background: var(--white, #fff);
-  }
-
-  .arrow {
-    display: block;
-    transition: transform 0.3s ease;
-
-    &_rotate {
-      transform-origin: center;
-      transform: rotate(180deg);
-    }
-  }
-
-  .logo {
-    width: 39px;
-    height: auto;
-  }
-
-  .nav {
-    position: absolute;
-    top: 10%;
-    right: 3.4%;
-
-    padding: 0;
-
-    visibility: hidden;
-    opacity: 0;
-    border-color: var(--darkblue, #002d63);
-    border-style: solid;
-    border-width: 0 0 2px;
-    border-radius: 2px;
-
-    transition: all 200ms ease-in;
-
-    &MobileOpen {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    min-width: 250px;
-    padding: 53px 20px 28px;
-
-    background: var(--white, #fff);
-    box-shadow: var(--shadow-box-shadow, 0 10px 20px 0 rgb(0 45 99 / 30%));
-  }
-
-  .listItem {
-    font-size: 24px;
-    line-height: 1.17; // 28px;
-
-    &SubMenu {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-    }
-  }
-
-  .link {
+  @media screen and (width <= 768px) {
     &ToMainPage {
       display: block;
     }
   }
 }
 
-@media screen and (width <= 360px) {
-  .content {
-    justify-content: space-between;
-    padding: 8px 16px;
-  }
+/* Stop playing transition for menus momentarily on viewport resize. */
+.stopTransition {
+  transition: none !important;
 }

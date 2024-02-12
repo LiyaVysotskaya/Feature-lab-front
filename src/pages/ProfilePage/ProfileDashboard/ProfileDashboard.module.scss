@@ -1,0 +1,15 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1fr 1fr);
+  gap: 20px;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100px;
+}
+
+.card {
+  min-height: 100px;
+  background-color: rgb(200 56 207);
+}
