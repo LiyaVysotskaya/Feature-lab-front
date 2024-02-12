@@ -1,0 +1,22 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: var(--el-max-width);
+  padding: 162px 0 0;
+
+  &Content {
+    width: 100%;
+  }
+
+  @media screen and (width <= 1280px) {
+    padding-top: 134px;
+  }
+
+  @media screen and (width <= 768px) {
+    padding-top: 146px;
+  }
+}

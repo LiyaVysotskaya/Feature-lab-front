@@ -1,11 +1,11 @@
-import { FC } from 'react';
 import cl from 'classnames';
-import { IconProps } from './Icon.types';
+import { FC } from 'react';
 import s from './Icon.module.scss';
+import { IconProps } from './Icon.types';
 
 export const ArrowFatRightIcon: FC<IconProps> = ({ filled = false, className = '' }) => {
   return (
-    <div className={cl(s.icon, s.icon__768, className && className)}>
+    <div className={cl(s.icon, s.icon__768, className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"

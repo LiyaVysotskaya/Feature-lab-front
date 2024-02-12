@@ -5,15 +5,17 @@ import { competencies } from '../../_mockData/CompetenciesMockData';
 import Logo from '../../assets/svg/logo.svg';
 import {
   ROUTE_COMPETENCIES,
-  ROUTE_DOCSHABLON,
   ROUTE_ED_TECH,
   ROUTE_HOME,
+  ROUTE_PRODUCTS_DOCSHABLON,
+  ROUTE_PROFILE,
 } from '../../constants/constants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
+import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
 import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';
-import s from './Header.module.scss';
-import { SubMenu } from './SubMenu/SubMenu';
+import { HeaderSubMenu } from './HeaderSubMenu/HeaderSubMenu';
 import Arrow from './svg/Icon-arrow.svg?svgr';
+import s from './Header.module.scss';
 
 export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
@@ -91,11 +93,12 @@ export const Header: React.FC = () => {
             id="navHeaderMenu">
             <ul className={cl(s.list)}>
               <li className={cl(s.listItem, s.linkToMainPage)}>
-                <NavLink to="/" className={({ isActive }) => (isActive ? s.linkActive : '')}>
+                <NavLink
+                  to={ROUTE_HOME}
+                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Главная
                 </NavLink>
               </li>
-
               <li
                 className={cl(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={() => setSubMenuVisible(true)}
@@ -113,7 +116,7 @@ export const Header: React.FC = () => {
                     })}
                   />
                 </button>
-                <SubMenu isVisible={isSubMenuVisible} />
+                <HeaderSubMenu isVisible={isSubMenuVisible} />
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
@@ -124,7 +127,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to={ROUTE_DOCSHABLON}
+                  to={ROUTE_PRODUCTS_DOCSHABLON}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Продукты
                 </NavLink>
@@ -138,7 +141,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to="/some-route4"
+                  to={ROUTE_PROFILE}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Личный кабинет
                 </NavLink>
@@ -148,6 +151,7 @@ export const Header: React.FC = () => {
 
           <HamburgerBtn onClick={handleBurgerBtnClick} />
         </div>
+        <ProfileNavMobile />
       </div>
     </header>
   );
