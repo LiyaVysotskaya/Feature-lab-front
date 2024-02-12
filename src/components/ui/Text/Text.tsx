@@ -10,13 +10,21 @@ export type TextProps = {
     | 'germano-2'
     | 'germano-3'
     | 'germano-4'
+    | 'germano-5'
+    | 'germano-6'
+    | 'germano-7'
+    | 'germano-8'
     | 'molot-1'
     | 'molot-2'
     | 'molot-3'
     | 'molot-4'
+    | 'molot-5'
+    | 'molot-6'
     | 'gost-1'
     | 'gost-2'
-    | 'gost-3';
+    | 'gost-3'
+    | 'gost-4'
+    | 'gost-5';
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'div' | 'p' | 'span';
   line?: boolean;
   outlined?: boolean;
