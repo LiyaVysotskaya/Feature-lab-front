@@ -47,12 +47,27 @@
     line-height: 1;
   }
 
+  &__view-molot-5 {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  &__view-molot-6 {
+    font-size: 30px;
+    line-height: 1;
+  }
+
   &__view-germano-1 {
     font-size: 140px;
     line-height: 0.86; // 120px;
   }
 
   &__view-germano-2 {
+    font-size: 100px;
+    line-height: 1.2; // 120px;
+  }
+
+  &__view-germano-3 {
     font-size: 80px;
     line-height: 1;
     text-decoration-thickness: 4px;
@@ -60,18 +75,34 @@
     letter-spacing: -3.2px;
   }
 
-  &__view-germano-3 {
+  &__view-germano-4 {
     font-size: 64px;
     line-height: 1;
     text-decoration-thickness: 3px;
     text-underline-offset: 10px;
   }
 
-  &__view-germano-4 {
+  &__view-germano-5 {
     font-size: 48px;
     line-height: 1;
     text-decoration-thickness: 2.5px;
     text-underline-offset: 8px;
+  }
+
+  &__view-germano-6 {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  &__view-germano-7 {
+    font-size: 32px;
+    line-height: 1;
+    text-decoration-thickness: 1px;
+  }
+
+  &__view-germano-8 {
+    font-size: 24px;
+    line-height: 1;
   }
 
   &__view-gost-1 {
@@ -89,5 +120,15 @@
     line-height: 1.2; // 24px;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+  }
+
+  &__view-gost-4 {
+    font-size: 16px;
+    line-height: 1.3; // 18px;
+  }
+
+  &__view-gost-5 {
+    font-size: 14px;
+    line-height: 1; // 18px;
   }
 }
