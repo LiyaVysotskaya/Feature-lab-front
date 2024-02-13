@@ -11,20 +11,41 @@ type ProjectStageProps = {
   index: number;
   className?: string;
   isLast?: boolean;
-  id: string;
+  setCurrentStageIndex: (index: number) => void;
 };
 
 export const ProjectStage: FC<ProjectStageProps> = ({
   status,
-  id,
   className = '', // used also for autoscroll to stage that have status inProgress
   index,
   isLast = false,
+  setCurrentStageIndex,
 }) => {
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
 
   const stageRef = useRef<HTMLDivElement>(null);
   const stageEl = stageRef.current;
+
+  const handleOnMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setShowPopup(true);
+    }
+  };
+
+  const handleOnMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setShowPopup(false);
+    }
+  };
+
+  const handleStageOnTouchStart = () => {
+    if (window.innerWidth < 500) {
+      setCurrentStageIndex(index);
+    }
+    if (window.innerWidth > 500 && window.innerWidth <= 768) {
+      setShowPopup(true);
+    }
+  };
 
   const stageState = status !== 'notStarted';
   return (
@@ -38,19 +59,16 @@ export const ProjectStage: FC<ProjectStageProps> = ({
         />
       )}
       <div
-        id={id}
         className={cl(s.stage)}
-        onMouseEnter={() => setShowPopup(true)}
-        onMouseLeave={() => setShowPopup(false)}>
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onTouchStart={handleStageOnTouchStart}>
         <EllipseIcon status={status} />
         <p className={cl(s.stage__text, stageState && s.stage__text_active)}>Этап {index + 1}</p>
       </div>
 
       {stageEl && showPopup && (
-        <StagePopupPortal
-          isOpen={showPopup}
-          onClose={() => setShowPopup(false)}
-          stageElRect={stageEl.getBoundingClientRect()}>
+        <StagePopupPortal isOpen={showPopup} onClose={() => setShowPopup(false)} stageEl={stageEl}>
           <Text view="gost-4" tag="p">
             Этап {index + 1}
           </Text>

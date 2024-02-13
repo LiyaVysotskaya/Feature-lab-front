@@ -8,9 +8,13 @@ import s from './ProjectStagesSlider.module.scss';
 
 interface IProjectStagesSliderProps {
   className?: string;
+  setCurrentStageIndex: (index: number) => void;
 }
 
-export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className = '' }) => {
+export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
+  className = '',
+  setCurrentStageIndex,
+}) => {
   const [showLeftOverlay, setShowLeftOverlay] = useState(false);
   const [showRightOverlay, setShowRightOverlay] = useState(false);
 
@@ -95,8 +99,8 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
         <ul className={cl(s.stages, className)}>
           {projects[0].stages.map((stage, index, arr) => (
             <ProjectStage
+              setCurrentStageIndex={setCurrentStageIndex}
               key={uuidv4()}
-              id={uuidv4()}
               status={stage.status}
               index={index}
               isLast={index === arr.length - 1}

@@ -8,7 +8,7 @@ type StagePopupPortalProps = {
   onClose: () => void;
   isOpen: boolean;
   children: React.ReactNode;
-  stageElRect: DOMRect;
+  stageEl: HTMLDivElement;
 };
 
 type PopupPositionState = {
@@ -33,7 +33,7 @@ const calculatePopupLeftPosition = (stageRect: DOMRect, popupWidth: number) => {
 };
 
 const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
-  stageElRect,
+  stageEl,
   onClose,
   isOpen,
   children,
@@ -46,8 +46,31 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
 
   const popupRef = useRef<HTMLDivElement>(null);
 
+  // handle touch listener on mobile devices
+  useEffect(() => {
+    const handleOutsideClick = (e: TouchEvent) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(e.target as Node) &&
+        !stageEl.contains(e.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('touchend', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('touchend', handleOutsideClick);
+    };
+  }, [isOpen, onClose]);
+
+  // calculate popup initial position
   useEffect(() => {
     const popup = popupRef.current;
+    const stageElRect = stageEl.getBoundingClientRect();
     if (stageElRect && popup) {
       const popupLeft = calculatePopupLeftPosition(stageElRect, popup.clientWidth);
 
@@ -55,6 +78,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
     }
   }, []);
 
+  // ESC key event listener
   useEffect(() => {
     const handleEscClose = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
