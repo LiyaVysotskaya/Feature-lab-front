@@ -51,7 +51,7 @@ export const FormFooter: React.FC<IFormProps> = ({
   const onTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     originalTextareaHeight.current = originalTextareaHeight.current || `${e.target.clientHeight}px`;
     const textLength = e.target.value?.length;
-    e.target.style.height =
+    e.target.style.minHeight =
       textLength > 20 ? `${e.target.scrollHeight}px` : originalTextareaHeight.current;
 
     handleChange(e);
@@ -115,7 +115,6 @@ export const FormFooter: React.FC<IFormProps> = ({
               placeholder="О вашем проекте"
               minLength={MIN_LENGTH_PROJECT}
               maxLength={MAX_LENGTH_PROJECT}
-              rows={1}
               required
             />
             <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
