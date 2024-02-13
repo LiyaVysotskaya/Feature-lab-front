@@ -1,19 +1,17 @@
 @use '../../styles/variables/global.scss';
 
-// .footer,
-// .footer * {
-//   box-sizing: border-box;
-// }
-
 .footer {
   position: relative;
 
   overflow: hidden;
   display: flex;
+  flex-direction: column;
 
+  box-sizing: border-box;
   width: 100%;
   max-width: 1920px;
   height: fit-content;
+  padding: 140px 0 100px 100px;
 
   background: var(--darkblue, #002d63);
 }
@@ -21,7 +19,6 @@
 .footerContainer {
   position: relative;
   display: flex;
-  margin: 140px 0 100px 100px;
 }
 
 .footerTitle {
@@ -37,4 +34,44 @@
   color: var(--white, #fff);
   text-align: left;
   text-transform: uppercase;
+}
+
+.basementContainer {
+  display: flex;
+  width: 100%;
+}
+
+.firstContainer {
+  display: flex;
+  gap: 120px;
+  width: fit-content;
+  margin-right: 120px;
+}
+
+.secondContainer {
+  display: flex;
+  gap: 60px;
+  width: fit-content;
+}
+
+.basementElement, .telephonesElement {
+  font-family: "GOST type B", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
+  color: var(--white, #fff);
+  text-align: left;
+}
+
+.telephonesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.telephonesElement {
+  margin-top: 32px;
+}
+
+.telephonesElement:first-of-type {
+  margin-top: 0;
 }
