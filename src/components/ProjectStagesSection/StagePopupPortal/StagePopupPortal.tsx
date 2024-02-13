@@ -59,11 +59,11 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
     };
 
     if (isOpen) {
-      document.addEventListener('touchend', handleOutsideClick);
+      document.addEventListener('touchstart', handleOutsideClick);
     }
 
     return () => {
-      document.removeEventListener('touchend', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
     };
   }, [isOpen, onClose]);
 
