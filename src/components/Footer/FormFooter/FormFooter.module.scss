@@ -43,7 +43,7 @@
   }
 
   &Error {
-    border-color: var(--error-for-dark, #FA391F);
+    border-color: var(--error-for-dark, #fa391f);
   }
 }
 
@@ -54,7 +54,7 @@
   flex-direction: column-reverse;
 
   width: 100%;
-  max-width: calc(414px + (561 - 414) * ((100vw - 1280px) / (1920 - 1280)));
+  max-width: calc(366px + (561 - 366) * ((100vw - 1280px) / (1920 - 1280)));
 }
 
 .input {
@@ -63,7 +63,6 @@
   flex: 1;
 
   width: 100%;
-  max-width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   height: 38px;
   margin: 0;
   padding: 0;
@@ -78,7 +77,7 @@
   background-color: transparent;
   border: none;
   outline: none;
-  caret-color: var(--electric, #0049D8);
+  caret-color: var(--electric, #0049d8);
 
   &::placeholder {
     flex: 1;
@@ -92,7 +91,7 @@
 }
 
 textarea::placeholder {
-  line-height: 38px;
+  line-height: var(--text-1-line-height, 38px);
 }
 
 .textClue {
@@ -106,7 +105,7 @@ textarea::placeholder {
   text-align: left;
 
   &Error {
-    color: var(--error-for-dark, #FA391F);
+    color: var(--error-for-dark, #fa391f);
   }
 }
 
@@ -120,8 +119,7 @@ textarea::placeholder {
   flex-direction: row;
   align-items: center;
 
-  width: 100%;
-  max-width: calc(698px + (1028 - 698) * ((100vw - 1280px) / (1920 - 1280)));
+  box-sizing: border-box;
   margin-top: 32px;
   margin-left: 56px;
 }
@@ -142,12 +140,12 @@ textarea::placeholder {
   margin: 0;
   padding: 0;
 
-  font-family: "GOST type B", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 28px;
-  color: #A8BED8;
+  font-family: var(--text-gost-2-font-family, 'GostTypeB-Standard', sans-serif);
+  font-size: var(--text-gost-2-font-size, 24px);
+  font-weight: var(--text-gost-2-font-weight, 400);
+  line-height: var(--text-gost-2-line-height, 28px);
+  color: var(--white-60percent, #a8bed8);
+  text-align: left;
 
   &::before {
     content: '';
@@ -161,7 +159,7 @@ textarea::placeholder {
     width: 40px;
     height: 40px;
 
-    background-image: url("./checkbox/checkbox.svg");
+    background-image: url('./checkbox/checkbox.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40px 40px;
@@ -174,7 +172,7 @@ textarea::placeholder {
 }
 
 .checkbox:checked + .checkboxText::before {
-  background-image: url("./checkbox/checkboxChecked.svg");
+  background-image: url('./checkbox/checkboxChecked.svg');
 }
 
 .input:focus::placeholder {
@@ -183,4 +181,58 @@ textarea::placeholder {
 
 .input:focus + .textClue {
   display: flex;
+}
+
+@media screen and (width <= 1280px) {
+  .form {
+    gap: 85px;
+    margin-bottom: 96px;
+  }
+
+  .fieldset {
+    width: calc(400px + (414 - 400) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+  .contact {
+    height: 68px;
+  }
+
+  .inputContainer {
+    width: calc(352px + (366 - 352) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .input {
+    height: 28px;
+
+    font-family: var(--text-gost-2-font-family, 'GostTypeB-Standard', sans-serif);
+    font-size: var(--text-gost-2-font-size, 24px);
+    font-weight: var(--text-gost-2-font-weight, 400);
+    line-height: var(--text-gost-2-line-height, 28px);
+  }
+
+  textarea::placeholder {
+    line-height: var(--text-gost-2-line-height, 28px);
+  }
+
+  .textClue {
+    font-family: var(--text-gost-4-font-family, 'GostTypeB-Standard', sans-serif);
+    font-size: var(--text-gost-4-font-size, 16px);
+    font-weight: var(--text-gost-4-font-weight, 400);
+    line-height: var(--text-gost-4-line-height, 18px);
+  }
+
+  .checkboxText {
+    font-family: var(--text-gost-3-font-family, 'GostTypeB-Standard', sans-serif);
+    font-size: var(--text-gost-3-font-size, 20px);
+    font-weight: var(--text-gost-3-font-weight, 400);
+    line-height: var(--text-gost-3-line-height, 24px);
+
+    &::before {
+      top: 16px;
+    }
+  }
 }

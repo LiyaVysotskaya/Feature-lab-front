@@ -27,7 +27,7 @@
   margin-top: 86px;
   margin-right: 50px;
 
-  font-family: var(--title-h-1-font-family, "Germano-Regular", sans-serif);
+  font-family: var(--title-h-1-font-family, 'Germano-Regular', sans-serif);
   font-size: var(--title-h-1-font-size, 140px);
   font-weight: var(--title-h-1-font-weight, 400);
   line-height: var(--title-h-1-line-height, 120px);
@@ -54,8 +54,9 @@
   width: fit-content;
 }
 
-.basementElement, .telephonesElement {
-  font-family: "GOST type B", sans-serif;
+.basementElement,
+.telephonesElement {
+  font-family: 'GOST type B', sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 38px;
@@ -74,4 +75,41 @@
 
 .telephonesElement:first-of-type {
   margin-top: 0;
+}
+
+@media screen and (width <= 1280px) {
+  .footer {
+    max-width: 1280px;
+    padding: 100px 0 80px 50px;
+  }
+
+  .footerTitle {
+    width: 292px;
+    margin-top: 42px;
+    margin-right: 53px;
+
+    font-size: 80px;
+    font-weight: 300;
+    line-height: 80px;
+    letter-spacing: -0.04em;
+  }
+
+  .firstContainer {
+    gap: 80px;
+    margin-right: 80px;
+  }
+
+  .secondContainer {
+    gap: 36px;
+  }
+
+  .basementElement,
+  .telephonesElement {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .telephonesElement {
+    margin-top: 30px;
+  }
 }
