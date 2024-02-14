@@ -1,5 +1,4 @@
 import React, { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
 import s from './Footer.module.scss';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { FormFooter } from './FormFooter/FormFooter';
