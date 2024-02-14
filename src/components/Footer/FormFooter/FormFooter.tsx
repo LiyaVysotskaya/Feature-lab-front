@@ -122,22 +122,22 @@ export const FormFooter: React.FC<IFormProps> = ({
             </span>
           </div>
         </div>
+        <label className={s.checkboxContainer} htmlFor="checkboxConfidential">
+          <input
+            className={s.checkbox}
+            id="checkboxConfidential"
+            aria-label="Checkbox confidential"
+            name="checkboxConfidential"
+            type="checkbox"
+            checked={isChecked}
+            onChange={onCheckboxClick}
+          />
+          <span className={s.checkboxText}>
+            Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
+            <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
+          </span>
+        </label>
       </fieldset>
-      <label className={s.checkboxContainer} htmlFor="checkboxConfidential">
-        <input
-          className={s.checkbox}
-          id="checkboxConfidential"
-          aria-label="Checkbox confidential"
-          name="checkboxConfidential"
-          type="checkbox"
-          checked={isChecked}
-          onChange={onCheckboxClick}
-        />
-        <span className={s.checkboxText}>
-          Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
-          <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
-        </span>
-      </label>
       <Button
         className={s.button}
         type="submit"

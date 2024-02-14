@@ -2,20 +2,18 @@
   position: relative;
 
   display: flex;
-  flex-direction: column;
+  gap: 96px;
 
   box-sizing: border-box;
-  width: 609px;
-  max-width: 609px;
-  margin-bottom: 122px;
+  width: fit-content;
+  margin-bottom: 102px;
 }
 
 .fieldset {
   display: flex;
   flex-direction: column;
 
-  width: 100%;
-  max-width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
+  width: calc(414px + (609 - 414) * ((100vw - 1280px) / (1920 - 1280)));
   margin: 0;
   padding: 0;
 
@@ -23,10 +21,7 @@
 }
 
 .button {
-  position: absolute;
-  z-index: 1;
-  top: 5%;
-  left: 116%;
+  margin-top: 20px;
 }
 
 .contact {
@@ -38,8 +33,7 @@
   justify-content: center;
 
   box-sizing: border-box;
-  height: 100%;
-  min-height: 86px;
+  height: 86px;
   margin-top: 28px;
 
   border-bottom: 3px solid var(--white, #fff);
