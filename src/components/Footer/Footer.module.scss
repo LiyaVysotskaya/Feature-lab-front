@@ -149,3 +149,47 @@
     margin-top: 10px;
   }
 }
+
+@media screen and (width <= 360px) {
+  .footer {
+    flex-direction: column;
+    max-width: 360px;
+    padding: 32px 0 80px 20px;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+  }
+
+  .basementContainer {
+    flex-direction: column;
+  }
+
+  .footerTitle {
+    width: 292px;
+    margin-right: 0;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .firstContainer {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .secondContainer {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .basementElement,
+  .telephonesElement {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .telephonesElement {
+    margin-top: 20px;
+  }
+}
