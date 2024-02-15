@@ -67,10 +67,10 @@
   margin: 0;
   padding: 0;
 
-  font-family: var(--text-1-font-family, 'GostTypeB-Standard', sans-serif);
-  font-size: var(--text-1-font-size, 32px);
-  font-weight: var(--text-1-font-weight, 400);
-  line-height: var(--text-1-line-height, 38px);
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38px;
   color: var(--white, #fff);
   text-align: left;
 
@@ -97,10 +97,10 @@ textarea::placeholder {
 .textClue {
   display: none;
 
-  font-family: var(--text-3-font-family, 'GostTypeB-Standard', sans-serif);
-  font-size: var(--text-3-font-size, 20px);
-  font-weight: var(--text-3-font-weight, 400);
-  line-height: var(--text-3-line-height, 24px);
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
   color: var(--darkblue-50, #8096b1);
   text-align: left;
 
@@ -140,10 +140,10 @@ textarea::placeholder {
   margin: 0;
   padding: 0;
 
-  font-family: var(--text-gost-2-font-family, 'GostTypeB-Standard', sans-serif);
-  font-size: var(--text-gost-2-font-size, 24px);
-  font-weight: var(--text-gost-2-font-weight, 400);
-  line-height: var(--text-gost-2-line-height, 28px);
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
   color: var(--white-60percent, #a8bed8);
   text-align: left;
 
@@ -208,28 +208,83 @@ textarea::placeholder {
   .input {
     height: 28px;
 
-    font-family: var(--text-gost-2-font-family, 'GostTypeB-Standard', sans-serif);
-    font-size: var(--text-gost-2-font-size, 24px);
-    font-weight: var(--text-gost-2-font-weight, 400);
-    line-height: var(--text-gost-2-line-height, 28px);
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
   }
 
   textarea::placeholder {
-    line-height: var(--text-gost-2-line-height, 28px);
+    line-height: 28px;
   }
 
   .textClue {
-    font-family: var(--text-gost-4-font-family, 'GostTypeB-Standard', sans-serif);
-    font-size: var(--text-gost-4-font-size, 16px);
-    font-weight: var(--text-gost-4-font-weight, 400);
-    line-height: var(--text-gost-4-line-height, 18px);
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
   }
 
   .checkboxText {
-    font-family: var(--text-gost-3-font-family, 'GostTypeB-Standard', sans-serif);
-    font-size: var(--text-gost-3-font-size, 20px);
-    font-weight: var(--text-gost-3-font-weight, 400);
-    line-height: var(--text-gost-3-line-height, 24px);
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+
+    &::before {
+      top: 16px;
+    }
+  }
+}
+
+@media screen and (width <= 768px) {
+  .form {
+    flex-direction: column;
+    gap: 85px;
+    margin-bottom: 96px;
+  }
+
+  .fieldset {
+    width: calc(400px + (414 - 400) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .button {
+    margin-top: 40px;
+  }
+
+  .contact {
+    height: 68px;
+  }
+
+  .inputContainer {
+    width: calc(352px + (366 - 352) * ((100vw - 768px) / (1280 - 768)));
+  }
+
+  .input {
+    height: 28px;
+
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  textarea::placeholder {
+    line-height: 28px;
+  }
+
+  .textClue {
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .checkboxText {
+    font-family: GostTypeB-Standard, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
 
     &::before {
       top: 16px;

@@ -27,10 +27,10 @@
   margin-top: 86px;
   margin-right: 50px;
 
-  font-family: var(--title-h-1-font-family, 'Germano-Regular', sans-serif);
-  font-size: var(--title-h-1-font-size, 140px);
-  font-weight: var(--title-h-1-font-weight, 400);
-  line-height: var(--title-h-1-line-height, 120px);
+  font-family: Germano-Regular, sans-serif;
+  font-size: 140px;
+  font-weight: 300;
+  line-height: 120px;
   color: var(--white, #fff);
   text-align: left;
   text-transform: uppercase;
@@ -89,7 +89,6 @@
     margin-right: 53px;
 
     font-size: 80px;
-    font-weight: 300;
     line-height: 80px;
     letter-spacing: -0.04em;
   }
@@ -111,5 +110,40 @@
 
   .telephonesElement {
     margin-top: 30px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .footer {
+    max-width: 768px;
+    padding: 80px 0 110px 32px;
+  }
+
+  .footerTitle {
+    width: 284px;
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: 0;
+  }
+
+  .firstContainer {
+    flex-direction: column;
+    gap: 24px;
+    margin-right: 41px;
+  }
+
+  .secondContainer {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .basementElement,
+  .telephonesElement {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .telephonesElement {
+    margin-top: 10px;
   }
 }
