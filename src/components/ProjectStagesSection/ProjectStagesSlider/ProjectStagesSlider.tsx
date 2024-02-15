@@ -1,22 +1,27 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import s from './ProjectStagesSlider.module.scss';
-import { ProjectStage } from '../ProjectStage/ProjectStage';
 import { projects } from '../../../_mockData/projectsMockData';
 import { ArrowInCircleIcon } from '../../ui/icons';
+import { ProjectStage } from '../ProjectStage/ProjectStage';
+import s from './ProjectStagesSlider.module.scss';
 
 interface IProjectStagesSliderProps {
   className?: string;
+  setCurrentStageIndex: (index: number) => void;
 }
 
-export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className = '' }) => {
+export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
+  className = '',
+  setCurrentStageIndex,
+}) => {
   const [showLeftOverlay, setShowLeftOverlay] = useState(false);
   const [showRightOverlay, setShowRightOverlay] = useState(false);
+
   const stagesWrapperRef = useRef<HTMLDivElement>(null);
 
   const scrollToInProgressEl = (wrapper: HTMLDivElement) => {
-    const inProgressStage: HTMLElement | null = document.getElementById('inProgressStage');
+    const inProgressStage: HTMLElement | null = document.querySelector('.inProgressStage');
     if (inProgressStage && wrapper) {
       const stageRect = inProgressStage.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
@@ -41,6 +46,7 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
     }
   };
 
+  // Effect to handle scroll events and resize
   useEffect(() => {
     const handleScroll = () => {
       const stagesWrapper = stagesWrapperRef.current;
@@ -74,10 +80,10 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
   }, []);
 
   return (
-    <div className={s.slider}>
+    <div className={s.slider} id="stagesWrapperContainer">
       <div
-        className={cl(s.whiteOverlay, {
-          [s.whiteOverlay_left]: showLeftOverlay,
+        className={cl(s.whiteOverlay, s.whiteOverlay_left, {
+          [s.whiteOverlay_visible]: showLeftOverlay,
         })}
       />
       <button
@@ -93,11 +99,12 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
         <ul className={cl(s.stages, className)}>
           {projects[0].stages.map((stage, index, arr) => (
             <ProjectStage
+              setCurrentStageIndex={setCurrentStageIndex}
               key={uuidv4()}
               status={stage.status}
               index={index}
               isLast={index === arr.length - 1}
-              id={stage.status === 'inProgress' ? 'inProgressStage' : ''}
+              className={stage.status === 'inProgress' ? 'inProgressStage' : ''}
             />
           ))}
         </ul>
@@ -113,8 +120,8 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({ className =
       </button>
 
       <div
-        className={cl(s.whiteOverlay, {
-          [s.whiteOverlay_right]: showRightOverlay,
+        className={cl(s.whiteOverlay, s.whiteOverlay_right, {
+          [s.whiteOverlay_visible]: showRightOverlay,
         })}
       />
     </div>
