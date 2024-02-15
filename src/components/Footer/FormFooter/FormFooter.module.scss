@@ -202,7 +202,7 @@ textarea::placeholder {
   }
 
   .inputContainer {
-    width: calc(352px + (366 - 352) * ((100vw - 768px) / (1280 - 768)));
+    max-width: calc(352px + (366 - 352) * ((100vw - 768px) / (1280 - 768)));
   }
 
   .input {
@@ -240,54 +240,19 @@ textarea::placeholder {
 @media screen and (width <= 768px) {
   .form {
     flex-direction: column;
-    gap: 85px;
-    margin-bottom: 96px;
+    margin-bottom: 100px;
   }
 
   .fieldset {
-    width: calc(400px + (414 - 400) * ((100vw - 768px) / (1280 - 768)));
+    width: calc(320px + (400 - 320) * ((100vw - 360px) / (768 - 360)));
   }
 
   .button {
-    margin-top: 40px;
-  }
-
-  .contact {
-    height: 68px;
+    right: 102px;
+    margin-top: 11px;
   }
 
   .inputContainer {
-    width: calc(352px + (366 - 352) * ((100vw - 768px) / (1280 - 768)));
-  }
-
-  .input {
-    height: 28px;
-
-    font-family: GostTypeB-Standard, sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 28px;
-  }
-
-  textarea::placeholder {
-    line-height: 28px;
-  }
-
-  .textClue {
-    font-family: GostTypeB-Standard, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 18px;
-  }
-
-  .checkboxText {
-    font-family: GostTypeB-Standard, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-
-    &::before {
-      top: 16px;
-    }
+    max-width: calc(288px + (352 - 288) * ((100vw - 360px) / (768 - 360)));
   }
 }
