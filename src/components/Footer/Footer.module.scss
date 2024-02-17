@@ -104,6 +104,11 @@
     padding: 60px 0 110px;
   }
 
+  .basementContainer {
+    flex-wrap: wrap;
+    row-gap: 24px;
+  }
+
   .firstContainer {
     flex-direction: column;
     gap: 24px;
@@ -123,13 +128,6 @@
 
   .telephonesElement {
     margin-top: 10px;
-  }
-}
-
-@media screen and (width <= 460px) {
-  .basementContainer {
-    flex-direction: column;
-    row-gap: 24px;
   }
 }
 
