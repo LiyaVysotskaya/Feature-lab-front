@@ -1,7 +1,5 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FormEvent, useRef } from 'react';
-import s from './FormFooter.module.scss';
-import { Button } from '../../ui/Button/Button';
+import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import {
   EMAIL_REG_EX,
   MAX_LENGTH_EMAIL,
@@ -12,6 +10,9 @@ import {
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
 } from '../../../constants/constants';
+import { Button } from '../../ui/Button/Button';
+import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
+import s from './FormFooter.module.scss';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -30,7 +31,7 @@ export const FormFooter: React.FC<IFormProps> = ({
   isValid,
   isLoading,
 }) => {
-  const [isChecked, setIsChecked] = React.useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const originalFontSize = useRef<string>();
   const originalTextareaHeight = useRef<string>();
@@ -63,83 +64,83 @@ export const FormFooter: React.FC<IFormProps> = ({
 
   return (
     <form className={s.form} method="POST" onSubmit={onSubmit}>
-      <fieldset className={s.fieldset}>
-        <div className={cl(s.contact, { [s.contactError]: errors.name })}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input name"
-              value={values.name}
-              onChange={onInputChange}
-              name="name"
-              type="text"
-              placeholder="Имя"
-              minLength={MIN_LENGTH_NAME}
-              maxLength={MAX_LENGTH_NAME}
-              pattern={NAME_REG_EX}
-              required
-            />{' '}
-            <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>
-              {errors.name || 'Имя'}
-            </span>
-          </div>
-        </div>
-        <div className={cl(s.contact, { [s.contactError]: errors.email })}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input email"
-              value={values.email}
-              onChange={onInputChange}
-              name="email"
-              type="text"
-              placeholder="Email / Телефон"
-              minLength={MIN_LENGTH_EMAIL}
-              maxLength={MAX_LENGTH_EMAIL}
-              pattern={EMAIL_REG_EX}
-              required
-            />
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
-              {errors.email || 'Email / телефон'}
-            </span>
-          </div>
-        </div>
-        <div className={cl(s.contact, { [s.contactError]: errors.project })}>
-          <div className={s.inputContainer}>
-            <textarea
-              className={s.input}
-              aria-label="Textarea project"
-              value={values.project}
-              onChange={onTextareaChange}
-              name="project"
-              placeholder="О вашем проекте"
-              minLength={MIN_LENGTH_PROJECT}
-              maxLength={MAX_LENGTH_PROJECT}
-              required
-            />
-            <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
-              {errors.project || 'О проекте'}
-            </span>
-          </div>
-        </div>
-        <label className={s.checkboxContainer} htmlFor="checkboxConfidential">
+      <h2 className={s.formTitle}>Свяжитесь c&#160;нами</h2>
+
+      <div className={s.fieldset}>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.name })}>
           <input
-            className={s.checkbox}
-            id="checkboxConfidential"
-            aria-label="Checkbox confidential"
-            name="checkboxConfidential"
-            type="checkbox"
-            checked={isChecked}
-            onChange={onCheckboxClick}
+            className={s.input}
+            aria-label="Input name"
+            value={values.name}
+            onChange={onInputChange}
+            name="name"
+            type="text"
+            placeholder="Имя"
+            minLength={MIN_LENGTH_NAME}
+            maxLength={MAX_LENGTH_NAME}
+            pattern={NAME_REG_EX}
+            required
           />
+          <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>
+            {errors.name || 'Имя'}
+          </span>
+        </div>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.email })}>
+          <input
+            className={s.input}
+            aria-label="Input email"
+            value={values.email}
+            onChange={onInputChange}
+            name="email"
+            type="text"
+            placeholder="Email / Телефон"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
+            pattern={EMAIL_REG_EX}
+            required
+          />
+          <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
+            {errors.email || 'Email / телефон'}
+          </span>
+        </div>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.project })}>
+          <textarea
+            className={cl(s.input, s.textarea)}
+            aria-label="Textarea project"
+            value={values.project}
+            onChange={onTextareaChange}
+            name="project"
+            placeholder="О вашем проекте"
+            minLength={MIN_LENGTH_PROJECT}
+            maxLength={MAX_LENGTH_PROJECT}
+            required
+          />
+          <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
+            {errors.project || 'О проекте'}
+          </span>
+        </div>
+        <div className={s.checkboxContainer}>
+          <label className={s.checkboxLabel} htmlFor="checkboxConfidential">
+            <CheckBoxIcon isChecked={isChecked} color="white" />
+            <input
+              className={s.checkbox}
+              id="checkboxConfidential"
+              aria-label="Checkbox confidential"
+              name="checkboxConfidential"
+              type="checkbox"
+              checked={isChecked}
+              onChange={onCheckboxClick}
+            />
+          </label>
           <span className={s.checkboxText}>
             Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
             <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
           </span>
-        </label>
-      </fieldset>
+        </div>
+      </div>
+
       <Button
-        className={s.button}
+        className={s.footerButton}
         type="submit"
         theme="blue"
         text="Отправить"

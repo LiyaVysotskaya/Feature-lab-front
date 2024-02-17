@@ -1,61 +1,56 @@
-@use '../../styles/variables/global.scss';
-
 .footer {
   position: relative;
 
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   box-sizing: border-box;
   width: 100%;
   max-width: 1920px;
-  height: fit-content;
-  padding: 140px 0 100px 100px;
+  padding: 140px 0 100px;
 
   background: var(--darkblue, #002d63);
 }
 
 .footerContainer {
   position: relative;
+
   display: flex;
-}
 
-.footerTitle {
-  width: 565px;
-  height: fit-content;
-  margin-top: 86px;
-  margin-right: 50px;
-
-  font-family: Germano-Regular, sans-serif;
-  font-size: 140px;
-  font-weight: 300;
-  line-height: 120px;
-  color: var(--white, #fff);
-  text-align: left;
-  text-transform: uppercase;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
 }
 
 .basementContainer {
   display: flex;
+  box-sizing: border-box;
   width: 100%;
+  max-width: var(--el-max-width);
 }
 
 .firstContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 120px;
-  width: fit-content;
+
+  width: max-content;
   margin-right: 120px;
 }
 
 .secondContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 60px;
-  width: fit-content;
+  width: max-content;
 }
 
 .basementElement,
 .telephonesElement {
+  width: max-content;
+
   font-family: 'GOST type B', sans-serif;
   font-size: 32px;
   font-weight: 400;
@@ -80,17 +75,7 @@
 @media screen and (width <= 1280px) {
   .footer {
     max-width: 1280px;
-    padding: 100px 0 80px 50px;
-  }
-
-  .footerTitle {
-    width: 292px;
-    margin-top: 42px;
-    margin-right: 53px;
-
-    font-size: 80px;
-    line-height: 80px;
-    letter-spacing: -0.04em;
+    padding: 100px 0 80px;
   }
 
   .firstContainer {
@@ -116,16 +101,7 @@
 @media screen and (width <= 768px) {
   .footer {
     max-width: 768px;
-    padding: 80px 0 110px 32px;
-  }
-
-  .footerTitle {
-    width: 284px;
-    margin-right: 20px;
-
-    font-size: 64px;
-    line-height: 64px;
-    letter-spacing: 0;
+    padding: 60px 0 110px;
   }
 
   .firstContainer {
@@ -150,11 +126,18 @@
   }
 }
 
+@media screen and (width <= 460px) {
+  .basementContainer {
+    flex-direction: column;
+    row-gap: 24px;
+  }
+}
+
 @media screen and (width <= 360px) {
   .footer {
     flex-direction: column;
     max-width: 360px;
-    padding: 32px 0 80px 20px;
+    padding: 32px 0 80px;
   }
 
   .footerContainer {
@@ -163,13 +146,6 @@
 
   .basementContainer {
     flex-direction: column;
-  }
-
-  .footerTitle {
-    width: 292px;
-    margin-right: 0;
-    font-size: 40px;
-    line-height: 40px;
   }
 
   .firstContainer {
