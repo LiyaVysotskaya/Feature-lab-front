@@ -6,7 +6,7 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
+  max-width: var(--el-max-width);
   height: fit-content;
   margin: 100px auto 0;
 
@@ -51,10 +51,6 @@
 }
 
 @media screen and (width <= 1280px) {
-  .popupContainer {
-    max-width: calc(704px + (1180 - 704) * ((100vw - 768px) / (1280 - 768)));
-  }
-
   .closeButton {
     max-width: 70px;
     max-height: 70px;
@@ -71,10 +67,6 @@
 }
 
 @media screen and (width <= 768px) {
-  .popupContainer {
-    max-width: calc(360px + (704 - 360) * ((100vw - 360px) / (768 - 360)));
-  }
-
   .closeButton {
     top: 20px;
     right: 20px;
