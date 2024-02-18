@@ -1,5 +1,6 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useRef, useState } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 import {
   EMAIL_REG_EX,
   MAX_LENGTH_EMAIL,
@@ -23,7 +24,7 @@ type IFormProps = {
   isLoading: boolean | undefined;
 };
 
-export const FormFooter: React.FC<IFormProps> = ({
+export const FormFooter: FC<IFormProps> = ({
   onSubmit,
   values,
   handleChange,
@@ -45,15 +46,15 @@ export const FormFooter: React.FC<IFormProps> = ({
     handleChange(e);
   };
 
-  const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
   };
 
   const onTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     originalTextareaHeight.current = originalTextareaHeight.current || `${e.target.clientHeight}px`;
-    const textLength = e.target.value?.length;
-    e.target.style.minHeight =
-      textLength > 20 ? `${e.target.scrollHeight}px` : originalTextareaHeight.current;
+    // const textLength = e.target.value?.length;
+    // e.target.style.minHeight =
+    //   textLength > 20 ? `${e.target.scrollHeight}px` : originalTextareaHeight.current;
 
     handleChange(e);
   };
@@ -104,7 +105,7 @@ export const FormFooter: React.FC<IFormProps> = ({
           </span>
         </div>
         <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.project })}>
-          <textarea
+          <TextareaAutosize
             className={cl(s.input, s.textarea)}
             aria-label="Textarea project"
             value={values.project}
@@ -119,6 +120,7 @@ export const FormFooter: React.FC<IFormProps> = ({
             {errors.project || 'О проекте'}
           </span>
         </div>
+
         <div className={s.checkboxContainer}>
           <label className={s.checkboxLabel} htmlFor="checkboxConfidential">
             <CheckBoxIcon isChecked={isChecked} color="white" />
