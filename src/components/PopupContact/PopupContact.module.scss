@@ -1,122 +1,105 @@
 .popupContainer {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  top: 0;
+  left: 0;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 100px 0;
+
+  @media screen and (width <= 690px) {
+    overflow: clip;
+    padding: 0;
+  }
+}
+
+.popup {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
-  height: fit-content;
-  margin: 100px auto 0;
+  margin: 0;
+  padding: 100px 0 0;
 
   background-color: var(--white);
   border-radius: 8px;
-}
 
-.popupTitle {
-  margin: 100px auto 80px;
-
-  font-family: Molot-Regular, sans-serif;
-  font-size: 128px;
-  font-weight: 400;
-  line-height: 128px;
-  color: var(--dark-blue, #002d63);
-}
-
-.closeButton {
-  position: absolute;
-  z-index: 2;
-  top: 28px;
-  right: 28px;
-
-  display: block;
-
-  width: 100%;
-  max-width: 80px;
-  height: 100%;
-  max-height: 80px;
-
-  object-fit: cover;
-  background-image: url('./close_button/close-btn.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@media screen and (width <= 1430px) {
-  .popupTitle {
-    font-size: 100px;
-    line-height: 100px;
+  @media screen and (width <= 768px) {
+    padding-top: 84px;
   }
-}
 
-@media screen and (width <= 1280px) {
-  .closeButton {
-    max-width: 70px;
-    max-height: 70px;
-    background-image: url('./close_button/close-btn-1280.svg');
-  }
-}
-
-@media screen and (width <= 1060px) {
-  .popupTitle {
-    margin-bottom: 60px;
-    font-size: 66px;
-    line-height: 66px;
-  }
-}
-
-@media screen and (width <= 768px) {
-  .closeButton {
-    top: 20px;
-    right: 20px;
-
-    max-width: 45px;
-    max-height: 45px;
-
-    background-image: url('./close_button/close-btn-768.svg');
-  }
-}
-
-@media screen and (width <= 690px) {
-  .popupContainer {
+  @media screen and (width <= 690px) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
   }
 
-  .popupTitle {
-    font-size: calc(66px * 0.7);
-    line-height: calc(66px * 0.7);
-  }
-}
-
-@media screen and (width <= 460px) {
-  .popupTitle {
-    font-size: calc(66px * 0.5);
-    line-height: calc(66px * 0.5);
-  }
-}
-
-@media screen and (width <= 360px) {
-  .popupContainer {
+  @media screen and (width <= 360px) {
     max-width: 360px;
+    padding-top: 80px;
+  }
+}
+
+.popupTitle {
+  margin: 0 0 80px;
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 128px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--dark-blue, #002d63);
+
+  @media screen and (width <= 1430px) {
+    font-size: 100px;
   }
 
-  .popupTitle {
-    margin: 80px auto 48px;
-    font-family: Molot-Regular, sans-serif;
+  @media screen and (width <= 1060px) {
+    margin-bottom: 60px;
+    font-size: 66px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 42px;
+  }
+
+  @media screen and (width <= 690px) {
+    font-size: 46px;
+  }
+
+  @media screen and (width <= 460px) {
+    font-size: 33px;
+  }
+
+  @media screen and (width <= 360px) {
+    margin-bottom: 48px;
     font-size: 30px;
-    line-height: 30px;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  z-index: 1;
+  top: 28px;
+  right: 28px;
+
+  @media screen and (width <= 768px) {
+    top: 20px;
+    right: 20px;
   }
 
-  .closeButton {
-    top: 16px;
+  @media screen and (width <= 360px) {
+    top: 17px;
     right: 16px;
-
-    max-width: 32px;
-    max-height: 32px;
-
-    background-image: url('./close_button/close-btn-360.svg');
   }
 }
