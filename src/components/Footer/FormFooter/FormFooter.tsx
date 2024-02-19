@@ -35,9 +35,10 @@ export const FormFooter: FC<IFormProps> = ({
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const originalFontSize = useRef<string>();
-  const originalTextareaHeight = useRef<string>();
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // input text font size auto-minimizer
+
     originalFontSize.current = originalFontSize.current || e.target.style.fontSize;
     const textLength = e.target.value?.length;
     e.target.style.fontSize =
@@ -48,15 +49,6 @@ export const FormFooter: FC<IFormProps> = ({
 
   const onCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
-  };
-
-  const onTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    originalTextareaHeight.current = originalTextareaHeight.current || `${e.target.clientHeight}px`;
-    // const textLength = e.target.value?.length;
-    // e.target.style.minHeight =
-    //   textLength > 20 ? `${e.target.scrollHeight}px` : originalTextareaHeight.current;
-
-    handleChange(e);
   };
 
   const isEmpty = () => {
@@ -109,7 +101,7 @@ export const FormFooter: FC<IFormProps> = ({
             className={cl(s.input, s.textarea)}
             aria-label="Textarea project"
             value={values.project}
-            onChange={onTextareaChange}
+            onChange={handleChange}
             name="project"
             placeholder="О вашем проекте"
             minLength={MIN_LENGTH_PROJECT}
