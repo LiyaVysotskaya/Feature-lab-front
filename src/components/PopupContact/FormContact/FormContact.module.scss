@@ -4,6 +4,7 @@
   --input-side-padding: 9.3%; // 160px;
   --input-min-height: 114px;
   --input-font-size: 80px;
+  --number-font-size: 80px;
 
   position: relative;
 
@@ -14,9 +15,12 @@
   box-sizing: border-box;
   width: 100%;
 
+  @media screen and (width <= 1820px) {
+    --text-container-width: 20%;
+  }
+
   @media screen and (width <= 1280px) {
     --input-side-padding: 6.7%; // 80px;
-    --text-container-width: 17%;
   }
 
   @media screen and (width <= 768px) {
@@ -88,8 +92,6 @@
 
   box-sizing: border-box;
   width: 100%;
-
-  // height: min-content;
   margin: 0;
   padding: 0;
 
@@ -147,15 +149,16 @@
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
   flex-direction: column;
+  row-gap: 10px;
   align-self: stretch;
   justify-content: center;
+
+  @media screen and (width <= 690px) {
+    row-gap: 5px;
+  }
 }
 
 .textNumber {
-  --number-font-size: 80px;
-
-  padding-bottom: 10px;
-
   font-family: Molot-Regular, sans-serif;
   font-size: var(--number-font-size);
   font-weight: 400;
@@ -247,8 +250,11 @@
     font-size: 32px;
   }
 
+  @media screen and (width <= 690px) {
+    font-family: 'GOST type B', sans-serif;
+  }
+
   @media screen and (width <= 360px) {
-    // padding: 8px 70px 0;
     font-size: 24px;
   }
 }
@@ -349,8 +355,6 @@
 
 .input:focus + .textContainer,
 .input:not(:placeholder-shown) + .textContainer {
-  justify-content: flex-start;
-
   .textNumber {
     font-size: calc(var(--number-font-size) * 0.8);
     color: var(--dark-blue, #002d63);
@@ -362,4 +366,10 @@
     max-height: 50px;
     opacity: 1;
   }
+}
+
+.textarea:focus + .textContainer,
+.textarea:not(:placeholder-shown) + .textContainer {
+  justify-content: flex-start;
+  padding-top: 10px;
 }
