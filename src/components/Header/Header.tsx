@@ -5,6 +5,7 @@ import { competencies } from '../../_mockData/CompetenciesMockData';
 import Logo from '../../assets/svg/logo.svg';
 import {
   ROUTE_COMPETENCIES,
+  ROUTE_CONTACT,
   ROUTE_ED_TECH,
   ROUTE_HOME,
   ROUTE_PRODUCTS_DOCSHABLON,
@@ -134,7 +135,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to="/some-route3"
+                  to={ROUTE_CONTACT}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Контакты
                 </NavLink>
