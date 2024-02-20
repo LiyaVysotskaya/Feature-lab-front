@@ -72,6 +72,9 @@
   position: relative;
 
   display: grid;
+  grid-template-areas:
+    'textContainer input'
+    'nothing error';
   grid-template-columns: var(--text-container-width) auto;
   column-gap: var(--grid-column-gap);
 
@@ -92,8 +95,7 @@
   --input-font-size: 80px;
   --input-font-size-min: 48px;
 
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
+  grid-area: input;
   align-self: stretch;
 
   box-sizing: border-box;
@@ -184,8 +186,7 @@
 
 .textContainer {
   display: flex;
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
+  grid-area: textContainer;
   flex-direction: column;
   align-self: stretch;
   justify-content: center;
@@ -257,8 +258,7 @@
 .inputErrorWrap {
   overflow-x: hidden; // for word-wrap
   display: none;
-  grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
+  grid-area: error;
 
   width: 100%;
   min-height: max-content;
