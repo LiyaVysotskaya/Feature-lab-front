@@ -1,7 +1,7 @@
 export const projects = [
   {
     projectId: '111',
-    projectName: 'Название и в 2 строчки',
+    projectName: 'Название Прод',
     projectInfo: 'Разработка сервиса c необходимыми формами и шаблонами документов',
     responsible: {
       username: 'Гульнара Абиабебовна',

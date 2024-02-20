@@ -45,6 +45,30 @@ export const FormContact: FC<IFormProps> = ({
       textLength > 20 ? `${80 - (textLength - 20)}px` : originalFontSize.current;
 
     handleChange(e);
+    // // Retrieve the current font size and input value
+    // const input = e.target;
+    // const currentFontSize = parseInt(getComputedStyle(input).fontSize, 10);
+    // console.log('currentFontSize : ', currentFontSize);
+    // const textLength = input.value.length;
+
+    // // Define the minimum font size
+    // const minFontSize = 32;
+
+    // // Calculate the new font size based on text length
+    // let newFontSize = currentFontSize;
+    // if (textLength > 20) {
+    //   // Decrease font size smoothly, but ensure it doesn't go below the minimum
+    //   const fontSizeDifference = Math.max(textLength - 20, 0);
+    //   newFontSize = Math.max(currentFontSize - fontSizeDifference, minFontSize);
+    // } else {
+    //   // Restore original font size if text length is not greater than 20
+    //   newFontSize = parseInt(originalFontSize.current || getComputedStyle(input).fontSize, 10);
+    // }
+
+    // // Apply the new font size to the input
+    // input.style.fontSize = `${newFontSize}px`;
+
+    // handleChange(e);
   };
 
   const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,11 +98,11 @@ export const FormContact: FC<IFormProps> = ({
           />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
+            <span className={cl(s.textClue)}>Имя</span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.name })}>
-            {errors.name}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
+            <span className={cl(s.inputError)}>{errors.name}</span>
+          </div>
         </div>
 
         <div className={s.inputContainer}>
@@ -95,15 +119,16 @@ export const FormContact: FC<IFormProps> = ({
             pattern={EMAIL_REG_EX}
             required
           />
+
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
               Email / телефон
             </span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.email })}>
-            {errors.email}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+            <span className={cl(s.inputError)}>{errors.email}</span>
+          </div>
         </div>
         <div className={s.inputContainer}>
           <TextareaAutosize
@@ -121,9 +146,9 @@ export const FormContact: FC<IFormProps> = ({
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>О проекте</span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.project })}>
-            {errors.project}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
+            <span className={cl(s.inputError)}>{errors.project}</span>
+          </div>
         </div>
       </fieldset>
 
