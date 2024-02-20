@@ -108,6 +108,8 @@
 
 .input {
   --left-offset: 24px;
+  --input-font-size: 32px;
+  --input-font-size-min: 20px;
 
   box-sizing: border-box;
   width: 100%;
@@ -115,7 +117,7 @@
   padding: 0 0 0 var(--left-offset);
 
   font-family: GostTypeB-Standard, sans-serif;
-  font-size: 32px;
+  font-size: var(--input-font-size);
   font-weight: 400;
   line-height: 1.19; // 38px;
   color: var(--white, #fff);
@@ -130,7 +132,7 @@
     color: var(--white-60, #a8bed8);
     text-align: left;
   }
-  
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
@@ -140,14 +142,15 @@
   }
 
   @media screen and (width <= 1280px) {
-    font-size: 24px;
+    --input-font-sizee: 24px;
+
     line-height: 1.17; // 28px;
   }
 
   @media screen and (width <= 360px) {
     --left-offset: 16px;
+    --input-font-size: 20px;
 
-    font-size: 20px;
     line-height: 1.2; // 24px;
   }
 }
