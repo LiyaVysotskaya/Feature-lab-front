@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FC, FormEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
   EMAIL_REG_EX,
@@ -34,41 +34,35 @@ export const FormContact: FC<IFormProps> = ({
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
-  const originalFontSize = useRef<string>();
-
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // input text font size auto-minimizer
+    const input = e.target;
+    const inputStyles = getComputedStyle(input);
 
-    originalFontSize.current = originalFontSize.current || e.target.style.fontSize;
-    const textLength = e.target.value?.length;
-    e.target.style.fontSize =
-      textLength > 20 ? `${80 - (textLength - 20)}px` : originalFontSize.current;
+    // Access the value of the --input-font-size CSS variable
+    const originFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size'), 10);
+
+    // Access the value of the minimum font size CSS variable
+    const minFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size-min'), 10);
+
+    // Retrieve the current font size
+    const currentFontSize = parseInt(inputStyles.fontSize, 10);
+
+    const textLength = input.value.length;
+
+    // Calculate the new font size based on text length
+    let newFontSize = currentFontSize;
+    if (textLength > 20) {
+      // Decrease font size smoothly, but ensure it doesn't go below the minimum
+      const fontSizeDifference = Math.max(textLength - 20, 0);
+      newFontSize = Math.max(originFontSize - fontSizeDifference, minFontSize);
+    } else {
+      newFontSize = originFontSize;
+    }
+
+    // Apply the new font size to the input
+    input.style.fontSize = `${newFontSize}px`;
 
     handleChange(e);
-    // // Retrieve the current font size and input value
-    // const input = e.target;
-    // const currentFontSize = parseInt(getComputedStyle(input).fontSize, 10);
-    // console.log('currentFontSize : ', currentFontSize);
-    // const textLength = input.value.length;
-
-    // // Define the minimum font size
-    // const minFontSize = 32;
-
-    // // Calculate the new font size based on text length
-    // let newFontSize = currentFontSize;
-    // if (textLength > 20) {
-    //   // Decrease font size smoothly, but ensure it doesn't go below the minimum
-    //   const fontSizeDifference = Math.max(textLength - 20, 0);
-    //   newFontSize = Math.max(currentFontSize - fontSizeDifference, minFontSize);
-    // } else {
-    //   // Restore original font size if text length is not greater than 20
-    //   newFontSize = parseInt(originalFontSize.current || getComputedStyle(input).fontSize, 10);
-    // }
-
-    // // Apply the new font size to the input
-    // input.style.fontSize = `${newFontSize}px`;
-
-    // handleChange(e);
   };
 
   const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {

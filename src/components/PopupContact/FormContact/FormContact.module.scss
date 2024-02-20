@@ -3,7 +3,6 @@
   --grid-column-gap: 20px;
   --input-side-padding: 9.3%; // 160px;
   --input-min-height: 114px;
-  --input-font-size: 80px;
   --number-font-size: 80px;
 
   position: relative;
@@ -26,12 +25,10 @@
   @media screen and (width <= 768px) {
     --input-side-padding: 2.6%; // 20px;
     --input-min-height: 95px;
-    --input-font-size: 64px;
   }
 
   @media screen and (width <= 690px) {
     --input-side-padding: 5%; // 16px;
-    --input-font-size: 32px;
     --input-min-height: 77px;
   }
 }
@@ -92,6 +89,9 @@
 }
 
 .input {
+  --input-font-size: 80px;
+  --input-font-size-min: 48px;
+
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
   align-self: stretch;
@@ -129,6 +129,16 @@
     box-shadow: 0 0 0 1000px #fff inset;
 
     -webkit-text-fill-color: var(--dark-blue, #002d63);
+  }
+
+  @media screen and (width <= 768px) {
+    --input-font-size: 64px;
+    --input-font-size-min: 32px;
+  }
+
+  @media screen and (width <= 690px) {
+    --input-font-size: 32px;
+    --input-font-size-min: 20px;
   }
 }
 
@@ -253,7 +263,6 @@
   width: 100%;
   min-height: max-content;
   padding-bottom: 10px;
-
 
   &Visible {
     display: block;
