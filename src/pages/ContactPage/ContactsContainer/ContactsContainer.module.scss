@@ -2,12 +2,13 @@
   display: flex;
   width: 100%;
   max-width: 1720px;
+  margin-bottom: 234px;
 }
 
 .firstContainer, .secondContainer {
   display: flex;
   flex-direction: column;
-  gap: 53px;
+  gap: 68px;
 
   width: 720px;
   margin-right: 200px;
@@ -47,4 +48,15 @@
   text-align: left;
 
   border-top: 1px solid var(--dark-blue, #002d63);
+}
+
+.linksContainer {
+  display: flex;
+  gap: 48px;
+  padding-bottom: 11px;
+}
+
+.iconLink {
+  width: 80px;
+  height: 80px;
 }

@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import s from './ContactsContainer.module.scss';
+import { LinkIcon, TelegramIcon, WhatsupIcon } from '../../../components/ui/icons';
 
 export const ContactsContainer: FC = () => {
   return (
@@ -22,7 +24,20 @@ export const ContactsContainer: FC = () => {
           <span className={s.description}>телефоны</span>
         </div>
         <div className={s.wrap}>
-          <p className={s.text}>ololo</p>
+          <div className={s.linksContainer}>
+            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+              <TelegramIcon />
+            </Link>
+
+            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+              <LinkIcon />
+            </Link>
+
+            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+              <WhatsupIcon />
+            </Link>
+          </div>
+
           <span className={s.description}>социальные сети</span>
         </div>
       </div>
