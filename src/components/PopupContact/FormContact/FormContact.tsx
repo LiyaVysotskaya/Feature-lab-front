@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FC, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
   EMAIL_REG_EX,
