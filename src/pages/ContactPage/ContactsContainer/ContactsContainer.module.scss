@@ -1,0 +1,50 @@
+.contentContact {
+  display: flex;
+  width: 100%;
+  max-width: 1720px;
+}
+
+.firstContainer, .secondContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+
+  width: 720px;
+  margin-right: 200px;
+}
+
+.secondContainer {
+  margin-right: 0;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  padding-bottom: 11px;
+
+  font-family: Germano, sans-serif;
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--dark-blue, #002d63);
+  text-align: left;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 8px;
+
+  font-family: "GOST type B", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--dark-blue, #002d63);
+  text-align: left;
+
+  border-top: 1px solid var(--dark-blue, #002d63);
+}
