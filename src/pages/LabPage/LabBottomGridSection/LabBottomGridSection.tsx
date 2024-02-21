@@ -27,7 +27,7 @@ export const LabBottomGridSection: FC<ILabBottomGridSectionProps> = ({ className
         </p>
       </article>
 
-      <p className={cl(s.sectionText, s.sectionCell_2)}>
+      <p className={cl(s.sectionText, s.sectionCell_text)}>
         За&#160;что нас выбирают?
         <br />
         <br />
@@ -43,7 +43,7 @@ export const LabBottomGridSection: FC<ILabBottomGridSectionProps> = ({ className
         области, так и&#160;смежными командами
       </p>
 
-      <article className={cl(s.card, s.sectionCell_3)}>
+      <article className={cl(s.card, s.sectionCell_2)}>
         <h3 className={cl(s.cardTitle)}>СТЭК FRONT</h3>
         <p className={cl(s.cardText)}>
           С&#160;нами будешь
@@ -55,7 +55,7 @@ export const LabBottomGridSection: FC<ILabBottomGridSectionProps> = ({ className
         </p>
       </article>
 
-      <article className={cl(s.card, s.sectionCell_4)}>
+      <article className={cl(s.card, s.sectionCell_3)}>
         <h3 className={cl(s.cardTitle)}>СТЭК BACK</h3>
         <p className={cl(s.cardText)}>
           С&#160;нами будешь
