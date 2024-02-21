@@ -12,10 +12,6 @@
   width: 100%;
   margin: 0;
   padding: 60px 0;
-
-  @media screen and (width <= 690px) {
-    padding: 0;
-  }
 }
 
 .popup {
@@ -229,11 +225,6 @@
 }
 
 @media (width <= 1039px) {
-  .popup {
-    margin-right: 28px;
-    margin-left: 28px;
-  }
-
   .closeButton {
     top: 20px;
     right: 20px;
@@ -288,8 +279,8 @@
 }
 
 @media (width <= 767px) {
-  .popup {
-    margin: 38px 16px 0;
+  .popupContainer {
+    padding: 38px 0;
   }
 
   .closeButton {
