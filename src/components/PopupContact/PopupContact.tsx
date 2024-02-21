@@ -11,7 +11,7 @@ type IPopupProps = {
 };
 
 export const PopupContact: FC<IPopupProps> = ({ onClose, isOpen }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
     name: '',

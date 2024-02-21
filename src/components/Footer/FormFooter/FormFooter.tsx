@@ -33,7 +33,7 @@ export const FormFooter: FC<IFormProps> = ({
   isValid,
   isLoading,
 }) => {
-  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(true);
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
