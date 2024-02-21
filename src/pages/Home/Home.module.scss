@@ -1,0 +1,23 @@
+.promoSection {
+  margin-bottom: 0;
+
+  @media screen and (width <= 1280px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 120px;
+  }
+}
+
+.pageSection {
+  margin-bottom: 200px;
+
+  @media screen and (width <= 1280px) {
+    margin-bottom: 160px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 120px;
+  }
+}

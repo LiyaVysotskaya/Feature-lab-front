@@ -1,18 +1,18 @@
+import cl from 'classnames';
 import { FC } from 'react';
 import s from './PageTitle.module.scss';
 
 export interface IPageTitleProps {
   pageTitle: string;
   subTitle: string;
+  className?: string;
 }
 
-export const PageTitle: FC<IPageTitleProps> = ({ pageTitle, subTitle }) => {
+export const PageTitle: FC<IPageTitleProps> = ({ className = '', pageTitle, subTitle }) => {
   return (
-    <>
+    <div className={cl(s.pageTitleWrap, className)}>
       <h1 className={s.pageTitle}>{pageTitle}</h1>
-      <div className={s.subTitleWrapper}>
-        <p className={s.subTitle}>{subTitle}</p>
-      </div>
-    </>
+      <p className={s.subTitle}>{subTitle}</p>
+    </div>
   );
 };

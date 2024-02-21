@@ -1,7 +1,6 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FormEvent, useRef } from 'react';
-import s from './FormContact.module.scss';
-import { Button } from '../../ui/Button/Button';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 import {
   EMAIL_REG_EX,
   MAX_LENGTH_EMAIL,
@@ -12,9 +11,13 @@ import {
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
 } from '../../../constants/constants';
+import { Button } from '../../ui/Button/Button';
+import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
+
+import s from './FormContact.module.scss';
+import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 type IFormProps = {
-  openPrivacyPolicyPopup: () => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   values: { [key: string]: string };
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -23,8 +26,7 @@ type IFormProps = {
   isLoading: boolean | undefined;
 };
 
-export const FormContact: React.FC<IFormProps> = ({
-  openPrivacyPolicyPopup,
+export const FormContact: FC<IFormProps> = ({
   onSubmit,
   values,
   handleChange,
@@ -32,35 +34,42 @@ export const FormContact: React.FC<IFormProps> = ({
   isValid,
   isLoading,
 }) => {
-  const [isChecked, setIsChecked] = React.useState<boolean>(false);
-
-  const originalFontSize = useRef<string>();
-  const originalTextareaHeight = useRef<string>();
-
-  const handleButtonClick = () => {
-    openPrivacyPolicyPopup();
-  };
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    originalFontSize.current = originalFontSize.current || e.target.style.fontSize;
-    const textLength = e.target.value?.length;
-    e.target.style.fontSize =
-      textLength > 20 ? `${80 - (textLength - 20)}px` : originalFontSize.current;
+    const input = e.target;
+    const inputStyles = getComputedStyle(input);
+
+    // Access the value of the --input-font-size CSS variable
+    const originFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size'), 10);
+
+    // Access the value of the minimum font size CSS variable
+    const minFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size-min'), 10);
+
+    // Retrieve the current font size
+    const currentFontSize = parseInt(inputStyles.fontSize, 10);
+
+    const textLength = input.value.length;
+
+    // Calculate the new font size based on text length
+    let newFontSize = currentFontSize;
+    if (textLength > 20) {
+      // Decrease font size smoothly, but ensure it doesn't go below the minimum
+      const fontSizeDifference = Math.max(textLength - 20, 0);
+      newFontSize = Math.max(originFontSize - fontSizeDifference, minFontSize);
+    } else {
+      newFontSize = originFontSize;
+    }
+
+    // Apply the new font size to the input
+    input.style.fontSize = `${newFontSize}px`;
 
     handleChange(e);
   };
 
   const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
-  };
-
-  const onTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    originalTextareaHeight.current = originalTextareaHeight.current || `${e.target.clientHeight}px`;
-    const textLength = e.target.value?.length;
-    e.target.style.height =
-      textLength > 20 ? `${e.target.scrollHeight}px` : originalTextareaHeight.current;
-
-    handleChange(e);
   };
 
   const isEmpty = () => {
@@ -70,99 +79,101 @@ export const FormContact: React.FC<IFormProps> = ({
   return (
     <form className={s.form} method="POST" onSubmit={onSubmit}>
       <fieldset className={s.fieldset}>
-        <div className={s.contact}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input name"
-              value={values.name}
-              onChange={onInputChange}
-              name="name"
-              type="text"
-              placeholder="Имя"
-              minLength={MIN_LENGTH_NAME}
-              maxLength={MAX_LENGTH_NAME}
-              pattern={NAME_REG_EX}
-              required
-            />{' '}
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
-            </div>
+        <div className={s.inputContainer}>
+          <input
+            className={s.input}
+            aria-label="Input name"
+            value={values.name}
+            onChange={onInputChange}
+            name="name"
+            type="text"
+            placeholder="Имя"
+            minLength={MIN_LENGTH_NAME}
+            maxLength={MAX_LENGTH_NAME}
+            pattern={NAME_REG_EX}
+            required
+          />
+          <div className={s.textContainer}>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
+            <span className={cl(s.textClue)}>Имя</span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.name })}>
-            {errors.name}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
+            <span className={cl(s.inputError)}>{errors.name}</span>
+          </div>
         </div>
-        <div className={s.contact}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input email"
-              value={values.email}
-              onChange={onInputChange}
-              name="email"
-              type="email"
-              placeholder="Email / телефон"
-              minLength={MIN_LENGTH_EMAIL}
-              maxLength={MAX_LENGTH_EMAIL}
-              pattern={EMAIL_REG_EX}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
-                Email / телефон
-              </span>
-            </div>
+
+        <div className={s.inputContainer}>
+          <input
+            className={s.input}
+            aria-label="Input email"
+            value={values.email}
+            onChange={onInputChange}
+            name="email"
+            type="email"
+            placeholder="Email / телефон"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
+            pattern={EMAIL_REG_EX}
+            required
+          />
+
+          <div className={s.textContainer}>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
+              Email / телефон
+            </span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.email })}>
-            {errors.email}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+            <span className={cl(s.inputError)}>{errors.email}</span>
+          </div>
         </div>
-        <div className={s.contact}>
-          <div className={s.inputContainer}>
-            <textarea
-              className={s.input}
-              aria-label="Textarea project"
-              value={values.project}
-              onChange={onTextareaChange}
-              name="project"
-              placeholder="О вашем проекте"
-              minLength={MIN_LENGTH_PROJECT}
-              maxLength={MAX_LENGTH_PROJECT}
-              rows={1}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
-                О проекте
-              </span>
-            </div>
+        <div className={s.inputContainer}>
+          <TextareaAutosize
+            className={cl(s.input, s.textarea)}
+            aria-label="Textarea project"
+            value={values.project}
+            onChange={handleChange}
+            name="project"
+            placeholder="О вашем проекте"
+            minLength={MIN_LENGTH_PROJECT}
+            maxLength={MAX_LENGTH_PROJECT}
+            required
+          />
+          <div className={s.textContainer}>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>О проекте</span>
           </div>
-          <span className={cl(s.inputError, { [s.inputErrorActive]: errors.project })}>
-            {errors.project}
-          </span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
+            <span className={cl(s.inputError)}>{errors.project}</span>
+          </div>
         </div>
       </fieldset>
-      <label className={s.checkboxContainer} htmlFor="checkboxConfidential">
-        <input
-          className={s.checkbox}
-          id="checkboxConfidential"
-          aria-label="Checkbox confidential"
-          name="checkboxConfidential"
-          type="checkbox"
-          checked={isChecked}
-          onChange={onCheckboxClick}
-        />
-        <span className={s.checkboxText}>
-          Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
-          <span className={s.checkboxTextConfidential} onClick={handleButtonClick}>
-            политикой конфиденциальности
+
+      <div className={s.checkboxPosition}>
+        <div className={s.checkboxContainer}>
+          <label className={s.checkboxLabel} htmlFor="checkboxConfidentialContact">
+            <CheckBoxIcon isChecked={isChecked} />
+            <input
+              className={s.checkbox}
+              id="checkboxConfidentialContact"
+              aria-label="Checkbox confidential"
+              name="checkboxConfidentialContact"
+              type="checkbox"
+              checked={isChecked}
+              onChange={onCheckboxClick}
+            />
+          </label>
+          <span className={s.checkboxText}>
+            Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
+            <span
+              className={s.checkboxTextConfidential}
+              onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+              политикой конфиденциальности
+            </span>
           </span>
-        </span>
-      </label>
+        </div>
+      </div>
+
       <Button
         className={s.button}
         type="submit"
@@ -170,6 +181,11 @@ export const FormContact: React.FC<IFormProps> = ({
         text="Отправить"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
+      />
+
+      <PopupPrivacyPolicy
+        isOpen={isPopupPrivacyPolicyOpen}
+        onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
     </form>
   );

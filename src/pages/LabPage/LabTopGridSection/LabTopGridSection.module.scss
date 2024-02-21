@@ -1,0 +1,165 @@
+.section {
+  display: grid;
+  grid-template-areas:
+    'one title title'
+    'one two two'
+    'text two two'
+    'text three four';
+  gap: 40px;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0 0 20px;
+  padding: 0;
+
+  word-wrap: break-word;
+
+  &Title {
+    margin: 0 0 20px;
+
+    font-family: Molot, sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1; // 80px; /* 100% */
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1050px) {
+      font-size: 40px;
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 40px;
+    }
+  }
+
+  &Text {
+    font-family: Germano, sans-serif;
+    font-size: 64px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 64px; /* 100% */
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1600px) {
+      font-size: 48px;
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 40px;
+    }
+
+    @media screen and (width <= 360px) {
+      font-size: 32px;
+    }
+  }
+
+  &Cell {
+    &_title {
+      grid-area: title;
+    }
+
+    &_1 {
+      grid-area: one; // ЧТО ЭТО
+    }
+
+    &_2 {
+      grid-area: two; // КАК МЫ УЧИМ?
+    }
+
+    &_3 {
+      grid-area: three; // КАК В ЖИЗНИ
+    }
+
+    &_4 {
+      grid-area: four; // СТАРТАПЕР
+    }
+
+    &_text {
+      grid-area: text;
+    }
+  }
+
+  @media screen and (width <= 1050px) {
+    grid-template-areas:
+      'one title title'
+      'one two two'
+      'text two two'
+      'text three three'
+      'text four four';
+  }
+
+  @media screen and (width <= 768px) {
+    grid-template-areas:
+      'one title title'
+      'one two two'
+      'text two two'
+      'text three three'
+      'four four four';
+  }
+
+  @media screen and (width <= 690px) {
+    grid-template-areas:
+      'title title'
+      'one one'
+      'two two'
+      'three four'
+      'text text';
+  }
+}
+
+.card {
+  // overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  box-sizing: border-box;
+  padding: 20px;
+
+  background: var(--white, #fff);
+  border: 2px solid var(--dark-blue, #002d63);
+
+  transition: all 0.2s ease;
+
+  &Title {
+    font-family: Germano, sans-serif;
+    font-size: 64px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1; // 64px; /* 100% */
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 768px) {
+      font-size: 32px;
+    }
+  }
+
+  &Text {
+    max-width: 100%;
+
+    font-family: 'GOST type B', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.19; // 38px; /* 118.75% */
+    color: var(--white, #fff);
+
+    // word-wrap: break-word;
+
+    @media screen and (width <= 690px) {
+      font-size: 20px;
+      line-height: 1.2; // 24px; /* 120% */
+    }
+  }
+
+  &:hover {
+    background: var(--dark-blue, #002d63);
+  }
+
+  &:hover &Title {
+    color: var(--white, #fff);
+    text-decoration: underline;
+  }
+}

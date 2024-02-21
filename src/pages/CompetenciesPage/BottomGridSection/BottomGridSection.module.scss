@@ -4,8 +4,10 @@
   grid-template-rows: 380px 300px 460px;
   gap: 40px;
 
+  width: 100%;
+  max-width: var(--el-max-width);
   margin: 20px 0 100px;
-  padding: 0 100px;
+  padding: 0;
 
   &Text {
     font-family: Germano, sans-serif;

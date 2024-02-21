@@ -1,0 +1,131 @@
+.section {
+  display: grid;
+  grid-template-areas:
+    'one one text'
+    'two three text';
+
+  // grid-template-columns: 430px 520px auto;
+  // grid-template-rows: auto auto;
+  gap: 40px;
+
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0 0 100px;
+  padding: 0;
+
+  &Text {
+    font-family: Germano, sans-serif;
+    font-size: 64px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 64px; /* 100% */
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1600px) {
+      font-size: 48px;
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 40px;
+    }
+
+    @media screen and (width <= 360px) {
+      font-size: 32px;
+    }
+  }
+
+  &Cell {
+    &_1 {
+      grid-area: one;
+    }
+
+    &_text {
+      grid-area: text;
+    }
+
+    &_2 {
+      grid-area: two;
+    }
+
+    &_3 {
+      grid-area: three;
+    }
+  }
+
+  @media screen and (width <= 1280px) {
+  }
+
+  @media screen and (width <= 768px) {
+  }
+
+  @media screen and (width <= 560px) {
+    grid-template-areas:
+      'one one '
+      'two three '
+      'text text ';
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 20px;
+
+  background: var(--white, #fff);
+  border: 2px solid var(--dark-blue, #002d63);
+
+  transition: all 0.2s ease;
+
+  &Title {
+    font-family: Germano, sans-serif;
+    font-size: 64px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1; // 64px; /* 100% */
+    color: var(--dark-blue, #002d63);
+    word-wrap: break-word;
+
+    @media screen and (width <= 1280px) {
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 32px;
+    }
+
+    @media screen and (width <= 360px) {
+    }
+  }
+
+  &Text {
+    font-family: 'GOST type B', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.19; // 38px; /* 118.75% */
+    color: var(--white, #fff);
+
+    // color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1280px) {
+    }
+
+    @media screen and (width <= 768px) {
+    }
+
+    @media screen and (width <= 360px) {
+      font-size: 20px;
+      line-height: 1.2; // 24px; /* 120% */
+    }
+  }
+
+  &:hover {
+    background: var(--dark-blue, #002d63);
+  }
+
+  &:hover &Title {
+    color: var(--white, #fff);
+    text-decoration: underline;
+  }
+}

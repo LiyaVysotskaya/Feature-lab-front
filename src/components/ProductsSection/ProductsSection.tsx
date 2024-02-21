@@ -4,15 +4,17 @@ import { v4 as uuidv4 } from 'uuid';
 import s from './ProductsSection.module.scss';
 
 import { products } from '../../_mockData/productsMockData';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 export interface IProductsSectionProps {
   className?: string;
+  title: string;
 }
 
-export const ProductsSection: FC<IProductsSectionProps> = ({ className = '' }) => {
+export const ProductsSection: FC<IProductsSectionProps> = ({ className = '', title }) => {
   return (
     <section className={cl(s.productsSection, className)}>
-      <h2 className={s.sectionTitle}>Продуктовая разработка</h2>
+      <SectionTitle text={title} />
 
       <ul className={s.list}>
         {products.map((product) => (

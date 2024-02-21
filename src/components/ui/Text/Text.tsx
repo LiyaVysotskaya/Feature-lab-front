@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import cl from 'classnames';
 import s from './Text.module.scss';
 
@@ -6,34 +6,39 @@ export type TextProps = {
   children: React.ReactNode;
   className?: string;
   view?:
-    | 'title-1'
-    | 'title-2'
-    | 'title-3'
-    | 'title-4'
-    | 'title-molot-1'
-    | 'title-molot-2'
-    | 'title-molot-3'
-    | 'title-molot-4'
-    | 'text-1'
-    | 'text-2'
-    | 'text-3';
+    | 'germano-1'
+    | 'germano-2'
+    | 'germano-3'
+    | 'germano-4'
+    | 'germano-5'
+    | 'germano-6'
+    | 'germano-7'
+    | 'germano-8'
+    | 'molot-1'
+    | 'molot-2'
+    | 'molot-3'
+    | 'molot-4'
+    | 'molot-5'
+    | 'molot-6'
+    | 'gost-1'
+    | 'gost-2'
+    | 'gost-3'
+    | 'gost-4'
+    | 'gost-5';
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'div' | 'p' | 'span';
   line?: boolean;
   outlined?: boolean;
 };
 
-export const Text: React.FC<TextProps> = ({
+const TextWithoutMemo: React.FC<TextProps> = ({
   className = '',
-  view = 'text-3',
+  view = 'gost-1',
   tag = 'div',
   children,
   line = false,
   outlined = false,
 }) => {
-  const isTitle = view.includes('title');
-  const fontType = isTitle && view.includes('molot') ? 'molot' : 'germano';
-  const titleFontFamily = isTitle ? fontType : undefined;
-
+  const fontFamily = view.split('-')[0];
   const Tag = tag;
 
   return (
@@ -42,11 +47,13 @@ export const Text: React.FC<TextProps> = ({
         s.text,
         s[`text__view-${view}`],
         line && s.text__line,
+        s[`text__${fontFamily}`],
         outlined && s.text__outlined,
-        titleFontFamily && s[`text__title-${titleFontFamily}`],
         className,
       )}>
       {children}
     </Tag>
   );
 };
+
+export const Text = memo(TextWithoutMemo);

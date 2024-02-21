@@ -13,102 +13,102 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-export const Default: Story = {
+export const GERMANO_1: Story = {
   args: {
     children: 'ФИЧЛАБ',
+    view: 'germano-1',
   },
 };
 
-export const TEXT_1: Story = {
+export const GERMANO_2: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'text-1',
+    view: 'germano-2',
   },
 };
 
-export const TEXT_1_WITH_LINE: Story = {
+export const GERMANO_3: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'text-1',
-    line: true,
+    view: 'germano-3',
   },
 };
 
-export const TEXT_2: Story = {
+export const GERMANO_4: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'text-2',
+    view: 'germano-4',
   },
 };
 
-export const TEXT_2_WITH_LINE: Story = {
+export const MOLOT_1: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'text-2',
-    line: true,
+    view: 'molot-1',
   },
 };
 
-export const TITLE_1_MOLOT_OUTLINED: Story = {
+export const MOLOT_2: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'title-molot-1',
+    view: 'molot-2',
+  },
+};
+
+export const MOLOT_3: Story = {
+  args: {
+    children: 'ФИЧЛАБ',
+    view: 'molot-3',
+  },
+};
+
+export const MOLOT_4: Story = {
+  args: {
+    children: 'ФИЧЛАБ',
+    view: 'molot-4',
+  },
+};
+
+export const DEFAULT_GOST_1: Story = {
+  args: {
+    children: 'Таким образом постоянный',
+  },
+};
+
+export const GOST_2: Story = {
+  args: {
+    children: 'Таким образом постоянный',
+    view: 'gost-2',
+  },
+};
+
+export const GOST_3: Story = {
+  args: {
+    children: 'Таким образом постоянный',
+    view: 'gost-3',
+  },
+};
+
+export const MOLOT_1_OUTLINED: Story = {
+  args: {
+    children: 'ФИЧЛАБ',
+    view: 'molot-1',
     outlined: true,
   },
 };
 
-export const TITLE_1_MOLOT: Story = {
+export const GERMANO_2_WITH_LINE: Story = {
   args: {
     children: 'ФИЧЛАБ',
-    view: 'title-molot-1',
+    view: 'germano-2',
+    line: true,
   },
 };
 
-export const TITLE_2_MOLOT: Story = {
+export const GOST_1_WITH_LINE: Story = {
   args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-molot-2',
-  },
-};
-
-export const TITLE_3_MOLOT: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-molot-3',
-  },
-};
-
-export const TITLE_4_MOLOT: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-molot-4',
-  },
-};
-
-export const TITLE_1: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-1',
-  },
-};
-
-export const TITLE_2: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-2',
-  },
-};
-
-export const TITLE_3: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-3',
-  },
-};
-
-export const TITLE_4: Story = {
-  args: {
-    children: 'ФИЧЛАБ',
-    view: 'title-4',
+    children: 'Таким образом постоянный',
+    view: 'gost-1',
+    line: true,
   },
 };

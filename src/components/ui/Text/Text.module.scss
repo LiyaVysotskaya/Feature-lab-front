@@ -1,7 +1,6 @@
 .text {
-  font-family: var(--text-1-font-family, 'GostTypeB-Standard', sans-serif);
-  font-weight: var(--text-1-font-weight, 400);
-  color: var(--darkblue, #002d63);
+  font-weight: 400;
+  color: var(--dark-blue, #002d63);
   text-decoration-skip-ink: none;
 
   &__line {
@@ -13,78 +12,123 @@
   &__outlined {
     color: var(--white);
 
-    -webkit-text-stroke: 3.5px var(--darkblue);
+    -webkit-text-stroke: 3.5px var(--dark-blue);
   }
 
-  &__title-molot {
-    font-family: var(--title-h-1-molot-font-family, molot-regular, sans-serif);
+  &__molot {
+    font-family: molot-regular, sans-serif;
   }
 
-  &__title-germano {
-    font-family: var(--title-h-1-font-family, 'Germano-Regular', sans-serif);
+  &__germano {
+    font-family: Germano-Regular, sans-serif;
   }
 
-  &__view-title-molot-1 {
-    font-size: var(--title-h-1-molot-font-size, 128px);
+  &__gost {
+    font-family: GostTypeB-Standard, sans-serif;
+  }
+
+  &__view-molot-1 {
+    font-size: 128px;
     line-height: 1;
   }
 
-  &__view-title-molot-2 {
-    font-size: var(--title-h-2-molot-font-size, 100px);
+  &__view-molot-2 {
+    font-size: 100px;
     line-height: 1;
   }
 
-  &__view-title-molot-3 {
-    font-size: var(--title-h-3-molot-font-size, 80px);
+  &__view-molot-3 {
+    font-size: 80px;
     line-height: 1;
   }
 
-  &__view-title-molot-4 {
-    font-size: var(--title-h-4-molot-font-size, 66px);
+  &__view-molot-4 {
+    font-size: 66px;
     line-height: 1;
   }
 
-  &__view-title-1 {
-    font-size: var(--title-h-1-font-size, 140px);
-    line-height: var(--title-h-1-line-height, 120px);
+  &__view-molot-5 {
+    font-size: 40px;
+    line-height: 1;
   }
 
-  &__view-title-2 {
-    font-size: var(--title-h-2-font-size, 80px);
+  &__view-molot-6 {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &__view-germano-1 {
+    font-size: 140px;
+    line-height: 0.86; // 120px;
+  }
+
+  &__view-germano-2 {
+    font-size: 100px;
+    line-height: 1.2; // 120px;
+  }
+
+  &__view-germano-3 {
+    font-size: 80px;
     line-height: 1;
     text-decoration-thickness: 4px;
     text-underline-offset: 12px;
     letter-spacing: -3.2px;
   }
 
-  &__view-title-3 {
-    font-size: var(--title-h-3-font-size, 64px);
+  &__view-germano-4 {
+    font-size: 64px;
     line-height: 1;
     text-decoration-thickness: 3px;
     text-underline-offset: 10px;
   }
 
-  &__view-title-4 {
-    font-size: var(--title-h-4-font-size, 48px);
+  &__view-germano-5 {
+    font-size: 48px;
     line-height: 1;
     text-decoration-thickness: 2.5px;
     text-underline-offset: 8px;
   }
 
-  &__view-text-1 {
-    font-size: var(--text-1-font-size, 32px);
-    line-height: var(--text-1-line-height, 38px);
+  &__view-germano-6 {
+    font-size: 40px;
+    line-height: 1;
   }
 
-  &__view-text-2 {
-    font-size: var(--text-2-line-font-size, 24px);
-    line-height: var(--text-2-line-line-height, 28px);
+  &__view-germano-7 {
+    font-size: 32px;
+    line-height: 1;
+    text-decoration-thickness: 1px;
   }
 
-  &__view-text-3 {
-    font-size: var(--text-3-line-font-size, 20px);
-    line-height: var(--text-3-line-line-height, 24px);
+  &__view-germano-8 {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  &__view-gost-1 {
+    font-size: 32px;
+    line-height: 1.19; // 38px;
+  }
+
+  &__view-gost-2 {
+    font-size: 24px;
+    line-height: 1.17; // 28px;
+  }
+
+  &__view-gost-3 {
+    font-size: 20px;
+    line-height: 1.2; // 24px;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+  }
+
+  &__view-gost-4 {
+    font-size: 16px;
+    line-height: 1.3; // 18px;
+  }
+
+  &__view-gost-5 {
+    font-size: 14px;
+    line-height: 1; // 18px;
   }
 }

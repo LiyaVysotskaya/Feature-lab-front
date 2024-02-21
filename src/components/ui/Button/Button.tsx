@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { SpinnerIcon } from '../icons';
 import s from './Button.module.scss';
-import Spinner from './svg/Icon-SpinnerGap.svg?svgr';
 
 export interface IButtonProps {
   className?: string;
@@ -22,56 +22,40 @@ export const Button: FC<IButtonProps> = ({
   isLoading = false,
   disabled = false,
 }) => {
+  const spinnerColor = () => {
+    if (theme === 'white') {
+      return 'blue';
+    }
+    return 'white';
+  };
+
   return (
     <>
       {theme === 'promo' && (
-        <button
-          disabled={disabled}
-          onClick={onClick}
-          type={type}
-          className={cl(s.btn, s.promo, className)}>
-          <div className={s.disk_out}>
-            <div className={s.disk_in}>
-              {!isLoading ? (
-                <p className={s.promoText}>{text}</p>
-              ) : (
-                <Spinner className={cl(s.spinner)} />
-              )}
-            </div>
-          </div>
-        </button>
+        <div className={cl(s.promoBtnWrapper, className)}>
+          <button
+            disabled={disabled}
+            onClick={onClick}
+            type={type}
+            className={cl(s.btn, s.promoBtn)}>
+            {!isLoading ? text : <SpinnerIcon theme="white" />}
+          </button>
+        </div>
       )}
+
       {(theme === 'white' || theme === 'blue') && (
-        <div className={cl(s.btn, s.radiant, className)}>
-          <div
-            className={cl(s.gradient, {
-              [s.gradient_gray]: disabled === true,
+        <div
+          className={cl(s.radiantBtnWrapper, { [s.radiantBtnWrapper_gray]: disabled }, className)}>
+          <button
+            disabled={disabled}
+            onClick={onClick}
+            type={type}
+            className={cl(s.btn, s.radiantBtn, {
+              [s.radiantBtn_white]: theme === 'white',
+              [s.radiantBtn_blue]: theme === 'blue',
             })}>
-            <button
-              disabled={disabled}
-              onClick={onClick}
-              type={type}
-              className={cl(s.disk, {
-                [s.disk_white]: theme === 'white',
-                [s.disk_blue]: theme === 'blue',
-              })}>
-              {!isLoading ? (
-                <p
-                  className={cl(s.text, {
-                    [s.text_blue]: theme === 'white',
-                    [s.text_white]: theme === 'blue',
-                  })}>
-                  {text}
-                </p>
-              ) : (
-                <Spinner
-                  className={cl(s.spinner, {
-                    [s.spinner_blue]: theme === 'white',
-                  })}
-                />
-              )}
-            </button>
-          </div>
+            {!isLoading ? text : <SpinnerIcon theme={spinnerColor()} />}
+          </button>
         </div>
       )}
     </>
