@@ -6,40 +6,41 @@ import { LinkIcon, TelegramIcon, WhatsupIcon } from '../../../components/ui/icon
 export const ContactsContainer: FC = () => {
   return (
     <section className={s.contentContact}>
-      <div className={s.firstContainer}>
-        <div className={s.wrap}>
-          <p className={s.text}>Москва,</p>
-          <p className={s.text}>пр-кт Ленина 2А</p>
-          <span className={s.description}>адрес</span>
-        </div>
-        <div className={s.wrap}>
-          <p className={s.text}>fitchlab@gmail.com</p>
-          <span className={s.description}>e-mail</span>
-        </div>
+      <div className={(s.wrap, s.adress)}>
+        <p className={s.text}>
+          Москва,
+          <br />
+          пр-кт Ленина 2А
+        </p>
+        <p className={s.description}>адрес</p>
       </div>
-      <div className={s.secondContainer}>
-        <div className={s.wrap}>
-          <p className={s.text}>8 800 200 50 50</p>
-          <p className={s.text}>8 916 166 75 00</p>
-          <span className={s.description}>телефоны</span>
+      <div className={(s.wrap, s.email)}>
+        <p className={s.text}>fitchlab@gmail.com</p>
+        <p className={s.description}>e-mail</p>
+      </div>
+      <div className={(s.wrap, s.telephones)}>
+        <p className={s.text}>
+          8 800 200 50 50
+          <br />8 916 166 75 00
+        </p>
+        <p className={s.description}>телефоны</p>
+      </div>
+      <div className={(s.wrap, s.media)}>
+        <div className={s.linksContainer}>
+          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+            <TelegramIcon />
+          </Link>
+
+          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+            <LinkIcon />
+          </Link>
+
+          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+            <WhatsupIcon />
+          </Link>
         </div>
-        <div className={s.wrap}>
-          <div className={s.linksContainer}>
-            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
-              <TelegramIcon />
-            </Link>
 
-            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
-              <LinkIcon />
-            </Link>
-
-            <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
-              <WhatsupIcon />
-            </Link>
-          </div>
-
-          <span className={s.description}>социальные сети</span>
-        </div>
+        <p className={s.description}>социальные сети</p>
       </div>
     </section>
   );
