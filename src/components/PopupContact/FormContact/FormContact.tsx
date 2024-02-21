@@ -13,7 +13,9 @@ import {
 } from '../../../constants/constants';
 import { Button } from '../../ui/Button/Button';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
+
 import s from './FormContact.module.scss';
+import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -32,7 +34,8 @@ export const FormContact: FC<IFormProps> = ({
   isValid,
   isLoading,
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -148,13 +151,13 @@ export const FormContact: FC<IFormProps> = ({
 
       <div className={s.checkboxPosition}>
         <div className={s.checkboxContainer}>
-          <label className={s.checkboxLabel} htmlFor="checkboxConfidential">
+          <label className={s.checkboxLabel} htmlFor="checkboxConfidentialContact">
             <CheckBoxIcon isChecked={isChecked} />
             <input
               className={s.checkbox}
-              id="checkboxConfidential"
+              id="checkboxConfidentialContact"
               aria-label="Checkbox confidential"
-              name="checkboxConfidential"
+              name="checkboxConfidentialContact"
               type="checkbox"
               checked={isChecked}
               onChange={onCheckboxClick}
@@ -162,7 +165,11 @@ export const FormContact: FC<IFormProps> = ({
           </label>
           <span className={s.checkboxText}>
             Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
-            <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
+            <span
+              className={s.checkboxTextConfidential}
+              onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+              политикой конфиденциальности
+            </span>
           </span>
         </div>
       </div>
@@ -174,6 +181,11 @@ export const FormContact: FC<IFormProps> = ({
         text="Отправить"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
+      />
+
+      <PopupPrivacyPolicy
+        isOpen={isPopupPrivacyPolicyOpen}
+        onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
     </form>
   );
