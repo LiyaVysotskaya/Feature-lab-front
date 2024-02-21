@@ -1,17 +1,49 @@
 .contentContact {
   display: flex;
   width: 100%;
-  max-width: 1720px;
+  max-width: var(--el-max-width);
   margin-bottom: 234px;
+
+  @media screen and (width <= 1280px) {
+    margin-bottom: 228px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 127px;
+  }
+  
+  @media screen and (width <= 650px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (width <= 360px) {
+    margin-bottom: 120px;
+  }
 }
 
-.firstContainer, .secondContainer {
+.firstContainer,
+.secondContainer {
   display: flex;
-  flex-direction: column;
-  gap: 68px;
+  flex-flow: column wrap;
+  row-gap: 68px;
 
-  width: 720px;
+  width: 100%;
+  max-width: 720px;
   margin-right: 200px;
+
+  @media screen and (width <= 1280px) {
+    row-gap: 53px;
+    margin-right: 60px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-right: 44px;
+  }
+
+  @media screen and (width <= 360px) {
+    margin-right: 0;
+  }
 }
 
 .secondContainer {
@@ -33,14 +65,27 @@
   color: var(--dark-blue, #002d63);
   text-align: left;
   letter-spacing: -0.04em;
+
+  @media screen and (width <= 1280px) {
+    font-size: 64px;
+    letter-spacing: 0;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 40px;
+  }
+}
+
+.text:last-of-type {
+  padding-bottom: 0;
 }
 
 .description {
   width: 100%;
-  margin-top: 16px;
+  margin-top: 27px;
   padding-top: 8px;
 
-  font-family: "GOST type B", sans-serif;
+  font-family: 'GOST type B', sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 1.18;
@@ -48,15 +93,33 @@
   text-align: left;
 
   border-top: 1px solid var(--dark-blue, #002d63);
+
+  @media screen and (width <= 1280px) {
+    font-size: 24px;
+    line-height: 1.16;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .linksContainer {
   display: flex;
-  gap: 48px;
-  padding-bottom: 11px;
+  column-gap: 48px;
+
+  @media screen and (width <= 768px) {
+    column-gap: 28px;
+  }
 }
 
 .iconLink {
   width: 80px;
   height: 80px;
+
+  @media screen and (width <= 1280px) {
+    width: 60px;
+    height: 60px;
+  }
 }
