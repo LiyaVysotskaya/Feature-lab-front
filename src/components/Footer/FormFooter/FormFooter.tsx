@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
   EMAIL_REG_EX,
@@ -13,7 +13,7 @@ import {
 } from '../../../constants/constants';
 import { Button } from '../../ui/Button/Button';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
-import s from './FormContact.module.scss';
+import s from './FormFooter.module.scss';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -24,7 +24,7 @@ type IFormProps = {
   isLoading: boolean | undefined;
 };
 
-export const FormContact: FC<IFormProps> = ({
+export const FormFooter: FC<IFormProps> = ({
   onSubmit,
   values,
   handleChange,
@@ -35,6 +35,8 @@ export const FormContact: FC<IFormProps> = ({
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // input text font size auto-minimizer
+
     const input = e.target;
     const inputStyles = getComputedStyle(input);
 
@@ -65,7 +67,7 @@ export const FormContact: FC<IFormProps> = ({
     handleChange(e);
   };
 
-  const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
   };
 
@@ -75,8 +77,10 @@ export const FormContact: FC<IFormProps> = ({
 
   return (
     <form className={s.form} method="POST" onSubmit={onSubmit}>
-      <fieldset className={s.fieldset}>
-        <div className={s.inputContainer}>
+      <h2 className={s.formTitle}>Свяжитесь c&#160;нами</h2>
+
+      <div className={s.fieldset}>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.name })}>
           <input
             className={s.input}
             aria-label="Input name"
@@ -90,41 +94,29 @@ export const FormContact: FC<IFormProps> = ({
             pattern={NAME_REG_EX}
             required
           />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-            <span className={cl(s.textClue)}>Имя</span>
-          </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
-            <span className={cl(s.inputError)}>{errors.name}</span>
-          </div>
+          <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>
+            {errors.name || 'Имя'}
+          </span>
         </div>
-
-        <div className={s.inputContainer}>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.email })}>
           <input
             className={s.input}
             aria-label="Input email"
             value={values.email}
             onChange={onInputChange}
             name="email"
-            type="email"
-            placeholder="Email / телефон"
+            type="text"
+            placeholder="Email / Телефон"
             minLength={MIN_LENGTH_EMAIL}
             maxLength={MAX_LENGTH_EMAIL}
             pattern={EMAIL_REG_EX}
             required
           />
-
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
-              Email / телефон
-            </span>
-          </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-            <span className={cl(s.inputError)}>{errors.email}</span>
-          </div>
+          <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
+            {errors.email || 'Email / телефон'}
+          </span>
         </div>
-        <div className={s.inputContainer}>
+        <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.project })}>
           <TextareaAutosize
             className={cl(s.input, s.textarea)}
             aria-label="Textarea project"
@@ -136,20 +128,14 @@ export const FormContact: FC<IFormProps> = ({
             maxLength={MAX_LENGTH_PROJECT}
             required
           />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>О проекте</span>
-          </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
-            <span className={cl(s.inputError)}>{errors.project}</span>
-          </div>
+          <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
+            {errors.project || 'О проекте'}
+          </span>
         </div>
-      </fieldset>
 
-      <div className={s.checkboxPosition}>
         <div className={s.checkboxContainer}>
           <label className={s.checkboxLabel} htmlFor="checkboxConfidential">
-            <CheckBoxIcon isChecked={isChecked} />
+            <CheckBoxIcon isChecked={isChecked} color="white" />
             <input
               className={s.checkbox}
               id="checkboxConfidential"
@@ -168,9 +154,9 @@ export const FormContact: FC<IFormProps> = ({
       </div>
 
       <Button
-        className={s.button}
+        className={s.footerButton}
         type="submit"
-        theme="white"
+        theme="blue"
         text="Отправить"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
@@ -179,4 +165,4 @@ export const FormContact: FC<IFormProps> = ({
   );
 };
 
-export default FormContact;
+export default FormFooter;
