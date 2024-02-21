@@ -1,22 +1,48 @@
 .popupContainer {
-  margin: 60px 50px auto 50px;
-  // padding-top: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 60px 0;
+
+  @media screen and (width <= 690px) {
+    padding: 0;
+  }
+}
+
+.popup {
   position: relative;
   z-index: 1;
-  max-width: 1820px;
+
   width: 100%;
+  max-width: var(--el-max-width);
   height: fit-content;
+
   background-color: var(--white);
+
+  @media screen and (width >= 1920px) {
+    max-width: 1820px;
+  }
 }
 
 .closeButton {
-  display: block;
-  max-width: 80px;
-  max-height: 80px;
   position: absolute;
+  z-index: 2;
   top: 40px;
   right: 40px;
-  z-index: 2;
+
+  display: block;
+
+  max-width: 80px;
+  max-height: 80px;
 
   & div {
     width: 100%;
@@ -32,21 +58,21 @@
   border-bottom: 4px solid #002d63;
 
   &__text {
-    color: var(--darkblue, #002d63);
-    font-family: var(--title-h-1-molot-font-family, 'Molot-Regular', sans-serif);
+    font-family: Molot-Regular, sans-serif;
     font-size: 160px;
-    line-height: var(--title-h-1-molot-line-height, 128px);
-    font-weight: var(--title-h-1-molot-font-weight, 400);
+    font-weight: 400;
+    line-height: 0.8; // 128px;
+    color: #002d63;
     letter-spacing: -1.6px;
   }
 }
 
 .popupFootnote {
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.19; // 38px;
   color: var(--darkblue, #002d63);
-  font-family: var(--text-1-line-font-family, 'GostTypeB-Standard', sans-serif);
-  font-size: var(--text-1-line-font-size, 32px);
-  line-height: var(--text-1-line-line-height, 38px);
-  font-weight: var(--text-1-line-font-weight, 400);
 }
 
 .popupPrivacyPolicy__content {
@@ -54,39 +80,42 @@
   flex-direction: column;
 
   &_item {
-    padding: 24px 50px 60px 50px;
     display: flex;
     flex-direction: column;
     gap: 25px;
+
+    padding: 24px 50px 60px;
+
+    background: var(--white, #fff);
     border-top: 2px solid var(--dark-blue, #002d63);
     border-bottom: 2px solid var(--dark-blue, #002d63);
-    background: var(--white, #fff);
 
     &_title {
-      padding: 5px 0;
       display: grid;
       grid-template-columns: 100px 1fr;
-      align-items: center;
       gap: 40px;
+      align-items: center;
+
+      padding: 5px 0;
 
       &_number {
+        font-family: Molot-Regular, sans-serif;
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 1; // 80px;
         color: var(--darkblue, #002d63);
-        font-family: var(--title-h-3-molot-font-family, 'Molot-Regular', sans-serif);
-        font-size: var(--title-h-3-molot-font-size, 80px);
-        line-height: var(--title-h-3-molot-line-height, 80px);
-        font-weight: var(--title-h-3-molot-font-weight, 400);
       }
 
       &_text {
-        color: var(--darkblue, #002d63);
-        font-family: var(--title-h-2-line-font-family, 'Germano-Regular', sans-serif);
-        font-size: var(--title-h-2-line-font-size, 80px);
-        line-height: var(--title-h-2-line-line-height, 80px);
-        font-weight: 300;
-        letter-spacing: -3.2px;
-
         display: flex;
         flex-direction: column;
+
+        font-family: Germano-Regular, sans-serif;
+        font-size: 80px;
+        font-weight: 300;
+        line-height: 1; // 80px;
+        color: var(--darkblue, #002d63);
+        letter-spacing: -3.2px;
       }
     }
 
@@ -94,14 +123,15 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
-      padding-left: 140px;
-      white-space: pre-wrap;
 
+      padding-left: 140px;
+
+      font-family: GostTypeB-Standard, sans-serif;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.19; // 38px;
       color: var(--darkblue, #002d63);
-      font-family: var(--text-1-line-font-family, 'GostTypeB-Standard', sans-serif);
-      font-size: var(--text-1-line-font-size, 32px);
-      line-height: var(--text-1-line-line-height, 38px);
-      font-weight: var(--text-1-line-font-weight, 400);
+      white-space: pre-wrap;
 
       &.one_column {
         grid-template-columns: 1fr;
@@ -116,16 +146,16 @@
   }
 }
 
-@media (max-width: 1919px) {
+@media (width <= 1919px) {
   .popupTitle {
     &__text {
-      font-size: var(--title-h-1-molot-font-size, 128px);
-      line-height: var(--title-h-2-molot-line-height, 100px);
+      font-size: 128px;
+      line-height: 0.78; // 100px;
     }
   }
 }
 
-@media (max-width: 1609px) {
+@media (width <= 1609px) {
   .closeButton {
     max-width: 70px;
     max-height: 70px;
@@ -137,31 +167,31 @@
 
   .popupTitle {
     &__text {
-      font-size: var(--title-h-2-molot-font-size, 100px);
-      line-height: var(--title-h-3-molot-line-height, 80px);
+      font-size: 100px;
+      line-height: 0.8; // 80px;
       letter-spacing: -1px;
     }
   }
 
   .popupPrivacyPolicy__content {
     &_item {
-      padding: 8px 25px 44px 25px;
       gap: 20px;
+      padding: 8px 25px 44px;
 
       &_title {
         gap: 24px;
 
         &_text {
-          font-size: var(--title-h-3-line-font-size, 64px);
-          line-height: var(--title-h-3-line-line-height, 64px);
+          font-size: 64px;
+          line-height: 1;
         }
       }
 
       &_text {
         gap: 24px;
         padding-left: 124px;
-        font-size: var(--text-2-line-font-size, 24px);
-        line-height: var(--text-2-line-line-height, 28px);
+        font-size: 24px;
+        line-height: 1.17; // 28px;
 
         &.one_column {
           gap: 20px;
@@ -175,12 +205,12 @@
   }
 }
 
-@media (max-width: 1279px) {
+@media (width <= 1279px) {
   .closeButton {
-    max-width: 60px;
-    max-height: 60px;
     top: 32px;
     right: 32px;
+    max-width: 60px;
+    max-height: 60px;
   }
 
   .popupPrivacyPolicy__wrapper {
@@ -191,24 +221,24 @@
     padding-bottom: 13px;
 
     &__text {
-      font-size: var(--title-h-3-molot-font-size, 80px);
-      line-height: var(--title-h-4-molot-line-height, 66px);
+      font-size: 80px;
+      line-height: 0.83; // 66px;
       letter-spacing: -0.59px;
     }
   }
 }
 
-@media (max-width: 1039px) {
-  .popupContainer {
-    margin-left: 28px;
+@media (width <= 1039px) {
+  .popup {
     margin-right: 28px;
+    margin-left: 28px;
   }
 
   .closeButton {
-    max-width: 45px;
-    max-height: 45px;
     top: 20px;
     right: 20px;
+    max-width: 45px;
+    max-height: 45px;
   }
 
   .popupTitle {
@@ -221,29 +251,27 @@
   }
 
   .popupFootnote {
-    font-size: var(--text-2-line-font-size, 24px);
-    line-height: var(--text-2-line-line-height, 28px);
+    font-size: 24px;
+    line-height: 1.17; // 28px;
   }
 
   .popupPrivacyPolicy__content {
     &_item {
-      padding: 16px 12px 28px 12px;
+      padding: 16px 12px 28px;
 
       &_title {
         &_number {
-          font-size: var(--title-h-4-molot-font-size, 66px);
-          line-height: var(--title-h-4-molot-line-height, 66px);
+          font-size: 66px;
         }
 
         &_text {
-          font-size: var(--title-h-3-line-font-size, 64px);
-          line-height: var(--title-h-3-line-line-height, 64px);
+          font-size: 64px;
         }
       }
 
       &_text {
-        padding-left: 0;
         grid-template-columns: 1fr;
+        padding-left: 0;
 
         &.one_column {
           .content_item_text_point:first-child {
@@ -259,16 +287,16 @@
   }
 }
 
-@media (max-width: 767px) {
-  .popupContainer {
-    margin: 38px 16px 0 16px;
+@media (width <= 767px) {
+  .popup {
+    margin: 38px 16px 0;
   }
 
   .closeButton {
-    max-width: 32px;
-    max-height: 32px;
     top: 10px;
     right: 10px;
+    max-width: 32px;
+    max-height: 32px;
   }
 
   .popupPrivacyPolicy__wrapper {
@@ -277,8 +305,8 @@
   }
 
   .popupTitle {
-    border-bottom: 2px solid #002d63;
     padding-bottom: 3px;
+    border-bottom: 2px solid #002d63;
 
     &__text {
       font-size: 44px;
@@ -286,14 +314,14 @@
   }
 
   .popupFootnote {
-    font-size: var(--text-3-line-font-size, 20px);
-    line-height: var(--text-3-line-line-height, 24px);
+    font-size: 20px;
+    line-height: 1.2; // 24px;
   }
 
   .popupPrivacyPolicy__content {
     &_item {
-      padding: 16px 8px 24px 8px;
       gap: 16px;
+      padding: 16px 8px 24px;
       border-top: 1px solid var(--dark-blue, #002d63);
       border-bottom: 1px solid var(--dark-blue, #002d63);
 
@@ -302,12 +330,10 @@
 
         &_number {
           font-size: 55px;
-          line-height: 1;
         }
 
         &_text {
           font-size: 50px;
-          line-height: 1;
         }
       }
 
@@ -318,13 +344,14 @@
 
         &.one_column {
           gap: 16px;
+
           .content_item_text_point {
             gap: 8px;
           }
 
           .content_item_text_point:not(:first-child) {
-            margin-left: 0;
             grid-template-columns: 1fr;
+            margin-left: 0;
           }
         }
       }
@@ -332,7 +359,7 @@
   }
 }
 
-@media (max-width: 544px) {
+@media (width <= 544px) {
   .closeButton {
     top: 4px;
     right: 4px;
@@ -352,10 +379,10 @@
   }
 
   .popupFootnote {
-    font-size: var(--text-tel-2-line-font-size, 16px);
-    line-height: var(--text-tel-2-line-line-height, 18px);
     max-width: 250px;
     margin-top: 6px;
+    font-size: 16px;
+    line-height: 1.13; // 18px;
   }
 
   .popupPrivacyPolicy__content {
@@ -364,13 +391,11 @@
         grid-template-columns: 45px 1fr;
 
         &_number {
-          font-size: var(--title-tel-h-1-line-font-size, 40px);
-          line-height: var(--title-tel-h-1-line-line-height, 40px);
+          font-size: 40px;
         }
 
         &_text {
-          font-size: var(--title-tel-h-2-line-font-size, 32px);
-          line-height: var(--title-tel-h-2-line-line-height, 32px);
+          font-size: 32px;
           font-weight: 300;
           letter-spacing: 0;
         }
@@ -379,7 +404,7 @@
   }
 }
 
-@media (max-width: 392px) {
+@media (width <= 392px) {
   .popupTitle {
     &__text {
       font-size: 27px;
@@ -387,7 +412,7 @@
   }
 }
 
-@media (max-width: 349px) {
+@media (width <= 349px) {
   .popupTitle {
     &__text {
       font-size: 24px;

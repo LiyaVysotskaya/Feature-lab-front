@@ -14,6 +14,7 @@ import {
 import { Button } from '../../ui/Button/Button';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
 import s from './FormFooter.module.scss';
+import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -32,7 +33,8 @@ export const FormFooter: FC<IFormProps> = ({
   isValid,
   isLoading,
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     // input text font size auto-minimizer
@@ -134,13 +136,13 @@ export const FormFooter: FC<IFormProps> = ({
         </div>
 
         <div className={s.checkboxContainer}>
-          <label className={s.checkboxLabel} htmlFor="checkboxConfidential">
+          <label className={s.checkboxLabel} htmlFor="checkboxConfidentialFooter">
             <CheckBoxIcon isChecked={isChecked} color="white" />
             <input
               className={s.checkbox}
-              id="checkboxConfidential"
+              id="checkboxConfidentialFooter"
               aria-label="Checkbox confidential"
-              name="checkboxConfidential"
+              name="checkboxConfidentialFooter"
               type="checkbox"
               checked={isChecked}
               onChange={onCheckboxClick}
@@ -148,7 +150,11 @@ export const FormFooter: FC<IFormProps> = ({
           </label>
           <span className={s.checkboxText}>
             Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
-            <span className={s.checkboxTextConfidential}>политикой конфиденциальности</span>
+            <span
+              className={s.checkboxTextConfidential}
+              onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+              политикой конфиденциальности
+            </span>
           </span>
         </div>
       </div>
@@ -160,6 +166,11 @@ export const FormFooter: FC<IFormProps> = ({
         text="Отправить"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
+      />
+
+      <PopupPrivacyPolicy
+        isOpen={isPopupPrivacyPolicyOpen}
+        onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
     </form>
   );
