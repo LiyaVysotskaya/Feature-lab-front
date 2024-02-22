@@ -15,7 +15,8 @@
 
   width: 100%;
   max-width: var(--el-max-width);
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 1080px;
 
   @media screen and (width <= 768px) {
     grid-template-areas:

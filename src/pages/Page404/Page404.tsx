@@ -27,7 +27,7 @@ export const Page404: FC<Page404Props> = ({ className = '' }) => {
           onClick={() => {
             navigate(ROUTE_HOME);
           }}
-        />{' '}
+        />
       </div>
     </Main>
   );
