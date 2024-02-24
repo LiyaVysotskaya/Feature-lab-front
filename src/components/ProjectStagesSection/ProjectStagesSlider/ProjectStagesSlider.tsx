@@ -21,15 +21,15 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
   const stagesWrapperRef = useRef<HTMLDivElement>(null);
 
   const scrollToInProgressEl = (wrapper: HTMLDivElement) => {
-    const inProgressStage: HTMLElement | null = document.querySelector('.inProgressStage');
-    if (inProgressStage && wrapper) {
-      const stageRect = inProgressStage.getBoundingClientRect();
+    const stageToScroll: HTMLElement | null = document.querySelector('.inProgressStage');
+
+    if (stageToScroll && wrapper) {
+      const stageRect = stageToScroll.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
 
       if (stageRect.left < wrapperRect.left || stageRect.right > wrapperRect.right) {
         wrapper.scroll({
-          left:
-            inProgressStage.offsetLeft - (wrapper.offsetWidth - inProgressStage.offsetWidth) / 2,
+          left: stageToScroll.offsetLeft - (wrapper.offsetWidth - stageToScroll.offsetWidth) / 2,
           behavior: 'smooth',
         });
       }
@@ -97,14 +97,14 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
 
       <div className={s.stagesWrapper} ref={stagesWrapperRef}>
         <ul className={cl(s.stages, className)}>
-          {projects[0].stages.map((stage, index, arr) => (
+          {projects[2].stages.map((stage, index, arr) => (
             <ProjectStage
               setCurrentStageIndex={setCurrentStageIndex}
               key={uuidv4()}
               status={stage.status}
               index={index}
               isLast={index === arr.length - 1}
-              className={stage.status === 'inProgress' ? 'inProgressStage' : ''}
+              className={stage.status === 'in_progress' ? 'inProgressStage' : ''}
             />
           ))}
         </ul>

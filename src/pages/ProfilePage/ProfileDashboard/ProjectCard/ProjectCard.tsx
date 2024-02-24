@@ -14,14 +14,14 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
   const project = projects[projectIndx];
   const { stages } = project;
 
-  const completedStages = stages.filter((stage) => stage.status === 'complete');
+  const completedStages = stages.filter((stage) => stage.status === 'completed');
   const сompletedStagesCount = completedStages.length;
   const lastCompletedStage = completedStages[stages.length - 1];
 
-  const stageInProgressCount = stages.filter((stage) => stage.status === 'inProgress').length;
+  const stageInProgressCount = stages.filter((stage) => stage.status === 'in_progress').length;
 
-  const stageInProgress = stages.find((stage) => stage.status === 'inProgress');
-  const stageInProgressIndex = stages.findIndex((stage) => stage.status === 'inProgress') + 1;
+  const stageInProgress = stages.find((stage) => stage.status === 'in_progress');
+  const stageInProgressIndex = stages.findIndex((stage) => stage.status === 'in_progress') + 1;
 
   return (
     <div className={cl(s.card, className)}>

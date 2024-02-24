@@ -11,11 +11,19 @@ interface IProjectStagesProps {
 
 export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }) => {
   const [currentStageIndex, setCurrentStageIndex] = useState(0);
+  const testProject = projects[2];
 
   useEffect(() => {
-    const stageInProgressindex = projects[0].stages.findIndex(
-      (stage) => stage.status === 'inProgress',
+    const stageInProgressindex = testProject.stages.findIndex(
+      (stage) => stage.status === 'in_progress',
     );
+    // if there is no project inProgress find first project that has status notStarted
+    if (stageInProgressindex === -1) {
+      const stageNotStartedindex = testProject.stages.findIndex((stage) => stage.status === 'new');
+      setCurrentStageIndex(stageNotStartedindex);
+      return;
+    }
+
     setCurrentStageIndex(stageInProgressindex);
   }, []);
 

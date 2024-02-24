@@ -14,7 +14,7 @@ export const CurrentStage: FC<CurrentStageProps> = ({ className = '', currentSta
     <div className={cl(s.currentStage, className)}>
       <div className={cl(s.column)}>
         <Text view="gost-3" tag="p" className={cl(s.subTitle)}>
-          {projects[0].stages[currentStageIndex].status === 'inProgress'
+          {projects[0].stages[currentStageIndex].status === 'in_progress'
             ? 'Текущий этап'
             : `Этап ${currentStageIndex + 1}`}
         </Text>

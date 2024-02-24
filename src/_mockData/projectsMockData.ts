@@ -39,70 +39,70 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
@@ -149,74 +149,74 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'inProgress' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'in_progress' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
-    url: '0-of-10-and-inprogress',
+    url: '0-of-10-and-in_progress',
   },
 
   {
@@ -259,70 +259,70 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
@@ -369,74 +369,74 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'inProgress' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'in_progress' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
-    url: '5-of-10-and-inprogress',
+    url: '5-of-10-and-in_progress',
   },
 
   {
@@ -479,70 +479,70 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'notStarted' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'new' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
@@ -589,70 +589,70 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'inProgress' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'in_progress' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],
@@ -699,70 +699,70 @@ export const projects = [
         stageName: 'Заключение контракта 1',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '01.01.2024',
       },
       {
         stageName: 'Тестирование 2',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '02.02.2024',
       },
       {
         stageName: 'Тестирование 3',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '03.03.2024',
       },
       {
         stageName: 'Тестирование 4',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '04.04.2024',
       },
       {
         stageName: 'Тестирование 5',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '05.05.2024',
       },
       {
         stageName: 'Тестирование 6',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '06.06.2024',
       },
       {
         stageName: 'Тестирование 7',
         stageInfo:
           'Кратенькое Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '07.07.2024',
       },
       {
         stageName: 'Сдача проекта 8',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '08.08.2024',
       },
       {
         stageName: 'Сдача проекта 9',
         stageInfo:
           'Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '09.09.2024',
       },
       {
         stageName: 'Сдача проекта 10',
         stageInfo:
           'Кратенькое Кратенькое описание что вообще происходит на этом этапе. На 2–3 строчки максимум.',
-        status: 'complete' as 'complete' | 'inProgress' | 'notStarted',
+        status: 'completed' as 'completed' | 'in_progress' | 'new',
         dateOfEnd: '10.10.2024',
       },
     ],

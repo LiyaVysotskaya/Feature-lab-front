@@ -7,7 +7,7 @@ import StagePopupPortal from '../StagePopupPortal/StagePopupPortal';
 import s from './ProjectStage.module.scss';
 
 type ProjectStageProps = {
-  status: 'complete' | 'inProgress' | 'notStarted';
+  status: 'completed' | 'in_progress' | 'new';
   index: number;
   className?: string;
   isLast?: boolean;
@@ -47,14 +47,14 @@ export const ProjectStage: FC<ProjectStageProps> = ({
     }
   };
 
-  const stageState = status !== 'notStarted';
+  const stageState = status !== 'new';
   return (
     <div className={cl(s.stageWrapper, className)} ref={stageRef}>
       {!isLast && (
         <div
           className={cl(s.line, {
-            [s.line_notStarted]: status === 'notStarted',
-            [s.line_size_half]: status === 'inProgress',
+            [s.line_notStarted]: status === 'new',
+            [s.line_size_half]: status === 'in_progress',
           })}
         />
       )}
