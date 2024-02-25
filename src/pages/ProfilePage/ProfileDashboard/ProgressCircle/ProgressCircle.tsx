@@ -1,5 +1,6 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef, useState } from 'react';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import { Text } from '../../../../components/ui/Text/Text';
 import s from './ProgressCircle.module.scss';
 
@@ -16,25 +17,31 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
   stagesInProgress,
   max,
 }) => {
-  const [radius, setRadius] = useState<number>(0);
-  const svgRef = useRef<SVGSVGElement>(null);
+  const [progressValue, setProgressValue] = useState<number>(0);
 
   useEffect(() => {
-    if (svgRef.current) {
-      const { width } = svgRef.current.getBoundingClientRect();
-      const circleRadius = 0.45 * width;
-      setRadius(circleRadius);
+    if (stagesCompleted < max) {
+      setProgressValue(Math.round((stagesCompleted / max) * 100));
+    } else {
+      setProgressValue(0);
     }
   }, []);
 
-  const circumference = 2 * Math.PI * radius;
-  const strokeDasharray = circumference;
-  const percentage = (stagesCompleted / max) * 100;
-  const dashOffset = circumference - (percentage * circumference) / 100;
-
   return (
     <div className={cl(s.progressWrap, className)}>
-      <div className={s.progress}>
+      <CircularProgressbarWithChildren
+        className={s.progress}
+        value={progressValue}
+        strokeWidth={10}
+        styles={buildStyles({
+          strokeLinecap: 'round',
+          // How long animation takes to go from one percentage to another, in seconds
+          pathTransitionDuration: 0.5,
+
+          // Colors
+          pathColor: `var(--dark-blue)`,
+          trailColor: 'var(--white-60)',
+        })}>
         {stagesCompleted < max ? (
           <Text view="germano-5" className={s.progressText}>
             {stagesCompleted < max && `${stagesCompleted + stagesInProgress}/${max}`}
@@ -44,14 +51,7 @@ export const ProgressCircle: FC<ProgressCircleProps> = ({
             ✔
           </Text>
         )}
-        <svg ref={svgRef} className={cl(s.svg)} xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <circle
-            strokeDasharray={strokeDasharray}
-            strokeDashoffset={stagesCompleted < max ? dashOffset : strokeDasharray}
-            fill="transparent"
-          />
-        </svg>
-      </div>
+      </CircularProgressbarWithChildren>
     </div>
   );
 };

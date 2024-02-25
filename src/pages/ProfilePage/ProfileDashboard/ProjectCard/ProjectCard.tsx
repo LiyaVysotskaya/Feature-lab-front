@@ -36,14 +36,12 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
       <Text view="germano-5" className={cl(s.title)}>
         {project.projectName}
       </Text>
-
       <Text view="gost-4" className={cl(s.label)}>
         Менеджер:
       </Text>
       <Text view="gost-2" className={cl(s.value)}>
         {project.responsible.username}
       </Text>
-
       {сompletedStagesCount < stages.length && (
         <>
           {stageInProgress && (
@@ -58,7 +56,6 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
           </Text>
         </>
       )}
-
       {stageInProgress && сompletedStagesCount < stages.length && (
         <Text view="gost-4" className={cl(s.label)}>
           Срок выполнения:
@@ -69,18 +66,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
           Закончен:
         </Text>
       )}
-
       <Text view="gost-2" className={cl(s.value)}>
         {(stageInProgress && convertAndFormatDate(stageInProgress.dateOfEnd)) ||
           (lastCompletedStage && convertAndFormatDate(lastCompletedStage.dateOfEnd))}
       </Text>
-
       <ProgressCircle
         stagesInProgress={stageInProgressCount}
         stagesCompleted={сompletedStagesCount}
         max={stages.length}
         className={s.progressBar}
       />
+      ;
     </div>
   );
 };
