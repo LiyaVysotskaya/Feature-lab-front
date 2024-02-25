@@ -41,10 +41,6 @@
   @media screen and (width <= 1640px) {
     grid-template-columns: repeat(auto-fill, minmax(auto, 620px));
   }
-
-  // @media screen and (width <= 768px) {
-  //   grid-template-columns: repeat(auto-fill, minmax(360px, 620px));
-  // }
 }
 
 @media screen and (width <= 1000px) {

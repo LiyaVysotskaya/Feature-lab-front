@@ -11,15 +11,17 @@ interface IProjectStagesProps {
 
 export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }) => {
   const [currentStageIndex, setCurrentStageIndex] = useState(0);
-  const testProject = projects[2];
+  const projectIndex = 3; // test
 
   useEffect(() => {
-    const stageInProgressindex = testProject.stages.findIndex(
+    const stageInProgressindex = projects[projectIndex].stages.findIndex(
       (stage) => stage.status === 'in_progress',
     );
-    // if there is no project inProgress find first project that has status notStarted
+    // if there is no project with status in_progress find first project that has status notStarted
     if (stageInProgressindex === -1) {
-      const stageNotStartedindex = testProject.stages.findIndex((stage) => stage.status === 'new');
+      const stageNotStartedindex = projects[projectIndex].stages.findIndex(
+        (stage) => stage.status === 'new',
+      );
       setCurrentStageIndex(stageNotStartedindex);
       return;
     }
@@ -29,8 +31,11 @@ export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }
 
   return (
     <section className={cl(s.section, className)}>
-      <CurrentStage currentStageIndex={currentStageIndex} />
-      <ProjectStagesSlider setCurrentStageIndex={setCurrentStageIndex} />
+      <CurrentStage currentStageIndex={currentStageIndex} projectIndex={projectIndex} />
+      <ProjectStagesSlider
+        setCurrentStageIndex={setCurrentStageIndex}
+        projectIndex={projectIndex}
+      />
     </section>
   );
 };

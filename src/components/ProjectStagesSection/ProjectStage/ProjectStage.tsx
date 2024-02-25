@@ -1,4 +1,6 @@
 import cl from 'classnames';
+import { format, parseISO } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import { FC, useRef, useState } from 'react';
 import { projects } from '../../../_mockData/projectsMockData';
 import { Text } from '../../ui/Text/Text';
@@ -10,16 +12,19 @@ type ProjectStageProps = {
   status: 'completed' | 'in_progress' | 'new';
   index: number;
   className?: string;
-  isLast?: boolean;
+  isLineHidden?: boolean;
   setCurrentStageIndex: (index: number) => void;
+
+  projectIndex: number; // test
 };
 
 export const ProjectStage: FC<ProjectStageProps> = ({
   status,
   className = '', // used also for autoscroll to stage that have status inProgress
   index,
-  isLast = false,
+  isLineHidden = false,
   setCurrentStageIndex,
+  projectIndex,
 }) => {
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
 
@@ -48,9 +53,17 @@ export const ProjectStage: FC<ProjectStageProps> = ({
   };
 
   const stageState = status !== 'new';
+
+  const convertAndFormatDate = (dateString: string) => {
+    // Parse the ISO 8601 formatted date string to a Date object
+    const date = parseISO(dateString);
+    // Format the date using date-fns
+    return format(date, 'dd MMMM yyyy', { locale: ru });
+  };
+
   return (
     <div className={cl(s.stageWrapper, className)} ref={stageRef}>
-      {!isLast && (
+      {!isLineHidden && (
         <div
           className={cl(s.line, {
             [s.line_notStarted]: status === 'new',
@@ -73,13 +86,13 @@ export const ProjectStage: FC<ProjectStageProps> = ({
             Этап {index + 1}
           </Text>
           <Text view="gost-2" tag="p">
-            {projects[0].stages[index].stageName}
+            {projects[projectIndex].stages[index].stageName}
           </Text>
           <Text view="gost-3" tag="p">
-            {projects[0].stages[index].stageInfo}
+            {projects[projectIndex].stages[index].stageInfo}
           </Text>
           <Text view="gost-3" tag="p">
-            {projects[0].stages[index].dateOfEnd}
+            {convertAndFormatDate(projects[projectIndex].stages[index].dateOfEnd)}
           </Text>
         </StagePopupPortal>
       )}
