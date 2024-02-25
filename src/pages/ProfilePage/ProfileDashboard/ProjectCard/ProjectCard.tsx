@@ -1,4 +1,5 @@
 import cl from 'classnames';
+import { format, parseISO } from 'date-fns';
 import { FC } from 'react';
 import { projects } from '../../../../_mockData/projectsMockData';
 import { Text } from '../../../../components/ui/Text/Text';
@@ -22,6 +23,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
 
   const stageInProgress = stages.find((stage) => stage.status === 'in_progress');
   const stageInProgressIndex = stages.findIndex((stage) => stage.status === 'in_progress') + 1;
+
+  const convertAndFormatDate = (dateString: string) => {
+    // Parse the ISO 8601 formatted date string to a Date object
+    const date = parseISO(dateString);
+    // Format the date using date-fns
+    return format(date, 'dd.MM.yyyy');
+  };
 
   return (
     <div className={cl(s.card, className)}>
@@ -63,7 +71,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
       )}
 
       <Text view="gost-2" className={cl(s.value)}>
-        {stageInProgress?.dateOfEnd || lastCompletedStage?.dateOfEnd}
+        {(stageInProgress && convertAndFormatDate(stageInProgress.dateOfEnd)) ||
+          (lastCompletedStage && convertAndFormatDate(lastCompletedStage.dateOfEnd))}
       </Text>
 
       <ProgressCircle
