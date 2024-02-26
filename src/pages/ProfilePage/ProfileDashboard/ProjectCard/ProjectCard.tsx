@@ -76,7 +76,6 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', projectIndx 
         max={stages.length}
         className={s.progressBar}
       />
-      ;
     </div>
   );
 };
