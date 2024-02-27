@@ -4,13 +4,19 @@ import s from './auth.module.scss';
 
 export const RegisterPage: FC = () => {
   return (
-    <Main className={s.auth}>
-      <h1>Регистрация</h1>
+    <Main>
+      <h1>
+        Регистрация / <span>Вход</span>
+      </h1>
       <form className={s.form}>
-        <input type="text" placeholder="email" />
-        <input type="text" placeholder="pwd" />
-        <input type="text" placeholder="повторите pwd" />
-        <button>Регистрация</button>
+        <FormRegister
+          handleChange={handleChange}
+          onSubmit={handleSubmit}
+          errors={errors}
+          isValid={isValid}
+          values={values}
+          isLoading={isLoading}
+        />
       </form>
     </Main>
   );
