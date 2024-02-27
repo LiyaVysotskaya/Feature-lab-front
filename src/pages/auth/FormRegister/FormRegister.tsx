@@ -11,11 +11,11 @@ import {
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
 } from '../../../constants/constants';
-import { Button } from '../../ui/Button/Button';
-import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
+import { Button } from '../../../components/ui/Button/Button';
+import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 
-import s from './FormContact.module.scss';
-import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
+import s from './FormRegister.module.scss';
+import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
