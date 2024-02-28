@@ -1,9 +1,9 @@
 .form {
   --text-container-width: 14.5%; // 200px;
-  --grid-column-gap: 20px;
-  --input-side-padding: 9.3%; // 160px;
-  --input-min-height: 114px;
-  --number-font-size: 80px;
+  --grid-column-gap: 61px;
+  --input-side-padding: 12.5%; // 240px;
+  --input-min-height: 186px;
+  --number-font-size: 128px;
 
   position: relative;
 
@@ -92,7 +92,7 @@
 }
 
 .input {
-  --input-font-size: 80px;
+  --input-font-size: 140px;
   --input-font-size-min: 48px;
 
   grid-area: input;
@@ -107,7 +107,7 @@
   font-family: Germano-Regular, sans-serif;
   font-size: var(--input-font-size);
   font-weight: 400;
-  line-height: 1; // 80px;
+  line-height: 0.85; // 120px;
   color: var(--dark-blue, #002d63);
 
   background-color: transparent;
@@ -152,10 +152,6 @@
   display: block;
 
   min-height: 100%;
-
-  // margin-top: 0.10em;
-
-  // min-height: var(--input-min-height);
   padding-top: 2%;
 
   &::-webkit-scrollbar {
@@ -167,8 +163,6 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
-    // line-height: 0;
 
     @media screen and (width <= 1280px) {
       padding-top: 0;
@@ -193,11 +187,13 @@
 }
 
 .textNumber {
+  width: 250px;
+
   font-family: Molot-Regular, sans-serif;
   font-size: var(--number-font-size);
   font-weight: 400;
   font-style: normal;
-  line-height: 1; // 80px;
+  line-height: 1; // 128px;
   color: var(--white, #fff);
   text-align: left;
 
@@ -229,8 +225,8 @@
   max-height: 1px;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 32px;
-  font-weight: 400;
+  font-size: 48px;
+  font-weight: 300;
   line-height: 1; // 32px;
   color: var(--dark-blue, #002d63);
 
@@ -388,6 +384,12 @@
   }
 }
 
+// .inputError + .textContainer {
+//   .textNumber {
+//     font-size: calc(var(--number-font-size) * 0.625);
+//   }
+// }
+
 .input:focus::placeholder {
   color: transparent;
 }
@@ -395,6 +397,7 @@
 .input:focus + .textContainer,
 .input:not(:placeholder-shown) + .textContainer {
   .textNumber {
+    font-size: calc(var(--number-font-size) * 0.625);
     color: var(--dark-blue, #002d63);
 
     -webkit-text-stroke: unset;
@@ -410,10 +413,4 @@
       padding-top: 5px;
     }
   }
-}
-
-.textarea:focus + .textContainer,
-.textarea:not(:placeholder-shown) + .textContainer {
-  justify-content: flex-start;
-  padding-top: 10px;
 }

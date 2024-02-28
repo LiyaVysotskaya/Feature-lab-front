@@ -25,17 +25,21 @@ export const RegisterPage: FC = () => {
   };
   return (
     <Main>
-      <h1 className={s.title}>
-        Регистрация / <span>Вход</span>
-      </h1>
-      <FormRegister
-        handleChange={handleChange}
-        onSubmit={handleSubmit}
-        errors={errors}
-        isValid={isValid}
-        values={values}
-        isLoading={isLoading}
-      />
+      <section className={s.registerContainer}>
+        <h1 className={s.title}>
+          <span>Регистрация</span>
+          <span>/</span>
+          <span className={s.unhighlightedTitle}>Вход</span>
+        </h1>
+        <FormRegister
+          handleChange={handleChange}
+          onSubmit={handleSubmit}
+          errors={errors}
+          isValid={isValid}
+          values={values}
+          isLoading={isLoading}
+        />
+      </section>
     </Main>
   );
 };

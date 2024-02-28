@@ -203,7 +203,7 @@
 
   transition: all 0.2s ease;
 
-  -webkit-text-stroke: 3.5px var(--dark-blue);
+  -webkit-text-stroke: 3.5px var(--dark-blue, #002d63);
 
   &Error {
     color: var(--error, #bf1700) !important;

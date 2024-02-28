@@ -1,14 +1,10 @@
 import cl from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
-import TextareaAutosize from 'react-textarea-autosize';
 import {
-  EMAIL_REG_EX,
   MAX_LENGTH_EMAIL,
-  MAX_LENGTH_NAME,
-  MAX_LENGTH_PROJECT,
+  MAX_LENGTH_PASSWORD,
   MIN_LENGTH_EMAIL,
-  MIN_LENGTH_NAME,
-  MIN_LENGTH_PROJECT,
+  MIN_LENGTH_PASSWORD,
   NAME_REG_EX,
 } from '../../../constants/constants';
 import { Button } from '../../../components/ui/Button/Button';
@@ -82,69 +78,72 @@ export const FormContact: FC<IFormProps> = ({
         <div className={s.inputContainer}>
           <input
             className={s.input}
-            aria-label="Input name"
-            value={values.name}
+            aria-label="Input email"
+            value={values.email}
             onChange={onInputChange}
-            name="name"
-            type="text"
-            placeholder="Имя"
-            minLength={MIN_LENGTH_NAME}
-            maxLength={MAX_LENGTH_NAME}
-            pattern={NAME_REG_EX}
+            name="email"
+            type="email"
+            placeholder="Email"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
             required
           />
+
           <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-            <span className={cl(s.textClue)}>Имя</span>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
-            <span className={cl(s.inputError)}>{errors.name}</span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+            <span className={cl(s.inputError)}>{errors.email}</span>
           </div>
         </div>
 
         <div className={s.inputContainer}>
           <input
             className={s.input}
-            aria-label="Input email"
-            value={values.email}
+            aria-label="Input password"
+            value={values.password}
             onChange={onInputChange}
-            name="email"
-            type="email"
-            placeholder="Email / телефон"
-            minLength={MIN_LENGTH_EMAIL}
-            maxLength={MAX_LENGTH_EMAIL}
-            pattern={EMAIL_REG_EX}
+            name="password"
+            type="password"
+            placeholder="Пароль"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            pattern={NAME_REG_EX}
             required
           />
-
           <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
-              Email / телефон
-            </span>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+            <span className={cl(s.textClue)}>Пароль</span>
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-            <span className={cl(s.inputError)}>{errors.email}</span>
+          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+            <span className={cl(s.inputError)}>{errors.password}</span>
           </div>
         </div>
+
         <div className={s.inputContainer}>
-          <TextareaAutosize
-            className={cl(s.input, s.textarea)}
-            aria-label="Textarea project"
-            value={values.project}
-            onChange={handleChange}
-            name="project"
-            placeholder="О вашем проекте"
-            minLength={MIN_LENGTH_PROJECT}
-            maxLength={MAX_LENGTH_PROJECT}
+          <input
+            className={s.input}
+            aria-label="Input repeat password"
+            value={values.repeatPassword}
+            onChange={onInputChange}
+            name="repeatPassword"
+            type="password"
+            placeholder="Повторите пароль"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            pattern={NAME_REG_EX}
             required
           />
           <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>О проекте</span>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
+              02&#8211;1
+            </span>
+            <span className={cl(s.textClue)}>Пароль</span>
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
-            <span className={cl(s.inputError)}>{errors.project}</span>
+          <div
+            className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.repeatPassword })}>
+            <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
           </div>
         </div>
       </fieldset>
