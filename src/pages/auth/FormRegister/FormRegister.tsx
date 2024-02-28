@@ -74,6 +74,18 @@ export const FormContact: FC<IFormProps> = ({
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
   };
 
+  const onRepeatPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target;
+    if (input.value !== values.password) {
+      input.setCustomValidity('Введённые значения не совпадают');
+    } else {
+      input.setCustomValidity('');
+    }
+
+    input.reportValidity();
+    handleChange(e);
+  };
+
   return (
     <form className={s.form} method="POST" onSubmit={onSubmit}>
       <fieldset className={s.fieldset}>
@@ -105,7 +117,7 @@ export const FormContact: FC<IFormProps> = ({
             className={s.input}
             aria-label="Input password"
             value={values.password}
-            onChange={onInputChange}
+            onChange={handleChange}
             name="password"
             type="password"
             placeholder="Пароль"
@@ -128,7 +140,7 @@ export const FormContact: FC<IFormProps> = ({
             className={s.input}
             aria-label="Input repeat password"
             value={values.repeatPassword}
-            onChange={onInputChange}
+            onChange={onRepeatPasswordChange}
             name="repeatPassword"
             type="password"
             placeholder="Повторите пароль"
