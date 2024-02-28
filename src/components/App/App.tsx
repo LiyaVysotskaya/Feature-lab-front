@@ -12,6 +12,7 @@ import {
   ROUTE_PROFILE,
   ROUTE_REGISTER,
   ROUTE_RESET_PASSWORD,
+  ROUTE_CONTACT,
   SUBROUTE_DASHBOARD,
   SUBROUTE_DOCS,
   SUBROUTE_GAMEDEV,
@@ -23,6 +24,7 @@ import { Home } from '../../pages/Home/Home';
 import { LabPage } from '../../pages/LabPage/LabPage';
 import { Page404 } from '../../pages/Page404/Page404';
 import { ProductPage } from '../../pages/ProductPage/ProductPage';
+import { ContactPage } from '../../pages/ContactPage/ContactPage';
 import { ProfileDashboard } from '../../pages/ProfilePage/ProfileDashboard/ProfileDashboard';
 import { ProfileDocs } from '../../pages/ProfilePage/ProfileDocs/ProfileDocs';
 import { ProfilePage } from '../../pages/ProfilePage/ProfilePage';
@@ -68,6 +70,8 @@ const App: React.FC = () => {
             <Route path={item.url} key={item.url} element={<ProductPage />} />
           ))}
         </Route>
+
+        <Route path={ROUTE_CONTACT} element={<ContactPage />} />
 
         <Route path={ROUTE_LOGIN} element={<LoginPage />} />
         <Route path={ROUTE_REGISTER} element={<RegisterPage />} />
