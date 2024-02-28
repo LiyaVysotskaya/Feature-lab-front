@@ -73,8 +73,8 @@
 
   display: grid;
   grid-template-areas:
-    'textContainer input'
-    'nothing error';
+    'textContainer input hint'
+    '. error .';
   grid-template-columns: var(--text-container-width) auto;
   column-gap: var(--grid-column-gap);
 
@@ -253,6 +253,11 @@
   @media screen and (width <= 360px) {
     font-size: 24px;
   }
+}
+
+.hintIcon {
+  grid-area: hint;
+  align-self: center;
 }
 
 .checkboxPosition {

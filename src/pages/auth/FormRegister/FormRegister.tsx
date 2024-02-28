@@ -12,6 +12,7 @@ import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBox
 
 import s from './FormRegister.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
+import { QuestionIcon } from '../../../components/ui/icons';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -102,7 +103,7 @@ export const FormContact: FC<IFormProps> = ({
             maxLength={MAX_LENGTH_EMAIL}
             required
           />
-
+          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
@@ -126,6 +127,7 @@ export const FormContact: FC<IFormProps> = ({
             pattern={NAME_REG_EX}
             required
           />
+          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
@@ -149,6 +151,7 @@ export const FormContact: FC<IFormProps> = ({
             pattern={NAME_REG_EX}
             required
           />
+          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
               02&#8211;1
