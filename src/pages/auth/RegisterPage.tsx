@@ -8,9 +8,9 @@ export const RegisterPage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
-    name: '',
     email: '',
-    project: '',
+    password: '',
+    repeatPassword: '',
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -18,9 +18,9 @@ export const RegisterPage: FC = () => {
     setIsLoading(true);
 
     resetForm({
-      name: '',
       email: '',
-      project: '',
+      password: '',
+      repeatPassword: '',
     });
   };
   return (

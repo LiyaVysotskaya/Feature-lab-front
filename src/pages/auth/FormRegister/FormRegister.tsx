@@ -31,6 +31,8 @@ export const FormContact: FC<IFormProps> = ({
   isLoading,
 }) => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
+  const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
+
   const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -114,7 +116,7 @@ export const FormContact: FC<IFormProps> = ({
           />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-            <span className={cl(s.textClue)}>Пароль</span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
           </div>
           <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
             <span className={cl(s.inputError)}>{errors.password}</span>
@@ -139,7 +141,9 @@ export const FormContact: FC<IFormProps> = ({
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
               02&#8211;1
             </span>
-            <span className={cl(s.textClue)}>Пароль</span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
+              Пароль
+            </span>
           </div>
           <div
             className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.repeatPassword })}>
@@ -150,24 +154,30 @@ export const FormContact: FC<IFormProps> = ({
 
       <div className={s.checkboxPosition}>
         <div className={s.checkboxContainer}>
-          <label className={s.checkboxLabel} htmlFor="checkboxConfidentialContact">
+          <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
             <CheckBoxIcon isChecked={isChecked} />
             <input
               className={s.checkbox}
-              id="checkboxConfidentialContact"
-              aria-label="Checkbox confidential"
-              name="checkboxConfidentialContact"
+              id="checkboxRegistration"
+              aria-label="Checkbox registration"
+              name="checkboxRegistration"
               type="checkbox"
               checked={isChecked}
               onChange={onCheckboxClick}
             />
           </label>
           <span className={s.checkboxText}>
-            Соглашаюсь с обработкой персональных&nbsp;данных <br />и{' '}
+            Я ознакомился&nbsp;с{' '}
             <span
-              className={s.checkboxTextConfidential}
+              className={s.checkboxTextPolicy}
               onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
-              политикой конфиденциальности
+              Политикой конфиденциальности
+            </span>
+            <br />и{' '}
+            <span
+              className={s.checkboxTextPolicy}
+              onClick={() => setIsPopupUserAgreementOpen(true)}>
+              Пользовательским соглашением
             </span>
           </span>
         </div>
@@ -177,7 +187,7 @@ export const FormContact: FC<IFormProps> = ({
         className={s.button}
         type="submit"
         theme="white"
-        text="Отправить"
+        text="Регистрация"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
       />
@@ -186,6 +196,11 @@ export const FormContact: FC<IFormProps> = ({
         isOpen={isPopupPrivacyPolicyOpen}
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
+
+      {/* <PopupUserAgreement
+        isOpen={isPopupUserAgreementOpen}
+        onClose={() => setIsPopupUserAgreementOpen(false)}
+      /> */}
     </form>
   );
 };
