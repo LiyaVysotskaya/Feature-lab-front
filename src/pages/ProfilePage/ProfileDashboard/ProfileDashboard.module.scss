@@ -1,15 +1,52 @@
+.content {
+  width: 100%;
+  max-width: var(--el-max-width);
+}
+
+.pageTitle {
+  margin-bottom: 72px;
+
+  &FinishedProjects {
+    padding-top: 40px;
+    color: var(--dark-blue-50);
+    border-top: 2px solid var(--dark-blue-50);
+  }
+
+  @media screen and (width <= 1280px) {
+    margin-top: 6px;
+    margin-bottom: 40px;
+    font-size: 48px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 50px;
+    font-size: 40px;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+  }
+
+  @media screen and (width <= 360px) {
+    margin-bottom: 40px;
+  }
+}
+
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(1fr 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(500px, auto));
+  gap: 20px 44px;
 
   box-sizing: border-box;
   width: 100%;
-  min-height: 100px;
+
+  @media screen and (width <= 1640px) {
+    grid-template-columns: repeat(auto-fill, minmax(auto, 620px));
+  }
 }
 
-.card {
-  min-height: 100px;
-  background-color: rgb(200 56 207);
+@media screen and (width <= 1000px) {
+  body {
+    #rootpage {
+      overflow-x: clip;
+    }
+  }
 }

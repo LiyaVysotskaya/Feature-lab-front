@@ -1,7 +1,11 @@
 .circle {
   position: relative;
+
+  box-sizing: border-box;
   width: 42px;
+  min-width: 42px;
   height: 42px;
+  min-height: 42px;
 
   &__svg {
     position: relative;
