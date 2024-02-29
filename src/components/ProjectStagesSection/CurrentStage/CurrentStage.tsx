@@ -36,7 +36,7 @@ export const CurrentStage: FC<CurrentStageProps> = ({
           {projects[projectIndex].stages[currentStageIndex].stageName}
         </Text>
         <Text view="gost-1" tag="p" className={cl(s.date)}>
-          срок выполнения:
+          срок выполнения:{' '}
           {convertAndFormatDate(projects[projectIndex].stages[currentStageIndex].dateOfEnd)}
         </Text>
       </div>
