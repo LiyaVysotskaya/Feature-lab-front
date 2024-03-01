@@ -9,7 +9,8 @@ import {
 import { Button } from '../../../components/ui/Button/Button';
 import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 
-import s from './FormRegister.module.scss';
+// import s from './FormRegister.module.scss';
+import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
 
@@ -164,37 +165,31 @@ export const FormRegister: FC<IFormProps> = ({
         </div>
       </fieldset>
 
-      <div className={s.checkboxPosition}>
-        <div className={s.checkboxContainer}>
-          <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
-            <CheckBoxIcon isChecked={isChecked} />
-            <input
-              className={s.checkbox}
-              id="checkboxRegistration"
-              aria-label="Checkbox registration"
-              name="checkboxRegistration"
-              type="checkbox"
-              checked={isChecked}
-              onChange={onCheckboxClick}
-            />
-          </label>
-          <span className={s.checkboxText}>
-            Я ознакомился с{' '}
-            <span
-              className={s.checkboxTextPolicy}
-              onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
-              Политикой&nbsp;конфиденциальности
-            </span>
-            <br />и{' '}
-            <span
-              className={s.checkboxTextPolicy}
-              onClick={() => setIsPopupUserAgreementOpen(true)}>
-              Пользовательским&nbsp;соглашением
-            </span>
+      <div className={s.checkboxContainer}>
+        <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
+          <CheckBoxIcon isChecked={isChecked} />
+          <input
+            className={s.checkbox}
+            id="checkboxRegistration"
+            aria-label="Checkbox registration"
+            name="checkboxRegistration"
+            type="checkbox"
+            checked={isChecked}
+            onChange={onCheckboxClick}
+          />
+        </label>
+        <span className={s.checkboxText}>
+          Я ознакомился с{' '}
+          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+            Политикой&nbsp;конфиденциальности
           </span>
-        </div>
+          <br />и{' '}
+          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupUserAgreementOpen(true)}>
+            Пользовательским&nbsp;соглашением
+          </span>
+        </span>
       </div>
-
+      {/* 
       <Button
         className={s.button}
         type="submit"
@@ -202,7 +197,7 @@ export const FormRegister: FC<IFormProps> = ({
         text="Регистрация"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
-      />
+      /> */}
 
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}

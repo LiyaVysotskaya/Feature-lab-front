@@ -9,7 +9,8 @@ import {
 } from '../../../constants/constants';
 import { Button } from '../../../components/ui/Button/Button';
 
-import s from './FormLogin.module.scss';
+// import s from './FormLogin.module.scss';
+import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
 
@@ -118,8 +119,8 @@ export const FormLogin: FC<IFormProps> = ({
         </div>
       </fieldset>
 
-      <div className={s.checkboxPosition}>
-        <div className={s.checkboxContainer}>
+      <div className={s.pwdResetLinkPosition}>
+        <div className={s.pwdResetLinkContainer}>
           <Link
             to="https://github.com/LiyaVysotskaya/Feature-lab-front"
             className={s.passwordResetLink}>

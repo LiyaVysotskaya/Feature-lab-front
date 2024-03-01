@@ -27,7 +27,7 @@ export const RegisterPage: FC = () => {
   };
   return (
     <Main>
-      <section className={s.registerContainer}>
+      <section className={s.contentContainer}>
         <h1 className={s.title}>
           <span>Регистрация</span>
           <span>/</span>

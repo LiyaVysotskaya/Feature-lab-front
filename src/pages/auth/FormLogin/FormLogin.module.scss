@@ -1,5 +1,5 @@
 .form {
-  --text-container-width: 14.5%; // 200px;
+  --text-container-width: 16%;
   --grid-column-gap: 61px;
   --input-side-padding: 12.5%; // 240px;
   --input-min-height: 200px;
@@ -19,6 +19,7 @@
   }
 
   @media screen and (width <= 1280px) {
+    --input-min-height: 160px;
     --input-side-padding: 6.7%; // 80px;
   }
 
@@ -57,12 +58,14 @@
 
   @media screen and (width <= 1280px) {
     bottom: 210px;
+    font-size: 48px;
   }
 
   @media screen and (width <= 768px) {
     bottom: 180px;
     max-width: 240px;
     max-height: 240px;
+    font-size: 40px;
   }
 }
 
@@ -286,20 +289,16 @@
   align-self: center;
 }
 
-.checkboxPosition {
+.pwdResetLinkPosition {
   display: grid;
   grid-template-columns: var(--text-container-width) var(--grid-column-gap) auto;
 
   box-sizing: border-box;
   width: 100%;
   padding: 0 var(--input-side-padding);
-
-  @media screen and (width <= 690px) {
-    display: block;
-  }
 }
 
-.checkboxContainer {
+.pwdResetLinkContainer {
   display: flex;
   grid-column: 3 / span 1;
   grid-row: 1 / span 1;
@@ -309,8 +308,7 @@
 
   box-sizing: border-box;
   width: 100%;
-  margin-top: 28px;
-  margin-bottom: 800px;
+  margin: 28px auto 800px;
   padding: 0;
 
   @media screen and (width <= 1280px) {
@@ -357,15 +355,19 @@
   @media screen and (width <= 1280px) {
     font-size: 48px;
     line-height: 1.2;
+    text-underline-offset: 13px;
   }
 
   @media screen and (width <= 768px) {
     font-size: 32px;
+    text-underline-offset: 9px;
   }
 
   @media screen and (width <= 360px) {
     font-size: 24px;
     line-height: 1.13;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
   }
 }
 

@@ -1,7 +1,7 @@
 .form {
-  --text-container-width: 14.5%; // 200px;
+  --text-container-width: 16%;
   --grid-column-gap: 61px;
-  --input-side-padding: 12.5%; // 240px;
+  --input-side-padding: 12.5%;
   --input-min-height: 200px;
   --number-font-size: 128px;
 
@@ -19,18 +19,21 @@
   }
 
   @media screen and (width <= 1280px) {
+    --grid-column-gap: 36px;
     --input-min-height: 160px;
     --input-side-padding: 6.7%; // 80px;
   }
 
   @media screen and (width <= 768px) {
+    --grid-column-gap: 13px;
     --input-side-padding: 2.6%; // 20px;
     --input-min-height: 95px;
   }
 
   @media screen and (width <= 690px) {
+    --grid-column-gap: 13px;
     --input-side-padding: 5%; // 16px;
-    --input-min-height: 77px;
+    --input-min-height: 60px;
   }
 }
 
@@ -58,12 +61,14 @@
 
   @media screen and (width <= 1280px) {
     bottom: 210px;
+    font-size: 48px;
   }
 
   @media screen and (width <= 768px) {
     bottom: 180px;
     max-width: 240px;
     max-height: 240px;
+    font-size: 40px;
   }
 }
 
@@ -287,31 +292,14 @@
   align-self: center;
 }
 
-.checkboxPosition {
-  display: grid;
-  grid-template-columns: var(--text-container-width) var(--grid-column-gap) auto;
-
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 var(--input-side-padding);
-
-  @media screen and (width <= 690px) {
-    display: block;
-  }
-}
-
 .checkboxContainer {
   display: flex;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 1;
   flex-direction: row;
   column-gap: 30px;
-  align-items: center;
 
   box-sizing: border-box;
   width: 100%;
-  margin-top: 28px;
-  margin-bottom: 800px;
+  margin: 28px auto 800px;
   padding: 0;
 
   @media screen and (width <= 1280px) {
@@ -391,8 +379,17 @@
     opacity: 0.6;
   }
 
+  @media screen and (width <= 1280px) {
+    text-underline-offset: 13px;
+  }
+
+  @media screen and (width <= 768px) {
+    text-underline-offset: 9px;
+  }
+
   @media screen and (width <= 360px) {
-    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
   }
 }
 
