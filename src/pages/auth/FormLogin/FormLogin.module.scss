@@ -60,12 +60,9 @@
   }
 
   @media screen and (width <= 768px) {
-    max-width: 280px;
-    max-height: 280px;
-  }
-
-  @media screen and (width <= 768px) {
     bottom: 180px;
+    max-width: 240px;
+    max-height: 240px;
   }
 }
 
@@ -89,6 +86,14 @@
 
   &:first-of-type {
     border-top-width: 2px;
+  }
+
+  @media screen and (width <= 768px) {
+    border-width: 0 0 1px;
+
+    &:first-of-type {
+      border-top-width: 1px;
+    }
   }
 }
 
@@ -134,9 +139,18 @@
     -webkit-text-fill-color: var(--dark-blue, #002d63);
   }
 
+  @media screen and (width <= 1280px) {
+    --input-font-size: 100px;
+    --input-font-size-min: 40px;
+
+    line-height: 1.2; // 120px;
+  }
+
   @media screen and (width <= 768px) {
     --input-font-size: 64px;
     --input-font-size-min: 32px;
+
+    line-height: 1; // 64px;
   }
 
   @media screen and (width <= 690px) {
@@ -174,14 +188,24 @@
     -webkit-text-stroke: unset;
   }
 
-  @media screen and (width <= 1060px) {
-    --number-font-size: 66px;
+  @media screen and (width <= 1280px) {
+    --number-font-size: 80px;
+
+    width: 160px;
 
     -webkit-text-stroke-width: 2px;
   }
 
+  @media screen and (width <= 768px) {
+    --number-font-size: 66px;
+
+    width: 120px;
+  }
+
   @media screen and (width <= 690px) {
-    --number-font-size: 40px;
+    --number-font-size: 30px;
+
+    width: 54px;
 
     -webkit-text-stroke-width: 1.2px;
   }
@@ -205,16 +229,16 @@
     color: var(--error, #bf1700);
   }
 
-  @media screen and (width <= 1060px) {
-    font-size: 24px;
+  @media screen and (width <= 1280px) {
+    font-size: 40px;
   }
 
   @media screen and (width <= 768px) {
-    font-size: 20px;
+    font-size: 32px;
   }
 
   @media screen and (width <= 690px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 }
 
@@ -252,7 +276,8 @@
   }
 
   @media screen and (width <= 360px) {
-    font-size: 24px;
+    font-size: 16px;
+    line-height: 1.12; // 18px
   }
 }
 
@@ -304,19 +329,6 @@
   }
 }
 
-.checkbox {
-  display: block;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
-
-.checkboxLabel {
-  box-sizing: border-box;
-  width: 60px;
-  height: 60px;
-}
-
 .passwordResetLink {
   cursor: pointer;
 
@@ -342,33 +354,18 @@
     opacity: 0.6;
   }
 
+  @media screen and (width <= 1280px) {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
   @media screen and (width <= 768px) {
-    font-size: 20px;
-    line-height: 1.2; // 24px;
+    font-size: 32px;
   }
 
   @media screen and (width <= 360px) {
-    font-size: 16px;
-    line-height: 1.13; // 18px;
-    text-underline-offset: 3px;
-  }
-}
-
-.passwordResetLink {
-  cursor: pointer;
-
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 17px;
-
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.6;
-  }
-
-  @media screen and (width <= 360px) {
-    text-underline-offset: 3px;
+    font-size: 24px;
+    line-height: 1.13;
   }
 }
 

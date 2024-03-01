@@ -102,7 +102,6 @@ export const FormRegister: FC<IFormProps> = ({
             maxLength={MAX_LENGTH_EMAIL}
             required
           />
-          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
@@ -110,6 +109,7 @@ export const FormRegister: FC<IFormProps> = ({
           <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
             <span className={cl(s.inputError)}>{errors.email}</span>
           </div>
+          <QuestionIcon className={s.hintIcon} />
         </div>
 
         <div className={s.inputContainer}>
@@ -125,7 +125,6 @@ export const FormRegister: FC<IFormProps> = ({
             maxLength={MAX_LENGTH_PASSWORD}
             required
           />
-          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
             <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
@@ -133,6 +132,7 @@ export const FormRegister: FC<IFormProps> = ({
           <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
             <span className={cl(s.inputError)}>{errors.password}</span>
           </div>
+          <QuestionIcon className={s.hintIcon} />
         </div>
 
         <div className={s.inputContainer}>
@@ -148,7 +148,6 @@ export const FormRegister: FC<IFormProps> = ({
             maxLength={MAX_LENGTH_PASSWORD}
             required
           />
-          <QuestionIcon className={s.hintIcon} />
           <div className={s.textContainer}>
             <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
               02&#8211;1
@@ -161,6 +160,7 @@ export const FormRegister: FC<IFormProps> = ({
             className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.repeatPassword })}>
             <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
           </div>
+          <QuestionIcon className={s.hintIcon} />
         </div>
       </fieldset>
 
@@ -179,17 +179,17 @@ export const FormRegister: FC<IFormProps> = ({
             />
           </label>
           <span className={s.checkboxText}>
-            Я ознакомился&nbsp;с{' '}
+            Я ознакомился с{' '}
             <span
               className={s.checkboxTextPolicy}
               onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
-              Политикой конфиденциальности
+              Политикой&nbsp;конфиденциальности
             </span>
             <br />и{' '}
             <span
               className={s.checkboxTextPolicy}
               onClick={() => setIsPopupUserAgreementOpen(true)}>
-              Пользовательским соглашением
+              Пользовательским&nbsp;соглашением
             </span>
           </span>
         </div>
