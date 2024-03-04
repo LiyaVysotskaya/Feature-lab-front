@@ -8,6 +8,7 @@ import { isAuthAtom } from '../../atoms/isAuthAtom';
 import { userProfileAtom } from '../../atoms/userProfileAtom';
 import {
   ROUTE_COMPETENCIES,
+  ROUTE_CONTACT,
   ROUTE_ED_TECH,
   ROUTE_HOME,
   ROUTE_PRODUCTS_DOCSHABLON,
@@ -140,7 +141,7 @@ export const Header: React.FC = () => {
               </li>
               <li className={cl(s.listItem)}>
                 <NavLink
-                  to="/some-route3"
+                  to={ROUTE_CONTACT}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Контакты
                 </NavLink>
