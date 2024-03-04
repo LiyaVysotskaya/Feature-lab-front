@@ -34,8 +34,8 @@ import { RegisterPage } from '../../pages/auth/RegisterPage';
 import Footer from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
+import { ProtectedRouteElement } from '../ProtectedRouteElement/ProtectedRouteElement';
 import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
-
 import s from './App.module.scss';
 
 const App: React.FC = () => {
@@ -69,12 +69,20 @@ const App: React.FC = () => {
           ))}
         </Route>
 
-        <Route path={ROUTE_LOGIN} element={<LoginPage />} />
-        <Route path={ROUTE_REGISTER} element={<RegisterPage />} />
+        <Route
+          path={ROUTE_LOGIN}
+          element={<ProtectedRouteElement onlyUnAuth element={<LoginPage />} />}
+        />
+
+        <Route
+          path={ROUTE_REGISTER}
+          element={<ProtectedRouteElement onlyUnAuth element={<RegisterPage />} />}
+        />
+
         <Route path={ROUTE_FORGOT_PASSWORD} element={<PasswordRestorePage />} />
         <Route path={ROUTE_RESET_PASSWORD} element={<PasswordResetPage />} />
 
-        <Route path={ROUTE_PROFILE} element={<ProfilePage />}>
+        <Route path={ROUTE_PROFILE} element={<ProtectedRouteElement element={<ProfilePage />} />}>
           <Route path={SUBROUTE_DASHBOARD} element={<ProfileDashboard />} />
 
           {projects.map((item) => (
