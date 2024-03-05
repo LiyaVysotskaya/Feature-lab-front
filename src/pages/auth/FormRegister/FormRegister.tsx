@@ -189,7 +189,7 @@ export const FormRegister: FC<IFormProps> = ({
           </span>
         </span>
       </div>
-      {/* 
+
       <Button
         className={s.button}
         type="submit"
@@ -197,7 +197,7 @@ export const FormRegister: FC<IFormProps> = ({
         text="Регистрация"
         disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
-      /> */}
+      />
 
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}
