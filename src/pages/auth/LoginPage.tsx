@@ -21,28 +21,19 @@ export const LoginPage: FC = () => {
   //   password: 'DU#6ZEB&dXrJ%t',
   // };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    signIn({ email: values.email, password: values.password })
-      .then(() => {
-        // props.onLoggedIn();
-        resetForm({
-          email: '',
-          password: '',
-        });
-      })
-      .catch((error) => {
-        // setRequestResultText(
-        //   error === 'Ошибка: 401'
-        //     ? 'Вы ввели неправильный логин или пароль.'
-        //     : 'При авторизации пользователя произошла ошибка.',
-        // );
-        console.log(`Ошибка авторизации ${error}`);
-      })
-      .finally(() => {
-        setIsLoading(false);
+
+    try {
+      await signIn({ email: values.email, password: values.password });
+      resetForm({
+        email: '',
+        password: '',
       });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
