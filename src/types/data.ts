@@ -24,20 +24,18 @@ export type GetUserProfileResponse = GeneralApiResponse & {
   results: UserProfile[];
 };
 
-// forms data
+export type PostRegDataResponse = {
+  id: number;
+  email: string;
+};
 
+// forms data
 export type RegFormData = {
   email: string;
   password: string;
-  // checked: boolean;
 };
 
 export type LoginFormData = {
   email: string;
   password: string;
-  // checkbox: boolean;
 };
-
-export type TRegData = Pick<RegFormData, 'email' | 'password'>;
-
-export type TLoginData = Pick<LoginFormData, 'email' | 'password'>;

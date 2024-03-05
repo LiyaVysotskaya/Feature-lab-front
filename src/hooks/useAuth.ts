@@ -1,9 +1,9 @@
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { getAuth, getUserProfileData } from '../api/api';
+import { getAuth, getUserProfileData, postRegData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
 import { userProfileAtom } from '../atoms/userProfileAtom';
-import { LoginFormData } from '../types/data';
+import { LoginFormData, RegFormData } from '../types/data';
 import {
   clearAllStoredTokens,
   getStoredAccessToken,
@@ -44,6 +44,14 @@ const useAuth = () => {
     }
   };
 
+  const signUp = async (regData: RegFormData) => {
+    try {
+      await postRegData(regData);
+    } catch (error) {
+      console.error('Error during registration:', error);
+    }
+  };
+
   useEffect(() => {
     // Function to check authentication status
     const checkAuth = async () => {
@@ -73,7 +81,7 @@ const useAuth = () => {
   }, []);
 
   // Return authentication status and user profile data
-  return { isAuth, signOut, signIn };
+  return { isAuth, signOut, signIn, signUp };
 };
 
 export default useAuth;
