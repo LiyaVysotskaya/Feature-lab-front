@@ -181,11 +181,11 @@ export const FormRegister: FC<IFormProps> = ({
         <span className={s.checkboxText}>
           Я ознакомился с{' '}
           <span className={s.checkboxTextPolicy} onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
-            Политикой&nbsp;конфиденциальности
+            Политикой конфиденциальности
           </span>
           <br />и{' '}
           <span className={s.checkboxTextPolicy} onClick={() => setIsPopupUserAgreementOpen(true)}>
-            Пользовательским&nbsp;соглашением
+            Пользовательским соглашением
           </span>
         </span>
       </div>
