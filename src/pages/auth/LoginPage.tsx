@@ -5,6 +5,7 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { FormLogin } from './FormLogin/FormLogin';
 import s from './auth.module.scss';
 import { ROUTE_REGISTER } from '../../constants/constants';
+import useAuth from '../../hooks/useAuth';
 
 export const LoginPage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,15 +15,36 @@ export const LoginPage: FC = () => {
     password: '',
   });
 
+  const { signIn } = useAuth();
+  // const testLoginData = {
+  //   email: 'cherdantsev.p@gmail.com',
+  //   password: 'DU#6ZEB&dXrJ%t',
+  // };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-
-    resetForm({
-      email: '',
-      password: '',
-    });
+    signIn({ email: values.email, password: values.password })
+      .then(() => {
+        // props.onLoggedIn();
+        resetForm({
+          email: '',
+          password: '',
+        });
+      })
+      .catch((error) => {
+        // setRequestResultText(
+        //   error === 'Ошибка: 401'
+        //     ? 'Вы ввели неправильный логин или пароль.'
+        //     : 'При авторизации пользователя произошла ошибка.',
+        // );
+        console.log(`Ошибка авторизации ${error}`);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
+
   return (
     <Main>
       <section className={s.contentContainer}>
