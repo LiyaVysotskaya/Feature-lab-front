@@ -10,7 +10,7 @@ import useAuth from '../../hooks/useAuth';
 export const LoginPage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
+  const { values, handleChange, errors, isValid } = useFormAndValidation({
     email: '',
     password: '',
   });
@@ -27,10 +27,6 @@ export const LoginPage: FC = () => {
 
     try {
       await signIn({ email: values.email, password: values.password });
-      resetForm({
-        email: '',
-        password: '',
-      });
     } finally {
       setIsLoading(false);
     }
