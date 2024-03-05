@@ -1,3 +1,4 @@
+import { Provider } from 'jotai';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
@@ -9,6 +10,8 @@ if (!rootElement) throw new Error('Root element not found');
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <BrowserRouter>
-    <App />
+    <Provider>
+      <App />
+    </Provider>
   </BrowserRouter>,
 );

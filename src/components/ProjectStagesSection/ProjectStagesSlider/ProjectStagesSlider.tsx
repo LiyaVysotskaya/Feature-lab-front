@@ -9,33 +9,37 @@ import s from './ProjectStagesSlider.module.scss';
 interface IProjectStagesSliderProps {
   className?: string;
   setCurrentStageIndex: (index: number) => void;
+
+  projectIndex: number; // test
 }
 
 export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
   className = '',
   setCurrentStageIndex,
+  projectIndex,
 }) => {
   const [showLeftOverlay, setShowLeftOverlay] = useState(false);
   const [showRightOverlay, setShowRightOverlay] = useState(false);
-
   const stagesWrapperRef = useRef<HTMLDivElement>(null);
 
+  // Scroll to the in-progress element if it's out of view
   const scrollToInProgressEl = (wrapper: HTMLDivElement) => {
-    const inProgressStage: HTMLElement | null = document.querySelector('.inProgressStage');
-    if (inProgressStage && wrapper) {
-      const stageRect = inProgressStage.getBoundingClientRect();
+    const stageToScroll: HTMLElement | null = document.querySelector('.stageToScroll');
+
+    if (stageToScroll && wrapper) {
+      const stageRect = stageToScroll.getBoundingClientRect();
       const wrapperRect = wrapper.getBoundingClientRect();
 
       if (stageRect.left < wrapperRect.left || stageRect.right > wrapperRect.right) {
         wrapper.scroll({
-          left:
-            inProgressStage.offsetLeft - (wrapper.offsetWidth - inProgressStage.offsetWidth) / 2,
+          left: stageToScroll.offsetLeft - (wrapper.offsetWidth - stageToScroll.offsetWidth) / 2,
           behavior: 'smooth',
         });
       }
     }
   };
 
+  // Scroll horizontally within the stages wrapper
   const scrollInStagesWrapper = (n: number) => {
     const stagesWrapper = stagesWrapperRef.current;
     if (stagesWrapper) {
@@ -46,7 +50,7 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
     }
   };
 
-  // Effect to handle scroll events and resize
+  // Handle scroll events and resize
   useEffect(() => {
     const handleScroll = () => {
       const stagesWrapper = stagesWrapperRef.current;
@@ -55,10 +59,10 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
         const { scrollWidth } = stagesWrapper;
         const { clientWidth } = stagesWrapper;
 
-        // Show left gradient if scroll position is greater than 0
+        // Show left gradient if scroll position is greater than 3px
         setShowLeftOverlay(scrollLeft > 3); // +3px for better UX
         // Show right gradient if scroll position is less than max scroll width
-        setShowRightOverlay(scrollLeft < scrollWidth - clientWidth - 3); // scrollWidthMax - 3px for better UX
+        setShowRightOverlay(scrollLeft < scrollWidth - clientWidth - 3); // scroll width max - 3px for better UX
       }
     };
 
@@ -97,14 +101,24 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
 
       <div className={s.stagesWrapper} ref={stagesWrapperRef}>
         <ul className={cl(s.stages, className)}>
-          {projects[0].stages.map((stage, index, arr) => (
+          {projects[projectIndex].stages.map((stage, index, arr) => (
             <ProjectStage
               setCurrentStageIndex={setCurrentStageIndex}
               key={uuidv4()}
               status={stage.status}
               index={index}
-              isLast={index === arr.length - 1}
-              className={stage.status === 'inProgress' ? 'inProgressStage' : ''}
+              isLineHidden={
+                index === arr.length - 1 ||
+                (stage.status === 'completed' && arr[index + 1].status === 'new')
+              }
+              className={
+                stage.status === 'in_progress' ||
+                (stage.status === 'new' && index > 1 && arr[index - 1].status === 'completed') ||
+                (stage.status === 'completed' && index === arr.length - 1)
+                  ? 'stageToScroll'
+                  : ''
+              }
+              projectIndex={projectIndex}
             />
           ))}
         </ul>

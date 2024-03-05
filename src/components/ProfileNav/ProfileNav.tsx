@@ -8,10 +8,11 @@ import {
   ROUTE_PROFILE_DOCS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../constants/constants';
+import useAuth from '../../hooks/useAuth';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../ui/icons';
-import s from './ProfileNav.module.scss';
 import { ProfileNavLink } from './ProfileNavLink/ProfileNavLink';
 import { ProfileProjectsNav } from './ProfileProjectsNav/ProfileProjectsNav';
+import s from './ProfileNav.module.scss';
 
 export const ProfileNav: React.FC = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ export const ProfileNav: React.FC = () => {
   const isProductsPage = productsPages.includes(location.pathname);
   const hasMultipleProducts = productsPages.length > 1;
   const navigate = useNavigate();
+  const { signOut } = useAuth();
 
   return (
     <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
@@ -65,6 +67,7 @@ export const ProfileNav: React.FC = () => {
             className={cl(s.button)}
             onClick={() => {
               navigate(ROUTE_HOME);
+              signOut();
             }}>
             <SkipForwardIcon /> <span className={cl(s.buttonText)}>Выход</span>
           </button>
