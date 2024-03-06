@@ -20,12 +20,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    @media screen and (width <= 1000px) {
-      overflow-x: clip; // to cut project cards radial gradient on right edge of screen in Profile page
-    }
+    // обязательно вернуть в конце разработки
+    // @media screen and (width <= 1000px) {
+    //   // to cut project cards radial gradient on right edge of screen in Profile page
+    //   overflow-x: clip;
+    // }
   }
-}
-
-* {
-  border: 1px solid red;
 }
