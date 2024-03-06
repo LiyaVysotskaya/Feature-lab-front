@@ -1,6 +1,7 @@
+import { useAtom } from 'jotai';
 import { FC } from 'react';
 import { Navigate, RouteProps, useLocation } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import { isAuthAtom } from '../../atoms/isAuthAtom';
 import { ROUTE_LOGIN } from '../../constants/constants';
 
 type TProtectedRouteElementProps = RouteProps & {
@@ -14,7 +15,7 @@ export const ProtectedRouteElement: FC<TProtectedRouteElementProps> = ({
   // Get the current location using the useLocation hook
   const location = useLocation();
 
-  const { isAuth } = useAuth();
+  const [isAuth] = useAtom(isAuthAtom);
 
   // Allow only UnAuth users here, if the user is Auth,
   // redirect them to the page they came from or to the home page
