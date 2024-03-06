@@ -67,7 +67,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={s.page}>
+    <div className={s.generalWrapper}>
       <Header />
 
       <Routes>

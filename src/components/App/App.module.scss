@@ -1,5 +1,5 @@
 body {
-  .page {
+  .generalWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,11 +19,5 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    // обязательно вернуть в конце разработки
-    // @media screen and (width <= 1000px) {
-    //   // to cut project cards radial gradient on right edge of screen in Profile page
-    //   overflow-x: clip;
-    // }
   }
 }
