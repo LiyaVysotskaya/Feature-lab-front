@@ -1,4 +1,4 @@
-type GeneralApiResponse = {
+type TGeneralApiResponse = {
   count: number;
   next: null | string;
   previous: null | string;
@@ -9,7 +9,7 @@ export type GetAuthResponse = {
   refresh: string;
 };
 
-export type UserProfile = {
+export type TUserProfile = {
   id: number;
   first_name: string;
   last_name: string;
@@ -20,8 +20,8 @@ export type UserProfile = {
   position: string;
 };
 
-export type GetUserProfileResponse = GeneralApiResponse & {
-  results: UserProfile[];
+export type GetUserProfileResponse = TGeneralApiResponse & {
+  results: TUserProfile[];
 };
 
 export type PostRegDataResponse = {
@@ -38,4 +38,54 @@ export type RegFormData = {
 export type LoginFormData = {
   email: string;
   password: string;
+};
+
+export type TProjectStage = {
+  id: number;
+  name: string;
+  description: string;
+  stage_num: number;
+  stage_status: 'completed' | 'in_progress' | 'new';
+  start_date: string;
+  end_date: string;
+};
+
+export type TManager = {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+};
+
+export type TProjectShortInfo = {
+  id: number;
+  name: string;
+  stages_count: number;
+  end_date: string;
+  current_stage: TProjectStage;
+  manager: TManager;
+  stages: TProjectStage[];
+};
+
+export type TDocument = {
+  id: number;
+  name: string;
+  description: string;
+  doctype: {
+    id: number;
+    name: string;
+  };
+  url: string;
+  pub_date: string;
+};
+
+export type TProjectFullInfo = TProjectShortInfo & {
+  logo: string;
+  managers: TManager[];
+  documents: TDocument[];
+};
+
+export type GetUserProjectsListResponse = TGeneralApiResponse & {
+  results: TProjectShortInfo[];
 };
