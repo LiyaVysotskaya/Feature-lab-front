@@ -72,14 +72,11 @@ privateAPI.interceptors.response.use(
 
       switch (status) {
         case 400:
-          // if (data.email === EMAIL_ALREADY_EXISTS) {
-          //   notifyEmailAlreadyExists();
-          // }
           break;
         case 401:
           if (data.detail === NO_ACTIVE_ACCOUNT) {
             notifyAuthError(); // Notify user about authentication error
-          } else if (error.response && !originalRequest._retry) {
+          } else if (error.response && !originalRequest._retry && getStoredRefreshToken()) {
             // if respose related to expired token and retry is not set
             if (retry > 0) {
               await retryRequest(originalRequest);
