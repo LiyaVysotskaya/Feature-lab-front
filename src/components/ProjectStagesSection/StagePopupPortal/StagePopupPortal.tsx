@@ -14,6 +14,7 @@ type StagePopupPortalProps = {
 type PopupPositionState = {
   top: number | undefined;
   left: number | undefined;
+  side: string | undefined;
 };
 
 const calculatePopupLeftPosition = (stageRect: DOMRect, popupWidth: number) => {
@@ -21,15 +22,19 @@ const calculatePopupLeftPosition = (stageRect: DOMRect, popupWidth: number) => {
   const isTooCloseToRightEdge = stageRect.right + popupWidth > window.innerWidth;
 
   if (isTooCloseToLeftEdge && !isTooCloseToRightEdge) {
-    return stageRect.right; // show from right side of stage el
+    // return stageRect.right; // show from right side of stage el
+    return { left: stageRect.left, side: 'right' }; // show from right side of stage el
   }
   if (isTooCloseToRightEdge && !isTooCloseToLeftEdge) {
-    return stageRect.left - popupWidth; // show from left side of stage el
+    // return stageRect.left - popupWidth; // show from left side of stage el
+    return { left: stageRect.left - popupWidth, side: 'left' }; // show from left side of stage el
   }
   if (isTooCloseToLeftEdge && isTooCloseToRightEdge && window.innerWidth <= 768) {
-    return window.innerWidth / 2 - popupWidth / 2; // show in center of stagesWrapper
+    // return window.innerWidth / 2 - popupWidth / 2; // show in center of stagesWrapper
+    return { left: window.innerWidth / 2 - popupWidth / 2, side: undefined }; // show in center of stagesWrapper
   }
-  return stageRect.right; // show from right side of stage el
+  // return stageRect.right; // show from right side of stage el
+  return { left: stageRect.left, side: 'right' }; // show from right side of stage el
 };
 
 const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
@@ -42,6 +47,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
   const [popupPosition, setPopupPosition] = useState<PopupPositionState>({
     top: undefined,
     left: undefined,
+    side: undefined,
   });
 
   const popupRef = useRef<HTMLDivElement>(null);
@@ -67,51 +73,47 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
     };
   }, [isOpen, onClose]);
 
+  const handleOnMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      onClose();
+    }
+  };
+
   // calculate popup initial position
   useEffect(() => {
     const popup = popupRef.current;
     const stageElRect = stageEl.getBoundingClientRect();
     if (stageElRect && popup) {
-      const popupLeft = calculatePopupLeftPosition(stageElRect, popup.clientWidth);
+      const position = calculatePopupLeftPosition(stageElRect, popup.clientWidth);
 
-      setPopupPosition({ top: stageElRect.top, left: popupLeft });
+      setPopupPosition({ top: stageElRect.top - 10, left: position.left, side: position.side });
     }
   }, []);
-
-  // ESC key event listener
-  useEffect(() => {
-    const handleEscClose = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscClose);
-    return () => {
-      document.removeEventListener('keydown', handleEscClose);
-    };
-  }, [onClose]);
 
   if (!popupRoot || !isOpen) return null;
 
   return ReactDOM.createPortal(
     <div
       ref={popupRef}
-      id="projectPopup"
-      className={cl(s.popup, {
-        [s.popup_visible]:
+      className={cl(s.popupWrap, {
+        [s.popupWrap_visible]:
           isOpen &&
           popupPosition.top &&
           popupPosition.top > 0 &&
           popupPosition.left &&
           popupPosition.left > 0,
+        [s.popupWrap_left]: popupPosition.side === 'right',
+        [s.popupWrap_right]: popupPosition.side === 'left',
       })}
+      onMouseLeave={handleOnMouseLeave}
       style={{ top: popupPosition.top, left: popupPosition.left }}>
-      <div className={s.popupContent}>
-        {children}
-        <button type="button" className={s.popupCloseBtn} onClick={() => onClose()}>
-          <CrossIcon />
-        </button>
+      <div className={cl(s.popup)}>
+        <div className={s.popupContent}>
+          {children}
+          <button type="button" className={s.popupCloseBtn} onClick={() => onClose()}>
+            <CrossIcon />
+          </button>
+        </div>
       </div>
     </div>,
     popupRoot,

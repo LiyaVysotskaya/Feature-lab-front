@@ -1,41 +1,51 @@
 import cl from 'classnames';
 import { FC, useEffect, useState } from 'react';
+import { TProjectStage } from '../../types/data';
 import { CurrentStage } from './CurrentStage/CurrentStage';
-import s from './ProjectStagesSection.module.scss';
 import { ProjectStagesSlider } from './ProjectStagesSlider/ProjectStagesSlider';
-import { projects } from '../../_mockData/projectsMockData';
+import s from './ProjectStagesSection.module.scss';
 
 interface IProjectStagesProps {
   className?: string;
+  projectStages: TProjectStage[];
 }
 
-export const ProjectStagesSection: FC<IProjectStagesProps> = ({ className = '' }) => {
-  const [currentStageIndex, setCurrentStageIndex] = useState(0);
-  const projectIndex = 3; // test
+export const ProjectStagesSection: FC<IProjectStagesProps> = ({
+  className = '',
+  projectStages,
+}) => {
+  const [currentStage, setCurrentStage] = useState<TProjectStage>({
+    id: 0,
+    name: '',
+    description: '',
+    stage_num: 0,
+    stage_status: 'completed',
+    start_date: '',
+    end_date: '1990-09-11T00:00:00Z',
+  });
 
   useEffect(() => {
-    const stageInProgressindex = projects[projectIndex].stages.findIndex(
-      (stage) => stage.status === 'in_progress',
-    );
-    // if there is no project with status in_progress find first project that has status notStarted
-    if (stageInProgressindex === -1) {
-      const stageNotStartedindex = projects[projectIndex].stages.findIndex(
-        (stage) => stage.status === 'new',
-      );
-      setCurrentStageIndex(stageNotStartedindex);
-      return;
-    }
+    // Find the stage that is in progress
+    const stageInProgress = projectStages.find((stage) => stage.stage_status === 'in_progress');
 
-    setCurrentStageIndex(stageInProgressindex);
-  }, []);
+    // Find the first stage that has not started
+    const stageNotStarted = projectStages.find((stage) => stage.stage_status === 'new');
+
+    // Set the current stage based on the found stages
+    if (stageInProgress) {
+      setCurrentStage(stageInProgress);
+    } else if (stageNotStarted) {
+      setCurrentStage(stageNotStarted);
+    } else {
+      // If all stages have started or there are no stages, set the current stage to the last stage
+      setCurrentStage(projectStages[projectStages.length - 1]);
+    }
+  }, [projectStages]);
 
   return (
     <section className={cl(s.section, className)}>
-      <CurrentStage currentStageIndex={currentStageIndex} projectIndex={projectIndex} />
-      <ProjectStagesSlider
-        setCurrentStageIndex={setCurrentStageIndex}
-        projectIndex={projectIndex}
-      />
+      <CurrentStage stage={currentStage} />
+      <ProjectStagesSlider setCurrentStage={setCurrentStage} projectStages={projectStages} />
     </section>
   );
 };

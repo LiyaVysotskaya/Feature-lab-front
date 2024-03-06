@@ -1,28 +1,27 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { projects } from '../../../_mockData/projectsMockData';
+import { TProjectStage } from '../../../types/data';
 import { ArrowInCircleIcon } from '../../ui/icons';
 import { ProjectStage } from '../ProjectStage/ProjectStage';
 import s from './ProjectStagesSlider.module.scss';
 
 interface IProjectStagesSliderProps {
   className?: string;
-  setCurrentStageIndex: (index: number) => void;
-
-  projectIndex: number; // test
+  setCurrentStage: (stage: TProjectStage) => void;
+  projectStages: TProjectStage[];
 }
 
 export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
   className = '',
-  setCurrentStageIndex,
-  projectIndex,
+  setCurrentStage,
+  projectStages,
 }) => {
   const [showLeftOverlay, setShowLeftOverlay] = useState(false);
   const [showRightOverlay, setShowRightOverlay] = useState(false);
   const stagesWrapperRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to the in-progress element if it's out of view
+  // Scroll to the current stage element if it's out of view
   const scrollToInProgressEl = (wrapper: HTMLDivElement) => {
     const stageToScroll: HTMLElement | null = document.querySelector('.stageToScroll');
 
@@ -84,7 +83,7 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
   }, []);
 
   return (
-    <div className={s.slider} id="stagesWrapperContainer">
+    <div className={s.slider}>
       <div
         className={cl(s.whiteOverlay, s.whiteOverlay_left, {
           [s.whiteOverlay_visible]: showLeftOverlay,
@@ -101,24 +100,25 @@ export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
 
       <div className={s.stagesWrapper} ref={stagesWrapperRef}>
         <ul className={cl(s.stages, className)}>
-          {projects[projectIndex].stages.map((stage, index, arr) => (
+          {projectStages.map((stage, index, arr) => (
             <ProjectStage
-              setCurrentStageIndex={setCurrentStageIndex}
+              stage={stage}
+              setCurrentStage={setCurrentStage}
               key={uuidv4()}
-              status={stage.status}
-              index={index}
               isLineHidden={
                 index === arr.length - 1 ||
-                (stage.status === 'completed' && arr[index + 1].status === 'new')
+                (stage.stage_status === 'completed' && arr[index + 1].stage_status === 'new')
               }
+              // mark stage that we want to scroll to
               className={
-                stage.status === 'in_progress' ||
-                (stage.status === 'new' && index > 1 && arr[index - 1].status === 'completed') ||
-                (stage.status === 'completed' && index === arr.length - 1)
+                stage.stage_status === 'in_progress' ||
+                (stage.stage_status === 'new' &&
+                  index > 1 &&
+                  arr[index - 1].stage_status === 'completed') ||
+                (stage.stage_status === 'completed' && index === arr.length - 1)
                   ? 'stageToScroll'
                   : ''
               }
-              projectIndex={projectIndex}
             />
           ))}
         </ul>
