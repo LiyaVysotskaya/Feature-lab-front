@@ -37,7 +37,7 @@ export const ProfilePage: FC = () => {
   return (
     <Main className={s.profile}>
       <ProfileNav />
-      <div className={s.profileContent}>
+      <div className={s.profileContent} id="profilePageContent">
         <Outlet />
       </div>
     </Main>

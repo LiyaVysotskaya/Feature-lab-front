@@ -22,18 +22,14 @@ const calculatePopupLeftPosition = (stageRect: DOMRect, popupWidth: number) => {
   const isTooCloseToRightEdge = stageRect.right + popupWidth > window.innerWidth;
 
   if (isTooCloseToLeftEdge && !isTooCloseToRightEdge) {
-    // return stageRect.right; // show from right side of stage el
     return { left: stageRect.left, side: 'right' }; // show from right side of stage el
   }
   if (isTooCloseToRightEdge && !isTooCloseToLeftEdge) {
-    // return stageRect.left - popupWidth; // show from left side of stage el
     return { left: stageRect.left - popupWidth, side: 'left' }; // show from left side of stage el
   }
   if (isTooCloseToLeftEdge && isTooCloseToRightEdge && window.innerWidth <= 768) {
-    // return window.innerWidth / 2 - popupWidth / 2; // show in center of stagesWrapper
     return { left: window.innerWidth / 2 - popupWidth / 2, side: undefined }; // show in center of stagesWrapper
   }
-  // return stageRect.right; // show from right side of stage el
   return { left: stageRect.left, side: 'right' }; // show from right side of stage el
 };
 
@@ -43,7 +39,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
   isOpen,
   children,
 }) => {
-  const popupRoot = document.getElementById('root');
+  const popupRoot = document.getElementById('generalWrapper');
   const [popupPosition, setPopupPosition] = useState<PopupPositionState>({
     top: undefined,
     left: undefined,

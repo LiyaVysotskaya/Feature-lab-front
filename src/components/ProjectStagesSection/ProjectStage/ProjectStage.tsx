@@ -28,7 +28,7 @@ export const ProjectStage: FC<ProjectStageProps> = ({
 
   const status = stage.stage_status;
 
-  const handleOnMouseEnter = () => {
+  const handleOnClick = () => {
     if (window.innerWidth > 768) {
       setShowPopup(true);
     }
@@ -60,10 +60,7 @@ export const ProjectStage: FC<ProjectStageProps> = ({
           })}
         />
       )}
-      <div
-        className={cl(s.stage)}
-        onMouseEnter={handleOnMouseEnter}
-        onTouchEnd={handleStageOnTouchEnd}>
+      <div className={cl(s.stage)} onClick={handleOnClick} onTouchEnd={handleStageOnTouchEnd}>
         <EllipseIcon status={status} />
         <p className={cl(s.stage__text, { [s.stage__text_active]: status !== 'new' })}>
           Этап {stage.stage_num}
