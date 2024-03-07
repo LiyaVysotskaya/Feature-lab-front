@@ -1,10 +1,12 @@
 import cl from 'classnames';
 import { format, parseISO } from 'date-fns';
 import { FC } from 'react';
+import { useNavigate, useNavigation } from 'react-router-dom';
 import { Text } from '../../../../components/ui/Text/Text';
 import { TProjectShortInfo } from '../../../../types/data';
 import { ProgressCircle } from '../ProgressCircle/ProgressCircle';
 import s from './ProjectCard.module.scss';
+import { ROUTE_PROFILE_PROJECTS } from '../../../../constants/constants';
 
 interface ProjectCardProps {
   className?: string;
@@ -12,6 +14,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({ className = '', project }) => {
+  const navigate = useNavigate();
   const { stages } = project;
 
   const completedStages = stages.filter((stage) => stage.stage_status === 'completed');
@@ -33,11 +36,27 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', project }) =
     return format(date, 'dd.MM.yyyy');
   };
 
+  const handleOnCardClick = () => {
+    if (window.innerWidth > 768) {
+      navigate(`${ROUTE_PROFILE_PROJECTS}/${project.id}`);
+    }
+  };
+
+  const handleOnCardTitleTap = () => {
+    if (window.innerWidth < 768) {
+      navigate(`${ROUTE_PROFILE_PROJECTS}/${project.id}`);
+    }
+  };
+
   return (
-    <div className={cl(s.card, className)}>
-      <Text view="germano-5" className={cl(s.title)}>
+    <div
+      className={cl(s.card, className)}
+      onClick={() => {
+        handleOnCardClick();
+      }}>
+      <p onTouchEnd={() => handleOnCardTitleTap()} className={cl(s.title)}>
         {project.name}
-      </Text>
+      </p>
       <Text view="gost-4" className={cl(s.label)}>
         Менеджер:
       </Text>
