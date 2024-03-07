@@ -12,7 +12,7 @@ import {
 import { privateAPI } from './privateApiConfig';
 import { publicAPI } from './publicApiConfig';
 
-export const getAuth = async (loginData: LoginFormData): Promise<GetAuthResponse> => {
+export const postLoginData = async (loginData: LoginFormData): Promise<GetAuthResponse> => {
   const response = await publicAPI.post<GetAuthResponse>('auth/jwt/create/', loginData);
   return response.data;
 };

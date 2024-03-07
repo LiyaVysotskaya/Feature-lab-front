@@ -1,8 +1,8 @@
 import { useAtom } from 'jotai';
-import { getAuth, postRegData } from '../api/api';
+import { postLoginData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
 import queryClient from '../query-client';
-import { LoginFormData, RegFormData } from '../types/data';
+import { LoginFormData } from '../types/data';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,
@@ -22,7 +22,7 @@ const useAuth = () => {
 
   const signIn = async (loginData: LoginFormData) => {
     try {
-      const authResponse = await getAuth(loginData);
+      const authResponse = await postLoginData(loginData);
       if (authResponse.access && authResponse.refresh) {
         setStoredAccessToken(authResponse.access);
         setStoredRefreshToken(authResponse.refresh);
@@ -36,16 +36,8 @@ const useAuth = () => {
     }
   };
 
-  const signUp = async (regData: RegFormData) => {
-    try {
-      await postRegData(regData);
-    } catch (error) {
-      console.error('Error during registration:', error);
-    }
-  };
-
   // Return authentication status and user profile data
-  return { signOut, signIn, signUp };
+  return { signOut, signIn };
 };
 
 export default useAuth;
