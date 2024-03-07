@@ -29,12 +29,12 @@ export const ProfileNav: FC = () => {
 
   const projectsPages = projects.map((project) => `${ROUTE_PROFILE_PROJECTS}/${project.id}`);
   const isProjectPage = projectsPages.includes(location.pathname);
-  const hasMultipleProjects = projectsPages.length > 1;
+  const PojectsCount = projectsPages.length;
 
   return (
     <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
       <ul className={cl(s.list)}>
-        {!hasMultipleProjects && (
+        {PojectsCount === 1 && (
           <li className={cl(s.listItem)}>
             <ProfileNavLink
               to={projectsPages[0]}
@@ -45,7 +45,7 @@ export const ProfileNav: FC = () => {
           </li>
         )}
 
-        {hasMultipleProjects && (
+        {PojectsCount > 1 && (
           <li className={cl(s.listItem)}>
             <ProfileNavLink
               to={ROUTE_PROFILE_DASHBOARD}
@@ -56,7 +56,7 @@ export const ProfileNav: FC = () => {
           </li>
         )}
 
-        {hasMultipleProjects && (
+        {PojectsCount && (
           <li className={cl(s.submenu)}>
             <ProfileProjectsNav projects={projects} />
           </li>
