@@ -18,7 +18,7 @@ export const ProfilePage: FC = () => {
   const { data: projects } = useProjectsQuery();
 
   useEffect(() => {
-    const fetchData = () => {
+    const navigateBasedOnProjects = () => {
       if (projects && pathname === ROUTE_PROFILE) {
         const projectsCount = projects.length;
         if (projectsCount === 0) {
@@ -31,7 +31,7 @@ export const ProfilePage: FC = () => {
       }
     };
 
-    fetchData();
+    navigateBasedOnProjects();
   });
 
   return (
