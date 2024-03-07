@@ -2,37 +2,26 @@
   position: relative;
   box-sizing: border-box;
   width: 100%;
+  min-height: 150px;
 
   @media screen and (width <= 768px) {
     width: 100vw;
   }
 }
 
-.stagesWrapper {
-  position: relative;
-
-  overflow-x: scroll;
-
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 150px;
-  padding-right: 30px;
-
-  @media screen and (width > 768px) {
-    &::-webkit-scrollbar {
-      display: none; /* Hide the scrollbar */
-    }
-  }
-}
-
 .stages {
   position: absolute;
+  top: 0;
+  left: 0;
 
+  overflow-x: scroll;
   display: flex;
   flex-direction: row;
   column-gap: 28px;
 
   box-sizing: border-box;
+  width: 100%;
+  min-height: 145px;
   padding: 40px 0 0;
 
   @media screen and (width <= 768px) {
@@ -40,6 +29,12 @@
     padding: 40px 0 0;
     padding-right: var(--offset-from-edge);
     padding-left: var(--offset-from-edge);
+  }
+
+  @media screen and (width > 768px) {
+    &::-webkit-scrollbar {
+      display: none; /* Hide the scrollbar */
+    }
   }
 }
 
@@ -77,7 +72,7 @@
 .btn {
   position: absolute;
   z-index: 3;
-  top: 55%;
+  top: 48%;
   transition: opacity 200ms ease-in;
 
   &_left {
