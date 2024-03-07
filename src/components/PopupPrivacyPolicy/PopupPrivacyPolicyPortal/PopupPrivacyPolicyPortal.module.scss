@@ -14,11 +14,16 @@
   visibility: hidden;
   background-color: var(--shadow);
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
   &Open {
     visibility: visible;
+  }
+}
+
+.bodyNoScroll {
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    // Hide scrollbar on the body
+    display: none;
   }
 }
