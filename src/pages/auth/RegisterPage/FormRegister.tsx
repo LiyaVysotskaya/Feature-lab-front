@@ -15,7 +15,11 @@ import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/Popup
 import { QuestionIcon } from '../../../components/ui/icons';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 
-export const FormRegister: FC = () => {
+type IProps = {
+  onSuccess: (newEmail: string) => void;
+};
+
+export const FormRegister: FC<IProps> = ({ onSuccess }) => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
 
@@ -82,6 +86,7 @@ export const FormRegister: FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    onSuccess(values.email);
 
     resetForm({
       email: '',

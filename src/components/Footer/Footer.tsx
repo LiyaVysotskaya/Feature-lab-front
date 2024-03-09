@@ -2,9 +2,7 @@ import React from 'react';
 import s from './Footer.module.scss';
 import { FormFooter } from './FormFooter/FormFooter';
 
-type IFooterProps = {};
-
-const Footer: React.FC<IFooterProps> = () => {
+const Footer: React.FC = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerContainer}>
