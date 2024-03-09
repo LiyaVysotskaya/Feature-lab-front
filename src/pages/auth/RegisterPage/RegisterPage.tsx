@@ -1,10 +1,10 @@
 import { FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Main } from '../../components/Main/Main';
-import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import { FormRegister } from './FormRegister/FormRegister';
-import s from './auth.module.scss';
-import { ROUTE_LOGIN } from '../../constants/constants';
+import { Main } from '../../../components/Main/Main';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { FormRegister } from './FormRegister';
+import s from '../auth.module.scss';
+import { ROUTE_LOGIN } from '../../../constants/constants';
 
 export const RegisterPage: FC = () => {
   const [isLoading, setIsLoading] = useState(false);

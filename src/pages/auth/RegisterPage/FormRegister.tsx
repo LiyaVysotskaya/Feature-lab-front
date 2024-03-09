@@ -1,6 +1,5 @@
 import cl from 'classnames';
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import {
   MAX_LENGTH_EMAIL,
   MAX_LENGTH_PASSWORD,
@@ -8,8 +7,8 @@ import {
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
 import { Button } from '../../../components/ui/Button/Button';
+import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 
-// import s from './FormLogin.module.scss';
 import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
@@ -23,7 +22,7 @@ type IFormProps = {
   isLoading: boolean | undefined;
 };
 
-export const FormLogin: FC<IFormProps> = ({
+export const FormRegister: FC<IFormProps> = ({
   onSubmit,
   values,
   handleChange,
@@ -33,6 +32,8 @@ export const FormLogin: FC<IFormProps> = ({
 }) => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
+
+  const [isChecked, setIsChecked] = useState(false);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -65,8 +66,24 @@ export const FormLogin: FC<IFormProps> = ({
     handleChange(e);
   };
 
+  const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(e.target.checked);
+  };
+
   const isEmpty = () => {
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
+  };
+
+  const onRepeatPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target;
+    if (input.value !== values.password) {
+      input.setCustomValidity('Введённые значения не совпадают');
+    } else {
+      input.setCustomValidity('');
+    }
+
+    input.reportValidity();
+    handleChange(e);
   };
 
   return (
@@ -117,24 +134,67 @@ export const FormLogin: FC<IFormProps> = ({
           </div>
           <QuestionIcon className={s.hintIcon} />
         </div>
+
+        <div className={s.inputContainer}>
+          <input
+            className={s.input}
+            aria-label="Input repeat password"
+            value={values.repeatPassword}
+            onChange={onRepeatPasswordChange}
+            name="repeatPassword"
+            type="password"
+            placeholder="Повторите пароль"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            required
+          />
+          <div className={s.textContainer}>
+            <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
+              02.1
+            </span>
+            <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
+              Пароль
+            </span>
+          </div>
+          <div
+            className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.repeatPassword })}>
+            <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
+          </div>
+          <QuestionIcon className={s.hintIcon} />
+        </div>
       </fieldset>
 
-      <div className={s.pwdResetLinkPosition}>
-        <div className={s.pwdResetLinkContainer}>
-          <Link
-            to="https://github.com/LiyaVysotskaya/Feature-lab-front"
-            className={s.passwordResetLink}>
-            Забыли пароль?
-          </Link>
-        </div>
+      <div className={s.checkboxContainer}>
+        <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
+          <CheckBoxIcon isChecked={isChecked} />
+          <input
+            className={s.checkbox}
+            id="checkboxRegistration"
+            aria-label="Checkbox registration"
+            name="checkboxRegistration"
+            type="checkbox"
+            checked={isChecked}
+            onChange={onCheckboxClick}
+          />
+        </label>
+        <span className={s.checkboxText}>
+          Я ознакомился с{' '}
+          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+            Политикой конфиденциальности
+          </span>
+          <br />и{' '}
+          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupUserAgreementOpen(true)}>
+            Пользовательским соглашением
+          </span>
+        </span>
       </div>
 
       <Button
         className={s.button}
         type="submit"
         theme="white"
-        text="Вход"
-        disabled={!isValid || isEmpty()}
+        text="Регистрация"
+        disabled={!isValid || !isChecked || isEmpty()}
         isLoading={isLoading}
       />
 
@@ -151,4 +211,4 @@ export const FormLogin: FC<IFormProps> = ({
   );
 };
 
-export default FormLogin;
+export default FormRegister;
