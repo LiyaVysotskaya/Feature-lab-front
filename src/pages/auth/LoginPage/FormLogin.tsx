@@ -77,79 +77,80 @@ export const FormLogin: FC = () => {
   };
 
   return (
-    <form className={s.form} method="POST" onSubmit={handleSubmit}>
-      <fieldset className={s.fieldset}>
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input email"
-            value={values.email}
-            onChange={onInputChange}
-            name="email"
-            type="email"
-            placeholder="Email"
-            minLength={MIN_LENGTH_EMAIL}
-            maxLength={MAX_LENGTH_EMAIL}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+    <>
+      <form className={s.form} method="POST" onSubmit={handleSubmit}>
+        <fieldset className={s.fieldset}>
+          <div className={s.inputContainer}>
+            <input
+              className={s.input}
+              aria-label="Input email"
+              value={values.email}
+              onChange={onInputChange}
+              name="email"
+              type="email"
+              placeholder="Email"
+              minLength={MIN_LENGTH_EMAIL}
+              maxLength={MAX_LENGTH_EMAIL}
+              required
+            />
+            <div className={s.textContainer}>
+              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+            </div>
+            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cl(s.inputError)}>{errors.email}</span>
+            </div>
+            <QuestionIcon className={s.hintIcon} />
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-            <span className={cl(s.inputError)}>{errors.email}</span>
+
+          <div className={s.inputContainer}>
+            <input
+              className={s.input}
+              aria-label="Input password"
+              value={values.password}
+              onChange={handleChange}
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              minLength={MIN_LENGTH_PASSWORD}
+              maxLength={MAX_LENGTH_PASSWORD}
+              required
+            />
+            <div className={s.textContainer}>
+              <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+            </div>
+            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+              <span className={cl(s.inputError)}>{errors.password}</span>
+            </div>
+            <QuestionIcon className={s.hintIcon} />
           </div>
-          <QuestionIcon className={s.hintIcon} />
+        </fieldset>
+
+        <div className={s.pwdResetLinkPosition}>
+          <div className={s.pwdResetLinkContainer}>
+            <Link
+              to="https://github.com/LiyaVysotskaya/Feature-lab-front"
+              className={s.passwordResetLink}>
+              Забыли пароль?
+            </Link>
+          </div>
         </div>
 
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input password"
-            value={values.password}
-            onChange={handleChange}
-            name="password"
-            type="password"
-            placeholder="Пароль"
-            minLength={MIN_LENGTH_PASSWORD}
-            maxLength={MAX_LENGTH_PASSWORD}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
-          </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-            <span className={cl(s.inputError)}>{errors.password}</span>
-          </div>
-          <QuestionIcon className={s.hintIcon} />
-        </div>
-      </fieldset>
-
-      <div className={s.pwdResetLinkPosition}>
-        <div className={s.pwdResetLinkContainer}>
-          <Link
-            to="https://github.com/LiyaVysotskaya/Feature-lab-front"
-            className={s.passwordResetLink}>
-            Забыли пароль?
-          </Link>
-        </div>
-      </div>
-
-      <Button
-        className={s.button}
-        type="submit"
-        theme="white"
-        text="Вход"
-        disabled={!isValid || isEmpty()}
-        isLoading={isLoading}
-      />
-
+        <Button
+          className={s.button}
+          type="submit"
+          theme="white"
+          text="Вход"
+          disabled={!isValid || isEmpty()}
+          isLoading={isLoading}
+        />
+      </form>
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
-    </form>
+    </>
   );
 };
 

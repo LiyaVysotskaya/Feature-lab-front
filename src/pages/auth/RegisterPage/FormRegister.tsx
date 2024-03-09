@@ -91,127 +91,133 @@ export const FormRegister: FC = () => {
   };
 
   return (
-    <form className={s.form} method="POST" onSubmit={handleSubmit}>
-      <fieldset className={s.fieldset}>
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input email"
-            value={values.email}
-            onChange={onInputChange}
-            name="email"
-            type="email"
-            placeholder="Email"
-            minLength={MIN_LENGTH_EMAIL}
-            maxLength={MAX_LENGTH_EMAIL}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+    <>
+      <form className={s.form} method="POST" onSubmit={handleSubmit}>
+        <fieldset className={s.fieldset}>
+          <div className={s.inputContainer}>
+            <input
+              className={s.input}
+              aria-label="Input email"
+              value={values.email}
+              onChange={onInputChange}
+              name="email"
+              type="email"
+              placeholder="Email"
+              minLength={MIN_LENGTH_EMAIL}
+              maxLength={MAX_LENGTH_EMAIL}
+              required
+            />
+            <div className={s.textContainer}>
+              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+            </div>
+            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cl(s.inputError)}>{errors.email}</span>
+            </div>
+            <QuestionIcon className={s.hintIcon} />
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-            <span className={cl(s.inputError)}>{errors.email}</span>
-          </div>
-          <QuestionIcon className={s.hintIcon} />
-        </div>
 
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input password"
-            value={values.password}
-            onChange={handleChange}
-            name="password"
-            type="password"
-            placeholder="Пароль"
-            minLength={MIN_LENGTH_PASSWORD}
-            maxLength={MAX_LENGTH_PASSWORD}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+          <div className={s.inputContainer}>
+            <input
+              className={s.input}
+              aria-label="Input password"
+              value={values.password}
+              onChange={handleChange}
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              minLength={MIN_LENGTH_PASSWORD}
+              maxLength={MAX_LENGTH_PASSWORD}
+              required
+            />
+            <div className={s.textContainer}>
+              <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+            </div>
+            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+              <span className={cl(s.inputError)}>{errors.password}</span>
+            </div>
+            <QuestionIcon className={s.hintIcon} />
           </div>
-          <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-            <span className={cl(s.inputError)}>{errors.password}</span>
-          </div>
-          <QuestionIcon className={s.hintIcon} />
-        </div>
 
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input repeat password"
-            value={values.repeatPassword}
-            onChange={onRepeatPasswordChange}
-            name="repeatPassword"
-            type="password"
-            placeholder="Повторите пароль"
-            minLength={MIN_LENGTH_PASSWORD}
-            maxLength={MAX_LENGTH_PASSWORD}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
-              02.1
+          <div className={s.inputContainer}>
+            <input
+              className={s.input}
+              aria-label="Input repeat password"
+              value={values.repeatPassword}
+              onChange={onRepeatPasswordChange}
+              name="repeatPassword"
+              type="password"
+              placeholder="Повторите пароль"
+              minLength={MIN_LENGTH_PASSWORD}
+              maxLength={MAX_LENGTH_PASSWORD}
+              required
+            />
+            <div className={s.textContainer}>
+              <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
+                02.1
+              </span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
+                Пароль
+              </span>
+            </div>
+            <div
+              className={cl(s.inputErrorWrap, {
+                [s.inputErrorWrapVisible]: errors.repeatPassword,
+              })}>
+              <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
+            </div>
+            <QuestionIcon className={s.hintIcon} />
+          </div>
+        </fieldset>
+
+        <div className={s.checkboxContainer}>
+          <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
+            <CheckBoxIcon isChecked={isChecked} />
+            <input
+              className={s.checkbox}
+              id="checkboxRegistration"
+              aria-label="Checkbox registration"
+              name="checkboxRegistration"
+              type="checkbox"
+              checked={isChecked}
+              onChange={onCheckboxClick}
+            />
+          </label>
+          <span className={s.checkboxText}>
+            Я ознакомился с{' '}
+            <span
+              className={s.checkboxTextPolicy}
+              onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
+              Политикой конфиденциальности
             </span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
-              Пароль
+            <br />и{' '}
+            <span
+              className={s.checkboxTextPolicy}
+              onClick={() => setIsPopupUserAgreementOpen(true)}>
+              Пользовательским соглашением
             </span>
-          </div>
-          <div
-            className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.repeatPassword })}>
-            <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
-          </div>
-          <QuestionIcon className={s.hintIcon} />
+          </span>
         </div>
-      </fieldset>
 
-      <div className={s.checkboxContainer}>
-        <label className={s.checkboxLabel} htmlFor="checkboxRegistration">
-          <CheckBoxIcon isChecked={isChecked} />
-          <input
-            className={s.checkbox}
-            id="checkboxRegistration"
-            aria-label="Checkbox registration"
-            name="checkboxRegistration"
-            type="checkbox"
-            checked={isChecked}
-            onChange={onCheckboxClick}
-          />
-        </label>
-        <span className={s.checkboxText}>
-          Я ознакомился с{' '}
-          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupPrivacyPolicyOpen(true)}>
-            Политикой конфиденциальности
-          </span>
-          <br />и{' '}
-          <span className={s.checkboxTextPolicy} onClick={() => setIsPopupUserAgreementOpen(true)}>
-            Пользовательским соглашением
-          </span>
-        </span>
-      </div>
-
-      <Button
-        className={s.button}
-        type="submit"
-        theme="white"
-        text="Регистрация"
-        disabled={!isValid || !isChecked || isEmpty()}
-        isLoading={isLoading}
-      />
-
+        <Button
+          className={s.button}
+          type="submit"
+          theme="white"
+          text="Регистрация"
+          disabled={!isValid || !isChecked || isEmpty()}
+          isLoading={isLoading}
+        />
+      </form>
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
-
       <PopupAgreement
         isOpen={isPopupUserAgreementOpen}
         onClose={() => setIsPopupUserAgreementOpen(false)}
       />
-    </form>
+    </>
   );
 };
 
