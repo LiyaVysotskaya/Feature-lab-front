@@ -1,30 +1,43 @@
 import cl from 'classnames';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
 import s from './InfoTooltip.module.scss';
 import { CrossIcon } from '../../../components/ui/icons/CrossIcon/CrossIcon';
 
 type IInfoTooltip = {
-  onClose: () => void;
-  isOpen: boolean;
-  children: React.ReactNode;
+  className?: string;
+  content: React.ReactNode;
 };
 
-export const InfoTooltip: React.FC<IInfoTooltip> = (onClose, isOpen, children) => {
-  const popupRoot = document.getElementById('root');
+export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
+  children = null,
+  className = '',
+  content = null,
+}) => {
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
-  const popupRef = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    console.log((children as ReactElement).props);
+  }, [children]);
 
-  if (!popupRoot) return null;
-  return ReactDOM.createPortal(
-    <div ref={popupRef} id="infoPopup" className={(s.popup, s.popup_visible)}>
-      <div className={s.popupContent}>
-        {children}
-        <button type="button" className={s.popupCloseBtn} onClick={() => onClose()}>
-          <CrossIcon />
-        </button>
+  return (
+    <>
+      {children &&
+        React.cloneElement(children as ReactElement, {
+          onClick: (e) => {
+            console.log(e);
+          },
+        })}
+      <div className={cl(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
+        <div className={s.tooltipContent}>
+          {content}
+          <button
+            type="button"
+            className={s.tooltipCloseBtn}
+            onClick={() => setIsTooltipOpen(false)}>
+            <CrossIcon />
+          </button>
+        </div>
       </div>
-    </div>,
-    popupRoot,
+    </>
   );
 };

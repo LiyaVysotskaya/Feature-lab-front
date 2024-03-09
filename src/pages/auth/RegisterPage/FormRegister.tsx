@@ -14,6 +14,7 @@ import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
+import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
 
 type IProps = {
   onSuccess: (newEmail: string) => void;
@@ -119,7 +120,7 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
               <span className={cl(s.inputError)}>{errors.email}</span>
             </div>
-            <QuestionIcon className={s.hintIcon} />
+            {/* <QuestionIcon className={s.hintIcon} /> */}
           </div>
 
           <div className={s.inputContainer}>
@@ -142,7 +143,10 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
               <span className={cl(s.inputError)}>{errors.password}</span>
             </div>
-            <QuestionIcon className={s.hintIcon} />
+
+            <InfoTooltip content="Нет, пыщь пыщь ололо">
+              <QuestionIcon className={s.hintIcon} />
+            </InfoTooltip>
           </div>
 
           <div className={s.inputContainer}>
@@ -172,7 +176,7 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
               })}>
               <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
             </div>
-            <QuestionIcon className={s.hintIcon} />
+            {/* <QuestionIcon className={s.hintIcon} /> */}
           </div>
         </fieldset>
 
