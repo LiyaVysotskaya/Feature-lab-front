@@ -6,6 +6,7 @@ import {
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { Button } from '../../../components/ui/Button/Button';
 import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 
@@ -14,27 +15,18 @@ import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/Popup
 import { QuestionIcon } from '../../../components/ui/icons';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 
-type IFormProps = {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  values: { [key: string]: string };
-  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  errors: { [key: string]: string };
-  isValid: boolean | undefined;
-  isLoading: boolean | undefined;
-};
-
-export const FormRegister: FC<IFormProps> = ({
-  onSubmit,
-  values,
-  handleChange,
-  errors,
-  isValid,
-  isLoading,
-}) => {
+export const FormRegister: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
 
   const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
+    email: '',
+    password: '',
+    repeatPassword: '',
+  });
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -67,14 +59,6 @@ export const FormRegister: FC<IFormProps> = ({
     handleChange(e);
   };
 
-  const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(e.target.checked);
-  };
-
-  const isEmpty = () => {
-    return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
-  };
-
   const onRepeatPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
     if (input.value !== values.password) {
@@ -87,8 +71,27 @@ export const FormRegister: FC<IFormProps> = ({
     handleChange(e);
   };
 
+  const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const isEmpty = () => {
+    return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    resetForm({
+      email: '',
+      password: '',
+      repeatPassword: '',
+    });
+  };
+
   return (
-    <form className={s.form} method="POST" onSubmit={onSubmit}>
+    <form className={s.form} method="POST" onSubmit={handleSubmit}>
       <fieldset className={s.fieldset}>
         <div className={s.inputContainer}>
           <input

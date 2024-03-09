@@ -7,31 +7,28 @@ import {
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import useAuth from '../../../hooks/useAuth';
 import { Button } from '../../../components/ui/Button/Button';
 
 import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
 
-type IFormProps = {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  values: { [key: string]: string };
-  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  errors: { [key: string]: string };
-  isValid: boolean | undefined;
-  isLoading: boolean | undefined;
-};
-
-export const FormLogin: FC<IFormProps> = ({
-  onSubmit,
-  values,
-  handleChange,
-  errors,
-  isValid,
-  isLoading,
-}) => {
+export const FormLogin: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
-  const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { values, handleChange, errors, isValid } = useFormAndValidation({
+    email: '',
+    password: '',
+  });
+
+  const { signIn } = useAuth();
+  // const testLoginData = {
+  //   email: 'cherdantsev.p@gmail.com',
+  //   password: 'DU#6ZEB&dXrJ%t',
+  // };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -68,8 +65,19 @@ export const FormLogin: FC<IFormProps> = ({
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
   };
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      await signIn({ email: values.email, password: values.password });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <form className={s.form} method="POST" onSubmit={onSubmit}>
+    <form className={s.form} method="POST" onSubmit={handleSubmit}>
       <fieldset className={s.fieldset}>
         <div className={s.inputContainer}>
           <input
@@ -141,11 +149,6 @@ export const FormLogin: FC<IFormProps> = ({
         isOpen={isPopupPrivacyPolicyOpen}
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
-
-      {/* <PopupUserAgreement
-        isOpen={isPopupUserAgreementOpen}
-        onClose={() => setIsPopupUserAgreementOpen(false)}
-      /> */}
     </form>
   );
 };

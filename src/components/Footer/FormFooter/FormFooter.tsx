@@ -11,30 +11,23 @@ import {
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
 } from '../../../constants/constants';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { Button } from '../../ui/Button/Button';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
 import s from './FormFooter.module.scss';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
-type IFormProps = {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  values: { [key: string]: string };
-  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  errors: { [key: string]: string };
-  isValid: boolean | undefined;
-  isLoading: boolean | undefined;
-};
-
-export const FormFooter: FC<IFormProps> = ({
-  onSubmit,
-  values,
-  handleChange,
-  errors,
-  isValid,
-  isLoading,
-}) => {
+export const FormFooter: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
+
   const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
+    name: '',
+    email: '',
+    project: '',
+  });
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     // input text font size auto-minimizer
@@ -77,8 +70,19 @@ export const FormFooter: FC<IFormProps> = ({
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    resetForm({
+      name: '',
+      email: '',
+      project: '',
+    });
+  };
+
   return (
-    <form className={s.form} method="POST" onSubmit={onSubmit}>
+    <form className={s.form} method="POST" onSubmit={handleSubmit}>
       <h2 className={s.formTitle}>Свяжитесь c&#160;нами</h2>
 
       <div className={s.fieldset}>
