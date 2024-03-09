@@ -12,6 +12,7 @@ import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBox
 import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
+import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 
 type IFormProps = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -203,10 +204,10 @@ export const FormRegister: FC<IFormProps> = ({
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
       />
 
-      {/* <PopupUserAgreement
+      <PopupAgreement
         isOpen={isPopupUserAgreementOpen}
         onClose={() => setIsPopupUserAgreementOpen(false)}
-      /> */}
+      />
     </form>
   );
 };
