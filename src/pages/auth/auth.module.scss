@@ -101,7 +101,7 @@
 
 .fieldset {
   position: relative;
-  z-index: 5;
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
@@ -116,7 +116,6 @@
 
 .button {
   position: absolute;
-  z-index: 3;
   bottom: 300px;
   left: 50%;
   transform: translateX(-50%);
@@ -349,6 +348,8 @@
 }
 
 .checkboxContainer {
+  z-index: 2;
+
   display: flex;
   column-gap: 74px;
   align-items: center;
@@ -431,7 +432,8 @@
   cursor: pointer;
 
   position: relative;
-  z-index: 6;
+
+  // z-index: 6;
 
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -479,6 +481,8 @@
 
 // login form reset link
 .pwdResetLinkPosition {
+  z-index: 2;
+
   display: grid;
   grid-template-columns: var(--text-container-width) var(--grid-column-gap) auto;
 
@@ -520,7 +524,6 @@
   cursor: pointer;
 
   position: relative;
-  z-index: 4;
 
   margin: 0;
   padding: 0;
@@ -591,4 +594,44 @@
   color: var(--dark-blue, #002d63);
   text-align: center;
   letter-spacing: 0;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  top: 145px;
+  right: var(--input-side-padding);
+
+  box-sizing: border-box;
+  width: 721px;
+
+  // min-height: 176px;
+  padding: 32px;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--white);
+  box-shadow: 0 10px 20px 0 #002d634d;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.tooltipVisible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipContent {
+  font-family: 'GOST type B', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.16; // 28px
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.tooltipCloseBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
