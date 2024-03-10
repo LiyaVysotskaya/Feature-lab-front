@@ -1,30 +1,21 @@
-import { FC, FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { FormRegister } from './FormRegister';
 import s from '../auth.module.scss';
 import { ROUTE_LOGIN } from '../../../constants/constants';
+import { Button } from '../../../components/ui/Button/Button';
 
 export const RegisterPage: FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
-    email: '',
-    password: '',
-    repeatPassword: '',
-  });
+  const [email, setEmail] = useState<string>();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    resetForm({
-      email: '',
-      password: '',
-      repeatPassword: '',
-    });
+  const responseToSuccessfulSumbit = (newEmail: string) => {
+    window.scrollTo(0, 0);
+    setEmail(newEmail);
   };
+
   return (
     <Main>
       <section className={s.contentContainer}>
@@ -35,14 +26,28 @@ export const RegisterPage: FC = () => {
             Вход
           </Link>
         </h1>
-        <FormRegister
-          handleChange={handleChange}
-          onSubmit={handleSubmit}
-          errors={errors}
-          isValid={isValid}
-          values={values}
-          isLoading={isLoading}
-        />
+        {email ? (
+          <div className={s.responseContainer}>
+            <div className={s.responseTextContainer}>
+              <p className={s.responseText}>
+                Спасибо за регистрацию!
+                <br />
+                На почту {email}
+                <br />
+                отправлено письмо с подтверждением.
+              </p>
+            </div>
+
+            <Button
+              type="button"
+              theme="white"
+              text="На главную"
+              onClick={() => navigate('/', { replace: true })}
+            />
+          </div>
+        ) : (
+          <FormRegister onSuccess={responseToSuccessfulSumbit} />
+        )}
       </section>
     </Main>
   );

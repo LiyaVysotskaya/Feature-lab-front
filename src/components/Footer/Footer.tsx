@@ -1,41 +1,12 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import s from './Footer.module.scss';
-import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { FormFooter } from './FormFooter/FormFooter';
 
-type IFooterProps = {};
-
-const Footer: React.FC<IFooterProps> = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
-    name: '',
-    email: '',
-    project: '',
-  });
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    resetForm({
-      name: '',
-      email: '',
-      project: '',
-    });
-  };
-
+const Footer: React.FC = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerContainer}>
-        <FormFooter
-          errors={errors}
-          handleChange={handleChange}
-          onSubmit={handleSubmit}
-          isValid={isValid}
-          values={values}
-          isLoading={isLoading}
-        />
+        <FormFooter />
       </div>
 
       <div className={s.basementContainer}>
