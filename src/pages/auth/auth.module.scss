@@ -343,6 +343,7 @@
 }
 
 .hintIcon {
+  cursor: pointer;
   grid-area: hint;
   align-self: center;
 }
@@ -488,21 +489,8 @@
 
   box-sizing: border-box;
   width: 100%;
-  padding: 0 var(--input-side-padding);
-}
-
-.pwdResetLinkContainer {
-  display: flex;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 1;
-  flex-direction: row;
-  column-gap: 30px;
-  align-items: center;
-
-  box-sizing: border-box;
-  width: 100%;
   margin: 28px auto 800px;
-  padding: 0;
+  padding: 0 var(--input-side-padding);
 
   @media screen and (width <= 1280px) {
     margin-top: 16px;
@@ -518,6 +506,21 @@
     margin-top: 8px;
     margin-bottom: 500px;
   }
+}
+
+.pwdResetLinkContainer {
+  display: flex;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  flex-direction: row;
+  column-gap: 30px;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  // margin: 28px auto 800px;
+  padding: 0;
 }
 
 .passwordResetLink {
