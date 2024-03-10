@@ -142,7 +142,7 @@
   grid-template-areas:
     'textContainer input hint'
     '. error .';
-  grid-template-columns: var(--text-container-width) auto;
+  grid-template-columns: var(--text-container-width) auto min-content;
   column-gap: var(--grid-column-gap);
 
   box-sizing: border-box;
@@ -603,9 +603,7 @@
   right: var(--input-side-padding);
 
   box-sizing: border-box;
-  width: 721px;
-
-  // min-height: 176px;
+  max-width: 29vw;
   padding: 32px;
 
   visibility: hidden;
@@ -614,6 +612,15 @@
   box-shadow: 0 10px 20px 0 #002d634d;
 
   transition: all 0.5s ease-in-out;
+
+  @media screen and (width <= 1280px) {
+    max-width: 60vw;
+    padding: 28px;
+  }
+
+  @media screen and (width <= 360px) {
+    max-width: 80vw;
+  }
 }
 
 .tooltipVisible {
