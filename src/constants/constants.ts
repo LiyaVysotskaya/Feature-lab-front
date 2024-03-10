@@ -25,23 +25,25 @@ export const ROUTE_ERROR_500 = '/error500';
 // COMPETENCIES subroutes
 export const SUBROUTE_GAMEDEV = `gamedev`;
 
-// PRODUCTS subroutes
-export const SUBROUTE_DOCSHABLON = `dockshablon`;
-
 // PROFILE subroutes
 export const SUBROUTE_DASHBOARD = `dashboard`;
 export const SUBROUTE_SETTINGS = `settings`;
 export const SUBROUTE_DOCS = `docs`;
+export const SUBROUTE_PROJECTS = `projects`;
 
 // full route paths for subroutes
 // _COMPETENCIES:
 export const ROUTE_GAMEDEV = `${ROUTE_COMPETENCIES}/${SUBROUTE_GAMEDEV}`;
 
-// _PRODUCTS:
-export const ROUTE_PRODUCTS_DOCSHABLON = `${ROUTE_PRODUCTS}/${SUBROUTE_DOCSHABLON}`;
-
 // _PROFILE:
 export const ROUTE_PROFILE_DASHBOARD = `${ROUTE_PROFILE}/${SUBROUTE_DASHBOARD}`;
-export const ROUTE_PROFILE_DOCSHABLON = `${ROUTE_PROFILE}/${SUBROUTE_DOCSHABLON}`;
+export const ROUTE_PROFILE_PROJECTS = `${ROUTE_PROFILE}/${SUBROUTE_PROJECTS}`;
 export const ROUTE_PROFILE_DOCS = `${ROUTE_PROFILE}/${SUBROUTE_DOCS}`;
 export const ROUTE_PROFILE_SETTINGS = `${ROUTE_PROFILE}/${SUBROUTE_SETTINGS}`;
+
+// delete
+// PRODUCTS subroutes
+export const SUBROUTE_DOCSHABLON = `dockshablon`;
+
+// _PRODUCTS:
+export const ROUTE_PRODUCTS_DOCSHABLON = `${ROUTE_PRODUCTS}/${SUBROUTE_DOCSHABLON}`;

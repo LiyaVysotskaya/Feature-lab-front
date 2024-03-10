@@ -1,7 +1,8 @@
-import React, { useLayoutEffect } from 'react';
+import { useAtom } from 'jotai';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { products } from '../../_mockData/productsMockData';
-import { projects } from '../../_mockData/projectsMockData';
+import { useUserProfileQuery } from '../../api/queries';
+import { isAuthAtom } from '../../atoms/isAuthAtom';
 import {
   ROUTE_COMPETENCIES,
   ROUTE_CONTACT,
@@ -12,6 +13,7 @@ import {
   ROUTE_LOGIN,
   ROUTE_PRODUCTS,
   ROUTE_PROFILE,
+  ROUTE_PROFILE_PROJECTS,
   ROUTE_REGISTER,
   ROUTE_RESET_PASSWORD,
   SUBROUTE_DASHBOARD,
@@ -44,8 +46,17 @@ import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastC
 import s from './App.module.scss';
 
 const App: React.FC = () => {
-  const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = React.useState(false);
+  const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = useState(false);
+  const [, setIsAuth] = useAtom(isAuthAtom);
   const { pathname } = useLocation();
+
+  const { data: userData } = useUserProfileQuery();
+
+  useEffect(() => {
+    if (userData) {
+      setIsAuth(true);
+    }
+  }, [userData, setIsAuth]);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -56,25 +67,21 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={s.page}>
+    <div className={s.generalWrapper} id="generalWrapper">
       <Header />
 
       <Routes>
         <Route path={ROUTE_HOME} element={<Home />} />
         <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
           <Route path={SUBROUTE_GAMEDEV} element={<CompetencePage />} />
-          <Route path="some-other-route" element={<CompetencePage />} />
+          <Route path={`${ROUTE_COMPETENCIES}/:competenceId`} element={<ProductPage />} />
         </Route>
 
         <Route path={ROUTE_ED_TECH} element={<LabPage />} />
 
         <Route path={ROUTE_CONTACT} element={<ContactPage />} />
 
-        <Route path={ROUTE_PRODUCTS} element={<ProductPage />}>
-          {products.map((item) => (
-            <Route path={item.url} key={item.url} element={<ProductPage />} />
-          ))}
-        </Route>
+        <Route path={`${ROUTE_PRODUCTS}/:productId`} element={<ProductPage />} />
 
         <Route
           path={ROUTE_LOGIN}
@@ -92,13 +99,9 @@ const App: React.FC = () => {
         <Route path={ROUTE_PROFILE} element={<ProtectedRouteElement element={<ProfilePage />} />}>
           <Route path={SUBROUTE_DASHBOARD} element={<ProfileDashboard />} />
 
-          {projects.map((item) => (
-            <Route key={item.url} path={item.url} element={<ProfileProject />} />
-          ))}
+          <Route path={`${ROUTE_PROFILE_PROJECTS}/:projectId`} element={<ProfileProject />} />
 
           <Route path={SUBROUTE_DOCS} element={<ProfileDocs />} />
-          <Route path={SUBROUTE_SETTINGS} element={<ProfileSettings />} />
-
           <Route path={SUBROUTE_SETTINGS} element={<ProfileSettings />} />
         </Route>
 

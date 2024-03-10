@@ -3,9 +3,9 @@ import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { competencies } from '../../_mockData/CompetenciesMockData';
+import { useUserProfileQuery } from '../../api/queries';
 import Logo from '../../assets/svg/logo.svg';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
-import { userProfileAtom } from '../../atoms/userProfileAtom';
 import {
   ROUTE_COMPETENCIES,
   ROUTE_CONTACT,
@@ -27,9 +27,9 @@ export const Header: React.FC = () => {
   const [isNavMobileOpen, setIsNavMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  // const { isAuth, userProfile } = useAuth();
   const [isAuth] = useAtom(isAuthAtom);
-  const [userProfile] = useAtom(userProfileAtom);
+
+  const { data: userProfile } = useUserProfileQuery();
 
   // hide subMenu with header when scrolling down
   useEffect(() => {
@@ -150,7 +150,7 @@ export const Header: React.FC = () => {
                 <NavLink
                   to={ROUTE_PROFILE}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
-                  {isAuth && userProfile !== null
+                  {isAuth && userProfile
                     ? `${userProfile.last_name} ${userProfile.first_name[0]}.`
                     : 'Личный кабинет'}
                 </NavLink>

@@ -164,11 +164,6 @@
   }
 
   &::placeholder {
-    position: absolute;
-    top: 50%;
-    left: var(--left-offset);
-    transform: translateY(-50%);
-
     line-height: 1;
   }
 }

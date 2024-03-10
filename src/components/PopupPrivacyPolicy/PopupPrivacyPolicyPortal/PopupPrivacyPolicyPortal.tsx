@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import s from './PopupPrivacyPolicyPortal.module.scss';
@@ -16,7 +16,7 @@ const PopupPrivacyPolicyPortal: FC<PopupPrivacyPolicyPortalProps> = ({
   children,
 }) => {
   const popupRoot = document.getElementById('root');
-  React.useEffect(() => {
+  useEffect(() => {
     const handleEscClose = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
@@ -28,6 +28,15 @@ const PopupPrivacyPolicyPortal: FC<PopupPrivacyPolicyPortalProps> = ({
       document.removeEventListener('keydown', handleEscClose);
     };
   }, [onClose]);
+
+  // Add class to body to disable scrollbar when the popup is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add(s.bodyNoScroll);
+    } else {
+      document.body.classList.remove(s.bodyNoScroll);
+    }
+  }, [isOpen]);
 
   if (!popupRoot) return null;
   return ReactDOM.createPortal(

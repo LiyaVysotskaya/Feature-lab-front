@@ -2,57 +2,46 @@ import cl from 'classnames';
 import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { FC, useRef, useState } from 'react';
-import { projects } from '../../../_mockData/projectsMockData';
+import { TProjectStage } from '../../../types/data';
 import { Text } from '../../ui/Text/Text';
 import { EllipseIcon } from '../../ui/icons';
 import StagePopupPortal from '../StagePopupPortal/StagePopupPortal';
 import s from './ProjectStage.module.scss';
 
 type ProjectStageProps = {
-  status: 'completed' | 'in_progress' | 'new';
-  index: number;
   className?: string;
   isLineHidden?: boolean;
-  setCurrentStageIndex: (index: number) => void;
-
-  projectIndex: number; // test
+  setCurrentStage: (stage: TProjectStage) => void;
+  stage: TProjectStage;
 };
 
 export const ProjectStage: FC<ProjectStageProps> = ({
-  status,
   className = '', // used also for autoscroll to stage that have status inProgress
-  index,
   isLineHidden = false,
-  setCurrentStageIndex,
-  projectIndex,
+  setCurrentStage,
+  stage,
 }) => {
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
 
   const stageRef = useRef<HTMLDivElement>(null);
   const stageEl = stageRef.current;
 
-  const handleOnMouseEnter = () => {
+  const status = stage.stage_status;
+
+  const handleOnClick = () => {
     if (window.innerWidth > 768) {
       setShowPopup(true);
     }
   };
 
-  const handleOnMouseLeave = () => {
-    if (window.innerWidth > 768) {
-      setShowPopup(false);
-    }
-  };
-
-  const handleStageOnTouchStart = () => {
+  const handleStageOnTouchEnd = () => {
     if (window.innerWidth < 500) {
-      setCurrentStageIndex(index);
+      setCurrentStage(stage);
     }
     if (window.innerWidth > 500 && window.innerWidth <= 768) {
       setShowPopup(true);
     }
   };
-
-  const stageState = status !== 'new';
 
   const convertAndFormatDate = (dateString: string) => {
     // Parse the ISO 8601 formatted date string to a Date object
@@ -71,28 +60,26 @@ export const ProjectStage: FC<ProjectStageProps> = ({
           })}
         />
       )}
-      <div
-        className={cl(s.stage)}
-        onMouseEnter={handleOnMouseEnter}
-        onMouseLeave={handleOnMouseLeave}
-        onTouchStart={handleStageOnTouchStart}>
+      <div className={cl(s.stage)} onClick={handleOnClick} onTouchEnd={handleStageOnTouchEnd}>
         <EllipseIcon status={status} />
-        <p className={cl(s.stage__text, stageState && s.stage__text_active)}>Этап {index + 1}</p>
+        <p className={cl(s.stage__text, { [s.stage__text_active]: status !== 'new' })}>
+          Этап {stage.stage_num}
+        </p>
       </div>
 
       {stageEl && showPopup && (
         <StagePopupPortal isOpen={showPopup} onClose={() => setShowPopup(false)} stageEl={stageEl}>
           <Text view="gost-4" tag="p">
-            Этап {index + 1}
+            Этап {stage.stage_num}
           </Text>
           <Text view="gost-2" tag="p">
-            {projects[projectIndex].stages[index].stageName}
+            {stage.name}
           </Text>
           <Text view="gost-3" tag="p">
-            {projects[projectIndex].stages[index].stageInfo}
+            {stage.description}
           </Text>
           <Text view="gost-3" tag="p">
-            {convertAndFormatDate(projects[projectIndex].stages[index].dateOfEnd)}
+            {convertAndFormatDate(stage.end_date)}
           </Text>
         </StagePopupPortal>
       )}
