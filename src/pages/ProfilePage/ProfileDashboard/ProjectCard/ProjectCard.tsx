@@ -1,10 +1,10 @@
 import cl from 'classnames';
-import { format, parseISO } from 'date-fns';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Text } from '../../../../components/ui/Text/Text';
 import { ROUTE_PROFILE_PROJECTS } from '../../../../constants/routesConstants';
 import { TProjectShortInfo } from '../../../../types/data';
+import { convertDateToShortFormat } from '../../../../utils/dateConvertHelpers';
 import { ProgressCircle } from '../ProgressCircle/ProgressCircle';
 import s from './ProjectCard.module.scss';
 
@@ -28,13 +28,6 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', project }) =
   const stageInProgress = stages.find((stage) => stage.stage_status === 'in_progress');
   const stageInProgressIndex =
     stages.findIndex((stage) => stage.stage_status === 'in_progress') + 1;
-
-  const convertAndFormatDate = (dateString: string) => {
-    // Parse the ISO 8601 formatted date string to a Date object
-    const date = parseISO(dateString);
-    // Format the date using date-fns
-    return format(date, 'dd.MM.yyyy');
-  };
 
   const handleOnCardClick = () => {
     if (window.innerWidth > 768) {
@@ -88,8 +81,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({ className = '', project }) =
         </Text>
       )}
       <Text view="gost-2" className={cl(s.value)}>
-        {(stageInProgress && convertAndFormatDate(stageInProgress.end_date)) ||
-          (lastCompletedStage && convertAndFormatDate(lastCompletedStage.end_date))}
+        {(stageInProgress && convertDateToShortFormat(stageInProgress.end_date)) ||
+          (lastCompletedStage && convertDateToShortFormat(lastCompletedStage.end_date))}
       </Text>
       <ProgressCircle
         stagesInProgress={stageInProgressCount}
