@@ -14,6 +14,7 @@ import { Button } from '../../../components/ui/Button/Button';
 import s from '../auth.module.scss';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { QuestionIcon } from '../../../components/ui/icons';
+import { InfoTooltip } from '../InfoTooltip';
 
 export const FormLogin: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
@@ -100,7 +101,9 @@ export const FormLogin: FC = () => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
               <span className={cl(s.inputError)}>{errors.email}</span>
             </div>
-            <QuestionIcon className={s.hintIcon} />
+            <InfoTooltip content="Ололо">
+              <QuestionIcon className={s.hintIcon} />
+            </InfoTooltip>
           </div>
 
           <div className={s.inputContainer}>
@@ -123,7 +126,9 @@ export const FormLogin: FC = () => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
               <span className={cl(s.inputError)}>{errors.password}</span>
             </div>
-            <QuestionIcon className={s.hintIcon} />
+            <InfoTooltip content="Ололо">
+              <QuestionIcon className={s.hintIcon} />
+            </InfoTooltip>
           </div>
         </fieldset>
 

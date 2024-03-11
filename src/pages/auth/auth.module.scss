@@ -101,7 +101,7 @@
 
 .fieldset {
   position: relative;
-  z-index: 5;
+  z-index: 3;
 
   display: flex;
   flex-direction: column;
@@ -116,7 +116,6 @@
 
 .button {
   position: absolute;
-  z-index: 3;
   bottom: 300px;
   left: 50%;
   transform: translateX(-50%);
@@ -143,7 +142,7 @@
   grid-template-areas:
     'textContainer input hint'
     '. error .';
-  grid-template-columns: var(--text-container-width) auto;
+  grid-template-columns: var(--text-container-width) auto min-content;
   column-gap: var(--grid-column-gap);
 
   box-sizing: border-box;
@@ -344,11 +343,14 @@
 }
 
 .hintIcon {
+  cursor: pointer;
   grid-area: hint;
   align-self: center;
 }
 
 .checkboxContainer {
+  z-index: 2;
+
   display: flex;
   column-gap: 74px;
   align-items: center;
@@ -431,7 +433,8 @@
   cursor: pointer;
 
   position: relative;
-  z-index: 6;
+
+  // z-index: 6;
 
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -479,26 +482,15 @@
 
 // login form reset link
 .pwdResetLinkPosition {
+  z-index: 2;
+
   display: grid;
   grid-template-columns: var(--text-container-width) var(--grid-column-gap) auto;
 
   box-sizing: border-box;
   width: 100%;
-  padding: 0 var(--input-side-padding);
-}
-
-.pwdResetLinkContainer {
-  display: flex;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 1;
-  flex-direction: row;
-  column-gap: 30px;
-  align-items: center;
-
-  box-sizing: border-box;
-  width: 100%;
   margin: 28px auto 800px;
-  padding: 0;
+  padding: 0 var(--input-side-padding);
 
   @media screen and (width <= 1280px) {
     margin-top: 16px;
@@ -516,11 +508,25 @@
   }
 }
 
+.pwdResetLinkContainer {
+  display: flex;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  flex-direction: row;
+  column-gap: 30px;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  // margin: 28px auto 800px;
+  padding: 0;
+}
+
 .passwordResetLink {
   cursor: pointer;
 
   position: relative;
-  z-index: 4;
 
   margin: 0;
   padding: 0;
@@ -591,4 +597,51 @@
   color: var(--dark-blue, #002d63);
   text-align: center;
   letter-spacing: 0;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  top: 145px;
+  right: var(--input-side-padding);
+
+  box-sizing: border-box;
+  max-width: 29vw;
+  padding: 32px;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--white);
+  box-shadow: 0 10px 20px 0 #002d634d;
+
+  transition: all 0.5s ease-in-out;
+
+  @media screen and (width <= 1280px) {
+    max-width: 60vw;
+    padding: 28px;
+  }
+
+  @media screen and (width <= 360px) {
+    max-width: 80vw;
+  }
+}
+
+.tooltipVisible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipContent {
+  font-family: 'GOST type B', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.16; // 28px
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.tooltipCloseBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
