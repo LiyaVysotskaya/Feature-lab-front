@@ -46,7 +46,7 @@ export const RegisterPage: FC = () => {
             />
           </div>
         ) : (
-          <FormRegister onSuccess={responseToSuccessfulSumbit} />
+          <FormRegister responseToSuccessfulSumbit={responseToSuccessfulSumbit} />
         )}
       </section>
     </Main>

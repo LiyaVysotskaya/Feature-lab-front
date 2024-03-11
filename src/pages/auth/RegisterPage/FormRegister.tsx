@@ -15,23 +15,31 @@ import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/Popup
 import { QuestionIcon } from '../../../components/ui/icons';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 import { InfoTooltip } from '../InfoTooltip';
+import { useRegQuery } from '../../../api/queries';
+import { passwordHintText } from '../../../constants/tooltipContent';
 
 type IProps = {
-  onSuccess: (newEmail: string) => void;
+  responseToSuccessfulSumbit: (newEmail: string) => void;
 };
 
-export const FormRegister: FC<IProps> = ({ onSuccess }) => {
+export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isPopupUserAgreementOpen, setIsPopupUserAgreementOpen] = useState(false);
 
   const [isChecked, setIsChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
     email: '',
     password: '',
     repeatPassword: '',
   });
+
+  const onRegSuccess = () => {
+    responseToSuccessfulSumbit(values.email);
+    resetForm();
+  };
+
+  const { mutate: mutateRegData, isPending } = useRegQuery(onRegSuccess);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -86,14 +94,8 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    onSuccess(values.email);
 
-    resetForm({
-      email: '',
-      password: '',
-      repeatPassword: '',
-    });
+    mutateRegData({ email: values.email, password: values.password });
   };
 
   return (
@@ -146,7 +148,7 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
               <span className={cl(s.inputError)}>{errors.password}</span>
             </div>
 
-            <InfoTooltip content="Допустимо от 1 до 60 символов; буквы и/или цифры, символ @ обязательны; точка допускается, за исключением первого и последнего знака; пробелы не допускаются; знаки! # $ % & «* + — / =? ^ _ ` { | } ~ допускаются; язык ввода любой.">
+            <InfoTooltip content={passwordHintText}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
@@ -219,7 +221,7 @@ export const FormRegister: FC<IProps> = ({ onSuccess }) => {
           theme="white"
           text="Регистрация"
           disabled={!isValid || !isChecked || isEmpty()}
-          isLoading={isLoading}
+          isLoading={isPending}
         />
       </form>
       <PopupPrivacyPolicy

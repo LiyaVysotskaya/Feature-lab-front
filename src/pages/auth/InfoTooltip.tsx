@@ -16,7 +16,7 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   useEffect(() => {
-    console.log((children as ReactElement).props);
+    // console.log((children as ReactElement).props);
   }, [children]);
 
   return (

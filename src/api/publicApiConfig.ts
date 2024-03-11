@@ -26,7 +26,7 @@ publicAPI.interceptors.response.use(
       const { status, data } = error.response;
       switch (status) {
         case 400:
-          if (data.email === EMAIL_ALREADY_EXISTS) {
+          if (data.email[0] === EMAIL_ALREADY_EXISTS) {
             notifyEmailAlreadyExists();
           }
           break;
