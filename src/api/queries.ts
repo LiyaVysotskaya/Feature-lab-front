@@ -11,6 +11,7 @@ export const useProjectsQuery = () => {
     queryKey: [QK_PROJECTS],
     queryFn: getUserAllProjects,
     staleTime: 10 * 60 * 1000, // data is definetly fresh fo next 10 min
+    enabled: !!getStoredAccessToken(),
   });
 };
 
