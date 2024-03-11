@@ -91,6 +91,7 @@ export type TProjectFullInfo = {
   name: string;
   logo: string;
   url: string;
+  description: string;
   end_date: string;
   managers: TManager[];
   stages: TProjectStage[];
