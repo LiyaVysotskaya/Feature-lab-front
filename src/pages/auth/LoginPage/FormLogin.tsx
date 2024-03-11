@@ -25,10 +25,6 @@ export const FormLogin: FC = () => {
   });
 
   const { signIn } = useAuth();
-  // const testLoginData = {
-  //   email: 'cherdantsev.p@gmail.com',
-  //   password: 'DU#6ZEB&dXrJ%t',
-  // };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
