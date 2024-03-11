@@ -1,12 +1,12 @@
 import cl from 'classnames';
 import { format, parseISO } from 'date-fns';
 import { FC } from 'react';
-import { useNavigate, useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Text } from '../../../../components/ui/Text/Text';
+import { ROUTE_PROFILE_PROJECTS } from '../../../../constants/routesConstants';
 import { TProjectShortInfo } from '../../../../types/data';
 import { ProgressCircle } from '../ProgressCircle/ProgressCircle';
 import s from './ProjectCard.module.scss';
-import { ROUTE_PROFILE_PROJECTS } from '../../../../constants/constants';
 
 interface ProjectCardProps {
   className?: string;

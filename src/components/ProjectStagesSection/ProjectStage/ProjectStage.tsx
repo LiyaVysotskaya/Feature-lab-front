@@ -1,8 +1,7 @@
 import cl from 'classnames';
-import { format, parseISO } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import { FC, useRef, useState } from 'react';
 import { TProjectStage } from '../../../types/data';
+import { convertDateToLongFormat } from '../../../utils/dateConvertHelpers';
 import { Text } from '../../ui/Text/Text';
 import { EllipseIcon } from '../../ui/icons';
 import StagePopupPortal from '../StagePopupPortal/StagePopupPortal';
@@ -43,13 +42,6 @@ export const ProjectStage: FC<ProjectStageProps> = ({
     }
   };
 
-  const convertAndFormatDate = (dateString: string) => {
-    // Parse the ISO 8601 formatted date string to a Date object
-    const date = parseISO(dateString);
-    // Format the date using date-fns
-    return format(date, 'dd MMMM yyyy', { locale: ru });
-  };
-
   return (
     <div className={cl(s.stageWrapper, className)} ref={stageRef}>
       {!isLineHidden && (
@@ -79,7 +71,7 @@ export const ProjectStage: FC<ProjectStageProps> = ({
             {stage.description}
           </Text>
           <Text view="gost-3" tag="p">
-            {convertAndFormatDate(stage.end_date)}
+            {convertDateToLongFormat(stage.end_date)}
           </Text>
         </StagePopupPortal>
       )}

@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
 import { Button } from '../../components/ui/Button/Button';
-import { ROUTE_HOME } from '../../constants/constants';
+import { ROUTE_HOME } from '../../constants/routesConstants';
 import s from './Page404.module.scss';
 
 type Page404Props = {

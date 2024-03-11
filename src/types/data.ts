@@ -80,10 +80,24 @@ export type TDocument = {
   pub_date: string;
 };
 
-export type TProjectFullInfo = TProjectShortInfo & {
+export type TProperty = {
+  order: number;
+  name: string;
+  value: string;
+};
+
+export type TProjectFullInfo = {
+  id: number;
+  name: string;
   logo: string;
+  url: string;
+  description: string;
+  end_date: string;
   managers: TManager[];
+  stages: TProjectStage[];
+  current_stage: TProjectStage;
   documents: TDocument[];
+  properties: TProperty[];
 };
 
 export type GetUserProjectsListResponse = TGeneralApiResponse & {

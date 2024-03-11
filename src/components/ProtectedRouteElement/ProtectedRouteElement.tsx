@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { FC } from 'react';
 import { Navigate, RouteProps, useLocation } from 'react-router-dom';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
-import { ROUTE_LOGIN } from '../../constants/constants';
+import { ROUTE_LOGIN } from '../../constants/routesConstants';
 
 type TProtectedRouteElementProps = RouteProps & {
   onlyUnAuth?: boolean;

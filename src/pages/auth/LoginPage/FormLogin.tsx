@@ -1,20 +1,19 @@
 import cl from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
+import { Button } from '../../../components/ui/Button/Button';
+import { QuestionIcon } from '../../../components/ui/icons';
 import {
   MAX_LENGTH_EMAIL,
   MAX_LENGTH_PASSWORD,
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import useAuth from '../../../hooks/useAuth';
-import { Button } from '../../../components/ui/Button/Button';
-
-import s from '../auth.module.scss';
-import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { QuestionIcon } from '../../../components/ui/icons';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
+import s from '../auth.module.scss';
 
 export const FormLogin: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);

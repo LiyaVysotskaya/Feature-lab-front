@@ -34,9 +34,7 @@ export const getUserAllProjects = async (): Promise<TProjectShortInfo[]> => {
   return response.data.results;
 };
 
-export const getProjectById = async (projectId: string | undefined): Promise<TProjectFullInfo> => {
-  if (!projectId) throw new Error('Project ID is not defined');
-
+export const getProjectById = async (projectId: string): Promise<TProjectFullInfo> => {
   const response = await privateAPI.get<TProjectFullInfo>(
     `/api/v1/account/my-projects/${projectId}/`,
   );
