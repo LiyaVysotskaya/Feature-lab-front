@@ -1,5 +1,4 @@
-import { FC, FormEvent, useState } from 'react';
-import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { FC } from 'react';
 import Overlay from '../Overlay/Overlay';
 import { FormContact } from './FormContact/FormContact';
 import s from './PopupContact.module.scss';
@@ -11,25 +10,6 @@ type IPopupProps = {
 };
 
 export const PopupContact: FC<IPopupProps> = ({ onClose, isOpen }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
-    name: '',
-    email: '',
-    project: '',
-  });
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    resetForm({
-      name: '',
-      email: '',
-      project: '',
-    });
-  };
-
   return isOpen ? (
     <Overlay onClose={onClose} isOpen={isOpen}>
       <div className={s.popupContainer}>
@@ -42,14 +22,7 @@ export const PopupContact: FC<IPopupProps> = ({ onClose, isOpen }) => {
             onClick={onClose}>
             <CrossInCircleIcon />
           </button>
-          <FormContact
-            handleChange={handleChange}
-            onSubmit={handleSubmit}
-            errors={errors}
-            isValid={isValid}
-            values={values}
-            isLoading={isLoading}
-          />
+          <FormContact />
         </div>
       </div>
     </Overlay>

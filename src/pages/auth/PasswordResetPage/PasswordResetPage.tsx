@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Main } from '../../components/Main/Main';
-import s from './auth.module.scss';
+import { Main } from '../../../components/Main/Main';
+import s from '../auth.module.scss';
 
 export const PasswordResetPage: FC = () => {
   return (

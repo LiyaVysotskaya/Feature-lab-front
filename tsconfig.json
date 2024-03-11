@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "webpack.config.js", "babel.config.js", "declaration.d.ts"]
+  "include": ["src", "webpack.config.js", "babel.config.js", "declaration.d.ts", "types"]
 }

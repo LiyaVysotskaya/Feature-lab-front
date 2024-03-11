@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import { Text } from '../../../../components/ui/Text/Text';
 import s from './ProgressCircle.module.scss';

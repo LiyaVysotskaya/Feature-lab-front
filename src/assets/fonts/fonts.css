@@ -2,46 +2,34 @@
   font-family: Germano;
   font-style: normal;
   font-display: swap;
-  src:
-    url('Germano-Regular.woff2') format('woff2'),
-    url('Germano-Regular.woff') format('woff');
+  src: url('Germano-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'GOST type B';
   font-style: normal;
   font-display: swap;
-  src:
-    url('GOST_type_B.woff2') format('woff2'),
-    url('GOST_type_B.woff') format('woff');
+  src: url('GOST_type_B.woff') format('woff');
 }
 
 @font-face {
   font-family: Molot;
   font-style: normal;
   font-display: block;
-  src:
-    url('Molot.woff2') format('woff2'),
-    url('Molot.woff') format('woff');
+  src: url('Molot.woff') format('woff');
 }
 
 @font-face {
   font-family: Germano-Regular;
-  src:
-    url('Germano-Regular.woff2') format('woff2'),
-    url('Germano-Regular.woff') format('woff');
+  src: url('Germano-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: GostTypeB-Standard;
-  src:
-    url('GOST_type_B.woff2') format('woff2'),
-    url('GOST_type_B.woff') format('woff');
+  src: url('GOST_type_B.woff') format('woff');
 }
 
 @font-face {
   font-family: Molot-Regular;
-  src:
-    url('Molot.woff2') format('woff2'),
-    url('Molot.woff') format('woff');
+  src: url('Molot.woff') format('woff');
 }

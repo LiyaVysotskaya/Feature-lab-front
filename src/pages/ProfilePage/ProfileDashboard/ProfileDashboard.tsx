@@ -1,34 +1,58 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Text } from '../../../components/ui/Text/Text';
 import { ProjectCard } from './ProjectCard/ProjectCard';
-
 import s from './ProfileDashboard.module.scss';
+import { useProjectsQuery } from '../../../api/queries';
+import { TProjectShortInfo } from '../../../types/data';
 
 interface IProfileDashboardProps {
   className?: string;
 }
 
 export const ProfileDashboard: FC<IProfileDashboardProps> = ({ className = '' }) => {
+  const { data: projects, isLoading } = useProjectsQuery();
+
+  if (isLoading || !projects) {
+    return null;
+  }
+
+  const completedProjects: TProjectShortInfo[] = projects.filter((project) => {
+    return project.stages.every((stage) => stage.stage_status === 'completed');
+  });
+
+  const notCompletedProjects = projects.filter((project) => {
+    return !completedProjects.includes(project);
+  });
+
   return (
     <div className={cl(s.content, className)}>
       <Text view="germano-4" tag="h1" line className={cl(s.pageTitle)}>
         Проекты
       </Text>
-      <div className={cl(s.dashboard)}>
-        <ProjectCard projectIndx={0} />
-        <ProjectCard projectIndx={1} />
-        <ProjectCard projectIndx={2} />
-        <ProjectCard projectIndx={3} />
-        <ProjectCard projectIndx={4} />
-        <ProjectCard projectIndx={5} />
-      </div>
-      <Text view="germano-4" tag="h2" line className={cl(s.pageTitle, s.pageTitleFinishedProjects)}>
-        Завершенные проекты:
-      </Text>
-      <div className={cl(s.dashboard)}>
-        <ProjectCard projectIndx={6} />
-      </div>
+      <ul className={cl(s.dashboard)}>
+        {notCompletedProjects.map((project) => (
+          <ProjectCard key={uuidv4()} project={project} />
+        ))}
+      </ul>
+
+      {completedProjects.length > 0 && (
+        <>
+          <Text
+            view="germano-4"
+            tag="h2"
+            line
+            className={cl(s.pageTitle, s.pageTitleFinishedProjects)}>
+            Завершенные проекты:
+          </Text>
+          <ul className={cl(s.dashboard)}>
+            {completedProjects.map((project) => (
+              <ProjectCard key={uuidv4()} project={project} />
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

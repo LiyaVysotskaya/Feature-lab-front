@@ -1,39 +1,24 @@
 import cl from 'classnames';
-import { format, parseISO } from 'date-fns';
 import { FC } from 'react';
-import { projects } from '../../../_mockData/projectsMockData';
+import { TProjectStage } from '../../../types/data';
+import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import { Text } from '../../ui/Text/Text';
 import s from './CurrentStage.module.scss';
 
 type CurrentStageProps = {
   className?: string;
-  currentStageIndex: number;
-
-  projectIndex: number;
+  stage: TProjectStage;
 };
 
-export const CurrentStage: FC<CurrentStageProps> = ({
-  className = '',
-  currentStageIndex,
-  projectIndex,
-}) => {
-  const convertAndFormatDate = (dateString: string) => {
-    // Parse the ISO 8601 formatted date string to a Date object
-    const date = parseISO(dateString);
-    // Format the date using date-fns
-    return format(date, 'dd.MM.yyyy');
-  };
-
+export const CurrentStage: FC<CurrentStageProps> = ({ className = '', stage }) => {
   return (
     <div className={cl(s.currentStage, className)}>
       <div className={cl(s.column)}>
         <Text view="gost-3" tag="p" className={cl(s.subTitle)}>
-          {projects[projectIndex].stages[currentStageIndex].status === 'in_progress'
-            ? 'Текущий этап'
-            : `Этап ${currentStageIndex + 1}`}
+          {stage.stage_status === 'in_progress' ? 'Текущий этап' : `Этап ${stage.stage_num}`}
         </Text>
         <Text view="germano-4" tag="h2" line className={cl(s.title)}>
-          {projects[projectIndex].stages[currentStageIndex].stageName}
+          {stage.name}
         </Text>
         <Text view="gost-1" tag="p" className={cl(s.date)}>
           срок выполнения:{' '}
@@ -41,7 +26,7 @@ export const CurrentStage: FC<CurrentStageProps> = ({
         </Text>
       </div>
       <Text view="gost-2" tag="p" className={cl(s.info)}>
-        {projects[projectIndex].stages[currentStageIndex].stageInfo}
+        {stage.description}
       </Text>
     </div>
   );
