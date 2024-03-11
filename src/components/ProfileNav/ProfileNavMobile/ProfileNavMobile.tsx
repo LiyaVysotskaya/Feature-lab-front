@@ -1,5 +1,6 @@
 import cl from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useProjectsQuery } from '../../../api/queries';
 import {
   ROUTE_HOME,
   ROUTE_PROFILE,
@@ -8,14 +9,15 @@ import {
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../../constants/routesConstants';
+import useAuth from '../../../hooks/useAuth';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
 import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
 import s from './ProfileNavMobile.module.scss';
-import { useProjectsQuery } from '../../../api/queries';
 
 export const ProfileNavMobile: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { signOut } = useAuth();
 
   const { data: projects, isLoading } = useProjectsQuery();
 
@@ -71,6 +73,7 @@ export const ProfileNavMobile: React.FC = () => {
             className={cl(s.button)}
             onClick={() => {
               navigate(ROUTE_HOME);
+              signOut();
             }}>
             <SkipForwardIcon /> <span className={cl(s.buttonText)}>Выход</span>
           </button>
