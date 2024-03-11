@@ -21,6 +21,7 @@ export const ROUTE_RESET_PASSWORD = '/reset-password';
 export const ROUTE_FORGOT_PASSWORD = '/forgot-password';
 export const ROUTE_CONTACT = '/contact';
 export const ROUTE_ERROR_500 = '/error500';
+export const ROUTE_ERROR_404 = '/error404';
 
 // COMPETENCIES subroutes
 export const SUBROUTE_GAMEDEV = `gamedev`;
