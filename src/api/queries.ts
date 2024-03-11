@@ -28,6 +28,10 @@ export const useProjectQuery = (projectId: string | undefined) => {
   return useQuery({
     queryKey: [QK_PROJECT, projectId],
     queryFn: async () => {
+      if (!projectId) {
+        return undefined;
+      }
+
       try {
         return await getProjectById(projectId);
       } catch (error) {
