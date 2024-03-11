@@ -1,22 +1,21 @@
 import cl from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { useRegQuery } from '../../../api/queries';
+import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
+import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
+import { Button } from '../../../components/ui/Button/Button';
+import { QuestionIcon } from '../../../components/ui/icons';
+import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 import {
   MAX_LENGTH_EMAIL,
   MAX_LENGTH_PASSWORD,
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
-import { Button } from '../../../components/ui/Button/Button';
-import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
-
-import s from '../auth.module.scss';
-import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { QuestionIcon } from '../../../components/ui/icons';
-import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
-import { InfoTooltip } from '../InfoTooltip';
-import { useRegQuery } from '../../../api/queries';
 import { passwordHintText } from '../../../constants/tooltipContent';
+import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { InfoTooltip } from '../InfoTooltip';
+import s from '../auth.module.scss';
 
 type IProps = {
   responseToSuccessfulSumbit: (newEmail: string) => void;
