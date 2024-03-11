@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
 import { FormLogin } from './FormLogin';
 import s from '../auth.module.scss';
-import { ROUTE_REGISTER } from '../../../constants/constants';
+import { ROUTE_REGISTER } from '../../../constants/routesConstants';
 
 export const LoginPage: FC = () => {
   return (

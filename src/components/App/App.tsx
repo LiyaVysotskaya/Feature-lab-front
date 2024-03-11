@@ -20,7 +20,7 @@ import {
   SUBROUTE_DOCS,
   SUBROUTE_GAMEDEV,
   SUBROUTE_SETTINGS,
-} from '../../constants/constants';
+} from '../../constants/routesConstants';
 import { CompetencePage } from '../../pages/CompetencePage/CompetencePage';
 import { CompetenciesPage } from '../../pages/CompetenciesPage/CompetenciesPage';
 import { ContactPage } from '../../pages/ContactPage/ContactPage';

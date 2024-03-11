@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
 import { API_BASE_URL } from '../constants/apiConstants';
-import { ROUTE_ERROR_500 } from '../constants/constants';
+import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
 import {
   clearAllStoredTokens,

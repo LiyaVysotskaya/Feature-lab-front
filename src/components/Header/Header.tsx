@@ -13,7 +13,7 @@ import {
   ROUTE_HOME,
   ROUTE_PRODUCTS_DOCSHABLON,
   ROUTE_PROFILE,
-} from '../../constants/constants';
+} from '../../constants/routesConstants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
 import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';

@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
+import { Button } from '../../../components/ui/Button/Button';
+import { ROUTE_LOGIN } from '../../../constants/routesConstants';
 import { FormRegister } from './FormRegister';
 import s from '../auth.module.scss';
-import { ROUTE_LOGIN } from '../../../constants/constants';
-import { Button } from '../../../components/ui/Button/Button';
 
 export const RegisterPage: FC = () => {
   const navigate = useNavigate();

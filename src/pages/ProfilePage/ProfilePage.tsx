@@ -8,7 +8,7 @@ import {
   ROUTE_PROFILE_DASHBOARD,
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
-} from '../../constants/constants';
+} from '../../constants/routesConstants';
 import s from './ProfilePage.module.scss';
 
 export const ProfilePage: FC = () => {

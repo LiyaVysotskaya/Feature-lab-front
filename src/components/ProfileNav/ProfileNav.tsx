@@ -9,7 +9,7 @@ import {
   ROUTE_PROFILE_DOCS,
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
-} from '../../constants/constants';
+} from '../../constants/routesConstants';
 import useAuth from '../../hooks/useAuth';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../ui/icons';
 import { ProfileNavLink } from './ProfileNavLink/ProfileNavLink';

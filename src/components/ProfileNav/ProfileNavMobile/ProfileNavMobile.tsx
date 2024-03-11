@@ -7,7 +7,7 @@ import {
   ROUTE_PROFILE_DASHBOARD,
   ROUTE_PROFILE_DOCS,
   ROUTE_PROFILE_SETTINGS,
-} from '../../../constants/constants';
+} from '../../../constants/routesConstants';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
 import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
 import s from './ProfileNavMobile.module.scss';

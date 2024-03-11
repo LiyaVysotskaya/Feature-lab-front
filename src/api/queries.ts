@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { QK_PROJECT, QK_PROJECTS, QK_USER_PROFILE } from '../constants/TanStackQueryKeys';
-import { ROUTE_ERROR_404 } from '../constants/constants';
+import { ROUTE_ERROR_404 } from '../constants/routesConstants';
 import { getStoredAccessToken } from '../utils/localStorageHelpers';
 import { getProjectById, getUserAllProjects, getUserProfileData } from './api';
 
