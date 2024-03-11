@@ -1,23 +1,31 @@
 import cl from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { projects } from '../../../_mockData/projectsMockData';
 import {
   ROUTE_HOME,
   ROUTE_PROFILE,
   ROUTE_PROFILE_DASHBOARD,
   ROUTE_PROFILE_DOCS,
+  ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../../constants/routesConstants';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
 import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
 import s from './ProfileNavMobile.module.scss';
+import { useProjectsQuery } from '../../../api/queries';
 
 export const ProfileNavMobile: React.FC = () => {
   const location = useLocation();
-  const productsPages = projects.map((project) => `${ROUTE_PROFILE}/${project.url}`);
-  const isProductsPage = productsPages.includes(location.pathname);
-  const hasMultipleProducts = productsPages.length > 1;
   const navigate = useNavigate();
+
+  const { data: projects, isLoading } = useProjectsQuery();
+
+  if (isLoading || !projects) {
+    return null;
+  }
+
+  const projectsPages = projects.map((project) => `${ROUTE_PROFILE_PROJECTS}/${project.id}`);
+  const isProjectPage = projectsPages.includes(location.pathname);
+  const PojectsCount = projectsPages.length;
 
   // if location path does not include profile page adress show nothing
   if (!location.pathname.includes(ROUTE_PROFILE)) {
@@ -27,23 +35,23 @@ export const ProfileNavMobile: React.FC = () => {
   return (
     <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
       <ul className={cl(s.list)}>
-        {!hasMultipleProducts && (
+        {PojectsCount === 1 && (
           <li className={cl(s.listItem)}>
             <ProfileNavLink
-              to={productsPages[0]}
+              to={projectsPages[0]}
               icon={<CardholderIcon />}
-              isIconFilled={isProductsPage}
+              isIconFilled={isProjectPage}
               text="Проект"
             />
           </li>
         )}
 
-        {hasMultipleProducts && (
+        {PojectsCount > 1 && (
           <li className={cl(s.listItem)}>
             <ProfileNavLink
               to={ROUTE_PROFILE_DASHBOARD}
               icon={<CardholderIcon />}
-              isIconFilled={location.pathname === ROUTE_PROFILE_DASHBOARD || isProductsPage}
+              isIconFilled={location.pathname === ROUTE_PROFILE_DASHBOARD || isProjectPage}
               text="Проекты"
             />
           </li>
