@@ -1,0 +1,134 @@
+.main {
+  overflow: hidden;
+  width: 100%;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-areas:
+    'title button'
+    'subtitle button'
+    'text button';
+  column-gap: 15px;
+  align-content: center;
+  align-items: end;
+
+  width: 100%;
+  max-width: var(--el-max-width);
+  height: 100vh;
+  max-height: 1080px;
+
+  @media screen and (width <= 768px) {
+    grid-template-areas:
+      'title title'
+      'subtitle subtitle'
+      'text text'
+      'button button';
+  }
+}
+
+.pageTitle {
+  grid-area: title;
+
+  font-family: Molot, sans-serif;
+  font-size: 180px;
+  font-weight: 400;
+  line-height: 0.71;
+  color: var(--dark-blue-50);
+
+  @media screen and (width < 1920px) {
+    font-size: 9.3vw;
+  }
+
+  @media screen and (width <= 1280px) {
+    font-size: 130px;
+  }
+
+  @media screen and (width <= 1050px) {
+    font-size: 10vw;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 16.9vw; // 130px;
+  }
+
+  @media screen and (width <= 360px) {
+    padding-bottom: 0;
+    font-size: 60px;
+  }
+}
+
+.subTitle {
+  grid-area: subtitle;
+
+  padding-bottom: 50px;
+
+  font-family: Molot, sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--dark-blue);
+
+  @media screen and (width <= 1620px) {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: 40px;
+  }
+
+  @media screen and (width <= 1050px) {
+    font-size: 3.8vw;
+  }
+
+  @media screen and (width <= 768px) {
+    padding-bottom: 50px;
+    font-size: 5.2vw; // 40px;
+  }
+
+  @media screen and (width <= 360px) {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 20px;
+  }
+}
+
+.errorText {
+  grid-area: text;
+
+  font-family: Germano, sans-serif;
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--dark-blue);
+
+  @media screen and (width <= 1620px) {
+    font-size: 64px;
+  }
+
+  @media screen and (width <= 768px) {
+    padding-bottom: 100px;
+  }
+
+  @media screen and (width <= 360px) {
+    padding-bottom: 80px;
+    font-size: 32px;
+  }
+}
+
+.button {
+  grid-area: button;
+  align-self: center;
+
+  @media screen and (width <= 1280px) {
+    width: 280px;
+    height: 280px;
+  }
+
+  @media screen and (width <= 768px) {
+    place-self: center;
+  }
+
+  @media screen and (width <= 360px) {
+    width: 240px;
+    height: 240px;
+  }
+}

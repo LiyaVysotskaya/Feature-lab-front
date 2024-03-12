@@ -14,6 +14,12 @@
   width: var(--btn-size); // 450px;
   height: var(--btn-size); // 450px;
 
+  font-family: Germano-Regular, sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--white, #fff);
+
   background: var(--white, #fff);
   border-radius: 50%;
 }
@@ -27,12 +33,6 @@
   width: 88.89%;
   height: 88.89%;
   padding: 0 10%;
-
-  font-family: Germano-Regular, sans-serif;
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--white, #fff);
 
   background: linear-gradient(
     0deg,
@@ -50,7 +50,7 @@
   }
 
   &:active {
-    color: var(--darkblue, #002d63);
+    color: var(--dark-blue, #002d63);
     border: 2px solid var(--dark-blue, #002d63);
   }
 
@@ -65,8 +65,14 @@
   --btn-size: 400px;
 
   position: relative;
+
   width: var(--btn-size);
   height: var(--btn-size);
+
+  font-family: Germano-Regular, sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1; // 64px;
 
   &::before {
     content: '';
@@ -85,7 +91,7 @@
     height: calc(2.5 * var(--btn-size)); // 1000px;
 
     background: var(
-      --radialblue,
+      --radial-blue,
       radial-gradient(closest-side, rgb(0 73 216 / 100%) 0%, rgb(255 255 255 / 0%) 100%)
     );
     border-radius: 50%;
@@ -94,7 +100,7 @@
   &_gray {
     &::before {
       background: var(
-        --radialblue-45,
+        --radial-blue-45,
         radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
       );
     }
@@ -112,15 +118,10 @@
   width: 100%;
   height: 100%;
 
-  font-family: Germano-Regular, sans-serif;
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1; // 64px;
-
   border-radius: 50%;
 
   &:disabled {
-    color: var(--darkblue-50, #8096b1);
+    color: var(--dark-blue-50, #8096b1);
   }
 
   &:hover {
@@ -137,7 +138,7 @@
   }
 
   &_white {
-    color: var(--darkblue, #002d63);
+    color: var(--dark-blue, #002d63);
     background: var(--white, #fff);
 
     &:active {
@@ -166,45 +167,37 @@
 @media screen and (width <= 1280px) {
   .promoBtnWrapper {
     --btn-size: 320px;
-  }
 
-  .promoBtn {
     font-size: 48px;
   }
 
   .radiantBtnWrapper {
     --btn-size: 300px;
 
+    font-size: 48px;
+
     &::before {
       width: calc(2.33 * var(--btn-size)); // 700px;
       height: calc(2.33 * var(--btn-size)); // 700px;
     }
-  }
-
-  .radiantBtn {
-    font-size: 48px;
   }
 }
 
 @media screen and (width <= 360px) {
   .promoBtnWrapper {
     --btn-size: 250px;
-  }
 
-  .promoBtn {
     font-size: 40px;
   }
 
   .radiantBtnWrapper {
     --btn-size: 240px;
 
+    font-size: 40px;
+
     &::before {
       width: calc(2.5 * var(--btn-size)); // 600px;
       height: calc(2.5 * var(--btn-size)); // 600px;
     }
-  }
-
-  .radiantBtn {
-    font-size: 40px;
   }
 }

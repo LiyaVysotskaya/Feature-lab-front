@@ -5,19 +5,17 @@
   width: 80px;
   height: 80px;
 
-  border: 4px solid var(--darkblue);
+  border: 4px solid var(--dark-blue);
   border-radius: 80px;
 
   transition: 0.3s background-color ease-in;
 
   &:focus,
   &:hover {
-    background: var(--radialblue);
+    background: var(--radial-blue);
   }
 
   &__sign {
-    cursor: default;
-
     position: absolute;
     top: calc(50% - 30px);
     left: calc(50% - 13px);
@@ -25,7 +23,7 @@
     font-family: Molot-Regular, sans-serif;
     font-size: 50px;
     line-height: 60px;
-    color: var(--darkblue);
+    color: var(--dark-blue);
   }
 }
 

@@ -1,7 +1,7 @@
 .icon {
   cursor: pointer;
   line-height: 0;
-  border-radius: 60px;
+  border-radius: 50%;
   transition: 0.3s box-shadow ease-in;
 
   & > svg {
@@ -10,7 +10,7 @@
   }
 
   &:hover {
-    border-radius: 60px;
+    border-radius: 50%;
     box-shadow: var(--shadow-box-shadow);
   }
 

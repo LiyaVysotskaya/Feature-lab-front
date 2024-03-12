@@ -4,12 +4,15 @@ import s from './QuestionIcon.module.scss';
 
 export interface QuestionIconProps {
   className?: string;
+  onClick?: VoidFunction;
 }
 
-export const QuestionIcon: FC<QuestionIconProps> = ({ className = '' }) => {
+export const QuestionIcon: FC<QuestionIconProps> = ({ className = '', onClick }) => {
   return (
-    <div className={cl(s.questionIcon, className)}>
-      <div className={cl(s.questionIcon__sign)}>?</div>
+    <div className={cl(s.questionIcon, className)} onClick={onClick}>
+      <button className={cl(s.questionIcon__sign)} type="button">
+        ?
+      </button>
     </div>
   );
 };

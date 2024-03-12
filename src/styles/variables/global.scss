@@ -1,16 +1,17 @@
 :root {
   /* Colors */
   --black: #111;
-  --darkblue: #002d63;
+  --dark-blue: #002d63;
+  --dark-blue-50: #8096b1;
   --electric: #0049d8;
   --white: #fff;
-  --radialblue: radial-gradient(closest-side, rgb(0 73 216 / 100%) 0%, rgb(255 255 255 / 0%) 100%);
-  --radialblue-45: radial-gradient(
+  --white-60: #a8bed8;
+  --radial-blue: radial-gradient(closest-side, rgb(0 73 216 / 60%) 0%, rgb(255 255 255 / 0%) 100%);
+  --radial-blue-45: radial-gradient(
     closest-side,
     rgb(3 64 137 / 45%) 0%,
     rgb(255 255 255 / 0%) 100%
   );
-  --darkblue-50: #8096b1;
   --gradient: linear-gradient(
     0deg,
     rgb(12 52 131 / 100%) 1%,
@@ -24,53 +25,21 @@
     rgb(162 182 223 / 100%) 100%,
     rgb(107 140 206 / 100%) 100%
   );
-  --white-60: #a8bed8;
   --error: #bf1700;
+  --error-for-dark: #fa391f;
   --shadow: rgb(0 45 99 / 50%);
-  --shadowforheader: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 50%) 100%);
-  --errorfordark: #fa391f;
-
-  /* delete from project */
-  --title-h-3-font-size: 64px;
-  --title-h-3-line-height: 64px;
-  --title-h-4-font-family: germano-regular, sans-serif;
-  --title-h-4-font-size: 48px;
-  --title-h-4-line-height: 48px;
-  --title-h-4-font-weight: 400;
-  --title-h-1-molot-font-family: molot-regular, sans-serif;
-  --title-h-1-molot-font-size: 128px;
-  --title-h-1-molot-line-height: 128px;
-  --title-h-1-molot-font-weight: 400;
-  --title-h-2-molot-font-size: 100px;
-  --title-h-2-molot-line-height: 100px;
-  --title-h-3-molot-font-family: molot-regular, sans-serif;
-  --title-h-3-molot-font-size: 80px;
-  --title-h-3-molot-line-height: 80px;
-  --title-h-3-molot-font-weight: 400;
-  --title-h-4-molot-font-size: 66px;
-  --title-h-4-molot-line-height: 66px;
-  --title-h-2-font-size: 80px;
-  --title-h-2-line-height: 80px;
-  --title-h-2-font-weight: 400;
-  --title-tel-h-1-molot-font-size: 40px;
-  --title-tel-h-1-molot-line-height: 40px;
-  --title-tel-h-2-molot-font-family: molot-regular, sans-serif;
-  --title-tel-h-2-molot-font-size: 30px;
-  --title-tel-h-2-molot-line-height: 30px;
-  --title-tel-h-1-font-size: 40px;
-  --title-tel-h-1-line-height: 40px;
-  --title-tel-h-2-font-size: 32px;
-  --title-tel-h-2-line-height: 32px;
-  --title-tel-h-3-font-size: 24px;
-  --title-tel-h-3-line-height: 24px;
-  --title-tel-h-3-font-weight: 400;
-  --text-2-font-size: 24px;
+  --shadow-for-header: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0%) 0%,
+    rgb(255 255 255 / 50%) 100%
+  );
 
   /* Effects */
   --shadow-box-shadow: 0px 10px 20px 0px rgb(0 45 99 / 30%);
 
   /* Size */
   --el-max-width: 1720px;
+  --offset-from-edge: calc((100vw - var(--el-max-width)) / 2);
   --section-title-font-size: 64px;
 
   @media screen and (width <= 1920px) {

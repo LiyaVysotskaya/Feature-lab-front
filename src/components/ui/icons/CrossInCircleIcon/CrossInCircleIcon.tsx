@@ -2,11 +2,11 @@ import { FC } from 'react';
 import cl from 'classnames';
 import s from '../PlusIcon/PlusIcon.module.scss';
 
-interface PlusIconProps {
+interface CrossInCircleIconProps {
   className?: string;
 }
 
-export const CrossInCircleIcon: FC<PlusIconProps> = ({ className = '' }) => {
+export const CrossInCircleIcon: FC<CrossInCircleIconProps> = ({ className = '' }) => {
   return (
     <div className={cl(className && className, s.plusIcon)}>
       <svg

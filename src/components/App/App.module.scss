@@ -1,5 +1,9 @@
 body {
-  .page {
+  .generalWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     box-sizing: border-box;
     width: 100%;
     max-width: 1920px;

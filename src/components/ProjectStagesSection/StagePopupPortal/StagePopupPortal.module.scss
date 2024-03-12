@@ -1,0 +1,64 @@
+.popupWrap {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+
+  box-sizing: border-box;
+  padding: 10px 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 200ms ease-in,
+    visibility 200ms ease-in;
+
+  &_visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_left {
+    padding-left: 72px;
+  }
+
+  &_right {
+    padding-right: 72px;
+  }
+}
+
+.popup {
+  box-sizing: border-box;
+  min-width: 300px;
+  max-width: 440px;
+  padding: 20px;
+
+  background-color: var(--white);
+  border-radius: 21px;
+  box-shadow: 0 10px 20px 0 var(--shadow);
+
+  &Content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+
+    box-sizing: border-box;
+  }
+
+  &CloseBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media screen and (width <= 1280px) {
+    max-width: 400px;
+  }
+
+  @media screen and (width <= 768px) {
+    max-width: 300px;
+  }
+}
