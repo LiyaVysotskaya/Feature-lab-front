@@ -1,0 +1,93 @@
+.doc {
+  display: grid;
+  grid-template-columns: 200px auto min-content;
+  gap: 4px 60px;
+
+  width: 100%;
+  padding-right: 60px;
+
+  font-family: 'GOST type B', sans-serif;
+
+  @media screen and (width <= 1700px) {
+    column-gap: 24px;
+    padding-right: 30px;
+  }
+
+  @media screen and (width <= 1480px) {
+    column-gap: 16px;
+    padding-right: 10px;
+  }
+
+  @media screen and (width <= 1280px) {
+    column-gap: 24px;
+    padding-right: 30px;
+  }
+
+  @media screen and (width <= 1120px) {
+    grid-template-columns: 160px auto min-content;
+    column-gap: 16px;
+    padding-right: 0;
+  }
+
+  @media screen and (width <= 768px) {
+    column-gap: 16px;
+  }
+
+  @media screen and (width <= 590px) {
+    grid-template-columns: auto;
+  }
+}
+
+.docName {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.17; // 28px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  @media screen and (width <= 1280px) {
+    font-size: 20px;
+    line-height: 1.2; // 24px;
+  }
+}
+
+.docDescription {
+  align-self: center;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.12; // 24px;
+
+  @media screen and (width <= 1280px) {
+    font-size: 16px;
+    line-height: 1.13; // 18px;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  @media screen and (width <= 360px) {
+    font-size: 16px;
+    line-height: 1.13; // 18px;
+  }
+}
+
+.docDate {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.17; // 28px;
+
+  @media screen and (width <= 1280px) {
+    font-size: 20px;
+    line-height: 1.2; // 24px;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 16px;
+    line-height: 1.13; // 18px;
+  }
+}
