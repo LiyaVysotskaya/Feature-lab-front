@@ -1,11 +1,11 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Text } from '../../../components/ui/Text/Text';
-import { ProjectCard } from './ProjectCard/ProjectCard';
-import s from './ProfileDashboard.module.scss';
 import { useProjectsQuery } from '../../../api/queries';
+import { ProjectCard } from '../../../components/ProjectCard/ProjectCard';
+import { Text } from '../../../components/ui/Text/Text';
 import { TProjectShortInfo } from '../../../types/data';
+import s from './ProfileDashboard.module.scss';
 
 interface IProfileDashboardProps {
   className?: string;
