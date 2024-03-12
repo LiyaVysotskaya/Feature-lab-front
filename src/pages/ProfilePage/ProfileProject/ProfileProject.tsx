@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { ProjectStagesSection } from '../../../components/ProjectStagesSection/ProjectStagesSection';
 import s from './ProfileProject.module.scss';
 import { useProjectQuery } from '../../../api/queries';
+import { ProjectInfoSection } from '../../../components/ProjectInfoSection/ProjectInfoSection';
 
 interface IProfileProjectProps {
   className?: string;
@@ -19,9 +20,9 @@ export const ProfileProject: FC<IProfileProjectProps> = ({ className = '' }) => 
 
   return (
     <div className={cl(s.project, className)}>
-      {/* Компонент информации о проекте */}
+      <ProjectInfoSection project={project} className={s.projectSection} />
 
-      <ProjectStagesSection projectStages={project.stages} />
+      <ProjectStagesSection projectStages={project.stages} className={s.projectSection} />
 
       {/* Компонент документы проекта */}
     </div>
