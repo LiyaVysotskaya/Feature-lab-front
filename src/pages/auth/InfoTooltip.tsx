@@ -13,7 +13,6 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
   className = '',
   content = null,
 }) => {
-  const id = `tooltip${Date.now()}`;
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   return (
@@ -24,7 +23,7 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
             setIsTooltipOpen(true);
           },
         })}
-      <div id={id} className={cl(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
+      <div className={cl(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
         <div className={s.tooltipContent}>
           {content}
           <button
