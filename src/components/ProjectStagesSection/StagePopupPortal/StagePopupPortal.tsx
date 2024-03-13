@@ -83,7 +83,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
       const position = calculatePopupLeftPosition(stageElRect, popup.clientWidth);
 
       setPopupPosition({
-        top: stageElRect.top - 10 + window.pageYOffset,
+        top: stageElRect.top - 10 + window.scrollY,
         left: position.left,
         side: position.side,
       });
