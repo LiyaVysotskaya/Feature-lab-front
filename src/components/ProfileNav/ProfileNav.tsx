@@ -1,7 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import { projects } from '../../_mockData/projectsMockData';
 import { useProjectsQuery } from '../../api/queries';
 import {
   ROUTE_HOME,
