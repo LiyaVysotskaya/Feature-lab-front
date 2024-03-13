@@ -1,6 +1,5 @@
 .section {
   display: grid;
-  grid-auto-flow: dense;
   grid-auto-rows: min-content;
   grid-template-areas:
     'title description logo'
@@ -19,7 +18,17 @@
   }
 
   @media screen and (width <= 1280px) {
+    grid-template-areas:
+      'title description logo'
+      'manager description logo';
     column-gap: 20px;
+  }
+
+  @media screen and (width <= 1280px) {
+    grid-template-areas:
+      'title logo'
+      'manager logo'
+      'description .';
   }
 
   @media screen and (width <= 950px) {
@@ -37,7 +46,7 @@
     max-width: var(--el-max-width);
   }
 
-  @media screen and (width <= 570px) {
+  @media screen and (width <= 640px) {
     grid-template-areas:
       'title title'
       'manager logo'
@@ -50,6 +59,7 @@
   grid-area: title;
 
   width: max-content;
+  min-width: 520px;
   height: min-content;
   margin-bottom: 20px;
 
@@ -62,10 +72,15 @@
   text-underline-offset: 10px;
 
   @media screen and (width <= 1280px) {
+    min-width: 380px;
+  }
+
+  @media screen and (width <= 1280px) {
     font-size: 48px;
   }
 
   @media screen and (width <= 768px) {
+    min-width: 100%;
     font-size: 40px;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;
