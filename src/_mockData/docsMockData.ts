@@ -57,15 +57,4 @@ export const docs = [
     url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
     pub_date: '2024-02-15T08:02:22.032386Z',
   },
-  {
-    id: 1,
-    name: 'Кот vys noProj',
-    description: 'нормальное влезающее описание без суперпупердлинныхотвратительных слов',
-    doctype: {
-      id: 1,
-      name: 'ABC',
-    },
-    url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-    pub_date: '2024-02-15T08:02:22.032386Z',
-  },
 ] as TDocument[];
