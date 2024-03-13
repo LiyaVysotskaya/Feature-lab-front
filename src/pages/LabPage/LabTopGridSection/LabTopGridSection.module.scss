@@ -5,6 +5,7 @@
     'one two two'
     'text two two'
     'text three four';
+  grid-template-rows: auto auto 25% auto auto;
   gap: 40px;
 
   box-sizing: border-box;

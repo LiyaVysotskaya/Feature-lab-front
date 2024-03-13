@@ -39,16 +39,6 @@
     grid-template-columns: auto auto;
     gap: 12px;
   }
-
-  @media screen and (width <= 390px) {
-    grid-template-areas:
-      'one'
-      'text'
-      'two'
-      'three';
-    grid-template-columns: auto;
-    gap: 12px;
-  }
 }
 
 .gridArea {
