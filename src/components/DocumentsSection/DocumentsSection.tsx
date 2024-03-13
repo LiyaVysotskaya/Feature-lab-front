@@ -25,7 +25,7 @@ export const DocumentsSection: FC<IDocumentsSectionProps> = ({ className = '', t
   );
 
   // Sort category names alphabetically
-  const sortedCategoryNames = Object.keys(docCategories).sort();
+  const sortedCategoryNames = Object.keys(docCategories).toSorted();
 
   return (
     <section className={cl(s.section, className)}>

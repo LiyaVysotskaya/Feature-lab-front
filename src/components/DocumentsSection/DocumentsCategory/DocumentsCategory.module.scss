@@ -27,6 +27,8 @@
 
   @media screen and (width <= 590px) {
     grid-template-columns: auto;
+    padding-right: var(--offset-from-edge);
+    padding-left: var(--offset-from-edge);
   }
 }
 
