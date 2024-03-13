@@ -2,6 +2,7 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { LAB_PROJECT_URL } from '../../constants/links';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { Button } from '../ui/Button/Button';
 import s from './LabSection.module.scss';
@@ -14,7 +15,7 @@ export const LabSection: FC<ILabSectionProps> = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const handleOnBtnClick = () => {
-    navigate('/');
+    navigate(LAB_PROJECT_URL);
   };
 
   return (

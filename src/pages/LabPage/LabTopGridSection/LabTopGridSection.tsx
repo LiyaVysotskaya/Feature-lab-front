@@ -1,5 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { LabCard } from '../LabCard/LabCard';
+import { LabText } from '../LabText/LabText';
 import s from './LabTopGridSection.module.scss';
 
 interface ILabTopGridSectionProps {
@@ -9,54 +11,38 @@ interface ILabTopGridSectionProps {
 export const LabTopGridSection: FC<ILabTopGridSectionProps> = ({ className = '' }) => {
   return (
     <section className={cl(s.section, className)}>
-      <h2 className={cl(s.sectionTitle, s.sectionCell_title)}>
-        Войди в IT с готовыми проектами и практическим опытом.
+      <h2 className={cl(s.sectionTitle, s.gridArea_title)}>
+        Войди в&#160;IT с&#160;готовыми проектами и&#160;практическим опытом.
       </h2>
 
-      <article className={cl(s.card, s.sectionCell_1)}>
-        <h3 className={cl(s.cardTitle)}>ЧТО ЭТО</h3>
-        <p className={cl(s.cardText)}>
-          Площадка для старта твоей успешной карьеры в IT. Мы сами прошли путь от обучения до
-          трудоустройства и знаем, что теоретических знаний недостаточно.
-        </p>
-      </article>
+      <LabCard
+        title="КТО МЫ?"
+        text="Площадка для старта твоей успешной карьеры в IT"
+        className={s.gridArea_1}
+      />
 
-      <article className={cl(s.card, s.sectionCell_2)}>
-        <h3 className={cl(s.cardTitle)}>КАК МЫ УЧИМ?</h3>
-        <p className={cl(s.cardText)}>
-          Мы помогаем
-          <br />
-          &#8211; быстро освоить на практике основной функционал работы &#8211; положить в портфолио
-          собственный успешный проект и сократить время до долгожданного оффера
-        </p>
-      </article>
+      <LabCard
+        title="МЕНТОРСТВО"
+        text="Освоишь функционал практической работы и положишь кейс в портфолио"
+        className={s.gridArea_2}
+      />
 
-      <article className={cl(s.card, s.sectionCell_3)}>
-        <h3 className={cl(s.cardTitle)}>КАК В ЖИЗНИ</h3>
-        <p className={cl(s.cardText)}>
-          &#8211; входишь в существующий проект <br />
-          &#8211; активно применяешь все знания, полученные на обучающих курсах команде и с
-          наставником
-          <br />
-          &#8211; получаешь в портфолио готовый проект
-        </p>
-      </article>
+      <LabCard
+        title="«КАК В ЖИЗНИ»"
+        text={`Входишь в готовый проект и работаешь над ним в команде\n\n`}
+        className={s.gridArea_3}
+      />
 
-      <article className={cl(s.card, s.sectionCell_4)}>
-        <h3 className={cl(s.cardTitle)}>СТАРТАПЕР</h3>
-        <p className={cl(s.cardText)}>
-          &#8211; приносишь и разрабатываешь идею своего проекта/придумываешь ее с нашей помощью
-          <br />
-          &#8211; реализуешь эту идею с разработчиками
-          <br />
-          &#8211; получаешь готовый &#171;старт-ап&#187; проект
-        </p>
-      </article>
+      <LabCard
+        title="«СТАРТАПЕР»"
+        text={`Приносишь и реализуешь идею собственного проекта\n\n`}
+        className={s.gridArea_4}
+      />
 
-      <p className={cl(s.sectionText, s.sectionCell_text)}>
-        Мы сами прошли путь от обучения на онлайн-курсах до успешного трудоустройства и знаем, что
-        теории недостаточно для старта успешной карьеры в новой отрасли
-      </p>
+      <LabText
+        text={`Если ты:\n \u2022\u00A0front или back разработчик\n \u2022\u00A0системный или бизнес аналитик\n \u2022\u00A0UI/UX дизайнер\n \u2022\u00A0ПМ/ПО\n \u2022\u00A0тестировщик\n\nЖдём тебя в команду!`}
+        className={s.gridArea_text}
+      />
     </section>
   );
 };

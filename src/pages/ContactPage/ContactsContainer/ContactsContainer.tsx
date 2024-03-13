@@ -1,7 +1,12 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import s from './ContactsContainer.module.scss';
 import { LinkIcon, TelegramIcon, WhatsupIcon } from '../../../components/ui/icons';
+import {
+  SOCIAL_LINKEDIN_URL,
+  SOCIAL_TELEGRAM_URL,
+  SOCIAL_WHATSUP_URL,
+} from '../../../constants/links';
+import s from './ContactsContainer.module.scss';
 
 export const ContactsContainer: FC = () => {
   return (
@@ -27,15 +32,15 @@ export const ContactsContainer: FC = () => {
       </div>
       <div className={(s.wrap, s.media)}>
         <div className={s.linksContainer}>
-          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+          <Link to={SOCIAL_TELEGRAM_URL} className={s.iconLink}>
             <TelegramIcon />
           </Link>
 
-          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+          <Link to={SOCIAL_LINKEDIN_URL} className={s.iconLink}>
             <LinkIcon />
           </Link>
 
-          <Link to="https://github.com/LiyaVysotskaya/Feature-lab-front" className={s.iconLink}>
+          <Link to={SOCIAL_WHATSUP_URL} className={s.iconLink}>
             <WhatsupIcon />
           </Link>
         </div>
