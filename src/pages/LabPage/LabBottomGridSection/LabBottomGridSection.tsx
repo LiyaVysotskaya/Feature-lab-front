@@ -1,5 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { LabCard } from '../LabCard/LabCard';
+import { LabText } from '../LabText/LabText';
 import s from './LabBottomGridSection.module.scss';
 
 interface ILabBottomGridSectionProps {
@@ -9,64 +11,28 @@ interface ILabBottomGridSectionProps {
 export const LabBottomGridSection: FC<ILabBottomGridSectionProps> = ({ className = '' }) => {
   return (
     <section className={cl(s.section, className)}>
-      <article className={cl(s.card, s.sectionCell_1)}>
-        <h3 className={cl(s.cardTitle)}>ЕСЛИ ТЫ:</h3>
-        <p className={cl(s.cardText)}>
-          &#8211;&#160;frontend или backend разработчик
-          <br />
-          &#8211;&#160;системный или бизнес аналитик <br />
-          &#8211;&#160;UI/UX дизайнер
-          <br />
-          &#8211;&#160;менеджер продукта <br />
-          &#8211;&#160;проектный менеджер
-          <br />
-          &#8211;&#160;тестировщик
-          <br />
-          <br />
-          Ждём тебя в&#160;команду!
-        </p>
-      </article>
+      <LabCard
+        title="ЕСЛИ ТЫ:"
+        text="&#8209;&#160;frontend или backend разработчик &#10;&#8209;&nbsp;системный или бизнес аналитик &#10;&#8209;&nbsp;UI/UX дизайнер &#10;&#8209;&nbsp;менеджер продукта &#10;&#8209;&nbsp;проектный менеджер &#10;&#8209;&nbsp;тестировщик &#10;Ждём тебя в&#160;команду!"
+        className={s.sectionCell_1}
+      />
 
-      <p className={cl(s.sectionText, s.sectionCell_text)}>
-        За&#160;что нас выбирают?
-        <br />
-        <br />
-        &#8211;&#160;Персонализация практического обучения: закрываем индивидуальные пробелы
-        в&#160;знаниях на&#160;практике
-        <br />
-        <br />
-        &#8211;&#160;Гранулированный опыт решения рабочих задач: комплексная оценка hard и&#160;soft
-        скиллов
-        <br />
-        <br />
-        &#8211;&#160;Приобретение опыта взаимодействия как с&#160;нишевыми специалистами своей
-        области, так и&#160;смежными командами
-      </p>
+      <LabText
+        text="За&#160;что нас выбирают? &#10;&#8209;&nbsp;Персонализация практического обучения: закрываем индивидуальные пробелы в&#160;знаниях на&#160;практике &#10;&#8209;&nbsp;Гранулированный опыт решения рабочих задач: комплексная оценка hard и&#160;soft скиллов &#10;&#8209;&nbsp;Приобретение опыта взаимодействия как с&#160;нишевыми специалистами своей области, так и&#160;смежными командами"
+        className={s.sectionCell_text}
+      />
 
-      <article className={cl(s.card, s.sectionCell_2)}>
-        <h3 className={cl(s.cardTitle)}>СТЭК FRONT</h3>
-        <p className={cl(s.cardText)}>
-          С&#160;нами будешь
-          <br />
-          &#8211;&#160;создавать веб-сайты и&#160;приложения на&#160;HTML, CSS и&#160;JavaScript
-          <br />
-          &#8211;&#160;использовать фреймворки и&#160;библиотеки React, Angular, Vue.js, Bootstrap,
-          Git и&#160;API
-        </p>
-      </article>
+      <LabCard
+        title="СТЭК FRONT"
+        text="С&#160;нами будешь &#10;&#8209;&nbsp;создавать веб-сайты и&#160;приложения на&#160;HTML, CSS и&#160;JavaScript &#10;&#8209;&nbsp;использовать фреймворки и&#160;библиотеки React, Angular, Vue.js, Bootstrap, Git и&#160;API"
+        className={s.sectionCell_2}
+      />
 
-      <article className={cl(s.card, s.sectionCell_3)}>
-        <h3 className={cl(s.cardTitle)}>СТЭК BACK</h3>
-        <p className={cl(s.cardText)}>
-          С&#160;нами будешь
-          <br />
-          &#8211;&#160;практиковаться на&#160;Java, Python, Ruby, PHP, C++
-          <br />
-          &#8211;&#160;создавать серверные приложения и&#160;веб-сервисы
-          <br />
-          &#8211;&#160;работать с&#160;MySQL, PostgreSQL, MongoDB, SQLite
-        </p>
-      </article>
+      <LabCard
+        title="СТЭК BACK"
+        text="С&#160;нами будешь &#10;&#8209;&nbsp;практиковаться на&#160;Java, Python, Ruby, PHP, C++ &#10;&#8209;&nbsp;создавать серверные приложения и&#160;веб-сервисы &#10;&#8209;&nbsp;работать с&#160;MySQL, PostgreSQL, MongoDB, SQLite"
+        className={s.sectionCell_3}
+      />
     </section>
   );
 };
