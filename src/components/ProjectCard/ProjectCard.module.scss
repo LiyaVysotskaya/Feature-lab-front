@@ -1,0 +1,95 @@
+.card {
+  cursor: pointer;
+  position: relative;
+  max-width: 620px;
+  min-height: 280px;
+
+  @media screen and (width <= 420px) {
+    min-height: 200px;
+  }
+}
+
+.title {
+  padding-bottom: 20px;
+
+  font-family: Germano-Regular, sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--dark-blue, #002d63);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 8px;
+
+  @media screen and (width <= 768px) {
+    font-size: 40px;
+  }
+
+  @media screen and (width <= 420px) {
+    padding-bottom: 8px;
+    font-size: 32px;
+  }
+}
+
+.label {
+  padding-top: 6px;
+  color: var(--dark-blue-50);
+
+  @media screen and (width <= 420px) {
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+
+.value {
+  &Placeholder {
+    padding-top: 20px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @media screen and (width <= 420px) {
+    font-size: 16px;
+    line-height: 1.13; // 18px
+  }
+}
+
+.progressBar {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+
+  @media screen and (width <= 900px) {
+    right: 0;
+  }
+
+  @media screen and (width <= 768px) {
+    right: 10%;
+  }
+
+  @media screen and (width <= 530px) {
+    right: 0;
+  }
+
+  @media screen and (width <= 420px) {
+    right: 6%;
+  }
+}
+
+@media screen and (width > 768px) {
+  .card:hover {
+    .title {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    .progressBar::before {
+      opacity: 1;
+    }
+  }
+}

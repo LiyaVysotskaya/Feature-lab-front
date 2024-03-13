@@ -1,5 +1,6 @@
 .stageWrapper {
   position: relative;
+  height: min-content;
 }
 
 .stage {
@@ -7,7 +8,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  row-gap: 12px;
   align-items: center;
 
   box-sizing: border-box;

@@ -1,32 +1,31 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { TProjectStage } from '../../../types/data';
+import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import { Text } from '../../ui/Text/Text';
 import s from './CurrentStage.module.scss';
-import { projects } from '../../../_mockData/projectsMockData';
 
 type CurrentStageProps = {
   className?: string;
-  currentStageIndex: number;
+  stage: TProjectStage;
 };
 
-export const CurrentStage: FC<CurrentStageProps> = ({ className = '', currentStageIndex }) => {
+export const CurrentStage: FC<CurrentStageProps> = ({ className = '', stage }) => {
   return (
     <div className={cl(s.currentStage, className)}>
       <div className={cl(s.column)}>
         <Text view="gost-3" tag="p" className={cl(s.subTitle)}>
-          {projects[0].stages[currentStageIndex].status === 'inProgress'
-            ? 'Текущий этап'
-            : `Этап ${currentStageIndex + 1}`}
+          {stage.stage_status === 'in_progress' ? 'Текущий этап' : `Этап ${stage.stage_num}`}
         </Text>
         <Text view="germano-4" tag="h2" line className={cl(s.title)}>
-          {projects[0].stages[currentStageIndex].stageName}
+          {stage.name}
         </Text>
         <Text view="gost-1" tag="p" className={cl(s.date)}>
-          срок выполнения: {projects[0].stages[currentStageIndex].dateOfEnd}
+          срок выполнения: {convertDateToShortFormat(stage.end_date)}
         </Text>
       </div>
       <Text view="gost-2" tag="p" className={cl(s.info)}>
-        {projects[0].stages[currentStageIndex].stageInfo}
+        {stage.description}
       </Text>
     </div>
   );
