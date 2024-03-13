@@ -617,11 +617,18 @@
   transition: all 0.5s ease-in-out;
 
   @media screen and (width <= 1280px) {
+    top: 130px;
     max-width: 60vw;
     padding: 28px;
   }
 
-  @media screen and (width <= 360px) {
+  @media screen and (width <= 768px) {
+    top: 80px;
+    padding: 24px;
+  }
+
+  @media screen and (width <= 690px) {
+    top: 50px;
     max-width: 80vw;
   }
 }
@@ -638,6 +645,10 @@
   line-height: 1.16; // 28px
   text-align: left;
   letter-spacing: 0;
+
+  @media screen and (width <= 768px) {
+    font-size: 20px;
+  }
 }
 
 .tooltipCloseBtn {
