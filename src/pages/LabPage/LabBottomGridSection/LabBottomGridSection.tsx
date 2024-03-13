@@ -24,13 +24,13 @@ export const LabBottomGridSection: FC<ILabBottomGridSectionProps> = ({ className
 
       <LabCard
         title="СТЭК FRONT"
-        text={`С\u00A0нами будешь \n\u2011\u00A0создавать веб-сайты и\u00A0приложения на\u00A0HTML, CSS и\u00A0JavaScript \n\u2011\u00A0использовать фреймворки и\u00A0библиотеки React, Angular, Vue.js, Bootstrap, Git и\u00A0API`}
+        text={`Будем работать на HTML, CSS и JavaScript и использовать фреймворки и библиотеки React, Angular, Vue.js, Bootstrap, Git и\u00A0API`}
         className={s.gridArea_2}
       />
 
       <LabCard
         title="СТЭК BACK"
-        text={`С\u00A0нами будешь \n\u2011\u00A0практиковаться на\u00A0Java, Python, Ruby, PHP, C++ \n\u2011\u00A0создавать серверные приложения и\u00A0веб-сервисы \n\u2011\u00A0работать с\u00A0MySQL, PostgreSQL, MongoDB, SQLite`}
+        text={`Будем кодить на\u00A0Java, Python, Ruby, PHP, C++ и работать с MySQL, PostgreSQL, MongoDB, SQLite`}
         className={s.gridArea_3}
       />
     </section>
