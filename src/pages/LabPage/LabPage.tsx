@@ -13,9 +13,9 @@ export const LabPage: FC = () => {
 
       <LabTopGridSection className={s.pageSection} />
 
-      {/* <LabSection className={s.pageSection} /> */}
+      <LabSection className={s.pageSection} />
 
-      {/* <LabBottomGridSection className={s.pageSection} /> */}
+      <LabBottomGridSection className={s.pageSection} />
     </Main>
   );
 };

@@ -3,9 +3,7 @@
   grid-template-areas:
     'one one text'
     'two three text';
-
-  // grid-template-columns: 430px 520px auto;
-  // grid-template-rows: auto auto;
+  grid-template-columns: 25% 25% auto;
   gap: 40px;
 
   width: 100%;
@@ -13,28 +11,23 @@
   margin: 0 0 100px;
   padding: 0;
 
-  &Cell {
-    &_1 {
-      grid-area: one;
-    }
-
-    &_text {
-      grid-area: text;
-    }
-
-    &_2 {
-      grid-area: two;
-    }
-
-    &_3 {
-      grid-area: three;
-    }
+  @media screen and (width <= 1280px) {
+    grid-template-columns: auto auto auto;
   }
 
-  @media screen and (width <= 1280px) {
+  @media screen and (width <= 1000px) {
+    grid-template-areas:
+      'one one text'
+      'two two text'
+      'three three text';
+    grid-template-columns: auto auto;
   }
 
   @media screen and (width <= 768px) {
+    grid-template-areas:
+      'one one text'
+      'two three text';
+    grid-template-columns: auto auto auto;
     gap: 20px;
   }
 
@@ -43,6 +36,35 @@
       'one one '
       'two three '
       'text text ';
+    grid-template-columns: auto auto;
     gap: 12px;
+  }
+
+  @media screen and (width <= 390px) {
+    grid-template-areas:
+      'one'
+      'text'
+      'two'
+      'three';
+    grid-template-columns: auto;
+    gap: 12px;
+  }
+}
+
+.gridArea {
+  &_1 {
+    grid-area: one;
+  }
+
+  &_text {
+    grid-area: text;
+  }
+
+  &_2 {
+    grid-area: two;
+  }
+
+  &_3 {
+    grid-area: three;
   }
 }

@@ -1,5 +1,4 @@
 .card {
-  // overflow: hidden;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -7,8 +6,7 @@
   box-sizing: border-box;
   padding: 20px;
 
-  // background: var(--white, #fff); // ???
-  background: var(--dark-blue, #002d63);
+  background: var(--white, #fff);
   border: 2px solid var(--dark-blue, #002d63);
 
   transition: all 0.2s ease;
@@ -19,9 +17,7 @@
     font-weight: 300;
     font-style: normal;
     line-height: 1; // 64px; /* 100% */
-    // color: var(--dark-blue, #002d63);
-
-    color: var(--white, #fff); // ???
+    color: var(--dark-blue, #002d63);
 
     @media screen and (width <= 768px) {
       font-size: 32px;
@@ -35,16 +31,13 @@
     font-size: 32px;
     font-weight: 400;
     font-style: normal;
-    line-height: 1.19; // 38px; /* 118.75% */
-    // color: var(--dark-blue, #002d63); ???
+    line-height: 1.19; // 38px;
     color: var(--white);
     white-space: pre-wrap;
 
-    // word-wrap: break-word;
-
     @media screen and (width <= 768px) {
       font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
+      line-height: 1.2; // 24px;
     }
   }
 

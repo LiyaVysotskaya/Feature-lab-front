@@ -20,7 +20,7 @@
     font-size: 80px;
     font-weight: 400;
     font-style: normal;
-    line-height: 1; // 80px; /* 100% */
+    line-height: 1;
     color: var(--dark-blue, #002d63);
 
     @media screen and (width <= 1250px) {
@@ -33,32 +33,6 @@
 
     @media screen and (width <= 768px) {
       font-size: 40px;
-    }
-  }
-
-  &Cell {
-    &_title {
-      grid-area: title;
-    }
-
-    &_1 {
-      grid-area: one; // кто мы
-    }
-
-    &_2 {
-      grid-area: two; // менторство
-    }
-
-    &_3 {
-      grid-area: three; // КАК В ЖИЗНИ
-    }
-
-    &_4 {
-      grid-area: four; // СТАРТАПЕР
-    }
-
-    &_text {
-      grid-area: text;
     }
   }
 
@@ -76,8 +50,7 @@
       'one title title'
       'one two two'
       'text two two'
-      'text three three'
-      'four four four';
+      'text three four';
     gap: 20px;
   }
 
@@ -89,5 +62,31 @@
       'three four'
       'text text';
     gap: 12px;
+  }
+}
+
+.gridArea {
+  &_title {
+    grid-area: title;
+  }
+
+  &_1 {
+    grid-area: one;
+  }
+
+  &_2 {
+    grid-area: two;
+  }
+
+  &_3 {
+    grid-area: three;
+  }
+
+  &_4 {
+    grid-area: four;
+  }
+
+  &_text {
+    grid-area: text;
   }
 }
