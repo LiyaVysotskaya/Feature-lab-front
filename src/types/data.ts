@@ -103,3 +103,63 @@ export type TProjectFullInfo = {
 export type GetUserProjectsListResponse = TGeneralApiResponse & {
   results: TProjectShortInfo[];
 };
+
+export type TProductFullInfo = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  competence: number;
+  url: string;
+  product_type: string;
+  properties: TProperty[];
+  tags: string[];
+};
+
+export type TProductShortInfo = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  url: string;
+  tags: string[];
+};
+
+type TEmployeePosition = {
+  name: string;
+};
+
+export type TEmployee = {
+  first_name: string;
+  last_name: string;
+  middle_name: string;
+  photo_active: string;
+  photo_inactive: string;
+  description: string;
+  positions: TEmployeePosition[];
+};
+
+export type TCompetenceFullInfo = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  detailed_description: string;
+  description_on_main: string;
+  priority: number;
+  properties: TProperty[];
+  employees: TEmployee[];
+};
+
+export type TCompetenceShortInfo = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  description_on_main: string;
+  priority: number;
+};
+
+export type TGetAllCompetenciesResponse = TGeneralApiResponse & {
+  results: TCompetenceShortInfo[];
+};
