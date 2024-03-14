@@ -17,30 +17,24 @@ export const PopupConfirmLogout: FC<IPopupProps> = ({ onClose, isOpen }) => {
 
   return isOpen ? (
     <Overlay onClose={onClose} isOpen={isOpen}>
-      <div className={s.popupContainer}>
-        <div className={s.popup}>
-          <h2 className={s.popupTitle}>Вы уверены, что хотите выйти из личного кабинета?</h2>
-          <button
-            type="button"
-            className={s.button}
-            onClick={() => {
-              navigate(ROUTE_HOME);
-              signOut();
-            }}>
-            Да
-          </button>
-          <span>/</span>
-          <button type="button" className={s.button} onClick={onClose}>
-            Нет
-          </button>
-          <button
-            className={s.closeButton}
-            type="button"
-            aria-label="Close popup"
-            onClick={onClose}>
-            <CrossIcon />
-          </button>
-        </div>
+      <div className={s.popup}>
+        <h2 className={s.popupTitle}>Вы уверены, что хотите выйти из личного кабинета?</h2>
+        <button
+          type="button"
+          className={s.button}
+          onClick={() => {
+            navigate(ROUTE_HOME);
+            signOut();
+          }}>
+          Да
+        </button>
+        <span>/</span>
+        <button type="button" className={s.button} onClick={onClose}>
+          Нет
+        </button>
+        <button className={s.closeButton} type="button" aria-label="Close popup" onClick={onClose}>
+          <CrossIcon />
+        </button>
       </div>
     </Overlay>
   ) : (
