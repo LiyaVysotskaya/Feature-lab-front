@@ -1,0 +1,105 @@
+.popupContainer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 100px 0;
+
+  @media screen and (width <= 690px) {
+    padding: 0;
+  }
+}
+
+.popup {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0;
+  padding: 100px 0 0;
+
+  background-color: var(--white);
+  border-radius: 8px;
+
+  @media screen and (width <= 768px) {
+    padding-top: 84px;
+  }
+
+  @media screen and (width <= 690px) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  @media screen and (width <= 360px) {
+    max-width: 360px;
+    padding-top: 80px;
+  }
+}
+
+.popupTitle {
+  margin: 0 0 80px;
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 128px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--dark-blue, #002d63);
+
+  @media screen and (width <= 1430px) {
+    font-size: 100px;
+  }
+
+  @media screen and (width <= 1060px) {
+    margin-bottom: 60px;
+    font-size: 66px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 42px;
+  }
+
+  @media screen and (width <= 690px) {
+    font-size: 46px;
+  }
+
+  @media screen and (width <= 460px) {
+    font-size: 33px;
+  }
+
+  @media screen and (width <= 360px) {
+    margin-bottom: 48px;
+    font-size: 30px;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  z-index: 1;
+  top: 28px;
+  right: 28px;
+
+  @media screen and (width <= 768px) {
+    top: 20px;
+    right: 20px;
+  }
+
+  @media screen and (width <= 360px) {
+    top: 17px;
+    right: 16px;
+  }
+}
