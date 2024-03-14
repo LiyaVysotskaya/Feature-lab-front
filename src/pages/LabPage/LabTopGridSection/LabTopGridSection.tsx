@@ -1,5 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { LabCard } from '../LabCard/LabCard';
+import { LabText } from '../LabText/LabText';
 import s from './LabTopGridSection.module.scss';
 
 interface ILabTopGridSectionProps {
@@ -9,42 +11,38 @@ interface ILabTopGridSectionProps {
 export const LabTopGridSection: FC<ILabTopGridSectionProps> = ({ className = '' }) => {
   return (
     <section className={cl(s.section, className)}>
-      <h2 className={cl(s.sectionTitle, s.sectionCell_1)}>
-        Персональные решения для достижения ваших целей
+      <h2 className={cl(s.sectionTitle, s.gridArea_title)}>
+        Войди в&#160;IT с&#160;готовыми проектами и&#160;практическим опытом.
       </h2>
 
-      <article className={cl(s.card, s.sectionCell_2)}>
-        <h3 className={cl(s.cardTitle)}>ЧТО ЭТО?</h3>
-        <p className={cl(s.cardText)}>
-          До 60 знаков, 2-3 строчки До 60 знаков, 2-3 строчки До До До
-        </p>
-      </article>
+      <LabCard
+        title="КТО МЫ?"
+        text="Площадка для старта твоей успешной карьеры в IT"
+        className={s.gridArea_1}
+      />
 
-      <article className={cl(s.card, s.sectionCell_3)}>
-        <h3 className={cl(s.cardTitle)}>МЕНТОРСТВО</h3>
-        <p className={cl(s.cardText)}>
-          До 60 знаков, 2-3 строчки До 60 знаков, 2-3 строчки До До До
-        </p>
-      </article>
+      <LabCard
+        title="МЕНТОРСТВО"
+        text="Поможем в развитии профессиональных навыков, достижении карьерных целей и обеспеченим гладкое вхождения в индустрию информационных технологий"
+        className={s.gridArea_2}
+      />
 
-      <article className={cl(s.card, s.sectionCell_4)}>
-        <h3 className={cl(s.cardTitle)}>ПОТЕНЦИАЛ</h3>
-        <p className={cl(s.cardText)}>
-          До 60 знаков, 2-3 строчки До 60 знаков, 2-3 строчки До До До
-        </p>
-      </article>
+      <LabCard
+        title="«КАК В ЖИЗНИ»"
+        text={`Входишь в готовый проект и работаешь над ним в команде\n\n`}
+        className={s.gridArea_3}
+      />
 
-      <article className={cl(s.card, s.sectionCell_5)}>
-        <h3 className={cl(s.cardTitle)}>ЧТО-ТО ЕЩЁ</h3>
-        <p className={cl(s.cardText)}>
-          До 60 знаков, 2-3 строчки До 60 знаков, 2-3 строчки До До До
-        </p>
-      </article>
+      <LabCard
+        title="«СТАРТАПЕР»"
+        text={`Приносишь и реализуешь идею собственного проекта\n\n`}
+        className={s.gridArea_4}
+      />
 
-      <p className={cl(s.sectionText, s.sectionCell_6)}>
-        Какой-нибудь слоган/начало истории/несколько слов о том, какие мы крутые и насколько
-        необходимы просматривающему страницу. 120-150 знаков.
-      </p>
+      <LabText
+        text={`Если ты:\n \u2022\u00A0front или back разработчик\n \u2022\u00A0системный или бизнес аналитик\n \u2022\u00A0UI/UX дизайнер\n \u2022\u00A0ПМ/ПО\n \u2022\u00A0тестировщик\n\nЖдём тебя в команду!`}
+        className={s.gridArea_text}
+      />
     </section>
   );
 };

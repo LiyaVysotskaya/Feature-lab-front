@@ -1,4 +1,4 @@
-import { ROUTE_GAMEDEV } from '../constants/constants';
+import { ROUTE_GAMEDEV } from '../constants/routesConstants';
 
 export const competencies = [
   {

@@ -1,6 +1,8 @@
 import cl from 'classnames';
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { PopupContact } from '../PopupContact/PopupContact';
 import { Button } from '../ui/Button/Button';
+
 import s from './PromoSection.module.scss';
 
 export interface IPromoProps {
@@ -8,6 +10,12 @@ export interface IPromoProps {
 }
 
 export const PromoSection: FC<IPromoProps> = ({ className = '' }) => {
+  const [isPopupContactOpen, setPopupContactIsOpen] = useState(false);
+
+  const closePopupContactPopups = () => {
+    setPopupContactIsOpen(false);
+  };
+
   return (
     <section aria-label="Promo" className={cl(s.promo, className)}>
       <div className={s.bg_blue} />
@@ -20,7 +28,14 @@ export const PromoSection: FC<IPromoProps> = ({ className = '' }) => {
         <p className={s.headline}>Обучаем специалистов</p>
         <p className={s.headline}>Создаём продукты</p>
       </div>
-      <Button className={s.promo__btn} theme="promo" text="Свяжитесь с&nbsp;нами" />
+      <Button
+        className={s.promo__btn}
+        onClick={() => setPopupContactIsOpen(true)}
+        theme="promo"
+        text="Свяжитесь с&nbsp;нами"
+      />
+
+      <PopupContact isOpen={isPopupContactOpen} onClose={closePopupContactPopups} />
     </section>
   );
 };

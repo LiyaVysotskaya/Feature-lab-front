@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  left: 0;
+
+  overflow: auto;
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+
+  visibility: hidden;
+  background-color: var(--shadow);
+
+  &Open {
+    visibility: visible;
+  }
+}
+
+.bodyNoScroll {
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    // Hide scrollbar on the body
+    display: none;
+  }
+}

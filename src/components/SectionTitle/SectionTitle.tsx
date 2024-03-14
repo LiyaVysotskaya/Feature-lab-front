@@ -10,7 +10,7 @@ export interface SectionTitleProps {
 
 export const SectionTitle: FC<SectionTitleProps> = ({ className = '', text }) => {
   return (
-    <Text view="germano-3" className={cl(s.sectionTitle, className)} tag="h2">
+    <Text view="germano-4" className={cl(s.sectionTitle, className)} tag="h2">
       {text}
     </Text>
   );

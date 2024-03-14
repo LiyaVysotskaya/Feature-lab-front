@@ -1,6 +1,5 @@
 {
   "plugins": ["react", "css-modules", "prettier"],
-
   "extends": [
     "react-app",
     "react-app/jest",
@@ -10,6 +9,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:css-modules/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:prettier/recommended" // should be last
   ],
 
@@ -36,6 +36,7 @@
     "css-modules/no-unused-class": [1, { "camelCase": true }],
     "css-modules/no-undef-class": [2, { "camelCase": true }],
     "react/jsx-props-no-spreading": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "jsx-a11y/control-has-associated-label": [
       2,
       {
