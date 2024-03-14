@@ -5,6 +5,11 @@ import {
   LoginFormData,
   PostRegDataResponse,
   RegFormData,
+  TCompetenceFullInfo,
+  TCompetenceShortInfo,
+  TGetAllCompetenciesResponse,
+  TProductFullInfo,
+  TProductShortInfo,
   TProjectFullInfo,
   TProjectShortInfo,
   TUserProfile,
@@ -38,5 +43,25 @@ export const getProjectById = async (projectId: string): Promise<TProjectFullInf
   const response = await privateAPI.get<TProjectFullInfo>(
     `/api/v1/account/my-projects/${projectId}/`,
   );
+  return response.data;
+};
+
+export const getAllProducts = async (): Promise<TProductShortInfo[]> => {
+  const response = await publicAPI.get<TProductShortInfo[]>('/api/v1/product/');
+  return response.data;
+};
+
+export const getProductBySlug = async (slug: string): Promise<TProductFullInfo> => {
+  const response = await publicAPI.get<TProductFullInfo>(`/api/v1/product/${slug}/`);
+  return response.data;
+};
+
+export const getAllCompetencies = async (): Promise<TCompetenceShortInfo[]> => {
+  const response = await publicAPI.get<TGetAllCompetenciesResponse>('/api/v1/competence/');
+  return response.data.results;
+};
+
+export const getCompetenceBySlug = async (slug: string): Promise<TCompetenceFullInfo> => {
+  const response = await publicAPI.get<TCompetenceFullInfo>(`/api/v1/competence/${slug}/`);
   return response.data;
 };
