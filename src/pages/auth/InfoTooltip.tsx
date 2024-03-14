@@ -1,5 +1,5 @@
 import cl from 'classnames';
-import React, { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
+import React, { PropsWithChildren, ReactElement, useState } from 'react';
 import s from './auth.module.scss';
 import { CrossIcon } from '../../components/ui/icons/CrossIcon/CrossIcon';
 
@@ -15,17 +15,12 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
 }) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
-  useEffect(() => {
-    // console.log((children as ReactElement).props);
-  }, [children]);
-
   return (
     <>
       {children &&
         React.cloneElement(children as ReactElement, {
-          onClick: (e) => {
+          onClick: () => {
             setIsTooltipOpen(true);
-            console.log(e.currentTarget);
           },
         })}
       <div className={cl(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
