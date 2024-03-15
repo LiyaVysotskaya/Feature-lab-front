@@ -1,0 +1,36 @@
+.btn {
+  --side-offset: 100px;
+  --size: 80px;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &Left {
+    left: var(--side-offset);
+  }
+
+  &Right {
+    right: var(--side-offset);
+  }
+
+  @media screen and (width <= 1450px) {
+    --side-offset: 50px;
+
+    width: var(--size);
+    height: var(--size);
+  }
+
+  @media screen and (width <= 768px) {
+    --side-offset: 30px;
+  }
+
+  @media screen and (width <= 360px) {
+    --side-offset: 16px;
+    --size: 44px;
+  }
+}
+
+.isHidden {
+  opacity: 0;
+}
