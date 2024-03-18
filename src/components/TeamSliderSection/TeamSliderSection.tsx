@@ -89,6 +89,8 @@ export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', 
     <section className={cl(s.TeamSliderSection, className)}>
       <SectionTitle text="Команда" />
       <div className={s.sectionContent}>
+        <div className={cl(s.whiteOverlay, s.whiteOverlay_left)} />
+
         <Carousel {...carouselProps}>
           {team.map((person) => (
             <div className={s.card} key={uuidv4()}>
@@ -113,6 +115,8 @@ export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', 
             </div>
           ))}
         </Carousel>
+
+        <div className={cl(s.whiteOverlay, s.whiteOverlay_right)} />
       </div>
     </section>
   );
