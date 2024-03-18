@@ -15,11 +15,6 @@
   -webkit-touch-callout: none;
 }
 
-.button_type_hamburger:hover {
-  opacity: 0.6;
-  transition: 0.2s ease-in-out;
-}
-
 .page__toggle {
   display: none;
   margin: 5px;
@@ -45,6 +40,11 @@
 
 @media screen and (width <= 768px) {
   .button_type_hamburger {
+    position: absolute;
+    z-index: 12;
+    top: 12px;
+    right: var(--offset-from-edge);
+
     display: block;
 
     width: min-content;

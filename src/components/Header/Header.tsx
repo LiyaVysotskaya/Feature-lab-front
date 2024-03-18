@@ -2,7 +2,6 @@ import cl from 'classnames';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { competencies } from '../../_mockData/CompetenciesMockData';
 import { useUserProfileQuery } from '../../api/queries';
 import Logo from '../../assets/svg/logo.svg';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
@@ -11,20 +10,20 @@ import {
   ROUTE_CONTACT,
   ROUTE_ED_TECH,
   ROUTE_HOME,
-  ROUTE_PRODUCTS_DOCSHABLON,
+  ROUTE_PRODUCTS,
   ROUTE_PROFILE,
 } from '../../constants/routesConstants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
+import MobileMenuPortal from '../MobileMenuPortal/MobileMenuPortal';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
-import { HamburgerBtn } from './HamburgerBtn/HamburgerBtn';
-import { HeaderSubMenu } from './HeaderSubMenu/HeaderSubMenu';
-import Arrow from './svg/Icon-arrow.svg?svgr';
 import s from './Header.module.scss';
+import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
+import { ProductsSubMenu } from './SubMenu/ProductsSubMenu';
 
 export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
-  const [isSubMenuVisible, setSubMenuVisible] = useState(false);
-  const [isNavMobileOpen, setIsNavMobileOpen] = useState(false);
+  const [isCompetenciesVisible, setCompetenciesVisible] = useState(false);
+  const [isProductsVisible, setProductsVisible] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [isAuth] = useAtom(isAuthAtom);
@@ -33,10 +32,11 @@ export const Header: React.FC = () => {
 
   // hide subMenu with header when scrolling down
   useEffect(() => {
-    if (isSubMenuVisible && scrollDirection === 'down') {
-      setSubMenuVisible(false);
+    if ((isCompetenciesVisible || isProductsVisible) && scrollDirection === 'down') {
+      setCompetenciesVisible(false);
+      setProductsVisible(false);
     }
-  }, [scrollDirection, isSubMenuVisible]);
+  }, [scrollDirection, isCompetenciesVisible, isProductsVisible]);
 
   // prevent the flickering transition effect of header nav when the viewport is resized
   useEffect(() => {
@@ -59,28 +59,53 @@ export const Header: React.FC = () => {
     };
   }, []);
 
-  const competenciesPages = competencies.map((item) => item.url);
-  competenciesPages.push(ROUTE_COMPETENCIES);
-
-  const isCompetenciesPage = competenciesPages.includes(location.pathname);
+  const isCompetenciesPage = location.pathname.includes(ROUTE_COMPETENCIES);
+  const isProductsPage = location.pathname.includes(ROUTE_PRODUCTS);
 
   const handleCompetenciesBtnClick = () => {
-    // On mobile, a double tap is needed to navigate to /competencies.
-    // The first tap is the same as a hover on descktop; it will do nothing but open the sub-menu.
-    // The second tap will navigate to /competencies.
-    if (window.innerWidth > 768 || isSubMenuVisible) {
+    // On mobile there is no /competencies page.
+    if (window.innerWidth > 768) {
       navigate(ROUTE_COMPETENCIES);
+    } else {
+      setCompetenciesVisible(!isCompetenciesVisible);
     }
   };
 
-  const handleBurgerBtnClick = () => {
-    setIsNavMobileOpen(!isNavMobileOpen);
+  const handleProductsBtnClick = () => {
+    // On mobile there is no /competencies page.
+    if (window.innerWidth <= 768) {
+      setProductsVisible(!isProductsVisible);
+    }
+  };
+
+  const handleCompetenciesOnMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setCompetenciesVisible(true);
+    }
+  };
+
+  const handleCompetenciesOnMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setCompetenciesVisible(false);
+    }
+  };
+
+  const handleProductsOnMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setProductsVisible(true);
+    }
+  };
+
+  const handleProductsOnMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setProductsVisible(false);
+    }
   };
 
   return (
     <header
       className={cl(s.header, {
-        [s.header_hidden]: !isNavMobileOpen && scrollDirection === 'down',
+        [s.header_hidden]: scrollDirection === 'down',
       })}>
       <div
         className={cl(s.headerContainer, {
@@ -95,58 +120,56 @@ export const Header: React.FC = () => {
             aria-label="Основное меню"
             className={cl(s.nav, {
               [s.navWithBorder]: currentScrollY < 3 && location.pathname !== ROUTE_HOME,
-              [s.navMobileVisible]: isNavMobileOpen,
             })}
             id="navHeaderMenu">
             <ul className={cl(s.list)}>
-              <li className={cl(s.listItem, s.linkToMainPage)}>
-                <NavLink
-                  to={ROUTE_HOME}
-                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
-                  Главная
-                </NavLink>
-              </li>
               <li
                 className={cl(s.listItem, s.listItemSubMenu)}
-                onMouseEnter={() => setSubMenuVisible(true)}
-                onMouseLeave={() => setSubMenuVisible(false)}>
+                onMouseEnter={handleCompetenciesOnMouseEnter}
+                onMouseLeave={handleCompetenciesOnMouseLeave}>
                 <button
                   type="button"
                   onClick={handleCompetenciesBtnClick}
-                  className={cl(s.btnSubmenuOpen, {
+                  className={cl(s.btnSubmenu, {
                     [s.linkActive]: isCompetenciesPage,
                   })}>
                   Компетенции
-                  <Arrow
-                    className={cl(s.arrow, {
-                      [s.arrow_rotate]: isSubMenuVisible,
-                    })}
-                  />
                 </button>
-                <HeaderSubMenu isVisible={isSubMenuVisible} />
+                <CompetenciesSubMenu isVisible={isCompetenciesVisible} />
               </li>
-              <li className={cl(s.listItem)}>
+
+              <li className={cl(s.listItem, s.itemWithHover)}>
                 <NavLink
                   to={ROUTE_ED_TECH}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Лаборатория
                 </NavLink>
               </li>
-              <li className={cl(s.listItem)}>
-                <NavLink
-                  to={ROUTE_PRODUCTS_DOCSHABLON}
-                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
+
+              <li
+                className={cl(s.listItem, s.listItemSubMenu)}
+                onMouseEnter={handleProductsOnMouseEnter}
+                onMouseLeave={handleProductsOnMouseLeave}>
+                <button
+                  type="button"
+                  onClick={handleProductsBtnClick}
+                  className={cl(s.btnSubmenu, {
+                    [s.linkActive]: isProductsPage,
+                  })}>
                   Продукты
-                </NavLink>
+                </button>
+                <ProductsSubMenu isVisible={isProductsVisible} />
               </li>
-              <li className={cl(s.listItem)}>
+
+              <li className={cl(s.listItem, s.itemWithHover)}>
                 <NavLink
                   to={ROUTE_CONTACT}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
                   Контакты
                 </NavLink>
               </li>
-              <li className={cl(s.listItem)}>
+
+              <li className={cl(s.listItem, s.itemWithHover)}>
                 <NavLink
                   to={ROUTE_PROFILE}
                   className={({ isActive }) => (isActive ? s.linkActive : '')}>
@@ -157,10 +180,9 @@ export const Header: React.FC = () => {
               </li>
             </ul>
           </nav>
-
-          <HamburgerBtn onClick={handleBurgerBtnClick} />
         </div>
         <ProfileNavMobile />
+        <MobileMenuPortal />
       </div>
     </header>
   );

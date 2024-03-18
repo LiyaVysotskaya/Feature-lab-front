@@ -1,0 +1,145 @@
+.nav {
+  display: none;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 22px 20px;
+
+  @media screen and (width <= 768px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+
+    overflow-y: scroll;
+    display: block;
+
+    min-height: 100vh;
+    max-height: 100vh;
+
+    background: var(--white, #fff);
+
+    transition: all 200ms ease-in;
+  }
+}
+
+.navMobileVisible {
+  transform: translateX(0);
+}
+
+.list {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    min-width: 250px;
+    padding: 53px 20px 28px;
+  }
+}
+
+.listItem {
+  position: relative;
+
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 32px;
+  line-height: 1.19; // 38px;
+  color: var(--dark-blue, #002d63);
+
+  @media screen and (width <= 1280px) {
+    font-size: 24px;
+    line-height: 1.17; // 28px;
+  }
+
+  @media screen and (width <= 1060px) {
+    font-size: 19px;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: 24px;
+  }
+}
+
+.itemWithHover {
+  &:hover {
+    background: var(
+      --radial-blue-45,
+      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
+    );
+  }
+}
+
+.listItemSubMenu {
+  position: relative;
+  width: 100%;
+
+  @media screen and (width <= 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.btnSubmenu {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  &:hover {
+    background: var(
+      --radial-blue-45,
+      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
+    );
+  }
+}
+
+.arrow {
+  display: none;
+
+  &_rotate {
+    transform-origin: center;
+    transform: rotate(90deg);
+  }
+
+  @media screen and (width <= 768px) {
+    display: block;
+    transition: transform 0.3s ease;
+  }
+}
+
+.link {
+  &Active {
+    position: relative;
+    z-index: 1;
+
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  @media screen and (width <= 768px) {
+    &ToMainPage {
+      display: block;
+    }
+  }
+}
+
+.bodyNoScroll {
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    // Hide scrollbar on the body
+    display: none;
+  }
+}

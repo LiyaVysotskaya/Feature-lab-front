@@ -1,0 +1,31 @@
+.mobileOverlay {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+
+  visibility: hidden;
+  background-color: var(--shadow);
+
+  &Open {
+    @media screen and (width <= 768px) {
+      visibility: visible;
+    }
+  }
+}
+
+.bodyNoScroll {
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    // Hide scrollbar on the body
+    display: none;
+  }
+}

@@ -26,7 +26,7 @@
     justify-content: flex-start;
 
     width: max-content;
-    margin: 62px 10px 20px 90px;
+    margin: 62px 10px 20px 40px;
     padding: 20px 20px 28px;
 
     background: var(--white, #fff);
@@ -64,43 +64,10 @@
   }
 }
 
-@media screen and (width <= 768px) {
+@media screen and (width <= 1060px) {
   .submenu {
-    position: static;
-    top: 0;
-    left: 0;
-
-    overflow: hidden;
-
-    max-height: 0;
-    margin: 0;
-
-    visibility: visible;
-    opacity: 1;
-
-    transition: max-height 0.5s;
-    transition: all 200ms ease-in;
-
-    &Visible {
-      max-height: 1000px; // should be bigger than self original height for transition:max-height to work
-    }
-
-    &List {
-      gap: 12px;
-      align-items: flex-end;
-
-      width: max-content;
-      margin: 0;
-      padding-right: 0;
-      padding-bottom: 0;
-
-      border: none;
-      box-shadow: none;
-    }
-
     &Link {
-      font-size: 20px;
-      line-height: 1.2; // 24px;
+      font-size: 19px;
     }
   }
 }

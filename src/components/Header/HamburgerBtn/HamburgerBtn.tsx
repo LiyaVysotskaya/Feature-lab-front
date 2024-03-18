@@ -8,12 +8,13 @@ import s from './HamburgerBtn.module.scss';
 
 export interface IHamburgerBtnProps {
   onClick?: () => void;
+  isChecked: boolean;
 }
 
-export const HamburgerBtn: FC<IHamburgerBtnProps> = ({ onClick = () => {} }) => {
+export const HamburgerBtn: FC<IHamburgerBtnProps> = ({ onClick = () => {}, isChecked }) => {
   return (
     <>
-      <input id="burgerToggle" type="checkbox" className={s.page__toggle} />
+      <input id="burgerToggle" type="checkbox" className={s.page__toggle} checked={isChecked} />
       <label onClick={onClick} htmlFor="burgerToggle" className={cl(s.button_type_hamburger)}>
         <div className={cl(s['top-bun'], s.button__part)} />
         <div className={cl(s.meat, s.button__part)} />
