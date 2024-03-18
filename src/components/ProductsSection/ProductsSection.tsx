@@ -1,10 +1,9 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import s from './ProductsSection.module.scss';
-
 import { products } from '../../_mockData/productsMockData';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import s from './ProductsSection.module.scss';
 
 export interface IProductsSectionProps {
   className?: string;
