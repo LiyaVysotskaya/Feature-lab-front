@@ -1,16 +1,15 @@
 import { FC } from 'react';
 import { Main } from '../../../components/Main/Main';
 import s from '../auth.module.scss';
+import FormPasswordChange from './FormPasswordChange';
 
 export const PasswordChangePage: FC = () => {
   return (
-    <Main className={s.auth}>
-      <h1>Смена пароля</h1>
-      <form className={s.form}>
-        <input type="password" placeholder="Старый пароль" />
-        <input type="password" placeholder="Новый пароль" />
-        <button>Сменить пароль</button>
-      </form>
+    <Main>
+      <section className={s.contentContainer}>
+        <h1 className={s.title}>Смена пароля</h1>
+        <FormPasswordChange />
+      </section>
     </Main>
   );
 };
