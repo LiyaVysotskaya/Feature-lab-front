@@ -1,12 +1,11 @@
-/* stylelint-disable property-no-vendor-prefix */
-.button_type_hamburger {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.burger {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  right: var(--offset-from-edge);
+}
 
+.button_type_hamburger {
   display: none;
 
   -webkit-tap-highlight-color: #0000;
@@ -40,11 +39,6 @@
 
 @media screen and (width <= 768px) {
   .button_type_hamburger {
-    position: absolute;
-    z-index: 12;
-    top: 12px;
-    right: var(--offset-from-edge);
-
     display: block;
 
     width: min-content;

@@ -1,6 +1,19 @@
+.mobMenuContainer {
+  display: none;
+
+  @media screen and (width <= 768px) {
+    position: fixed;
+    z-index: 11;
+
+    display: block;
+
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+}
+
 .mobileOverlay {
-  position: fixed;
-  z-index: 11;
   top: 0;
   left: 0;
 
@@ -12,11 +25,15 @@
   max-height: 100vh;
 
   visibility: hidden;
+  opacity: 0;
   background-color: var(--shadow);
+
+  transition: opacity 0.3s ease;
 
   &Open {
     @media screen and (width <= 768px) {
       visibility: visible;
+      opacity: 1;
     }
   }
 }

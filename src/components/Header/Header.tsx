@@ -38,27 +38,6 @@ export const Header: React.FC = () => {
     }
   }, [scrollDirection, isCompetenciesVisible, isProductsVisible]);
 
-  // prevent the flickering transition effect of header nav when the viewport is resized
-  useEffect(() => {
-    const handleResize = () => {
-      const headerMobileMenuEl = document.getElementById('navHeaderMenu');
-
-      if (headerMobileMenuEl) {
-        headerMobileMenuEl.classList.add(s.stopTransition);
-
-        setTimeout(() => {
-          headerMobileMenuEl.classList.remove(s.stopTransition);
-        }, 100);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   const isCompetenciesPage = location.pathname.includes(ROUTE_COMPETENCIES);
   const isProductsPage = location.pathname.includes(ROUTE_PRODUCTS);
 
@@ -120,8 +99,7 @@ export const Header: React.FC = () => {
             aria-label="Основное меню"
             className={cl(s.nav, {
               [s.navWithBorder]: currentScrollY < 3 && location.pathname !== ROUTE_HOME,
-            })}
-            id="navHeaderMenu">
+            })}>
             <ul className={cl(s.list)}>
               <li
                 className={cl(s.listItem, s.listItemSubMenu)}
