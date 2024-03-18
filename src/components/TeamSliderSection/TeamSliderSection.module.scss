@@ -37,11 +37,6 @@
   filter: grayscale(100%);
 }
 
-[class*='react-multi-carousel-item--active'] {
-  opacity: 1;
-  filter: grayscale(0);
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -131,7 +126,10 @@
   filter: grayscale(100%);
 }
 
-@media screen and (width > 768px) {
+[class*='react-multi-carousel-item--active'] {
+  opacity: 1;
+  filter: grayscale(0);
+
   .imgContainer:hover .img_inactive {
     display: none;
   }
