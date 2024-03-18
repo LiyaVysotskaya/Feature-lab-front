@@ -7,6 +7,7 @@ export const ROUTE_LOGIN = '/login';
 export const ROUTE_REGISTER = '/register';
 export const ROUTE_RESET_PASSWORD = '/reset-password';
 export const ROUTE_FORGOT_PASSWORD = '/forgot-password';
+export const ROUTE_CHANGE_PASSWORD = '/change-password';
 export const ROUTE_CONTACT = '/contact';
 export const ROUTE_ERROR_500 = '/error500';
 export const ROUTE_ERROR_404 = '/error404';
