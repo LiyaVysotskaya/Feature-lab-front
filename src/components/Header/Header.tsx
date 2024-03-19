@@ -14,7 +14,7 @@ import {
   ROUTE_PROFILE,
 } from '../../constants/routesConstants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
-import MobileMenuPortal from '../MobileMenuPortal/MobileMenuPortal';
+import MobileMenu from '../MobileMenu/MobileMenu';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
 import s from './Header.module.scss';
 import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
@@ -144,7 +144,7 @@ export const Header: React.FC = () => {
           </nav>
         </div>
         <ProfileNavMobile />
-        <MobileMenuPortal />
+        <MobileMenu />
       </div>
     </header>
   );
