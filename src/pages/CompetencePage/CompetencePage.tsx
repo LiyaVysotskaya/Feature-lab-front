@@ -4,6 +4,7 @@ import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { ProductsSection } from '../../components/ProductsSection/ProductsSection';
 import s from './CompetencePage.module.scss';
+import { TeamSlider } from '../../components/TeamSlider/TeamSlider';
 
 export const CompetencePage: FC = () => {
   return (
@@ -12,7 +13,7 @@ export const CompetencePage: FC = () => {
 
       <LeadSection className={s.pageSection} />
 
-      {/* слайдер команды */}
+      <TeamSlider className={s.pageSection} />
 
       <ProductsSection className={s.pageSection} title="Портфолио" />
     </Main>
