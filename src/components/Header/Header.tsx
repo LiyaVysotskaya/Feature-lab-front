@@ -14,7 +14,7 @@ import {
   ROUTE_PROFILE,
 } from '../../constants/routesConstants';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
-import MobileMenuPortal from '../MobileMenuPortal/MobileMenuPortal';
+import MobileMenu from '../MobileMenu/MobileMenu';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
 import s from './Header.module.scss';
 import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
@@ -42,43 +42,27 @@ export const Header: React.FC = () => {
   const isProductsPage = location.pathname.includes(ROUTE_PRODUCTS);
 
   const handleCompetenciesBtnClick = () => {
-    // On mobile there is no /competencies page.
-    if (window.innerWidth > 768) {
-      navigate(ROUTE_COMPETENCIES);
-    } else {
-      setCompetenciesVisible(!isCompetenciesVisible);
-    }
+    navigate(ROUTE_COMPETENCIES);
   };
 
   const handleProductsBtnClick = () => {
-    // On mobile there is no /competencies page.
-    if (window.innerWidth <= 768) {
-      setProductsVisible(!isProductsVisible);
-    }
+    setProductsVisible(!isProductsVisible);
   };
 
   const handleCompetenciesOnMouseEnter = () => {
-    if (window.innerWidth > 768) {
-      setCompetenciesVisible(true);
-    }
+    setCompetenciesVisible(true);
   };
 
   const handleCompetenciesOnMouseLeave = () => {
-    if (window.innerWidth > 768) {
-      setCompetenciesVisible(false);
-    }
+    setCompetenciesVisible(false);
   };
 
   const handleProductsOnMouseEnter = () => {
-    if (window.innerWidth > 768) {
-      setProductsVisible(true);
-    }
+    setProductsVisible(true);
   };
 
   const handleProductsOnMouseLeave = () => {
-    if (window.innerWidth > 768) {
-      setProductsVisible(false);
-    }
+    setProductsVisible(false);
   };
 
   return (
@@ -160,7 +144,7 @@ export const Header: React.FC = () => {
           </nav>
         </div>
         <ProfileNavMobile />
-        <MobileMenuPortal />
+        <MobileMenu />
       </div>
     </header>
   );
