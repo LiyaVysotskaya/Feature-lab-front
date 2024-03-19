@@ -1,8 +1,10 @@
 import {
+  TChangedPwdData,
   GetAuthResponse,
   GetUserProfileResponse,
   GetUserProjectsListResponse,
   LoginFormData,
+  PostChangedPasswordResponse,
   PostRegDataResponse,
   RegFormData,
   TCompetenceFullInfo,
@@ -24,6 +26,16 @@ export const postLoginData = async (loginData: LoginFormData): Promise<GetAuthRe
 
 export const postRegData = async (regData: RegFormData): Promise<PostRegDataResponse> => {
   const response = await publicAPI.post<PostRegDataResponse>('/auth/users/', regData);
+  return response.data;
+};
+
+export const postChangedPassword = async (
+  changedPwdData: TChangedPwdData,
+): Promise<PostChangedPasswordResponse> => {
+  const response = await privateAPI.post<PostChangedPasswordResponse>(
+    '/auth/users/set_password/',
+    changedPwdData,
+  );
   return response.data;
 };
 
