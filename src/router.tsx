@@ -46,7 +46,7 @@ export const AppRouter: FC = () => {
       <Route path={ROUTE_HOME} element={<Home />} />
       <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
         <Route path={SUBROUTE_GAMEDEV} element={<CompetencePage />} />
-        <Route path={`${ROUTE_COMPETENCIES}/:competenceSlug`} element={<ProductPage />} />
+        <Route path={`${ROUTE_COMPETENCIES}/:competenceSlug`} element={<CompetencePage />} />
       </Route>
       <Route path={ROUTE_ED_TECH} element={<LabPage />} />
       <Route path={ROUTE_CONTACT} element={<ContactPage />} />

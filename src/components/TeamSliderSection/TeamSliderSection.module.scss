@@ -1,0 +1,258 @@
+.TeamSliderSection,
+.TeamSliderSection * {
+  box-sizing: border-box;
+}
+
+.TeamSliderSection {
+  width: 100%;
+  color: var(--dark-blue, #002d63);
+}
+
+.sectionContent {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+}
+
+.whiteOverlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+
+  width: 100px;
+  height: 100%;
+
+  &_left {
+    left: 0;
+    background: linear-gradient(to left, transparent, #fff);
+  }
+
+  &_right {
+    right: 0;
+    background: linear-gradient(to right, transparent, #fff);
+  }
+
+  &_visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media screen and (width <= 1920px) {
+    display: none;
+  }
+}
+
+.slider {
+  width: 100%;
+  padding-top: 80px;
+
+  &WithGradient {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    padding-bottom: 80px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+
+  max-width: 350px;
+
+  &Role {
+    align-self: flex-start;
+
+    margin-bottom: 30px;
+
+    font-family: 'GOST type B', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.17;
+  }
+
+  &Name {
+    width: 100%;
+    margin-bottom: 10px;
+
+    font-family: Germano, sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+    text-align: left;
+  }
+
+  &Description {
+    flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-family: 'GOST type B', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.19; /* 118.75% */
+  }
+}
+
+.imgContainer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.radiant {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  height: 600px;
+
+  opacity: 0.6;
+  background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 80%);
+}
+
+.img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.img_inactive {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  filter: grayscale(100%);
+}
+
+[class*='react-multi-carousel-item--active'] {
+  opacity: 1;
+  filter: grayscale(0);
+
+  .imgContainer:hover .img_inactive {
+    display: none;
+  }
+}
+
+@media screen and (width <= 1600px) {
+  .radiant {
+    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 70%);
+  }
+}
+
+@media screen and (width <= 1450px) {
+  .card {
+    &Name {
+      margin-bottom: 7px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &Role {
+      margin-bottom: 22.5px;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    &Description {
+      max-width: 260px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  .imgContainer {
+    width: 225px;
+    height: 225px;
+    margin-bottom: 7px;
+  }
+
+  .radiant {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (width <= 1280px) {
+  .imgContainer {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .slider {
+    padding-top: 97px;
+  }
+
+  [class*='react-multi-carousel-item--active'] {
+    opacity: 1;
+    filter: grayscale(0);
+    transition:
+      opacity 0.1s ease,
+      filter 0.1s ease;
+  }
+}
+
+@media screen and (width <= 768px) and (width > 690px) {
+  [class*='react-multi-carousel-item--active'] .card {
+    position: relative;
+    left: 30px;
+    transition: left 0.5s ease;
+  }
+
+  [class*='react-multi-carousel-item--active']
+    + [class*='react-multi-carousel-item--active']
+    .card {
+    position: relative;
+    left: -30px;
+    transition: left 0.5s ease;
+  }
+}
+
+@media screen and (width <= 360px) {
+  .slider {
+    padding-top: 32px;
+  }
+
+  .item {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  [class*='react-multi-carousel-item--active'] .card {
+    left: 0;
+  }
+
+  .radiant {
+    background: radial-gradient(50% 50% at 50% 50%, #0049d8 0%, rgb(255 255 255 / 0%) 66%);
+  }
+}
