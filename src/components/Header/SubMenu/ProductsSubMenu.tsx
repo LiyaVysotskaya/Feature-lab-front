@@ -2,19 +2,20 @@ import cl from 'classnames';
 import { FC, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { competencies } from '../../../_mockData/CompetenciesMockData';
-import s from './HeaderSubMenu.module.scss';
+import { useProductsQuery } from '../../../api/queries';
+import { ROUTE_PRODUCTS } from '../../../constants/routesConstants';
+import s from './SubMenu.module.scss';
 
-export interface ISubMenuProps {
+interface Props {
   className?: string;
   isVisible: boolean;
 }
 
-export const HeaderSubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) => {
+export const ProductsSubMenu: FC<Props> = ({ className = '', isVisible }) => {
   // prevent the flickering transition effect of submenu when the viewport is resized
   useEffect(() => {
     const handleResize = () => {
-      const submenuEl = document.getElementById('navHeaderSubmenu');
+      const submenuEl = document.getElementById('productsSubMenu');
 
       if (submenuEl) {
         submenuEl.classList.add(s.stopTransition);
@@ -32,10 +33,16 @@ export const HeaderSubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) 
     };
   }, []);
 
+  const { data: products, isLoading } = useProductsQuery();
+
+  if (isLoading || !products) {
+    return null;
+  }
+
   return (
     <nav
-      aria-label="Компетенции"
-      id="navHeaderSubmenu"
+      aria-label="Продукты"
+      id="productsSubMenu"
       className={cl(
         s.submenu,
         {
@@ -44,12 +51,12 @@ export const HeaderSubMenu: FC<ISubMenuProps> = ({ className = '', isVisible }) 
         className,
       )}>
       <ul className={cl(s.submenuList)}>
-        {competencies.map((item) => (
+        {products.map((item) => (
           <li className={s.submenuItem} key={uuidv4()}>
             <NavLink
-              to={item.url}
+              to={`${ROUTE_PRODUCTS}/${item.slug}`}
               className={({ isActive }) => cl(s.submenuLink, { [s.submenuLinkActive]: isActive })}>
-              {item.title}
+              {item.name}
             </NavLink>
           </li>
         ))}

@@ -18,7 +18,11 @@ export const CompetencePage: FC = () => {
 
   return (
     <Main>
-      <PageTitle className={s.pageTitle} pageTitle="Gamedev" subTitle="Расшифровка аббревиатуры" />
+      <PageTitle
+        className={s.pageTitle}
+        pageTitle={competence.name}
+        subTitle="Расшифровка аббревиатуры"
+      />
 
       <LeadSection className={s.pageSection} />
 
