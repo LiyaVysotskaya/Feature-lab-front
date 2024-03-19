@@ -38,6 +38,9 @@ const MobileMenuPortal: FC<Props> = () => {
         className={cl(s.mobileOverlay, {
           [s.mobileOverlayOpen]: isNavMobileOpen,
         })}
+        onClick={() => {
+          setIsNavMobileOpen(false);
+        }}
       />
       <MobileMenu isOpen={isNavMobileOpen} onBurgerClick={handleBurgerBtnClick} />
     </div>,
