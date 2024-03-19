@@ -40,7 +40,15 @@ const PopupPrivacyPolicyPortal: FC<PopupPrivacyPolicyPortalProps> = ({
 
   if (!popupRoot) return null;
   return ReactDOM.createPortal(
-    <div className={cl(s.overlay, { [s.overlayOpen]: isOpen })}>{children}</div>,
+    <div
+      className={cl(s.overlay, { [s.overlayOpen]: isOpen })}
+      onClick={(e) => {
+        if (e.currentTarget === e.target) {
+          onClose();
+        }
+      }}>
+      {children}
+    </div>,
     popupRoot,
   );
 };

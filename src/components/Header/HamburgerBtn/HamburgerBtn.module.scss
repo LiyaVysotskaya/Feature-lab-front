@@ -1,23 +1,17 @@
-/* stylelint-disable property-no-vendor-prefix */
-.button_type_hamburger {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.burger {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  right: var(--offset-from-edge);
+}
 
+.button_type_hamburger {
   display: none;
 
   -webkit-tap-highlight-color: #0000;
 
   /* чтобы текст кнопки не выделялся при нажатии на неё пальцем в mobile-view */
   -webkit-touch-callout: none;
-}
-
-.button_type_hamburger:hover {
-  opacity: 0.6;
-  transition: 0.2s ease-in-out;
 }
 
 .page__toggle {
