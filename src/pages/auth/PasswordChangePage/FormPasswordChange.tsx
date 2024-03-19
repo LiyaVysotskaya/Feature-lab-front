@@ -20,11 +20,6 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     newPassword: '',
   });
 
-  const onChangeSuccess = () => {
-    responseToSuccessfulSumbit(values.newPassword);
-    resetForm();
-  };
-
   const isEmpty = () => {
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
   };
@@ -32,13 +27,13 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(values.currentPassword, values.newPassword);
     try {
       await postChangedPassword({
         current_password: values.currentPassword,
         new_password: values.newPassword,
       });
-      console.log('everything is ok');
+      responseToSuccessfulSumbit(values.newPassword);
+      resetForm();
     } catch (error) {
       console.error('Something wrong:', error);
     } finally {

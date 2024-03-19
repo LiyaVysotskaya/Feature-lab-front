@@ -5,5 +5,3 @@ export const QK_PROJECTS = 'projects';
 export const QK_USER_PROFILE = 'userProfile';
 
 export const QK_REG = 'registration';
-
-export const QK_PWD_CHANGE = 'passwordChange';

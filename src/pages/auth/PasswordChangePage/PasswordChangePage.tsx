@@ -21,20 +21,19 @@ export const PasswordChangePage: FC = () => {
         {password ? (
           <div className={s.responseContainer}>
             <div className={s.responseTextContainer}>
-              <p className={s.responseText}>Ваш пароль был успещно изменён.</p>
+              <p className={s.responseText}>Ваш пароль был успешно изменён.</p>
             </div>
 
             <Button
               type="button"
               theme="white"
-              text="На главную"
-              onClick={() => navigate('/', { replace: true })}
+              text="К проектам"
+              onClick={() => navigate('/profile/dashboard', { replace: true })}
             />
           </div>
         ) : (
           <FormPasswordChange responseToSuccessfulSumbit={responseToSuccessfulSumbit} />
         )}
-        {/* <FormPasswordChange /> */}
       </section>
     </Main>
   );
