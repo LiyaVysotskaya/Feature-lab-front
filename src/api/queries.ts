@@ -5,6 +5,7 @@ import {
   QK_COMPETENCIES,
   QK_PRODUCTS,
   QK_PROJECTS,
+  QK_PWD_CHANGE,
   QK_REG,
   QK_USER_PROFILE,
 } from '../constants/TanStackQueryKeys';
@@ -19,6 +20,7 @@ import {
   getProjectById,
   getUserAllProjects,
   getUserProfileData,
+  postChangedPassword,
   postRegData,
 } from './api';
 
@@ -29,6 +31,19 @@ export const useRegQuery = (onRegSuccess: () => void) => {
     onSuccess: () => {
       onRegSuccess();
       queryClient.removeQueries({ queryKey: [QK_REG] });
+    },
+    retry: 0,
+    gcTime: 0, // cashed data will be deleted immediately
+  });
+};
+
+export const usePasswordChangeQuery = (onChangeSuccess: () => void) => {
+  return useMutation({
+    mutationKey: [QK_PWD_CHANGE],
+    mutationFn: postChangedPassword,
+    onSuccess: () => {
+      onChangeSuccess();
+      queryClient.removeQueries({ queryKey: [QK_PWD_CHANGE] });
     },
     retry: 0,
     gcTime: 0, // cashed data will be deleted immediately
