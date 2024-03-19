@@ -42,9 +42,9 @@ export type LoginFormData = {
   password: string;
 };
 
-export type ChangedPwdData = {
-  currentPassword: string;
-  newPassword: string;
+export type TChangedPwdData = {
+  current_password: string;
+  new_password: string;
 };
 
 export type TProjectStage = {

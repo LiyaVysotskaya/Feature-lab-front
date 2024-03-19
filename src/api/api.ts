@@ -1,5 +1,5 @@
 import {
-  ChangedPwdData,
+  TChangedPwdData,
   GetAuthResponse,
   GetUserProfileResponse,
   GetUserProjectsListResponse,
@@ -30,7 +30,7 @@ export const postRegData = async (regData: RegFormData): Promise<PostRegDataResp
 };
 
 export const postChangedPassword = async (
-  changedPwdData: ChangedPwdData,
+  changedPwdData: TChangedPwdData,
 ): Promise<PostChangedPasswordResponse> => {
   const response = await privateAPI.post<PostChangedPasswordResponse>(
     '/auth/users/set_password/',

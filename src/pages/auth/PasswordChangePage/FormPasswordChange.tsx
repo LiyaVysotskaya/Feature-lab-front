@@ -6,6 +6,7 @@ import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/con
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
+import { postChangedPassword } from '../../../api/api';
 
 const FormPasswordChange: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,18 @@ const FormPasswordChange: FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    console.log(values.currentPassword, values.newPassword);
+    try {
+      await postChangedPassword({
+        current_password: values.currentPassword,
+        new_password: values.newPassword,
+      });
+      console.log('everything is ok');
+    } catch (error) {
+      console.error('Something wrong:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
