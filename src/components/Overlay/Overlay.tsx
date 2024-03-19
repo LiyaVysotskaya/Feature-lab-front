@@ -19,6 +19,7 @@ const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
     };
 
     document.addEventListener('keydown', handleEscClose);
+
     return () => {
       document.removeEventListener('keydown', handleEscClose);
     };
@@ -26,7 +27,15 @@ const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
 
   if (!popupRoot) return null;
   return ReactDOM.createPortal(
-    <div className={cl(s.overlay, { [s.overlayOpen]: isOpen })}>{children}</div>,
+    <div
+      className={cl(s.overlay, { [s.overlayOpen]: isOpen })}
+      onClick={(e) => {
+        if (e.currentTarget === e.target) {
+          onClose();
+        }
+      }}>
+      {children}
+    </div>,
     popupRoot,
   );
 };

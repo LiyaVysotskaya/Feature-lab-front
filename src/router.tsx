@@ -1,10 +1,12 @@
 import { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ProtectedRouteElement } from './components/ProtectedRouteElement/ProtectedRouteElement';
 import {
+  ROUTE_CHANGE_PASSWORD,
   ROUTE_COMPETENCIES,
   ROUTE_CONTACT,
   ROUTE_ED_TECH,
+  ROUTE_ERROR_404,
   ROUTE_ERROR_500,
   ROUTE_FORGOT_PASSWORD,
   ROUTE_HOME,
@@ -36,6 +38,7 @@ import { LoginPage } from './pages/auth/LoginPage/LoginPage';
 import { PasswordResetPage } from './pages/auth/PasswordResetPage/PasswordResetPage';
 import { PasswordRestorePage } from './pages/auth/PasswordRestorePage/PasswordRestorePage';
 import { RegisterPage } from './pages/auth/RegisterPage/RegisterPage';
+import { PasswordChangePage } from './pages/auth/PasswordChangePage/PasswordChangePage';
 
 export const AppRouter: FC = () => {
   return (
@@ -45,25 +48,26 @@ export const AppRouter: FC = () => {
         <Route path={SUBROUTE_GAMEDEV} element={<CompetencePage />} />
         <Route path={`${ROUTE_COMPETENCIES}/:competenceSlug`} element={<CompetencePage />} />
       </Route>
-
       <Route path={ROUTE_ED_TECH} element={<LabPage />} />
-
       <Route path={ROUTE_CONTACT} element={<ContactPage />} />
-
       <Route path={`${ROUTE_PRODUCTS}/:productSlug`} element={<ProductPage />} />
-
       <Route
         path={ROUTE_LOGIN}
         element={<ProtectedRouteElement onlyUnAuth element={<LoginPage />} />}
       />
-
       <Route
         path={ROUTE_REGISTER}
         element={<ProtectedRouteElement onlyUnAuth element={<RegisterPage />} />}
       />
 
-      <Route path={ROUTE_FORGOT_PASSWORD} element={<PasswordRestorePage />} />
-      <Route path={ROUTE_RESET_PASSWORD} element={<PasswordResetPage />} />
+      <Route
+        path={ROUTE_FORGOT_PASSWORD}
+        element={<ProtectedRouteElement onlyUnAuth element={<PasswordRestorePage />} />}
+      />
+      <Route
+        path={ROUTE_RESET_PASSWORD}
+        element={<ProtectedRouteElement onlyUnAuth element={<PasswordResetPage />} />}
+      />
 
       <Route path={ROUTE_PROFILE} element={<ProtectedRouteElement element={<ProfilePage />} />}>
         <Route path={SUBROUTE_DASHBOARD} element={<ProfileDashboard />} />
@@ -74,8 +78,14 @@ export const AppRouter: FC = () => {
         <Route path={SUBROUTE_SETTINGS} element={<ProfileSettings />} />
       </Route>
 
+      <Route
+        path={ROUTE_CHANGE_PASSWORD}
+        element={<ProtectedRouteElement element={<PasswordChangePage />} />}
+      />
+
       <Route path={ROUTE_ERROR_500} element={<Page500 />} />
-      <Route path="*" element={<Page404 />} />
+      <Route path={ROUTE_ERROR_404} element={<Page404 />} />
+      <Route path="*" element={<Navigate to={ROUTE_ERROR_404} />} />
     </Routes>
   );
 };

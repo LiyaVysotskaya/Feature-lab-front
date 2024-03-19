@@ -1,0 +1,129 @@
+.profileSection,
+.profileSection * {
+  box-sizing: border-box;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  margin: 0;
+
+  color: var(--dark-blue, #002d63);
+
+  @media screen and (width <= 768px) {
+    max-width: var(--el-max-width);
+  }
+
+  @media screen and (width <= 600px) {
+    max-width: 100%;
+  }
+}
+
+.sectionTitle {
+  width: 100%;
+  margin-bottom: 40px;
+
+  font-family: Germano, sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+
+  @media screen and (width <= 1280px) {
+    font-size: 48px;
+  }
+
+  @media screen and (width <= 768px) {
+    margin-bottom: 32px;
+    font-size: 40px;
+  }
+
+  @media screen and (width <= 600px) {
+    padding-left: var(--offset-from-edge);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+
+  width: 100%;
+  max-width: 993px;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  column-gap: 100px;
+  align-items: center;
+
+  width: 100%;
+  padding: 16px 0;
+
+  font-family: 'GOST type B', sans-serif;
+  font-weight: 400;
+
+  border-bottom: 1px solid var(--dark-blue, #002d63);
+
+  @media screen and (width <= 1280px) {
+    column-gap: 40px;
+  }
+
+  @media screen and (width <= 900px) {
+    flex-direction: column;
+    row-gap: 4px;
+    align-items: flex-start;
+  }
+
+  @media screen and (width <= 768px) {
+    flex-direction: row;
+    column-gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (width <= 600px) {
+    flex-direction: column;
+    row-gap: 4px;
+    align-items: flex-start;
+
+    padding-right: var(--offset-from-edge);
+    padding-left: var(--offset-from-edge);
+  }
+}
+
+.itemName {
+  width: 220px;
+  font-size: 20px;
+  line-height: 1.2;
+
+  @media screen and (width <= 360px) {
+    font-size: 16px;
+    line-height: 1.13; // 18px
+  }
+}
+
+.itemValue {
+  font-size: 32px;
+  line-height: 1.19; // 38px
+
+  @media screen and (width <= 1280px) {
+    font-size: 24px;
+    line-height: 1.17; // 28px
+  }
+}
+
+.btn {
+  &:hover {
+    background: var(
+      --radial-blue-45,
+      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
+    );
+  }
+}
