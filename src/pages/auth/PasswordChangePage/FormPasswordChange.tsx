@@ -8,13 +8,22 @@ import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 import { postChangedPassword } from '../../../api/api';
 
-const FormPasswordChange: FC = () => {
+type IProps = {
+  responseToSuccessfulSumbit: (newPassword: string) => void;
+};
+
+const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { values, handleChange, errors, isValid } = useFormAndValidation({
+  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation({
     currentPassword: '',
     newPassword: '',
   });
+
+  const onChangeSuccess = () => {
+    responseToSuccessfulSumbit(values.newPassword);
+    resetForm();
+  };
 
   const isEmpty = () => {
     return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
