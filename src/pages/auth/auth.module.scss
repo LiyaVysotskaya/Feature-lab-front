@@ -121,6 +121,7 @@
   transform: translateX(-50%);
 
   line-height: 1;
+  white-space: pre-wrap;
 
   @media screen and (width <= 1280px) {
     bottom: 210px;
@@ -478,8 +479,9 @@
   }
 }
 
-// login form reset link
-.pwdResetLinkPosition {
+// login form reset link, filler for change pass page
+.pwdResetLinkPosition,
+.filler {
   z-index: 2;
 
   display: grid;
@@ -496,13 +498,12 @@
   }
 
   @media screen and (width <= 768px) {
-    margin-bottom: 690px;
+    margin-bottom: 500px;
   }
 
-  @media screen and (width <= 360px) {
+  @media screen and (width <= 690px) {
     column-gap: 15px;
     margin-top: 8px;
-    margin-bottom: 500px;
   }
 }
 

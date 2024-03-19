@@ -2,7 +2,7 @@ import cl from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
-  EMAIL_REG_EX,
+  EMAIL_PHONE_REG_EX,
   MAX_LENGTH_EMAIL,
   MAX_LENGTH_NAME,
   MAX_LENGTH_PROJECT,
@@ -116,7 +116,7 @@ export const FormFooter: FC = () => {
               placeholder="Email / Телефон"
               minLength={MIN_LENGTH_EMAIL}
               maxLength={MAX_LENGTH_EMAIL}
-              pattern={EMAIL_REG_EX}
+              pattern={EMAIL_PHONE_REG_EX}
               required
             />
             <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
