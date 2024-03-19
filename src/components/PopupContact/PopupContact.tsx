@@ -12,18 +12,12 @@ type IPopupProps = {
 export const PopupContact: FC<IPopupProps> = ({ onClose, isOpen }) => {
   return isOpen ? (
     <Overlay onClose={onClose} isOpen={isOpen}>
-      <div className={s.popupContainer}>
-        <div className={s.popup}>
-          <h2 className={s.popupTitle}>Свяжитесь с нами</h2>
-          <button
-            className={s.closeButton}
-            type="button"
-            aria-label="Close popup"
-            onClick={onClose}>
-            <CrossInCircleIcon />
-          </button>
-          <FormContact />
-        </div>
+      <div className={s.popup}>
+        <h2 className={s.popupTitle}>Свяжитесь с нами</h2>
+        <button className={s.closeButton} type="button" aria-label="Close popup" onClick={onClose}>
+          <CrossInCircleIcon />
+        </button>
+        <FormContact />
       </div>
     </Overlay>
   ) : (

@@ -1,24 +1,3 @@
-.popupContainer {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-
-  overflow: clip;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0;
-  padding: 100px 0;
-
-  @media screen and (width <= 690px) {
-    padding: 0;
-  }
-}
-
 .popup {
   position: relative;
 
@@ -29,7 +8,8 @@
   box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
-  margin: 0;
+  height: fit-content;
+  margin: 100px 0 0;
   padding: 100px 0 0;
 
   background-color: var(--white);
