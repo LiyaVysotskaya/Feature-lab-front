@@ -40,10 +40,6 @@
   @media screen and (width <= 1920px) {
     display: none;
   }
-
-  @media screen and (width <= 768px) {
-    width: var(--offset-from-edge);
-  }
 }
 
 .slider {
