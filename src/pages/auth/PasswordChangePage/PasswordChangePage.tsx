@@ -1,18 +1,18 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
+import { Button } from '../../../components/ui/Button/Button';
 import s from '../auth.module.scss';
 import FormPasswordChange from './FormPasswordChange';
-import { Button } from '../../../components/ui/Button/Button';
 
 export const PasswordChangePage: FC = () => {
   const navigate = useNavigate();
 
-  const [password, sePassword] = useState<string>();
+  const [password, setPassword] = useState<string>();
 
   const responseToSuccessfulSumbit = (newPassword: string) => {
     window.scrollTo(0, 0);
-    sePassword(newPassword);
+    setPassword(newPassword);
   };
   return (
     <Main>
