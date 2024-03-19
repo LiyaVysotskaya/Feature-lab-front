@@ -2,11 +2,11 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
-import s from './CompetenciesSection.module.scss';
-import PlusBtn from './svg/plus.svg?svgr';
 import { useCompetenciesQuery } from '../../api/queries';
 import { ROUTE_COMPETENCIES } from '../../constants/routesConstants';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { PlusIcon } from '../ui/icons';
+import s from './CompetenciesSection.module.scss';
 
 export interface ICompetenciesSectionProps {
   className?: string;
@@ -37,7 +37,12 @@ export const CompetenciesSection: FC<ICompetenciesSectionProps> = ({ className =
             <div className={s.cardFooter}>
               <div className={s.cardDescription}>{item.description}</div>
 
-              <PlusBtn onClick={() => handlePlusBtnClick(item.slug)} className={s.cardPlusBtn} />
+              <button
+                type="button"
+                className={s.cardPlusBtn}
+                onClick={() => handlePlusBtnClick(item.slug)}>
+                <PlusIcon />
+              </button>
             </div>
           </li>
         ))}
