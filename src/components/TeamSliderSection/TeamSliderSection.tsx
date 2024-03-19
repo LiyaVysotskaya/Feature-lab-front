@@ -9,6 +9,8 @@ import { TEmployee } from '../../types/data';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { CarouselBtn } from './CarouselBtn/CarouselBtn';
 import s from './TeamSliderSection.module.scss';
+import { TeamSlide } from './TeamSlide/TeamSlide';
+import { TeamGradientSlide } from './TeamGradientSlide/TeamGradientSlide';
 
 interface TeamSliderSectionProps {
   className?: string;
@@ -56,7 +58,7 @@ export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', 
     centerMode: !isMobile,
     draggable: false,
     focusOnSelect: false,
-    infinite: true,
+    infinite: team.length > 1,
     keyBoardControl: true,
     customLeftArrow: <CarouselBtn direction="left" />,
     customRightArrow: <CarouselBtn direction="right" />,
@@ -74,7 +76,7 @@ export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', 
     centerMode: !isMobile,
     draggable: false,
     focusOnSelect: false,
-    infinite: true,
+    infinite: team.length > 1,
     keyBoardControl: true,
     customLeftArrow: <CarouselBtn customId="TeamSliderBtnLeft" />,
     customRightArrow: <CarouselBtn customId="TeamSliderBtnRight" />,
@@ -93,26 +95,13 @@ export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', 
 
         <Carousel {...carouselProps}>
           {team.map((person) => (
-            <div className={s.card} key={uuidv4()}>
-              <div className={s.imgContainer}>
-                <img src={person.photo_inactive} alt="Фото" className={cl(s.img, s.img_inactive)} />
-                <img src={person.photo_active} alt="Фото" className={cl(s.img)} />
-              </div>
-
-              <h3 className={s.cardName}>{`${person.first_name} ${person.last_name}`}</h3>
-              <div className={s.cardRole}>{person.positions[0].name}</div>
-              <div className={s.cardDescription}>{person.description}</div>
-            </div>
+            <TeamSlide person={person} key={uuidv4()} />
           ))}
         </Carousel>
 
         <Carousel {...gradientCarouselProps}>
           {team.map(() => (
-            <div className={s.card} key={uuidv4()}>
-              <div className={s.imgContainer}>
-                <div className={s.radiant} />
-              </div>
-            </div>
+            <TeamGradientSlide key={uuidv4()} />
           ))}
         </Carousel>
 
