@@ -26,25 +26,19 @@
 
 .basementContainer {
   display: flex;
+  justify-content: space-between;
+
   box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
 }
 
-.firstContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 120px;
-
-  width: max-content;
-  margin-right: 120px;
-}
-
+.firstContainer,
 .secondContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
-  width: max-content;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .basementElement,
@@ -78,15 +72,6 @@
     padding: 100px 0 80px;
   }
 
-  .firstContainer {
-    gap: 80px;
-    margin-right: 80px;
-  }
-
-  .secondContainer {
-    gap: 36px;
-  }
-
   .basementElement,
   .telephonesElement {
     font-size: 24px;
@@ -110,13 +95,10 @@
   }
 
   .firstContainer {
-    flex-direction: column;
     gap: 24px;
-    margin-right: 41px;
   }
 
   .secondContainer {
-    flex-direction: column;
     gap: 24px;
   }
 
@@ -131,29 +113,19 @@
   }
 }
 
-@media screen and (width <= 360px) {
+@media screen and (width <= 690px) {
   .footer {
     flex-direction: column;
-    max-width: 360px;
+    max-width: 690px;
     padding: 32px 0 80px;
   }
 
-  .footerContainer {
-    flex-direction: column;
-  }
-
-  .basementContainer {
-    flex-direction: column;
-  }
-
   .firstContainer {
-    flex-direction: column;
     gap: 24px;
     margin-bottom: 24px;
   }
 
   .secondContainer {
-    flex-direction: column;
     gap: 24px;
   }
 

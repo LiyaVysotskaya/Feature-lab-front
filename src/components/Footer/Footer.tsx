@@ -8,6 +8,16 @@ import {
 } from '../../constants/routesConstants';
 import s from './Footer.module.scss';
 import { FormFooter } from './FormFooter/FormFooter';
+import {
+  COMPANY_ADDRESS_FIRST_RAW,
+  COMPANY_ADDRESS_SECOND_RAW,
+  COMPANY_ADDRESS_THIRD_RAW,
+  COMPANY_EMAIL,
+  COMPANY_INN,
+  COMPANY_KPP,
+  COMPANY_NAME,
+  COMPANY_PHONE,
+} from '../../constants/companyDetails';
 
 const Footer: FC = () => {
   const [showFooter, setShowFooter] = useState(true);
@@ -38,18 +48,25 @@ const Footer: FC = () => {
 
       <div className={s.basementContainer}>
         <div className={s.firstContainer}>
-          <p className={s.basementElement}>Москва, пр-кт Ленина 2А</p>
+          <p className={s.basementElement}>
+            {COMPANY_ADDRESS_FIRST_RAW}
+            <br />
+            {COMPANY_ADDRESS_SECOND_RAW}
+            <br />
+            {COMPANY_ADDRESS_THIRD_RAW}
+          </p>
           <div className={s.telephonesContainer}>
-            <p className={s.telephonesElement}>8 800 200-50-50</p>
-            <p className={s.telephonesElement}>+7 916 166-75-00</p>
+            <p className={s.telephonesElement}>{COMPANY_PHONE}</p>
           </div>
         </div>
         <div className={s.secondContainer}>
-          <p className={s.basementElement}>featurelab@yandex.ru</p>
+          <p className={s.basementElement}>{COMPANY_EMAIL}</p>
           <p className={s.basementElement}>
-            ИП Вавилов И.Л
+            {COMPANY_NAME}
             <br />
-            ОГРН 1234 1234 1234 1234 1234
+            {COMPANY_INN}
+            <br />
+            {COMPANY_KPP}
           </p>
         </div>
       </div>
