@@ -13,14 +13,14 @@ export const ContactsContainer: FC = () => {
     <section className={s.contentContact}>
       <div className={(s.wrap, s.adress)}>
         <p className={s.text}>
-          Москва,
+          127018, город Москва,
           <br />
-          пр-кт Ленина 2А
+          ул Советской Армии, д. 17/52, кв. 104
         </p>
         <p className={s.description}>адрес</p>
       </div>
       <div className={(s.wrap, s.email)}>
-        <p className={s.text}>fitchlab@gmail.com</p>
+        <p className={s.text}>featurelab@yandex.ru</p>
         <p className={s.description}>e-mail</p>
       </div>
       <div className={(s.wrap, s.telephones)}>
@@ -32,15 +32,27 @@ export const ContactsContainer: FC = () => {
       </div>
       <div className={(s.wrap, s.media)}>
         <div className={s.linksContainer}>
-          <Link to={SOCIAL_TELEGRAM_URL} className={s.iconLink}>
+          <Link
+            to={SOCIAL_TELEGRAM_URL}
+            className={s.iconLink}
+            target="_blank"
+            rel="noopener noreferrer">
             <TelegramIcon />
           </Link>
 
-          <Link to={SOCIAL_LINKEDIN_URL} className={s.iconLink}>
+          <Link
+            to={SOCIAL_LINKEDIN_URL}
+            className={s.iconLink}
+            target="_blank"
+            rel="noopener noreferrer">
             <LinkIcon />
           </Link>
 
-          <Link to={SOCIAL_WHATSUP_URL} className={s.iconLink}>
+          <Link
+            to={SOCIAL_WHATSUP_URL}
+            className={s.iconLink}
+            target="_blank"
+            rel="noopener noreferrer">
             <WhatsupIcon />
           </Link>
         </div>
