@@ -7,7 +7,7 @@ import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 
-export const FormPasswordChange: FC = () => {
+const FormPasswordChange: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { values, handleChange, errors, isValid } = useFormAndValidation({
@@ -63,7 +63,7 @@ export const FormPasswordChange: FC = () => {
           <input
             className={s.input}
             aria-label="Input newPassword"
-            value={values.currentPassword}
+            value={values.newPassword}
             onChange={handleChange}
             name="newPassword"
             type="text"

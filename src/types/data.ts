@@ -29,6 +29,8 @@ export type PostRegDataResponse = {
   email: string;
 };
 
+export type PostChangedPasswordResponse = {};
+
 // forms data
 export type RegFormData = {
   email: string;
@@ -38,6 +40,11 @@ export type RegFormData = {
 export type LoginFormData = {
   email: string;
   password: string;
+};
+
+export type ChangedPwdData = {
+  currentPassword: string;
+  newPassword: string;
 };
 
 export type TProjectStage = {
