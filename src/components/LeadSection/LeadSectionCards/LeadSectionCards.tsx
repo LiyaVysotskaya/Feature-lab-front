@@ -1,33 +1,53 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { leadSectionMockData } from '../../../_mockData/LeadSectionMockData';
+import { TProperty } from '../../../types/data';
 import s from './LeadSectionCards.module.scss';
 
-interface ILeadSectionCardsProps {}
+interface ILeadSectionCardsProps {
+  properties: TProperty[];
+  url: string;
+  productType?: string;
+}
 
-export const LeadSectionCards: FC<ILeadSectionCardsProps> = () => (
-  <ul className={cl(s.cards)}>
-    <li className={cl(s.card)}>
-      <div className={cl(s.cardHeader)}>
-        <p className={cl(s.cardTitleBig)}>Сайт</p>
-      </div>
-      <p className={cl(s.cardText)}>
-        Запущен и его можно посмотреть{' '}
-        <a href={leadSectionMockData.url} className={s.link}>
-          по ссылке
-        </a>
-      </p>
-    </li>
+export const LeadSectionCards: FC<ILeadSectionCardsProps> = ({
+  properties,
+  url = '',
+  productType = '',
+}) => {
+  return (
+    <ul className={cl(s.cards)}>
+      {productType && url && (
+        <li className={cl(s.card)}>
+          <div className={cl(s.cardHeader)}>
+            <p className={cl(s.cardTitleBig)}>{productType}</p>
+          </div>
+          <p className={cl(s.cardText)}>
+            Запущен и его можно посмотреть{' '}
+            <a href={url} className={s.link}>
+              по ссылке
+            </a>
+          </p>
+        </li>
+      )}
 
-    {leadSectionMockData.cardsData.map((card) => (
-      <li className={cl(s.card)} key={uuidv4()}>
-        <div className={cl(s.cardHeader)}>
-          <p className={cl(s.cardTitleBig)}>{card.titleBig}</p>
-          {card.titleSmall && <p className={cl(s.cardTitleSmall)}>{card.titleSmall}</p>}
-        </div>
-        <p className={cl(s.cardText)}>{card.text}</p>
-      </li>
-    ))}
-  </ul>
-);
+      {properties.map((card) => {
+        const { name, value } = card;
+        const regex = /^(\d+)\s+(.*)$/;
+        const match = name.match(regex);
+        const titleBig = match ? match[1] : '';
+        const titleSmall = match ? match[2] : name;
+
+        return (
+          <li className={cl(s.card)} key={uuidv4()}>
+            <div className={cl(s.cardHeader)}>
+              <p className={cl(s.cardTitleBig)}>{titleBig}</p>
+              {titleSmall && <p className={cl(s.cardTitleSmall)}>{titleSmall}</p>}
+            </div>
+            <p className={cl(s.cardText)}>{value}</p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
