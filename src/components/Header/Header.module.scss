@@ -114,6 +114,8 @@
 }
 
 .listItem {
+  user-select: none;
+
   position: relative;
 
   font-family: GostTypeB-Standard, sans-serif;
@@ -131,35 +133,8 @@
   }
 }
 
-.itemWithHover {
-  &:hover {
-    background: var(
-      --radial-blue-45,
-      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
-    );
-  }
-}
-
 .listItemSubMenu {
   position: relative;
-}
-
-.btnSubmenu {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-
-  &:hover {
-    background: var(
-      --radial-blue-45,
-      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
-    );
-  }
 }
 
 .link {
@@ -171,9 +146,11 @@
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
   }
-}
 
-/* Stop playing transition for menus momentarily on viewport resize. */
-.stopTransition {
-  transition: none !important;
+  &:hover {
+    background: var(
+      --radial-blue-45,
+      radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
+    );
+  }
 }
