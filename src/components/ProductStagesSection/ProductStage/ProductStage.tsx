@@ -1,15 +1,9 @@
 import cl from 'classnames';
 import { FC, useState } from 'react';
-import { Text } from '../../ui/Text/Text';
+import { v4 as uuidv4 } from 'uuid';
+import { TProductStage } from '../../../types/data';
 import { PlusIcon } from '../../ui/icons';
 import s from './ProductStage.module.scss';
-import { TProductStage } from '../../../types/data';
-
-type Stage = {
-  title: string;
-  text1: string;
-  text2: string;
-};
 
 interface IProps {
   className?: string;
@@ -21,54 +15,30 @@ export const ProductStage: FC<IProps> = ({ stageNum, stage, className = '' }) =>
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className={cl(s.stage, className)}>
+    <li className={cl(s.stage, className)}>
       <div className={s.stageWrapper}>
-        <div className={cl(s.stageRow, s.extraPadding)}>
-          <Text className={cl(s.stageNumber, isActive && s.stageNumber__filled)} view="molot-1">
+        <div className={cl(s.stageRow)}>
+          <p className={cl(s.stageNumber, isActive && s.stageNumber__filled)}>
             {stageNum < 10 ? `0${stageNum}` : String(stageNum)}
-          </Text>
-          <Text className={s.stageText} tag="h3" view="germano-1">
-            {stage.name}
-          </Text>
+          </p>
+          <p className={cl(s.stageTextWrap, s.stageTitle)}>{stage.name}</p>
           <div role="presentation" className={s.dummyPlus} onClick={() => setIsActive(!isActive)}>
             <PlusIcon />
           </div>
         </div>
         <div className={cl(s.stageRow)}>
           <div className={cl(s.stageNumber, s.collapsed)} />
-          <div className={cl(s.stageText, s.stageText__tel)}>
-            <div className={s.stageText__hidden}>
-              {/* <Text
-                className={cl(s.content, s.inactive, isActive && s.active)}
-                view="gost-1"
-                tag="p">
-                {stage.text1}
-              </Text>
-              <Text
-                className={cl(s.content, s.inactive, isActive && s.active)}
-                view="gost-1"
-                tag="p">
-                {stage.text2}
-              </Text> */}
-
-              <Text
-                className={cl(s.content, s.inactive, isActive && s.active)}
-                view="gost-1"
-                tag="p">
-                {stage.description}
-              </Text>
-
-              <Text
-                className={cl(s.content, s.inactive, isActive && s.active)}
-                view="gost-1"
-                tag="p">
-                {stage.description}
-              </Text>
-            </div>
+          <div
+            className={cl(s.stageTextWrap, s.stageTextWrap__tel, s.inactive, isActive && s.active)}>
+            {stage.description.split('\n').map((paragraph) => (
+              <p className={cl(s.text)} key={uuidv4()}>
+                {paragraph}
+              </p>
+            ))}
           </div>
           <div className={cl(s.dummyPlus, s.collapsed)} />
         </div>
       </div>
-    </div>
+    </li>
   );
 };

@@ -18,9 +18,11 @@ export const ProductStagesSection: FC<IProps> = ({ className = '', stages }) => 
   return (
     <section className={cl(s.stages, className)}>
       <SectionTitle text="Этапы работы" className={s.stagesTitle} />
-      {sortedStages.map((stage) => (
-        <ProductStage key={uuidv4()} stage={stage} stageNum={stage.phase_num} />
-      ))}
+      <ul className={s.list}>
+        {sortedStages.map((stage) => (
+          <ProductStage key={uuidv4()} stage={stage} stageNum={stage.phase_num} />
+        ))}
+      </ul>
     </section>
   );
 };
