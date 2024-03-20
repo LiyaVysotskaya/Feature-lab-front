@@ -1,6 +1,7 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef, useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
+import { useLocation } from 'react-router-dom';
 import s from './TeamGradientSlide.module.scss';
 
 interface IProps {
@@ -9,24 +10,18 @@ interface IProps {
 
 export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
   const [inView, setInView] = useState(false);
+  const location = useLocation();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '4000px 0px 4000px 0px',
       threshold: 0.9, // When almost fully in view
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-      // Calculate horizontal visibility
-      const horizontalVisibility = entry.intersectionRect.width / entry.boundingClientRect.width;
-
-      // Check if horizontal visibility is greater than or equal to 90%
-      const isInView = horizontalVisibility >= 0.9;
-
-      // Update state
-      setInView(isInView);
+      setInView(entry.isIntersecting);
     }, options);
     const slideEl = ref.current;
 
@@ -39,7 +34,7 @@ export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
         observer.unobserve(slideEl);
       }
     };
-  }, []);
+  }, [location]);
 
   return (
     <div ref={ref} className={cl(s.card, className, { [s.colorful]: inView })}>

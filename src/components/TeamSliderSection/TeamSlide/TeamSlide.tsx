@@ -16,19 +16,12 @@ export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '4000px 0px 4000px 0px',
       threshold: 0.9, // When almost fully in view
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-      // Calculate horizontal visibility
-      const horizontalVisibility = entry.intersectionRect.width / entry.boundingClientRect.width;
-
-      // Check if horizontal visibility is greater than or equal to 90%
-      const isInView = horizontalVisibility >= 0.9;
-
-      // Update state
-      setInView(isInView);
+      setInView(entry.isIntersecting);
     }, options);
     const slideEl = ref.current;
 
