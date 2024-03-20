@@ -111,6 +111,16 @@ export type GetUserProjectsListResponse = TGeneralApiResponse & {
   results: TProjectShortInfo[];
 };
 
+export type TProductStage = {
+  name: string;
+  phase_num: number;
+  description: string;
+};
+
+export type TProductImg = {
+  image: string;
+};
+
 export type TProductFullInfo = {
   id: string;
   slug: string;
@@ -122,6 +132,8 @@ export type TProductFullInfo = {
   product_type: string;
   properties: TProperty[];
   tags: string[];
+  phases: TProductStage[];
+  gallery: TProductImg[];
 };
 
 export type TProductShortInfo = {

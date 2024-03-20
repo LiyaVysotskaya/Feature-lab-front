@@ -2,21 +2,22 @@ import cl from 'classnames';
 import { FC, useState } from 'react';
 import { Text } from '../../ui/Text/Text';
 import { PlusIcon } from '../../ui/icons';
-import s from './WorkStageItem.module.scss';
+import s from './ProductStage.module.scss';
+import { TProductStage } from '../../../types/data';
 
-export interface WorkStagesItem {
+type Stage = {
   title: string;
   text1: string;
   text2: string;
-}
+};
 
-export interface WorkStageItemProps {
+interface IProps {
   className?: string;
-  stage: WorkStagesItem;
+  stage: TProductStage;
   stageNum: number;
 }
 
-export const WorkStageItem: FC<WorkStageItemProps> = ({ stageNum, stage, className = '' }) => {
+export const ProductStage: FC<IProps> = ({ stageNum, stage, className = '' }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -27,7 +28,7 @@ export const WorkStageItem: FC<WorkStageItemProps> = ({ stageNum, stage, classNa
             {stageNum < 10 ? `0${stageNum}` : String(stageNum)}
           </Text>
           <Text className={s.stageText} tag="h3" view="germano-1">
-            {stage.title}
+            {stage.name}
           </Text>
           <div role="presentation" className={s.dummyPlus} onClick={() => setIsActive(!isActive)}>
             <PlusIcon />
@@ -37,7 +38,7 @@ export const WorkStageItem: FC<WorkStageItemProps> = ({ stageNum, stage, classNa
           <div className={cl(s.stageNumber, s.collapsed)} />
           <div className={cl(s.stageText, s.stageText__tel)}>
             <div className={s.stageText__hidden}>
-              <Text
+              {/* <Text
                 className={cl(s.content, s.inactive, isActive && s.active)}
                 view="gost-1"
                 tag="p">
@@ -48,6 +49,20 @@ export const WorkStageItem: FC<WorkStageItemProps> = ({ stageNum, stage, classNa
                 view="gost-1"
                 tag="p">
                 {stage.text2}
+              </Text> */}
+
+              <Text
+                className={cl(s.content, s.inactive, isActive && s.active)}
+                view="gost-1"
+                tag="p">
+                {stage.description}
+              </Text>
+
+              <Text
+                className={cl(s.content, s.inactive, isActive && s.active)}
+                view="gost-1"
+                tag="p">
+                {stage.description}
               </Text>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { WorkStageItem } from './WorkStageItem';
+import { ProductStage } from './ProductStage';
 
-const meta: Meta<typeof WorkStageItem> = {
+const meta: Meta<typeof ProductStage> = {
   title: 'components/WorkStageItem',
-  component: WorkStageItem,
+  component: ProductStage,
   parameters: {
     layout: 'centered',
   },
@@ -11,7 +11,7 @@ const meta: Meta<typeof WorkStageItem> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof WorkStageItem>;
+type Story = StoryObj<typeof ProductStage>;
 
 const stage = {
   title: 'ПРОЕКТИРОВАЛИ',
