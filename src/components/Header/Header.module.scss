@@ -138,10 +138,10 @@
 }
 
 .link {
-  &Active {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 
+  &Active {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
