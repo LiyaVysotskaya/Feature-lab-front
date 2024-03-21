@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { LAB_PROJECT_URL } from '../../constants/companyDetails';
+import { LAB_PROJECT_URL } from '../../constants/externalLinks';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { Button } from '../ui/Button/Button';
 import s from './LabSection.module.scss';

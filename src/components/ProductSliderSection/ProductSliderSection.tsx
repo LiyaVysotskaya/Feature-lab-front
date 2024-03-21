@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import brokenScreen from '../../assets/svg/broken_screen.svg';
 import LapTop from '../../assets/svg/laptop.svg?svgr';
-import { API_BASE_URL } from '../../constants/apiConstants';
+import { API_BASE_URL } from '../../constants/externalLinks';
 import { TProductImg } from '../../types/data';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { ArrowInCircleIcon, SpinnerIcon } from '../ui/icons';

@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_BASE_URL } from '../constants/apiConstants';
+import { API_BASE_URL } from '../constants/externalLinks';
 import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import { EMAIL_ALREADY_EXISTS, NO_ACTIVE_ACCOUNT } from '../constants/errors';
 
