@@ -39,6 +39,10 @@
       font-size: 20px;
       line-height: 1.2; // 24px;
     }
+
+    @media screen and (width <= 690px) {
+      color: var(--white-60);
+    }
   }
 
   &:hover {
