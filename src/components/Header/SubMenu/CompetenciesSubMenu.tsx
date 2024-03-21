@@ -39,6 +39,8 @@ export const CompetenciesSubMenu: FC<Props> = ({ className = '', isVisible }) =>
     return null;
   }
 
+  const sortedCompetencies = competencies.sort((a, b) => a.priority - b.priority);
+
   return (
     <nav
       aria-label="Компетенции"
@@ -51,7 +53,7 @@ export const CompetenciesSubMenu: FC<Props> = ({ className = '', isVisible }) =>
         className,
       )}>
       <ul className={cl(s.submenuList)}>
-        {competencies.map((item) => (
+        {sortedCompetencies.map((item) => (
           <li className={s.submenuItem} key={uuidv4()}>
             <NavLink
               to={`${ROUTE_COMPETENCIES}/${item.slug}`}

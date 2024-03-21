@@ -21,16 +21,24 @@ export const CompetenciesSection: FC<ICompetenciesSectionProps> = ({ className =
 
   const { data: competencies, isLoading } = useCompetenciesQuery();
 
+  const handleOnClick = (slug: string) => {
+    if (window.innerWidth > 768) {
+      navigate(`${ROUTE_COMPETENCIES}/${slug}`);
+    }
+  };
+
   if (isLoading || !competencies) {
     return null;
   }
+
+  const sortedCompetencies = competencies.sort((a, b) => a.priority - b.priority);
 
   return (
     <section className={cl(s.competencies, className)}>
       <SectionTitle text="Компетенции" />
       <ul className={s.list}>
-        {competencies.map((item, index) => (
-          <li className={s.card} key={uuidv4()}>
+        {sortedCompetencies.map((item, index) => (
+          <li className={s.card} key={uuidv4()} onClick={() => handleOnClick(item.slug)}>
             <div className={s.cardInfo}>{item.description}</div>
             <h3 className={s.cardTitle}>{item.name.toUpperCase()}</h3>
             <div className={cl(s.cardNumber)}>{(index + 1).toString().padStart(2, '0')}</div>
