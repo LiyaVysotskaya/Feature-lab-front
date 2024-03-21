@@ -1,0 +1,87 @@
+.section {
+  display: grid;
+  grid-template-areas:
+    'one title title'
+    'one two two'
+    'text1 two two'
+    'text1 three four'
+    'five five text2'
+    'six seven text2'
+    'eight seven text2';
+  gap: 40px;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0 0 20px;
+  padding: 0;
+
+  &Title {
+    margin: 0;
+
+    font-family: Molot, sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    color: var(--dark-blue, #002d63);
+
+    @media screen and (width <= 1250px) {
+      font-size: 60px;
+    }
+
+    @media screen and (width <= 1050px) {
+      font-size: 40px;
+    }
+
+    @media screen and (width <= 768px) {
+      font-size: 40px;
+    }
+  }
+
+  @media screen and (width <= 1280px) {
+    gap: 20px;
+  }
+}
+
+.gridArea {
+  &_title {
+    grid-area: title;
+  }
+
+  &_1 {
+    grid-area: one;
+  }
+
+  &_2 {
+    grid-area: two;
+  }
+
+  &_3 {
+    grid-area: three;
+  }
+
+  &_4 {
+    grid-area: four;
+  }
+
+  &_5 {
+    grid-area: five;
+  }
+
+  &_6 {
+    grid-area: six;
+  }
+
+  &_7 {
+    grid-area: seven;
+  }
+
+  &_text_1 {
+    grid-area: text1;
+  }
+
+  &_text_2 {
+    grid-area: text2;
+  }
+}
