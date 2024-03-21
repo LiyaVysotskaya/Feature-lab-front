@@ -9,6 +9,7 @@ import { Header } from '../Header/Header';
 import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
 import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
 import s from './App.module.scss';
+import { ButtonUp } from '../ButtonUp/ButtonUp';
 
 const App: React.FC = () => {
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = useState(false);
@@ -41,6 +42,7 @@ const App: React.FC = () => {
 
       <Footer />
       <CookiesToastContainer />
+      <ButtonUp />
     </div>
   );
 };
