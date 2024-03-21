@@ -1,5 +1,6 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import s from './PageTitle.module.scss';
 
 export interface IPageTitleProps {
@@ -11,6 +12,8 @@ export interface IPageTitleProps {
 export const PageTitle: FC<IPageTitleProps> = ({ className = '', pageTitle, subTitle }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     const resizeFont = () => {
@@ -31,7 +34,7 @@ export const PageTitle: FC<IPageTitleProps> = ({ className = '', pageTitle, subT
     return () => {
       window.removeEventListener('resize', resizeFont);
     };
-  }, [containerRef, textRef]);
+  }, [containerRef, textRef, location]);
 
   return (
     <div className={cl(s.pageTitleWrap, className)} ref={containerRef}>
