@@ -64,6 +64,7 @@
 
   &Footer {
     display: flex;
+    flex-wrap: wrap;
     column-gap: 12px;
     justify-content: flex-start;
 
@@ -76,16 +77,17 @@
     line-height: 1.17; // 28px; /* 116.667% */
   }
 
+  &Tag {
+    width: max-content;
+  }
+
   &Link {
     display: inline-block;
+    text-decoration: underline;
     text-wrap: nowrap;
 
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-
-    &:active {
+    &:active,
+    &:hover {
       background: var(
         --radial-blue-45,
         radial-gradient(closest-side, rgb(3 64 137 / 45%) 0%, rgb(255 255 255 / 0%) 100%)
@@ -159,23 +161,7 @@
   }
 }
 
-@media screen and (width <= 730px) {
-  .divider {
-    display: none;
-  }
-
-  .product {
-    &Footer {
-      flex-direction: column;
-    }
-  }
-}
-
 @media screen and (width <= 650px) {
-  .divider {
-    display: none;
-  }
-
   .product {
     &Header {
       flex-direction: column;
@@ -190,10 +176,6 @@
     &Info {
       max-width: 100%;
       margin-bottom: 8px;
-    }
-
-    &Footer {
-      flex-direction: column;
     }
   }
 }

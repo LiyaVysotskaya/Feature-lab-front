@@ -1,6 +1,7 @@
 .popup {
   position: relative;
 
+  overflow: clip;
   display: flex;
   flex-direction: column;
   align-items: center;

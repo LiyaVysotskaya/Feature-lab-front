@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useUserProfileQuery } from '../../api/queries';
 import Logo from '../../assets/svg/logo.svg';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
@@ -25,7 +25,6 @@ export const Header: React.FC = () => {
   const [isCompetenciesVisible, setCompetenciesVisible] = useState(false);
   const [isProductsVisible, setProductsVisible] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const [isAuth] = useAtom(isAuthAtom);
 
   const { data: userProfile } = useUserProfileQuery();
@@ -38,16 +37,7 @@ export const Header: React.FC = () => {
     }
   }, [scrollDirection, isCompetenciesVisible, isProductsVisible]);
 
-  const isCompetenciesPage = location.pathname.includes(ROUTE_COMPETENCIES);
   const isProductsPage = location.pathname.includes(ROUTE_PRODUCTS);
-
-  const handleCompetenciesBtnClick = () => {
-    navigate(ROUTE_COMPETENCIES);
-  };
-
-  const handleProductsBtnClick = () => {
-    setProductsVisible(!isProductsVisible);
-  };
 
   const handleCompetenciesOnMouseEnter = () => {
     setCompetenciesVisible(true);
@@ -89,21 +79,19 @@ export const Header: React.FC = () => {
                 className={cl(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={handleCompetenciesOnMouseEnter}
                 onMouseLeave={handleCompetenciesOnMouseLeave}>
-                <button
-                  type="button"
-                  onClick={handleCompetenciesBtnClick}
-                  className={cl(s.btnSubmenu, {
-                    [s.linkActive]: isCompetenciesPage,
-                  })}>
+                <NavLink
+                  to={ROUTE_COMPETENCIES}
+                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
                   Компетенции
-                </button>
+                </NavLink>
+
                 <CompetenciesSubMenu isVisible={isCompetenciesVisible} />
               </li>
 
-              <li className={cl(s.listItem, s.itemWithHover)}>
+              <li className={cl(s.listItem)}>
                 <NavLink
                   to={ROUTE_ED_TECH}
-                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
+                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
                   Лаборатория
                 </NavLink>
               </li>
@@ -112,29 +100,27 @@ export const Header: React.FC = () => {
                 className={cl(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={handleProductsOnMouseEnter}
                 onMouseLeave={handleProductsOnMouseLeave}>
-                <button
-                  type="button"
-                  onClick={handleProductsBtnClick}
-                  className={cl(s.btnSubmenu, {
+                <span
+                  className={cl({
                     [s.linkActive]: isProductsPage,
                   })}>
                   Продукты
-                </button>
+                </span>
                 <ProductsSubMenu isVisible={isProductsVisible} />
               </li>
 
-              <li className={cl(s.listItem, s.itemWithHover)}>
+              <li className={cl(s.listItem)}>
                 <NavLink
                   to={ROUTE_CONTACT}
-                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
+                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
                   Контакты
                 </NavLink>
               </li>
 
-              <li className={cl(s.listItem, s.itemWithHover)}>
+              <li className={cl(s.listItem)}>
                 <NavLink
                   to={ROUTE_PROFILE}
-                  className={({ isActive }) => (isActive ? s.linkActive : '')}>
+                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
                   {isAuth && userProfile
                     ? `${userProfile.last_name} ${userProfile.first_name[0]}.`
                     : 'Личный кабинет'}
