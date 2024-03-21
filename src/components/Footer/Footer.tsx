@@ -55,12 +55,6 @@ const Footer: FC = () => {
             <br />
             {COMPANY_ADDRESS_THIRD_RAW}
           </p>
-          <div className={s.telephonesContainer}>
-            <p className={s.telephonesElement}>{COMPANY_PHONE}</p>
-          </div>
-        </div>
-        <div className={s.secondContainer}>
-          <p className={s.basementElement}>{COMPANY_EMAIL}</p>
           <p className={s.basementElement}>
             {COMPANY_NAME}
             <br />
@@ -68,6 +62,10 @@ const Footer: FC = () => {
             <br />
             {COMPANY_KPP}
           </p>
+        </div>
+        <div className={s.secondContainer}>
+          <p className={s.basementElement}>{COMPANY_EMAIL}</p>
+          <p className={s.basementElement}>{COMPANY_PHONE}</p>
         </div>
       </div>
     </footer>
