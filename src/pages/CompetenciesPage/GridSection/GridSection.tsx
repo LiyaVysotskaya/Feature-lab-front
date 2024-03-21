@@ -28,6 +28,7 @@ export const GridSection: FC<IProps> = ({ className = '' }) => {
           key={competency.id}
           title={competency.name}
           text={competency.description}
+          slug={competency.slug}
           className={s[`gridArea_${index}`]}
         />
       ))}
