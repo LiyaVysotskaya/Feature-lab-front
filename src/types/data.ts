@@ -10,7 +10,7 @@ export type GetAuthResponse = {
 };
 
 export type TUserProfile = {
-  id: number;
+  id: string;
   first_name: string;
   last_name: string;
   role: string;
@@ -25,7 +25,7 @@ export type GetUserProfileResponse = TGeneralApiResponse & {
 };
 
 export type PostRegDataResponse = {
-  id: number;
+  id: string;
   email: string;
 };
 
@@ -48,7 +48,7 @@ export type TChangedPwdData = {
 };
 
 export type TProjectStage = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   stage_num: number;
@@ -58,7 +58,7 @@ export type TProjectStage = {
 };
 
 export type TManager = {
-  id: number;
+  id: string;
   first_name: string;
   last_name: string;
   email: string;
@@ -66,7 +66,7 @@ export type TManager = {
 };
 
 export type TProjectShortInfo = {
-  id: number;
+  id: string;
   name: string;
   stages_count: number;
   end_date: string;
@@ -76,11 +76,11 @@ export type TProjectShortInfo = {
 };
 
 export type TDocument = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   doctype: {
-    id: number;
+    id: string;
     name: string;
   };
   url: string;
@@ -94,7 +94,7 @@ export type TProperty = {
 };
 
 export type TProjectFullInfo = {
-  id: number;
+  id: string;
   name: string;
   logo: string;
   url: string;
@@ -111,21 +111,35 @@ export type GetUserProjectsListResponse = TGeneralApiResponse & {
   results: TProjectShortInfo[];
 };
 
+export type TProductStage = {
+  name: string;
+  phase_num: number;
+  description: string;
+};
+
+export type TProductImg = {
+  image: string;
+};
+
 export type TProductFullInfo = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   description: string;
-  competence: number;
+  detailed_description: string;
+  competence: string; // id
   url: string;
   product_type: string;
   properties: TProperty[];
   tags: string[];
+  phases: TProductStage[];
+  gallery: TProductImg[];
 };
 
 export type TProductShortInfo = {
-  id: number;
+  id: string;
   slug: string;
+  competence: string;
   name: string;
   description: string;
   url: string;
@@ -147,7 +161,7 @@ export type TEmployee = {
 };
 
 export type TCompetenceFullInfo = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   description: string;
@@ -159,7 +173,7 @@ export type TCompetenceFullInfo = {
 };
 
 export type TCompetenceShortInfo = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   description: string;

@@ -16,19 +16,24 @@ export const CompetencePage: FC = () => {
     return null;
   }
 
+  const leadSectionData = {
+    description: competence.description,
+    detailed_description: competence.detailed_description,
+    properties: competence.properties,
+
+    product_type: '',
+    url: '',
+  };
+
   return (
     <Main>
-      <PageTitle
-        className={s.pageTitle}
-        pageTitle={competence.name}
-        subTitle="Расшифровка аббревиатуры"
-      />
+      <PageTitle className={s.pageTitle} pageTitle={competence.name} subTitle="О компетенции" />
 
-      <LeadSection className={s.pageSection} />
+      <LeadSection className={s.pageSection} data={leadSectionData} />
 
       <TeamSliderSection className={s.pageSection} team={competence.employees} />
 
-      <ProductsSection className={s.pageSection} title="Портфолио" />
+      <ProductsSection className={s.pageSection} title="Портфолио" competenceId={competence.id} />
     </Main>
   );
 };

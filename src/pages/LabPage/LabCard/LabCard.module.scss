@@ -48,6 +48,8 @@
   &:hover &Title {
     color: var(--white, #fff);
     text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 8px;
   }
 
   @media screen and (width <= 768px) {

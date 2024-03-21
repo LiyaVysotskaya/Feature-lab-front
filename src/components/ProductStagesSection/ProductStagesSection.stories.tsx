@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { WorkStages } from './WorkStages';
+import { ProductStagesSection } from './ProductStagesSection';
 
-const meta: Meta<typeof WorkStages> = {
+const meta: Meta<typeof ProductStagesSection> = {
   title: 'components/WorkStages',
-  component: WorkStages,
+  component: ProductStagesSection,
   parameters: {
     layout: 'centered',
   },
@@ -11,7 +11,7 @@ const meta: Meta<typeof WorkStages> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof WorkStages>;
+type Story = StoryObj<typeof ProductStagesSection>;
 
 export const Normal: Story = {
   args: {},
