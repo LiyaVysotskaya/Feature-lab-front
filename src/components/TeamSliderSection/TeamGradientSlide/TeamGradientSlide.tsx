@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
-  const [inView, setInView] = useState(false);
+  const [isGrey, setIsGrey] = useState(false);
   const location = useLocation();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -17,11 +17,11 @@ export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
     const options = {
       root: null,
       rootMargin: '4000px 0px 4000px 0px',
-      threshold: 0.9, // When almost fully in view
+      threshold: [0, 0.5, 0.9, 1], // on what visibilty % to trigger
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-      setInView(entry.isIntersecting);
+      setIsGrey(entry.isIntersecting && entry.intersectionRatio < 0.9);
     }, options);
     const slideEl = ref.current;
 
@@ -37,7 +37,7 @@ export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
   }, [location]);
 
   return (
-    <div ref={ref} className={cl(s.card, className, { [s.colorful]: inView })}>
+    <div ref={ref} className={cl(s.card, className, { [s.grey]: isGrey })}>
       <div className={s.imgContainer}>
         <div className={s.radiant} />
       </div>

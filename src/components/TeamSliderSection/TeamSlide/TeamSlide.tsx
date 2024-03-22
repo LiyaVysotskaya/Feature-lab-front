@@ -10,18 +10,18 @@ interface IProps {
 }
 
 export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
-  const [inView, setInView] = useState(false);
+  const [isGrey, setIsGrey] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const options = {
       root: null,
       rootMargin: '4000px 0px 4000px 0px',
-      threshold: 0.9, // When almost fully in view
+      threshold: [0, 0.5, 0.9, 1], // on what visibilty % to trigger
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-      setInView(entry.isIntersecting);
+      setIsGrey(entry.isIntersecting && entry.intersectionRatio < 0.9);
     }, options);
     const slideEl = ref.current;
 
@@ -37,10 +37,14 @@ export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
   }, []);
 
   return (
-    <div ref={ref} className={cl(s.card, className, { [s.colorful]: inView })}>
+    <div ref={ref} className={cl(s.card, className, { [s.grey]: isGrey })}>
       <div className={s.imgContainer}>
         <img src={person.photo_active} alt="Фото" className={cl(s.img)} />
-        <img src={person.photo_inactive} alt="Фото" className={cl(s.img, s.img_inactive)} />
+        <img
+          src={person.photo_inactive}
+          alt="Фото"
+          className={cl(s.img, s.img_inactive, { [s.hoverable]: !isGrey })}
+        />
       </div>
 
       <h3 className={s.cardName}>{`${person.first_name} ${person.last_name}`}</h3>

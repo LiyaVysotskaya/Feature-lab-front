@@ -6,12 +6,9 @@
 
   max-width: 350px;
 
-  opacity: 0.5;
-  filter: grayscale(100%);
-
-  transition:
-    opacity 0.1s ease,
-    filter 0.1s ease;
+  // transition:
+  //   opacity 0.1s ease,
+  //   filter 0.1s ease;
 
   &Role {
     align-self: flex-start;
@@ -56,6 +53,11 @@
   filter: grayscale(0);
 }
 
+.grey {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
 .imgContainer {
   position: relative;
   width: 300px;
@@ -85,8 +87,8 @@
   filter: grayscale(100%);
 }
 
-.colorful:hover .img_inactive {
-  display: none;
+.hoverable:hover {
+  opacity: 0;
 }
 
 @media screen and (width <= 1450px) {
