@@ -1,5 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { TProperty } from '../../../types/data';
 import s from './LeadSectionCards.module.scss';
@@ -24,9 +25,9 @@ export const LeadSectionCards: FC<ILeadSectionCardsProps> = ({
           </div>
           <p className={cl(s.cardText)}>
             Запущен и его можно посмотреть{' '}
-            <a href={url} className={s.link}>
+            <Link to={url} className={s.link} target="_blank" rel="noopener noreferrer">
               по ссылке
-            </a>
+            </Link>
           </p>
         </li>
       )}

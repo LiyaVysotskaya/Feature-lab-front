@@ -1,9 +1,10 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { useProductsQuery } from '../../api/queries';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import s from './ProductsSection.module.scss';
-import { useProductsQuery } from '../../api/queries';
 
 export interface IProductsSectionProps {
   className?: string;
@@ -49,9 +50,13 @@ export const ProductsSection: FC<IProductsSectionProps> = ({
               {product.tags.map((tag) => (
                 <p className={s.productTag} key={uuidv4()}>{`${tag} /`}</p>
               ))}
-              <a href={product.url} className={s.productLink}>
+              <Link
+                to={product.url}
+                className={s.productLink}
+                target="_blank"
+                rel="noopener noreferrer">
                 ссылка
-              </a>
+              </Link>
             </div>
           </li>
         ))}
