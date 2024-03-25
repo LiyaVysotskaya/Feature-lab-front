@@ -16,7 +16,7 @@ export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '4000px 0px 4000px 0px',
+      rootMargin: '4000px 0px 4000px 0px', // only triggers when elements hide horizontally, ignoring vertical hiding
       threshold: [0, 0.5, 0.9, 1], // on what visibilty % to trigger
     };
 
