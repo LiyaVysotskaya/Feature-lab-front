@@ -28,7 +28,11 @@ export const ProductPage: FC = () => {
 
   return (
     <Main>
-      <PageTitle className={s.pageTitle} pageTitle={product.name} subTitle="О продукте" />
+      <PageTitle
+        className={s.pageTitle}
+        pageTitle={product.name}
+        subTitle={product.detailed_name}
+      />
 
       <LeadSection className={s.pageSection} data={leadSectionData} />
 
