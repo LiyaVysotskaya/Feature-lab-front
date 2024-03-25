@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { useProductsQuery } from '../../api/queries';
+import { ROUTE_PRODUCTS } from '../../constants/routesConstants';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import s from './ProductsSection.module.scss';
 
@@ -43,7 +44,9 @@ export const ProductsSection: FC<IProductsSectionProps> = ({
         {filteredProducts.map((product) => (
           <li className={cl(s.product)} key={uuidv4()}>
             <div className={s.productHeader}>
-              <p className={s.productTitle}>{product.name}</p>
+              <Link className={s.productTitle} to={`${ROUTE_PRODUCTS}/${product.slug}`}>
+                {product.name}
+              </Link>
               <p className={s.productInfo}>{product.description}</p>
             </div>
             <div className={s.productFooter}>
