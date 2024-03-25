@@ -100,7 +100,7 @@ export const FormContact: FC = () => {
             />
             <div className={s.textContainer}>
               <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-              <span className={cl(s.textClue)}>Имя</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
             </div>
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
               <span className={cl(s.inputError)}>{errors.name}</span>
