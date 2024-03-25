@@ -10,6 +10,7 @@ import {
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
+import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import useAuth from '../../../hooks/useAuth';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
@@ -96,7 +97,7 @@ export const FormLogin: FC = () => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
               <span className={cl(s.inputError)}>{errors.email}</span>
             </div>
-            <InfoTooltip content="Ололо">
+            <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
@@ -121,7 +122,7 @@ export const FormLogin: FC = () => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
               <span className={cl(s.inputError)}>{errors.password}</span>
             </div>
-            <InfoTooltip content="Ололо">
+            <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
