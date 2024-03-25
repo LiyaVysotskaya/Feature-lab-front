@@ -114,7 +114,7 @@ export const FormContact: FC = () => {
               value={values.email}
               onChange={onInputChange}
               name="email"
-              type="email"
+              type="text"
               placeholder="Email / телефон"
               minLength={MIN_LENGTH_EMAIL}
               maxLength={MAX_LENGTH_EMAIL}
