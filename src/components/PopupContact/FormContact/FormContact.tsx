@@ -12,11 +12,10 @@ import {
   NAME_REG_EX,
 } from '../../../constants/constants';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { Button } from '../../ui/Button/Button';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
-
 import s from './FormContact.module.scss';
-import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 export const FormContact: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
