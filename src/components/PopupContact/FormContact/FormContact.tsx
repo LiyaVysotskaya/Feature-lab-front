@@ -13,7 +13,7 @@ import {
 } from '../../../constants/constants';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { Button } from '../../ui/Button/Button';
+import { RoundButton } from '../../ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
 import s from './FormContact.module.scss';
 
@@ -180,7 +180,7 @@ export const FormContact: FC = () => {
           </div>
         </div>
 
-        <Button
+        <RoundButton
           className={s.button}
           type="submit"
           theme="white"

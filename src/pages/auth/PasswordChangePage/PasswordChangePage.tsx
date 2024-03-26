@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
-import { Button } from '../../../components/ui/Button/Button';
-import s from '../auth.module.scss';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import FormPasswordChange from './FormPasswordChange';
+import s from '../auth.module.scss';
 
 export const PasswordChangePage: FC = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const PasswordChangePage: FC = () => {
               <p className={s.responseText}>Ваш пароль был успешно изменён.</p>
             </div>
 
-            <Button
+            <RoundButton
               type="button"
               theme="white"
               text="К проектам"

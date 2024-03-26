@@ -1,9 +1,9 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { SpinnerIcon } from '../icons';
-import s from './Button.module.scss';
+import s from './RoundButton.module.scss';
 
-export interface IButtonProps {
+type IProps = {
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -11,9 +11,9 @@ export interface IButtonProps {
   text?: string;
   isLoading?: boolean;
   disabled?: boolean;
-}
+};
 
-export const Button: FC<IButtonProps> = ({
+export const RoundButton: FC<IProps> = ({
   className = '',
   type = 'button',
   onClick = () => {},

@@ -2,7 +2,7 @@ import cl from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { Button } from '../../../components/ui/Button/Button';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import {
   MAX_LENGTH_EMAIL,
@@ -138,7 +138,7 @@ export const FormLogin: FC = () => {
           </div>
         </div>
 
-        <Button
+        <RoundButton
           className={s.button}
           type="submit"
           theme="white"

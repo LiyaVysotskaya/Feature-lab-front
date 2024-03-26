@@ -1,8 +1,7 @@
 import cl from 'classnames';
 import { FC, useState } from 'react';
 import { PopupContact } from '../PopupContact/PopupContact';
-import { Button } from '../ui/Button/Button';
-
+import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './PromoSection.module.scss';
 
 export interface IPromoProps {
@@ -28,7 +27,7 @@ export const PromoSection: FC<IPromoProps> = ({ className = '' }) => {
         <p className={s.headline}>Обучаем специалистов</p>
         <p className={s.headline}>Создаём продукты</p>
       </div>
-      <Button
+      <RoundButton
         className={s.promo__btn}
         onClick={() => setPopupContactIsOpen(true)}
         theme="promo"

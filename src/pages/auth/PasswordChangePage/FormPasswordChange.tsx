@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../../api/api';
-import { Button } from '../../../components/ui/Button/Button';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/constants';
 import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
@@ -109,7 +109,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
       </fieldset>
       <div className={s.filler} />
 
-      <Button
+      <RoundButton
         className={s.button}
         type="submit"
         theme="white"

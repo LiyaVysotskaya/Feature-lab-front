@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Main } from '../../../components/Main/Main';
-import { Button } from '../../../components/ui/Button/Button';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { ROUTE_LOGIN } from '../../../constants/routesConstants';
 import { FormRegister } from './FormRegister';
 import s from '../auth.module.scss';
@@ -38,7 +38,7 @@ export const RegisterPage: FC = () => {
               </p>
             </div>
 
-            <Button
+            <RoundButton
               type="button"
               theme="white"
               text="На главную"

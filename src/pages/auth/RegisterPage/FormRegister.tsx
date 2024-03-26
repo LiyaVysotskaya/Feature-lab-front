@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { Button } from '../../../components/ui/Button/Button';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 import {
@@ -214,7 +214,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
           </span>
         </div>
 
-        <Button
+        <RoundButton
           className={s.button}
           type="submit"
           theme="white"
