@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
 import cl from 'classnames';
+import React, { memo } from 'react';
 import s from './Text.module.scss';
 
-export type TextProps = {
+type TextProps = {
   children: React.ReactNode;
   className?: string;
   view?:

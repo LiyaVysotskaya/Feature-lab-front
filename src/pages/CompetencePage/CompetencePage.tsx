@@ -27,7 +27,11 @@ export const CompetencePage: FC = () => {
 
   return (
     <Main>
-      <PageTitle className={s.pageTitle} pageTitle={competence.name} subTitle="О компетенции" />
+      <PageTitle
+        className={s.pageTitle}
+        pageTitle={competence.name}
+        subTitle={competence.detailed_name}
+      />
 
       <LeadSection className={s.pageSection} data={leadSectionData} />
 

@@ -5,7 +5,7 @@ import { TProperty } from '../../types/data';
 import s from './LeadSection.module.scss';
 import { LeadSectionCards } from './LeadSectionCards/LeadSectionCards';
 
-export interface ILeadSectionProps {
+type IProps = {
   className?: string;
   data: {
     description: string;
@@ -15,9 +15,9 @@ export interface ILeadSectionProps {
     product_type: string;
     url: string;
   };
-}
+};
 
-export const LeadSection: FC<ILeadSectionProps> = ({ className = '', data }) => {
+export const LeadSection: FC<IProps> = ({ className = '', data }) => {
   return (
     <section className={cl(s.lead, className)}>
       <p className={cl(s.info)}>{data.description}</p>

@@ -2,13 +2,13 @@ import cl from 'classnames';
 import { FC } from 'react';
 import s from './LabCard.module.scss';
 
-interface ILabCardProps {
+type IProps = {
   className?: string;
   title: string;
   text: string;
-}
+};
 
-export const LabCard: FC<ILabCardProps> = ({ className = '', title, text }) => {
+export const LabCard: FC<IProps> = ({ className = '', title, text }) => {
   return (
     <article className={cl(s.card, className)}>
       <h3 className={cl(s.cardTitle)}>{title}</h3>

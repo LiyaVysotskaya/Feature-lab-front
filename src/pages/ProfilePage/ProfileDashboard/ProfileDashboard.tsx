@@ -7,11 +7,11 @@ import { Text } from '../../../components/ui/Text/Text';
 import { TProjectShortInfo } from '../../../types/data';
 import s from './ProfileDashboard.module.scss';
 
-interface IProfileDashboardProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const ProfileDashboard: FC<IProfileDashboardProps> = ({ className = '' }) => {
+export const ProfileDashboard: FC<IProps> = ({ className = '' }) => {
   const { data: projects, isLoading } = useProjectsQuery();
 
   if (isLoading || !projects) {

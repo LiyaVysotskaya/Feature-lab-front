@@ -18,7 +18,6 @@ import {
   ROUTE_RESET_PASSWORD,
   SUBROUTE_DASHBOARD,
   SUBROUTE_DOCS,
-  SUBROUTE_GAMEDEV,
   SUBROUTE_SETTINGS,
 } from './constants/routesConstants';
 import { CompetencePage } from './pages/CompetencePage/CompetencePage';
@@ -35,10 +34,10 @@ import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { ProfileProject } from './pages/ProfilePage/ProfileProject/ProfileProject';
 import { ProfileSettings } from './pages/ProfilePage/ProfileSettings/ProfileSettings';
 import { LoginPage } from './pages/auth/LoginPage/LoginPage';
+import { PasswordChangePage } from './pages/auth/PasswordChangePage/PasswordChangePage';
 import { PasswordResetPage } from './pages/auth/PasswordResetPage/PasswordResetPage';
 import { PasswordRestorePage } from './pages/auth/PasswordRestorePage/PasswordRestorePage';
 import { RegisterPage } from './pages/auth/RegisterPage/RegisterPage';
-import { PasswordChangePage } from './pages/auth/PasswordChangePage/PasswordChangePage';
 
 export const AppRouter: FC = () => {
   return (

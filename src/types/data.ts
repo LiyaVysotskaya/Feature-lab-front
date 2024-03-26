@@ -125,6 +125,7 @@ export type TProductFullInfo = {
   id: string;
   slug: string;
   name: string;
+  detailed_name: string;
   description: string;
   detailed_description: string;
   competence: string; // id
@@ -164,6 +165,7 @@ export type TCompetenceFullInfo = {
   id: string;
   slug: string;
   name: string;
+  detailed_name: string;
   description: string;
   detailed_description: string;
   description_on_main: string;

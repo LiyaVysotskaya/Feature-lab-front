@@ -8,16 +8,16 @@ import { v4 as uuidv4 } from 'uuid';
 import { TEmployee } from '../../types/data';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { CarouselBtn } from './CarouselBtn/CarouselBtn';
-import s from './TeamSliderSection.module.scss';
-import { TeamSlide } from './TeamSlide/TeamSlide';
 import { TeamGradientSlide } from './TeamGradientSlide/TeamGradientSlide';
+import { TeamSlide } from './TeamSlide/TeamSlide';
+import s from './TeamSliderSection.module.scss';
 
-interface TeamSliderSectionProps {
+type IProps = {
   className?: string;
   team: TEmployee[];
-}
+};
 
-export const TeamSliderSection: FC<TeamSliderSectionProps> = ({ className = '', team }) => {
+export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const responsive: ResponsiveType = {

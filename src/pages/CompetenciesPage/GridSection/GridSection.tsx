@@ -5,9 +5,9 @@ import { GridCard } from '../GridCard/GridCard';
 import { GridText } from '../GridText/GridText';
 import s from './GridSection.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
-}
+};
 
 export const GridSection: FC<IProps> = ({ className = '' }) => {
   const { data: competencies, isLoading } = useCompetenciesQuery();

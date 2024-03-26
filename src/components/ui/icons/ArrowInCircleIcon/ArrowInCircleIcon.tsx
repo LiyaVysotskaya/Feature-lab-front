@@ -2,12 +2,12 @@ import { FC, HTMLAttributes } from 'react';
 import cl from 'classnames';
 import s from './ArrowInCircleIcon.module.scss';
 
-interface ArrowInCircleIconProps extends HTMLAttributes<HTMLDivElement> {
+type IProps = {
   className?: string;
   reverse?: boolean;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
-export const ArrowInCircleIcon: FC<ArrowInCircleIconProps> = ({
+export const ArrowInCircleIcon: FC<IProps> = ({
   className = '',
   reverse = false,
   ...otherProps

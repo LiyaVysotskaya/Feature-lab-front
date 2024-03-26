@@ -1,7 +1,7 @@
-import { FC } from 'react';
 import cl from 'classnames';
-import { IconProps } from './Icon.types';
+import { FC } from 'react';
 import s from './Icon.module.scss';
+import { IconProps } from './Icon.types';
 
 const pathProperties: React.SVGProps<SVGPathElement> = {
   strokeWidth: '2',

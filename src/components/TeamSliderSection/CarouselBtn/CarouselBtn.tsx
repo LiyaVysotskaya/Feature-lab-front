@@ -3,11 +3,11 @@ import cl from 'classnames';
 import { ArrowInCircleIcon } from '../../ui/icons';
 import s from './CarouselBtn.module.scss';
 
-interface IProps {
+type IProps = {
   onClick?: () => void;
   customId?: string;
   direction?: 'left' | 'right';
-}
+};
 
 export const CarouselBtn: FC<IProps> = ({
   onClick = () => {},

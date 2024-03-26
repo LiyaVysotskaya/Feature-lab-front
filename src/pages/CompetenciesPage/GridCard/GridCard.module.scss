@@ -17,8 +17,9 @@
     font-size: 64px;
     font-weight: 300;
     font-style: normal;
-    line-height: 1; // 64px; /* 100% */
+    line-height: 1;
     color: var(--dark-blue, #002d63);
+    text-align: left;
 
     @media screen and (width <= 1080px) {
       font-size: 32px;

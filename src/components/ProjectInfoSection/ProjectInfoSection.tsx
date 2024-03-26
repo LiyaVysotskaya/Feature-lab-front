@@ -3,12 +3,12 @@ import { FC } from 'react';
 import { TProjectFullInfo } from '../../types/data';
 import s from './ProjectInfoSection.module.scss';
 
-interface IProjectInfoSectionProps {
+type IProps = {
   className?: string;
   project: TProjectFullInfo;
-}
+};
 
-export const ProjectInfoSection: FC<IProjectInfoSectionProps> = ({ className = '', project }) => {
+export const ProjectInfoSection: FC<IProps> = ({ className = '', project }) => {
   const manager = project.managers[0];
   const managerName = `${manager.first_name} ${manager.last_name}`;
 

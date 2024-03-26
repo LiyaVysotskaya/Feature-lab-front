@@ -6,17 +6,13 @@ import cl from 'classnames';
 import { FC } from 'react';
 import s from './HamburgerBtn.module.scss';
 
-export interface IHamburgerBtnProps {
+type IProps = {
   onClick?: () => void;
   isChecked: boolean;
   positionY: number;
-}
+};
 
-export const HamburgerBtn: FC<IHamburgerBtnProps> = ({
-  onClick = () => {},
-  isChecked,
-  positionY,
-}) => {
+export const HamburgerBtn: FC<IProps> = ({ onClick = () => {}, isChecked, positionY }) => {
   return (
     <div className={cl(s.burger)} style={{ top: 12 + positionY }}>
       <input

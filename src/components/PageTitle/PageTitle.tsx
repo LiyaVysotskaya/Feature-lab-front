@@ -3,13 +3,13 @@ import { FC, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import s from './PageTitle.module.scss';
 
-export interface IPageTitleProps {
+type IProps = {
   pageTitle: string;
   subTitle: string;
   className?: string;
-}
+};
 
-export const PageTitle: FC<IPageTitleProps> = ({ className = '', pageTitle, subTitle }) => {
+export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 

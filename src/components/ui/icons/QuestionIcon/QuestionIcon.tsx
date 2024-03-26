@@ -1,13 +1,13 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './QuestionIcon.module.scss';
 
-export interface QuestionIconProps {
+type IProps = {
   className?: string;
   onClick?: VoidFunction;
-}
+};
 
-export const QuestionIcon: FC<QuestionIconProps> = ({ className = '', onClick }) => {
+export const QuestionIcon: FC<IProps> = ({ className = '', onClick }) => {
   return (
     <div className={cl(s.questionIcon, className)} onClick={onClick}>
       <button className={cl(s.questionIcon__sign)} type="button">

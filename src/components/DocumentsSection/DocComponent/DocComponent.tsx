@@ -4,12 +4,12 @@ import { TDocument } from '../../../types/data';
 import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import s from './DocComponent.module.scss';
 
-interface IDocComponentProps {
+type IProps = {
   className?: string;
   doc: TDocument;
-}
+};
 
-export const DocComponent: FC<IDocComponentProps> = ({ className = '', doc }) => {
+export const DocComponent: FC<IProps> = ({ className = '', doc }) => {
   return (
     <li className={cl(s.doc, className)}>
       <div>

@@ -1,12 +1,12 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './CrossIcon.module.scss';
 
-export interface CrossIconProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const CrossIcon: FC<CrossIconProps> = ({ className = '' }) => {
+export const CrossIcon: FC<IProps> = ({ className = '' }) => {
   return (
     <div className={cl(s.crossIcon, className)}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

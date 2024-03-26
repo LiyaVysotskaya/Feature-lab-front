@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import s from './GridCard.module.scss';
 import { ROUTE_COMPETENCIES } from '../../../constants/routesConstants';
 
-interface IProps {
+type IProps = {
   className?: string;
   slug: string;
   title: string;
   text: string;
-}
+};
 
 export const GridCard: FC<IProps> = ({ className = '', title, text, slug }) => {
   const navigate = useNavigate();

@@ -7,12 +7,12 @@ import { ArrowFatRightIcon } from '../../ui/icons';
 import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
 import s from './ProfileProjectsNav.module.scss';
 
-interface IProfileProjectsNavProps {
+type IProps = {
   className?: string;
   projects: TProjectShortInfo[];
-}
+};
 
-export const ProfileProjectsNav: FC<IProfileProjectsNavProps> = ({ className = '', projects }) => {
+export const ProfileProjectsNav: FC<IProps> = ({ className = '', projects }) => {
   return (
     <ul className={cl(s.projects, className)}>
       {projects.map((item) => (

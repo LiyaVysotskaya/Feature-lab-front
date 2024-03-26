@@ -1,12 +1,12 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './Socials.module.scss';
 
-export interface TelegramIconProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const WhatsupIcon: FC<TelegramIconProps> = ({ className = '' }) => {
+export const WhatsupIcon: FC<IProps> = ({ className = '' }) => {
   return (
     <div className={cl(s.icon, className && className)}>
       <svg

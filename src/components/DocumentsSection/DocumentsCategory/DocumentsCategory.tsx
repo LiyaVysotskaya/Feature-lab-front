@@ -5,13 +5,13 @@ import s from './DocumentsCategory.module.scss';
 import { DocComponent } from '../DocComponent/DocComponent';
 import { TDocument } from '../../../types/data';
 
-interface IDocumentsCategoryProps {
+type IProps = {
   className?: string;
   title: string;
   docs: TDocument[];
-}
+};
 
-export const DocumentsCategory: FC<IDocumentsCategoryProps> = ({ className = '', title, docs }) => {
+export const DocumentsCategory: FC<IProps> = ({ className = '', title, docs }) => {
   return (
     <li className={cl(s.category, className)} key={uuidv4()}>
       <h3 className={s.categoryTitle}>{title}</h3>
