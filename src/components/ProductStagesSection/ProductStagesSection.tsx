@@ -6,10 +6,10 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { ProductStage } from './ProductStage/ProductStage';
 import s from './ProductStagesSection.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
   stages: TProductStage[];
-}
+};
 
 export const ProductStagesSection: FC<IProps> = ({ className = '', stages }) => {
   // Sort stages by phase_num

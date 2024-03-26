@@ -6,11 +6,11 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './LabSection.module.scss';
 
-export interface ILabSectionProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const LabSection: FC<ILabSectionProps> = ({ className = '' }) => {
+export const LabSection: FC<IProps> = ({ className = '' }) => {
   const handleOnBtnClick = () => {
     window.open(LAB_PROJECT_URL, '_blank');
   };

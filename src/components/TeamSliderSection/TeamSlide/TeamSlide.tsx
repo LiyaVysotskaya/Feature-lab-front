@@ -4,10 +4,10 @@ import 'react-multi-carousel/lib/styles.css';
 import { TEmployee } from '../../../types/data';
 import s from './TeamSlide.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
   person: TEmployee;
-}
+};
 
 export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
   const [isGrey, setIsGrey] = useState(false);

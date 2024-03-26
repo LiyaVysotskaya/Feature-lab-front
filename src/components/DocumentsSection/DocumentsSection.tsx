@@ -2,16 +2,16 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TDocument } from '../../types/data';
-import s from './DocumentsSection.module.scss';
 import { DocumentsCategory } from './DocumentsCategory/DocumentsCategory';
+import s from './DocumentsSection.module.scss';
 
-interface IDocumentsSectionProps {
+type IProps = {
   className?: string;
   title: string;
   docs: TDocument[];
-}
+};
 
-export const DocumentsSection: FC<IDocumentsSectionProps> = ({ className = '', title, docs }) => {
+export const DocumentsSection: FC<IProps> = ({ className = '', title, docs }) => {
   // Group documents by their doctype
   const docCategories = docs.reduce(
     (acc, doc) => {

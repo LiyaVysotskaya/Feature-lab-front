@@ -4,9 +4,9 @@ import 'react-multi-carousel/lib/styles.css';
 import { useLocation } from 'react-router-dom';
 import s from './TeamGradientSlide.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
-}
+};
 
 export const TeamGradientSlide: FC<IProps> = ({ className = '' }) => {
   const [isGrey, setIsGrey] = useState(false);

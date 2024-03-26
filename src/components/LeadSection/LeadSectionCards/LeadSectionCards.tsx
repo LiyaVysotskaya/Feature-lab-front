@@ -5,17 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { TProperty } from '../../../types/data';
 import s from './LeadSectionCards.module.scss';
 
-interface ILeadSectionCardsProps {
+type IProps = {
   properties: TProperty[];
   url: string;
   productType?: string;
-}
+};
 
-export const LeadSectionCards: FC<ILeadSectionCardsProps> = ({
-  properties,
-  url = '',
-  productType = '',
-}) => {
+export const LeadSectionCards: FC<IProps> = ({ properties, url = '', productType = '' }) => {
   return (
     <ul className={cl(s.cards)}>
       {productType && url && (

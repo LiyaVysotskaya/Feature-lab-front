@@ -7,17 +7,13 @@ import { ROUTE_PRODUCTS } from '../../constants/routesConstants';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import s from './ProductsSection.module.scss';
 
-export interface IProductsSectionProps {
+type IProps = {
   className?: string;
   title: string;
   competenceId?: string;
-}
+};
 
-export const ProductsSection: FC<IProductsSectionProps> = ({
-  className = '',
-  title,
-  competenceId = '',
-}) => {
+export const ProductsSection: FC<IProps> = ({ className = '', title, competenceId = '' }) => {
   const { data: products, isLoading } = useProductsQuery();
 
   if (isLoading || !products) {

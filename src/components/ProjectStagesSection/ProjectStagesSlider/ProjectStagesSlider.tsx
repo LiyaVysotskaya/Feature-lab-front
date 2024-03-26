@@ -7,13 +7,13 @@ import { ArrowInCircleIcon } from '../../ui/icons';
 import { ProjectStage } from '../ProjectStage/ProjectStage';
 import s from './ProjectStagesSlider.module.scss';
 
-interface IProjectStagesSliderProps {
+type IProps = {
   className?: string;
   setCurrentStage: (stage: TProjectStage) => void;
   projectStages: TProjectStage[];
-}
+};
 
-export const ProjectStagesSlider: FC<IProjectStagesSliderProps> = ({
+export const ProjectStagesSlider: FC<IProps> = ({
   className = '',
   setCurrentStage,
   projectStages,

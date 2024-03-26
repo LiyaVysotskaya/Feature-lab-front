@@ -9,10 +9,10 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { ArrowInCircleIcon, SpinnerIcon } from '../ui/icons';
 import s from './ProductSliderSection.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
   imgLinks: TProductImg[];
-}
+};
 
 export const ProductSliderSection: FC<IProps> = ({ className = '', imgLinks }) => {
   const [currentSlide, setCurrentSlide] = useState(0);

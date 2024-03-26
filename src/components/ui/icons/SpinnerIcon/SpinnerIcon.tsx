@@ -1,13 +1,13 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './SpinnerIcon.module.scss';
 
-interface SpinnerIconProps {
+type IProps = {
   className?: string;
   theme?: 'white' | 'blue';
-}
+};
 
-export const SpinnerIcon: FC<SpinnerIconProps> = ({ theme = 'blue', className = '' }) => {
+export const SpinnerIcon: FC<IProps> = ({ theme = 'blue', className = '' }) => {
   return (
     <div className={cl(s.spinnerIcon, className, theme && s[`spinnerIcon__${theme}`])}>
       <svg

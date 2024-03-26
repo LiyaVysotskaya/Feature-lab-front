@@ -4,11 +4,11 @@ import { PopupContact } from '../PopupContact/PopupContact';
 import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './PromoSection.module.scss';
 
-export interface IPromoProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const PromoSection: FC<IPromoProps> = ({ className = '' }) => {
+export const PromoSection: FC<IProps> = ({ className = '' }) => {
   const [isPopupContactOpen, setPopupContactIsOpen] = useState(false);
 
   const closePopupContactPopups = () => {

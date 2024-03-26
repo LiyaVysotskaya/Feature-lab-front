@@ -6,12 +6,12 @@ import { useCompetenciesQuery } from '../../../api/queries';
 import { ROUTE_COMPETENCIES } from '../../../constants/routesConstants';
 import s from './MobileSubMenu.module.scss';
 
-interface Props {
+type IProps = {
   className?: string;
   isVisible: boolean;
-}
+};
 
-export const CompetenciesMobSubMenu: FC<Props> = ({ className = '', isVisible }) => {
+export const CompetenciesMobSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
   const { data: competencies, isLoading } = useCompetenciesQuery();
 
   if (isLoading || !competencies) {

@@ -6,12 +6,12 @@ import { useProductsQuery } from '../../../api/queries';
 import { ROUTE_PRODUCTS } from '../../../constants/routesConstants';
 import s from './SubMenu.module.scss';
 
-interface Props {
+type IProps = {
   className?: string;
   isVisible: boolean;
-}
+};
 
-export const ProductsSubMenu: FC<Props> = ({ className = '', isVisible }) => {
+export const ProductsSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
   const { data: products, isLoading } = useProductsQuery();
 
   if (isLoading || !products) {

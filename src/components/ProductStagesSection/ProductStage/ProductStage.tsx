@@ -5,11 +5,11 @@ import { TProductStage } from '../../../types/data';
 import { PlusIcon } from '../../ui/icons';
 import s from './ProductStage.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
   stage: TProductStage;
   stageNum: number;
-}
+};
 
 export const ProductStage: FC<IProps> = ({ stageNum, stage, className = '' }) => {
   const [isActive, setIsActive] = useState(false);

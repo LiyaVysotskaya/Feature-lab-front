@@ -1,13 +1,13 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './Ellipse.module.scss';
 
-type EllipseIconProps = {
+type IProps = {
   status: 'completed' | 'in_progress' | 'new';
   className?: string;
 };
 
-export const EllipseIcon: FC<EllipseIconProps> = ({ className = '', status }) => {
+export const EllipseIcon: FC<IProps> = ({ className = '', status }) => {
   return (
     <div className={cl(s.circle, className)}>
       <svg

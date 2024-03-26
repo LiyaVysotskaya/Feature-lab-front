@@ -5,17 +5,14 @@ import { CurrentStage } from './CurrentStage/CurrentStage';
 import { ProjectStagesSlider } from './ProjectStagesSlider/ProjectStagesSlider';
 import s from './ProjectStagesSection.module.scss';
 
-interface IProjectStagesProps {
+type IProps = {
   className?: string;
   projectStages: TProjectStage[];
-}
+};
 
-export const ProjectStagesSection: FC<IProjectStagesProps> = ({
-  className = '',
-  projectStages,
-}) => {
+export const ProjectStagesSection: FC<IProps> = ({ className = '', projectStages }) => {
   const [currentStage, setCurrentStage] = useState<TProjectStage>({
-    id: 0,
+    id: '',
     name: '',
     description: '',
     stage_num: 0,

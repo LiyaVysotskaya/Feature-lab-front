@@ -1,12 +1,12 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './LogoIcon.module.scss';
 
-export interface LogoIconProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const LogoIcon: FC<LogoIconProps> = ({ className = '' }) => {
+export const LogoIcon: FC<IProps> = ({ className = '' }) => {
   return (
     <div className={cl(s.logoIcon, className)}>
       <svg
