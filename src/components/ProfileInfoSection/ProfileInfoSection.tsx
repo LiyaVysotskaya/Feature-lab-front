@@ -18,7 +18,7 @@ export const ProfileInfoSection: FC<IProps> = ({ className = '' }) => {
 
   const profile: Record<string, string> = {
     'Юридическое лицо': userProfile.company_name,
-    ФИО: `${userProfile.first_name} ${userProfile.last_name}`,
+    ФИО: `${userProfile.first_name} ${userProfile.middle_name} ${userProfile.last_name}`,
     Должность: userProfile.position,
     Телефон: userProfile.phone_number,
     Email: userProfile.email,
