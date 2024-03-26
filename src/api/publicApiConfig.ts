@@ -1,17 +1,16 @@
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import { API_BASE_URL } from '../constants/externalLinks';
 import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import { EMAIL_ALREADY_EXISTS, NO_ACTIVE_ACCOUNT } from '../constants/errors';
+import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
 
-const toastOption = {
-  position: toast.POSITION.BOTTOM_CENTER,
-  autoClose: 3000,
-};
-const notifyAuthError = () => toast('Ошибка авторизации', toastOption);
+const notifyAuthError = () =>
+  InfoToastContainer(
+    'ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь ОченьбольшойПыщь-пыщь',
+  );
 const notifyEmailAlreadyExists = () =>
-  toast('Пользователь с таким email уже существует', toastOption);
+  InfoToastContainer('Пользователь с таким email уже существует');
 
 // Create an instance of axios for API requests that dont need access token
 export const publicAPI = axios.create({

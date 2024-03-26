@@ -1,16 +1,6 @@
-.toastContainer {
-  width: auto;
-
-  @media screen and (width <= 480px) {
-    bottom: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
 .infoToast {
   --toastify-font-family: 'GOST type B', sans-serif;
-  --toastify-text-color-light: var(--dark-blue, #002d63);
+  --toastify-text-color-light: var(--error, #bf1700);
 
   display: flex;
   gap: 44px;
@@ -24,20 +14,21 @@
   box-shadow: 0 10px 20px 0 rgb(0 45 99 / 30%);
 
   &Body {
-    width: max-content;
+    width: 20vw;
     margin: 0;
     padding: 0;
 
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 400;
     font-style: normal;
     line-height: 1.17; // 28px; /* 116.667% */
+    text-align: center;
+    text-wrap: wrap;
 
     @media screen and (width <= 730px) {
       width: 180px;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1; // 14px; /* 100% */
-      text-wrap: wrap;
     }
   }
 

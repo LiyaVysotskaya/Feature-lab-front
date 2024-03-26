@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 import axios, { AxiosRequestConfig } from 'axios';
-import { toast } from 'react-toastify';
 import { API_BASE_URL } from '../constants/externalLinks';
 import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
@@ -11,6 +10,7 @@ import {
   setStoredAccessToken,
   setStoredRefreshToken,
 } from '../utils/localStorageHelpers';
+import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
 
 type CustomAxiosRequestConfig = AxiosRequestConfig & {
   _retry?: boolean; // Add custom _retry field
@@ -18,11 +18,7 @@ type CustomAxiosRequestConfig = AxiosRequestConfig & {
 
 let retry = 3; // Number of retry attempts for refreshing tokens
 
-const toastOption = {
-  position: toast.POSITION.BOTTOM_CENTER,
-  autoClose: 3000,
-};
-const notifyAuthError = () => toast('Ошибка авторизации', toastOption);
+const notifyAuthError = () => InfoToastContainer('Пыщь пыщь');
 
 // Create an instance of axios for API requests requiring a access token
 export const privateAPI = axios.create({
