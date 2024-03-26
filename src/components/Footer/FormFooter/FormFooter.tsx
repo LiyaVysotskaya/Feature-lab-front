@@ -12,10 +12,10 @@ import {
   NAME_REG_EX,
 } from '../../../constants/constants';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
-import { Button } from '../../ui/Button/Button';
+import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
+import { RoundButton } from '../../ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
 import s from './FormFooter.module.scss';
-import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 
 export const FormFooter: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
@@ -164,7 +164,7 @@ export const FormFooter: FC = () => {
           </div>
         </div>
 
-        <Button
+        <RoundButton
           className={s.footerButton}
           type="submit"
           theme="blue"

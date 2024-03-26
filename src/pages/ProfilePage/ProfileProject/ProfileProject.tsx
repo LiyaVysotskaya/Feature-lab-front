@@ -8,11 +8,11 @@ import { ProjectInfoSection } from '../../../components/ProjectInfoSection/Proje
 import { ProjectStagesSection } from '../../../components/ProjectStagesSection/ProjectStagesSection';
 import s from './ProfileProject.module.scss';
 
-interface IProfileProjectProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const ProfileProject: FC<IProfileProjectProps> = ({ className = '' }) => {
+export const ProfileProject: FC<IProps> = ({ className = '' }) => {
   const { projectId } = useParams();
   const { data: project, isLoading, isRefetching } = useProjectQuery(projectId);
 

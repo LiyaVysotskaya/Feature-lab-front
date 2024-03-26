@@ -2,10 +2,10 @@ import cl from 'classnames';
 import { FC } from 'react';
 import s from './GridText.module.scss';
 
-interface IProps {
+type IProps = {
   className?: string;
   text: string;
-}
+};
 
 export const GridText: FC<IProps> = ({ className = '', text }) => {
   return <p className={cl(s.labText, className)}>{text}</p>;

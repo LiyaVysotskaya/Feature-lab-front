@@ -1,16 +1,16 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { LAB_PROJECT_URL } from '../../constants/companyDetails';
+import { LAB_PROJECT_URL } from '../../constants/externalLinks';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-import { Button } from '../ui/Button/Button';
+import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './LabSection.module.scss';
 
-export interface ILabSectionProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const LabSection: FC<ILabSectionProps> = ({ className = '' }) => {
+export const LabSection: FC<IProps> = ({ className = '' }) => {
   const handleOnBtnClick = () => {
     window.open(LAB_PROJECT_URL, '_blank');
   };
@@ -56,7 +56,7 @@ export const LabSection: FC<ILabSectionProps> = ({ className = '' }) => {
             </p>
           </li>
         </ul>
-        <Button
+        <RoundButton
           theme="white"
           text="Лаборатория"
           className={cl(s.labButton)}

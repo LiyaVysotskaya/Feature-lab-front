@@ -4,11 +4,11 @@ import { LabCard } from '../LabCard/LabCard';
 import { LabText } from '../LabText/LabText';
 import s from './LabTopGridSection.module.scss';
 
-interface ILabTopGridSectionProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const LabTopGridSection: FC<ILabTopGridSectionProps> = ({ className = '' }) => {
+export const LabTopGridSection: FC<IProps> = ({ className = '' }) => {
   return (
     <section className={cl(s.section, className)}>
       <h2 className={cl(s.sectionTitle, s.gridArea_title)}>

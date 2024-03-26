@@ -1,6 +1,3 @@
-// links to external sources
-export const LAB_PROJECT_URL = 'https://github.com/LiyaVysotskaya/Feature-lab-front';
-
 // contacts
 export const SOCIAL_TELEGRAM_URL = 'https://t.me/FeatureLab';
 export const COMPANY_ADDRESS_FIRST_RAW = '127018, г. Москва,';

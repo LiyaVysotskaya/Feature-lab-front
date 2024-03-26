@@ -1,12 +1,13 @@
 import cl from 'classnames';
 import { FC, FormEvent, useState } from 'react';
-import { Button } from '../../../components/ui/Button/Button';
+import { postChangedPassword } from '../../../api/api';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/constants';
+import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
-import { postChangedPassword } from '../../../api/api';
 
 type IProps = {
   responseToSuccessfulSumbit: (newPassword: string) => void;
@@ -71,7 +72,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             })}>
             <span className={cl(s.inputError)}>{errors.currentPassword}</span>
           </div>
-          <InfoTooltip content="Ололо">
+          <InfoTooltip content={PASSWORD_HINT_TEXT}>
             <QuestionIcon className={s.hintIcon} />
           </InfoTooltip>
         </div>
@@ -101,14 +102,14 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             })}>
             <span className={cl(s.inputError)}>{errors.newPassword}</span>
           </div>
-          <InfoTooltip content="Ололо">
+          <InfoTooltip content={PASSWORD_HINT_TEXT}>
             <QuestionIcon className={s.hintIcon} />
           </InfoTooltip>
         </div>
       </fieldset>
       <div className={s.filler} />
 
-      <Button
+      <RoundButton
         className={s.button}
         type="submit"
         theme="white"

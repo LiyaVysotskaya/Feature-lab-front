@@ -8,11 +8,11 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { PlusIcon } from '../ui/icons';
 import s from './CompetenciesSection.module.scss';
 
-export interface ICompetenciesSectionProps {
+export type IProps = {
   className?: string;
-}
+};
 
-export const CompetenciesSection: FC<ICompetenciesSectionProps> = ({ className = '' }) => {
+export const CompetenciesSection: FC<IProps> = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const handlePlusBtnClick = (url: string) => {

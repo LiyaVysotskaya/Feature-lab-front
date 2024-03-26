@@ -8,12 +8,12 @@ import { convertDateToShortFormat } from '../../utils/dateConvertHelpers';
 import { ProgressCircle } from './ProgressCircle/ProgressCircle';
 import s from './ProjectCard.module.scss';
 
-interface ProjectCardProps {
+type IProps = {
   className?: string;
   project: TProjectShortInfo;
-}
+};
 
-export const ProjectCard: FC<ProjectCardProps> = ({ className = '', project }) => {
+export const ProjectCard: FC<IProps> = ({ className = '', project }) => {
   const navigate = useNavigate();
   const { stages } = project;
 

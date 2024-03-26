@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import cl from 'classnames';
+import { FC } from 'react';
 import s from './Icon.module.scss';
 import { IconProps } from './Icon.types';
 

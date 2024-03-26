@@ -6,11 +6,11 @@ import { useUserProfileQuery } from '../../api/queries';
 import { ROUTE_CHANGE_PASSWORD } from '../../constants/routesConstants';
 import s from './ProfileInfoSection.module.scss';
 
-export interface IProductsSectionProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const ProfileInfoSection: FC<IProductsSectionProps> = ({ className = '' }) => {
+export const ProfileInfoSection: FC<IProps> = ({ className = '' }) => {
   const { data: userProfile } = useUserProfileQuery();
   const navigate = useNavigate();
 

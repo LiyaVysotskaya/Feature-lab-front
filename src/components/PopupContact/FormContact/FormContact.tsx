@@ -12,11 +12,10 @@ import {
   NAME_REG_EX,
 } from '../../../constants/constants';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
-import { Button } from '../../ui/Button/Button';
-import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
-
-import s from './FormContact.module.scss';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
+import { RoundButton } from '../../ui/RoundButton/RoundButton';
+import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
+import s from './FormContact.module.scss';
 
 export const FormContact: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
@@ -100,7 +99,7 @@ export const FormContact: FC = () => {
             />
             <div className={s.textContainer}>
               <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-              <span className={cl(s.textClue)}>Имя</span>
+              <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
             </div>
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
               <span className={cl(s.inputError)}>{errors.name}</span>
@@ -114,7 +113,7 @@ export const FormContact: FC = () => {
               value={values.email}
               onChange={onInputChange}
               name="email"
-              type="email"
+              type="text"
               placeholder="Email / телефон"
               minLength={MIN_LENGTH_EMAIL}
               maxLength={MAX_LENGTH_EMAIL}
@@ -181,7 +180,7 @@ export const FormContact: FC = () => {
           </div>
         </div>
 
-        <Button
+        <RoundButton
           className={s.button}
           type="submit"
           theme="white"

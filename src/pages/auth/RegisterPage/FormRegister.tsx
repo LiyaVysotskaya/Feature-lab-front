@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
-import { Button } from '../../../components/ui/Button/Button';
+import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 import {
@@ -12,7 +12,7 @@ import {
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/constants';
-import { passwordHintText } from '../../../constants/tooltipContent';
+import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
@@ -121,7 +121,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
               <span className={cl(s.inputError)}>{errors.email}</span>
             </div>
-            <InfoTooltip content="Ололо">
+            <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
@@ -147,7 +147,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               <span className={cl(s.inputError)}>{errors.password}</span>
             </div>
 
-            <InfoTooltip content={passwordHintText}>
+            <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
@@ -179,7 +179,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               })}>
               <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
             </div>
-            <InfoTooltip content="Пыщь пыщь">
+            <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
             </InfoTooltip>
           </div>
@@ -214,7 +214,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
           </span>
         </div>
 
-        <Button
+        <RoundButton
           className={s.button}
           type="submit"
           theme="white"

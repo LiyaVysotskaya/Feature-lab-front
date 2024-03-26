@@ -1,14 +1,15 @@
+import { FC } from 'react';
 import Overlay from '../Overlay/Overlay';
 import { Text } from '../ui/Text/Text';
 import { CrossIcon } from '../ui/icons';
 import s from './PopupFeedback.module.scss';
 
-interface PopupFeedbackProps {
+type IProps = {
   onClose: () => void;
   isOpen: boolean;
-}
+};
 
-export const PopupFeedback: React.FC<PopupFeedbackProps> = ({ isOpen, onClose }) => {
+export const PopupFeedback: FC<IProps> = ({ isOpen, onClose }) => {
   return (
     <Overlay onClose={onClose} isOpen={isOpen}>
       <div className={s.popupFeedback}>

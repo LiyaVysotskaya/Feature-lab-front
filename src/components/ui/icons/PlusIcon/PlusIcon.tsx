@@ -1,12 +1,12 @@
-import { FC, useState } from 'react';
 import cl from 'classnames';
+import { FC, useState } from 'react';
 import s from './PlusIcon.module.scss';
 
-interface PlusIconProps {
+type IProps = {
   className?: string;
-}
+};
 
-export const PlusIcon: FC<PlusIconProps> = ({ className = '' }) => {
+export const PlusIcon: FC<IProps> = ({ className = '' }) => {
   const [isPressed, setIsPressed] = useState<boolean>();
 
   const handleClick = () => {

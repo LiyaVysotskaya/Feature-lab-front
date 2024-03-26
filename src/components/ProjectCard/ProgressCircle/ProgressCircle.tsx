@@ -4,14 +4,14 @@ import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-pro
 import { Text } from '../../ui/Text/Text';
 import s from './ProgressCircle.module.scss';
 
-interface ProgressCircleProps {
+type IProps = {
   className?: string;
   stagesInProgress: number;
   stagesCompleted: number;
   max: number;
-}
+};
 
-export const ProgressCircle: FC<ProgressCircleProps> = ({
+export const ProgressCircle: FC<IProps> = ({
   className = '',
   stagesCompleted,
   stagesInProgress,
