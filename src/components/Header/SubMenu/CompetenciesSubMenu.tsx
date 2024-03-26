@@ -1,8 +1,10 @@
 import cl from 'classnames';
-import { FC } from 'react';
+import { useAtom } from 'jotai';
+import { FC, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { useCompetenciesQuery } from '../../../api/queries';
+import { isCompetenciesLoadingAtom } from '../../../atoms/isLoadingAtom';
 import { ROUTE_COMPETENCIES } from '../../../constants/routesConstants';
 import s from './SubMenu.module.scss';
 
@@ -12,9 +14,15 @@ type IProps = {
 };
 
 export const CompetenciesSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
-  const { data: competencies, isLoading } = useCompetenciesQuery();
+  const { data: competencies, isLoading: isDataLoading } = useCompetenciesQuery();
+  const [isCompetenciesLoading, setIsLoading] = useAtom(isCompetenciesLoadingAtom);
 
-  if (isLoading || !competencies) {
+  useEffect(() => {
+    setIsLoading(isDataLoading);
+    console.log('isCompetenciesLoading : ', isCompetenciesLoading);
+  }, [isDataLoading, setIsLoading, isCompetenciesLoading]);
+
+  if (isDataLoading || !competencies) {
     return null;
   }
 

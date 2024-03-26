@@ -1,19 +1,27 @@
-import { FC } from 'react';
+import { useAtom } from 'jotai';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useProductQuery } from '../../api/queries';
+import { isProductLoadingAtom } from '../../atoms/isLoadingAtom';
 import { LeadSection } from '../../components/LeadSection/LeadSection';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { ProductSliderSection } from '../../components/ProductSliderSection/ProductSliderSection';
 import { ProductStagesSection } from '../../components/ProductStagesSection/ProductStagesSection';
 import s from './ProductPage.module.scss';
-import { useProductQuery } from '../../api/queries';
 
 export const ProductPage: FC = () => {
   const { productSlug } = useParams();
+  const [isProductLoading, setIsLoading] = useAtom(isProductLoadingAtom);
 
-  const { data: product, isLoading, isRefetching } = useProductQuery(productSlug);
+  const { data: product, isLoading: isDataLoading, isRefetching } = useProductQuery(productSlug);
 
-  if (isLoading || isRefetching || !product) {
+  useEffect(() => {
+    setIsLoading(isDataLoading);
+    console.log('isProductLoading : ', isProductLoading);
+  }, [isDataLoading, setIsLoading, isProductLoading]);
+
+  if (isDataLoading || isRefetching || !product) {
     return null;
   }
 
