@@ -1,14 +1,3 @@
-type TGeneralApiResponse = {
-  count: number;
-  next: null | string;
-  previous: null | string;
-};
-
-export type GetAuthResponse = {
-  access: string;
-  refresh: string;
-};
-
 export type TUserProfile = {
   id: string;
   first_name: string;
@@ -19,33 +8,6 @@ export type TUserProfile = {
   phone_number: string;
   company_name: string;
   position: string;
-};
-
-export type GetUserProfileResponse = TGeneralApiResponse & {
-  results: TUserProfile[];
-};
-
-export type PostRegDataResponse = {
-  id: string;
-  email: string;
-};
-
-export type PostChangedPasswordResponse = {};
-
-// forms data
-export type RegFormData = {
-  email: string;
-  password: string;
-};
-
-export type LoginFormData = {
-  email: string;
-  password: string;
-};
-
-export type TChangedPwdData = {
-  current_password: string;
-  new_password: string;
 };
 
 export type TProjectStage = {
@@ -64,16 +26,6 @@ export type TManager = {
   last_name: string;
   email: string;
   phone_number: string;
-};
-
-export type TProjectShortInfo = {
-  id: string;
-  name: string;
-  stages_count: number;
-  end_date: string;
-  current_stage: TProjectStage;
-  manager: TManager;
-  stages: TProjectStage[];
 };
 
 export type TDocument = {
@@ -108,8 +60,14 @@ export type TProjectFullInfo = {
   properties: TProperty[];
 };
 
-export type GetUserProjectsListResponse = TGeneralApiResponse & {
-  results: TProjectShortInfo[];
+export type TProjectShortInfo = {
+  id: string;
+  name: string;
+  stages_count: number;
+  end_date: string;
+  current_stage: TProjectStage;
+  manager: TManager;
+  stages: TProjectStage[];
 };
 
 export type TProductStage = {
@@ -182,8 +140,4 @@ export type TCompetenceShortInfo = {
   description: string;
   description_on_main: string;
   priority: number;
-};
-
-export type TGetAllCompetenciesResponse = TGeneralApiResponse & {
-  results: TCompetenceShortInfo[];
 };
