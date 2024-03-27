@@ -2,8 +2,8 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TProperty } from '../../types/data';
-import s from './LeadSection.module.scss';
 import { LeadSectionCards } from './LeadSectionCards/LeadSectionCards';
+import s from './LeadSection.module.scss';
 
 type IProps = {
   className?: string;
@@ -11,6 +11,7 @@ type IProps = {
     description: string;
     detailed_description: string;
     properties: TProperty[];
+
     // if it is a product
     product_type: string;
     url: string;
