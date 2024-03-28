@@ -26,10 +26,10 @@
   --primary-color: var(--dark-blue);
   --secondary-color: var(--dark-blue-50);
 
-  position: fixed;
+  position: absolute;
   z-index: 10;
-  top: 50vh;
-  left: 50vw;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 
   display: flex;

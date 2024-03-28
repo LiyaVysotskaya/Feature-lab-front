@@ -12,6 +12,10 @@ type IProps = {
 };
 
 export const DocumentsSection: FC<IProps> = ({ className = '', title, docs }) => {
+  if (docs.length === 0) {
+    return null;
+  }
+
   // Group documents by their doctype
   const docCategories = docs.reduce(
     (acc, doc) => {

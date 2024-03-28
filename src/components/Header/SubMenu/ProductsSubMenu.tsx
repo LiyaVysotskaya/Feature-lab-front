@@ -1,10 +1,8 @@
 import cl from 'classnames';
-import { useAtom } from 'jotai';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { useProductsQuery } from '../../../api/queries';
-import { isProductsLoadingAtom } from '../../../atoms/isLoadingAtom';
 import { ROUTE_PRODUCTS } from '../../../constants/routesConstants';
 import s from './SubMenu.module.scss';
 
@@ -14,15 +12,9 @@ type IProps = {
 };
 
 export const ProductsSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
-  const { data: products, isLoading: isDataLoading } = useProductsQuery();
-  const [isProductsLoading, setIsLoading] = useAtom(isProductsLoadingAtom);
+  const { data: products, isLoading: isLoadingProducts } = useProductsQuery();
 
-  useEffect(() => {
-    setIsLoading(isDataLoading);
-    console.log('isProductsLoading : ', isProductsLoading);
-  }, [isDataLoading, setIsLoading, isProductsLoading]);
-
-  if (isDataLoading || !products) {
+  if (isLoadingProducts || !products) {
     return null;
   }
 

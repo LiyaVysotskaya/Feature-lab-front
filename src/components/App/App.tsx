@@ -1,28 +1,23 @@
+import { useIsFetching } from '@tanstack/react-query';
 import { useAtom } from 'jotai';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useUserProfileQuery } from '../../api/queries';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
-import { isLoadingAtom } from '../../atoms/isLoadingAtom';
 import { AppRouter } from '../../router';
 import Footer from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
-import Preloader from '../Preloader/Preloader';
 import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
 import s from './App.module.scss';
 
 const App: React.FC = () => {
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = useState(false);
   const [, setIsAuth] = useAtom(isAuthAtom);
-  const [isLoading] = useAtom(isLoadingAtom);
+  const isFetching = useIsFetching();
   const { pathname } = useLocation();
 
   const { data: userData } = useUserProfileQuery();
-
-  useEffect(() => {
-    console.log('isLoading : ', isLoading);
-  }, [isLoading]);
 
   useEffect(() => {
     if (userData) {
@@ -43,8 +38,7 @@ const App: React.FC = () => {
       <Header />
       <AppRouter />
       <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
-      {!isLoading && <Footer />}
-      {isLoading && <Preloader />}
+      {isFetching !== 0 && <Footer />}
       <CookiesToastContainer />
     </div>
   );

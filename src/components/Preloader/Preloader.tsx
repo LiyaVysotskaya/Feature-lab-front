@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import s from './Preloader.module.scss';
 
-const Preloader: FC = () => {
+export const Preloader: FC = () => {
   return (
     <div className={s.preloader}>
       <div className={s.preloader__container}>
@@ -10,5 +10,3 @@ const Preloader: FC = () => {
     </div>
   );
 };
-
-export default Preloader;
