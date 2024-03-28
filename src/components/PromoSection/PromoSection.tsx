@@ -20,7 +20,7 @@ export const PromoSection: FC<IProps> = ({ className = '' }) => {
       <div className={s.bg_blue} />
 
       <h1 className={s.title}>фичлаб</h1>
-      <div className={s.divider} />
+      {/* <div className={s.divider} /> */}
 
       <div className={s.headlines}>
         <p className={s.headline}>Разрабатываем IT&#8209;проекты любой сложности</p>
