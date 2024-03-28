@@ -15,6 +15,7 @@
 
   &Body {
     width: 20vw;
+    min-width: min-content;
     margin: 0;
     padding: 0;
 
@@ -23,7 +24,6 @@
     font-style: normal;
     line-height: 1.17; // 28px; /* 116.667% */
     text-align: center;
-    text-wrap: wrap;
 
     @media screen and (width <= 730px) {
       width: 180px;
