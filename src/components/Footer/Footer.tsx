@@ -47,26 +47,26 @@ const Footer: FC = () => {
       </div>
 
       <div className={s.basementContainer}>
-        <div className={s.firstContainer}>
-          <p className={s.basementElement}>
-            {COMPANY_ADDRESS_FIRST_RAW}
-            <br />
-            {COMPANY_ADDRESS_SECOND_RAW}
-            <br />
-            {COMPANY_ADDRESS_THIRD_RAW}
-          </p>
-          <p className={s.basementElement}>
-            {COMPANY_NAME}
-            <br />
-            {COMPANY_INN}
-            <br />
-            {COMPANY_KPP}
-          </p>
-        </div>
-        <div className={s.secondContainer}>
-          <p className={s.basementElement}>{COMPANY_EMAIL}</p>
-          <p className={s.basementElement}>{COMPANY_PHONE}</p>
-        </div>
+        {/* <div className={s.firstContainer}> */}
+        <p className={s.basementElement}>
+          {COMPANY_ADDRESS_FIRST_RAW}
+          <br />
+          {COMPANY_ADDRESS_SECOND_RAW}
+          <br />
+          {COMPANY_ADDRESS_THIRD_RAW}
+        </p>
+        <p className={s.basementElement}>
+          {COMPANY_NAME}
+          <br />
+          {COMPANY_INN}
+          <br />
+          {COMPANY_KPP}
+        </p>
+        {/* </div> */}
+        {/* <div className={s.secondContainer}> */}
+        <p className={s.basementElement}>{COMPANY_EMAIL}</p>
+        <p className={s.basementElement}>{COMPANY_PHONE}</p>
+        {/* </div> */}
       </div>
     </footer>
   );

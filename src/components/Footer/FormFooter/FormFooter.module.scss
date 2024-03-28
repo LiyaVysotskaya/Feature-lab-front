@@ -23,11 +23,14 @@
 }
 
 .formTitle {
-  max-width: 565px;
+  // max-width: 565px;
+  max-width: 320px;
   margin-top: 86px;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 140px;
+
+  // font-size: 140px;
+  font-size: calc(140px * 0.5);
   font-weight: 300;
   line-height: 0.86; // 120px;
   color: var(--white, #fff);
@@ -71,8 +74,11 @@
   flex-direction: column;
   row-gap: 28px;
 
-  width: 100%;
-  max-width: 609px;
+  // width: 100%;
+
+  width: 40%;
+
+  // max-width: 609px;
   margin: 0;
   padding: 0;
 
@@ -93,7 +99,9 @@
 
   box-sizing: border-box;
   width: 100%;
-  min-height: 86px;
+
+  // min-height: 86px;
+  min-height: calc(86px * 0.7);
 
   border-bottom: 3px solid var(--white, #fff);
 
@@ -108,7 +116,9 @@
 
 .input {
   --left-offset: 24px;
-  --input-font-size: 32px;
+
+  // --input-font-size: 32px;
+  --input-font-size: calc(32px * 0.7);
   --input-font-size-min: 20px;
 
   box-sizing: border-box;
@@ -175,7 +185,9 @@
   padding: 0 0 0 20px;
 
   font-family: GostTypeB-Standard, sans-serif;
-  font-size: 20px;
+
+  // font-size: 20px;
+  font-size: calc(20px * 0.8);
   font-weight: 400;
   line-height: 24px;
   color: var(--darkblue-50, #8096b1);
@@ -201,8 +213,16 @@
 
 .checkboxLabel {
   box-sizing: border-box;
-  width: 40px;
-  height: 40px;
+
+  // width: 40px;
+  // height: 40px;
+  width: 30px;
+  height: 30px;
+}
+
+.checkboxSvg {
+  width: 30px;
+  height: 30px;
 }
 
 .checkbox {
@@ -221,7 +241,9 @@
   padding: 0;
 
   font-family: GostTypeB-Standard, sans-serif;
-  font-size: 24px;
+
+  // font-size: 24px;
+  font-size: calc(24px * 0.8);
   font-weight: 400;
   line-height: 1.17; // 28px;
   color: var(--white-60, #a8bed8);
@@ -258,9 +280,12 @@
 }
 
 .footerButton {
-  min-width: 400px;
-  min-height: 400px;
+  // min-width: 400px;
+  // min-height: 400px;
+  width: 250px;
+  height: 250px;
   margin: 20px 0 0 auto;
+  font-size: 40px;
 
   @media screen and (width <= 1600px) {
     width: 300px;

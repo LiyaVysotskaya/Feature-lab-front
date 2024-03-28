@@ -142,7 +142,7 @@ export const FormFooter: FC = () => {
 
           <div className={s.checkboxContainer}>
             <label className={s.checkboxLabel} htmlFor="checkboxConfidentialFooter">
-              <CheckBoxIcon isChecked={isChecked} color="white" />
+              <CheckBoxIcon isChecked={isChecked} color="white" className={s.checkboxSvg} />
               <input
                 className={s.checkbox}
                 id="checkboxConfidentialFooter"
