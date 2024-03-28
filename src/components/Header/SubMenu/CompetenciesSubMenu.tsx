@@ -12,9 +12,9 @@ type IProps = {
 };
 
 export const CompetenciesSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
-  const { data: competencies, isLoading } = useCompetenciesQuery();
+  const { data: competencies, isLoading: isLoadingCompetencies } = useCompetenciesQuery();
 
-  if (isLoading || !competencies) {
+  if (isLoadingCompetencies || !competencies) {
     return null;
   }
 

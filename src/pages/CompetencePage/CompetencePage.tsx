@@ -4,16 +4,21 @@ import { useCompetenceQuery } from '../../api/queries';
 import { LeadSection } from '../../components/LeadSection/LeadSection';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { Preloader } from '../../components/Preloader/Preloader';
 import { ProductsSection } from '../../components/ProductsSection/ProductsSection';
 import { TeamSliderSection } from '../../components/TeamSliderSection/TeamSliderSection';
 import s from './CompetencePage.module.scss';
 
 export const CompetencePage: FC = () => {
   const { competenceSlug } = useParams();
-  const { data: competence, isLoading, isRefetching } = useCompetenceQuery(competenceSlug);
+  const { data: competence, isLoading: isLoadingCompetence } = useCompetenceQuery(competenceSlug);
 
-  if (isLoading || isRefetching || !competence) {
-    return null;
+  if (isLoadingCompetence || !competence) {
+    return (
+      <Main className={s.loaderWrap}>
+        <Preloader />
+      </Main>
+    );
   }
 
   const leadSectionData = {

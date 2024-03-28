@@ -2,6 +2,7 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useProjectsQuery } from '../../../api/queries';
+import { Preloader } from '../../../components/Preloader/Preloader';
 import { ProjectCard } from '../../../components/ProjectCard/ProjectCard';
 import { Text } from '../../../components/ui/Text/Text';
 import { TProjectShortInfo } from '../../../types/profileData';
@@ -12,10 +13,14 @@ type IProps = {
 };
 
 export const ProfileDashboard: FC<IProps> = ({ className = '' }) => {
-  const { data: projects, isLoading } = useProjectsQuery();
+  const { data: projects, isLoading: isLoadingProjects } = useProjectsQuery();
 
-  if (isLoading || !projects) {
-    return null;
+  if (!projects || isLoadingProjects) {
+    return (
+      <div className={s.loaderWrap}>
+        <Preloader />
+      </div>
+    );
   }
 
   const completedProjects: TProjectShortInfo[] = projects.filter((project) => {

@@ -12,9 +12,9 @@ type IProps = {
 };
 
 export const ProductsSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
-  const { data: products, isLoading } = useProductsQuery();
+  const { data: products, isLoading: isLoadingProducts } = useProductsQuery();
 
-  if (isLoading || !products) {
+  if (isLoadingProducts || !products) {
     return null;
   }
 

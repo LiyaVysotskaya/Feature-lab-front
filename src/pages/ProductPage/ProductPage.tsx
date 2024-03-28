@@ -1,20 +1,24 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
+import { useProductQuery } from '../../api/queries';
 import { LeadSection } from '../../components/LeadSection/LeadSection';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { Preloader } from '../../components/Preloader/Preloader';
 import { ProductSliderSection } from '../../components/ProductSliderSection/ProductSliderSection';
 import { ProductStagesSection } from '../../components/ProductStagesSection/ProductStagesSection';
 import s from './ProductPage.module.scss';
-import { useProductQuery } from '../../api/queries';
 
 export const ProductPage: FC = () => {
   const { productSlug } = useParams();
+  const { data: product, isLoading: isLoadingProduct } = useProductQuery(productSlug);
 
-  const { data: product, isLoading, isRefetching } = useProductQuery(productSlug);
-
-  if (isLoading || isRefetching || !product) {
-    return null;
+  if (isLoadingProduct || !product) {
+    return (
+      <Main className={s.loaderWrap}>
+        <Preloader />
+      </Main>
+    );
   }
 
   const leadSectionData = {

@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProjectQuery } from '../../../api/queries';
 import { DocumentsSection } from '../../../components/DocumentsSection/DocumentsSection';
+import { Preloader } from '../../../components/Preloader/Preloader';
 import { ProjectInfoSection } from '../../../components/ProjectInfoSection/ProjectInfoSection';
 import { ProjectStagesSection } from '../../../components/ProjectStagesSection/ProjectStagesSection';
 import s from './ProfileProject.module.scss';
@@ -13,10 +14,14 @@ type IProps = {
 
 export const ProfileProject: FC<IProps> = ({ className = '' }) => {
   const { projectId } = useParams();
-  const { data: project, isLoading, isRefetching } = useProjectQuery(projectId);
+  const { data: project, isLoading: isLoadingProject, isRefetching } = useProjectQuery(projectId);
 
-  if (isLoading || isRefetching || !project) {
-    return null;
+  if (!project || isRefetching || isLoadingProject) {
+    return (
+      <div className={s.loaderWrap}>
+        <Preloader />
+      </div>
+    );
   }
 
   return (
