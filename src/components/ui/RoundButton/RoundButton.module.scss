@@ -87,8 +87,10 @@
     align-items: center;
     justify-content: center;
 
-    width: calc(2.5 * var(--btn-size)); // 1000px;
-    height: calc(2.5 * var(--btn-size)); // 1000px;
+    // width: calc(2.5 * var(--btn-size)); // 1000px;
+    // height: calc(2.5 * var(--btn-size)); // 1000px;
+    width: calc(1.7 * var(--btn-size)); // 1000px;
+    height: calc(1.7 * var(--btn-size)); // 1000px;
 
     background: var(
       --radial-blue,

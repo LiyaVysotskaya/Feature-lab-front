@@ -9,7 +9,8 @@
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  // width: 100%;
+  width: 90%;
   padding: 0 0 50px;
 
   @media screen and (width <= 1280px) {
@@ -22,7 +23,9 @@
 
   width: 100%;
   max-width: 1500px;
-  min-height: 890px;
+
+  // min-height: 890px;
+  min-height: 600px;
   margin: 100px 0 0;
 
   @media screen and (width <= 1280px) {
@@ -47,6 +50,11 @@
   top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  width: 280px;
+  height: 280px;
+
+  font-size: 40px;
 
   @media screen and (width <= 1280px) {
     width: 280px;
@@ -75,11 +83,15 @@
   row-gap: 20px;
 
   width: 100%;
-  max-width: 458px;
+
+  // max-width: 458px;
+  max-width: calc(458px * 0.7);
 
   &Number {
     font-family: Molot, sans-serif;
-    font-size: 100px;
+
+    // font-size: 100px;
+    font-size: calc(100px * 0.7);
     font-weight: 400;
     font-style: normal;
     line-height: 1; /* 100% */
@@ -107,7 +119,9 @@
     width: 100%;
 
     font-family: 'GOST type B', sans-serif;
-    font-size: 32px;
+
+    // font-size: 32px;
+    font-size: calc(32px * 0.7);
     font-weight: 400;
     font-style: normal;
     line-height: 1.19; // 38px; /* 118.75% */
@@ -149,7 +163,10 @@
 }
 
 .cardPosition {
-  --side-offset: 12.5%;
+  // --side-offset: 12.5%;
+  // --vertical-offset: 37%;
+
+  --side-offset: 20%;
   --vertical-offset: 37%;
 
   position: absolute;
