@@ -1,6 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
-import { TProjectFullInfo } from '../../types/data';
+import { TProjectFullInfo } from '../../types/profileData';
 import s from './ProjectInfoSection.module.scss';
 
 type IProps = {

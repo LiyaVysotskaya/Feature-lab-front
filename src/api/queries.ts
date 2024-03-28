@@ -3,6 +3,7 @@ import { isAxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {
   QK_COMPETENCIES,
+  QK_DOCS,
   QK_PRODUCTS,
   QK_PROJECTS,
   QK_REG,
@@ -17,6 +18,7 @@ import {
   getCompetenceBySlug,
   getProductBySlug,
   getProjectById,
+  getUserAllDocs,
   getUserAllProjects,
   getUserProfileData,
   postRegData,
@@ -63,6 +65,15 @@ export const useProjectsQuery = () => {
   return useQuery({
     queryKey: [QK_PROJECTS],
     queryFn: getUserAllProjects,
+    staleTime: 10 * 60 * 1000, // data is definetly fresh fo next 10 min
+    enabled: !!getStoredAccessToken(),
+  });
+};
+
+export const useAllUserDocsQuery = () => {
+  return useQuery({
+    queryKey: [QK_DOCS],
+    queryFn: getUserAllDocs,
     staleTime: 10 * 60 * 1000, // data is definetly fresh fo next 10 min
     enabled: !!getStoredAccessToken(),
   });

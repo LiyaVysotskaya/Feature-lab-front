@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { postLoginData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
 import queryClient from '../query-client';
-import { LoginFormData } from '../types/data';
+import { LoginFormData } from '../types/publicData';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,

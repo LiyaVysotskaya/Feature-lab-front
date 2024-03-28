@@ -1,7 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { docs } from '../../../_mockData/docsMockData';
 import { useProjectQuery } from '../../../api/queries';
 import { DocumentsSection } from '../../../components/DocumentsSection/DocumentsSection';
 import { ProjectInfoSection } from '../../../components/ProjectInfoSection/ProjectInfoSection';
@@ -28,7 +27,7 @@ export const ProfileProject: FC<IProps> = ({ className = '' }) => {
 
       <DocumentsSection
         title={`Документы по ${project.name}`}
-        docs={docs}
+        docs={project.documents}
         className={s.projectSection}
       />
     </div>

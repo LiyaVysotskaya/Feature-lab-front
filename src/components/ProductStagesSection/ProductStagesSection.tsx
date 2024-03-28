@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TProductStage } from '../../types/data';
+import { TProductStage } from '../../types/publicData';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { ProductStage } from './ProductStage/ProductStage';
 import s from './ProductStagesSection.module.scss';

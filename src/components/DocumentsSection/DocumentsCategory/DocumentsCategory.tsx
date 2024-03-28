@@ -1,9 +1,9 @@
 import cl from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import s from './DocumentsCategory.module.scss';
+import { TDocument } from '../../../types/profileData';
 import { DocComponent } from '../DocComponent/DocComponent';
-import { TDocument } from '../../../types/data';
+import s from './DocumentsCategory.module.scss';
 
 type IProps = {
   className?: string;
