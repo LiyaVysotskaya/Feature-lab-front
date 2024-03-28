@@ -2,8 +2,11 @@
   --text-container-width: 14.5%; // 200px;
   --grid-column-gap: 20px;
   --input-side-padding: 9.3%; // 160px;
-  --input-min-height: 114px;
-  --number-font-size: 80px;
+  // --input-min-height: 114px;
+  --input-min-height: 80px;
+
+  // --number-font-size: 80px;
+  --number-font-size: 50px;
 
   position: relative;
 
@@ -12,7 +15,10 @@
   align-items: center;
 
   box-sizing: border-box;
-  width: 100%;
+
+  // width: 100%;
+
+  width: 80%;
 
   @media screen and (width <= 1820px) {
     --text-container-width: 20%;
@@ -50,9 +56,14 @@
 .button {
   position: absolute;
   z-index: 0;
-  bottom: 300px;
+  bottom: 150px;
   left: 50%;
   transform: translateX(-50%);
+
+  width: 200px;
+  height: 200px;
+
+  font-size: 30px;
 
   @media screen and (width <= 1280px) {
     bottom: 210px;
@@ -92,7 +103,8 @@
 }
 
 .input {
-  --input-font-size: 80px;
+  // --input-font-size: 80px;
+  --input-font-size: 50px;
   --input-font-size-min: 48px;
 
   grid-area: input;
@@ -229,7 +241,9 @@
   max-height: 1px;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 32px;
+
+  // font-size: 32px;
+  font-size: calc(32px * 0.6);
   font-weight: 400;
   line-height: 1; // 32px;
   color: var(--dark-blue, #002d63);
@@ -274,7 +288,9 @@
   max-width: 100%;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 48px;
+
+  // font-size: 48px;
+  font-size: calc(48px * 0.5);
   font-weight: 400;
   line-height: 1;
   color: var(--error, #bf1700);
@@ -319,7 +335,7 @@
   box-sizing: border-box;
   width: 100%;
   margin-top: 28px;
-  margin-bottom: 800px;
+  margin-bottom: 400px;
   padding: 0;
 
   @media screen and (width <= 1280px) {
@@ -356,7 +372,9 @@
   padding: 0;
 
   font-family: 'GOST type B', sans-serif;
-  font-size: 32px;
+
+  // font-size: 32px;
+  font-size: calc(32px * 0.7);
   font-weight: 400;
   font-style: normal;
   line-height: 1.18; // 38px;

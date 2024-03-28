@@ -8,9 +8,11 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--el-max-width);
+
+  // max-width: var(--el-max-width);
+  max-width: 1200px;
   height: fit-content;
-  margin: 100px 0 0;
+  margin: 100px 0;
   padding: 100px 0 0;
 
   background-color: var(--white);
@@ -36,7 +38,9 @@
   margin: 0 0 80px;
 
   font-family: Molot-Regular, sans-serif;
-  font-size: 128px;
+
+  // font-size: 128px;
+  font-size: calc(128px * 0.6);
   font-weight: 400;
   line-height: 1;
   color: var(--dark-blue, #002d63);
