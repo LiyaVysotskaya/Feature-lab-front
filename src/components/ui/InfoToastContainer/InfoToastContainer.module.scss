@@ -1,0 +1,43 @@
+.infoToast {
+  --toastify-font-family: 'GOST type B', sans-serif;
+  --toastify-text-color-light: var(--error, #bf1700);
+
+  display: flex;
+  gap: 44px;
+  align-items: center;
+
+  width: min-content;
+  max-width: auto;
+  min-height: min-content;
+  padding: 24px 40px;
+
+  box-shadow: 0 10px 20px 0 rgb(0 45 99 / 30%);
+
+  &Body {
+    width: 20vw;
+    min-width: min-content;
+    margin: 0;
+    padding: 0;
+
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.17; // 28px; /* 116.667% */
+    text-align: center;
+
+    @media screen and (width <= 730px) {
+      width: 180px;
+      font-size: 18px;
+      line-height: 1; // 14px; /* 100% */
+    }
+  }
+
+  @media screen and (width <= 730px) {
+    gap: 16px;
+    padding: 8px 16px;
+  }
+
+  @media screen and (width <= 480px) {
+    border-radius: 4px;
+  }
+}
