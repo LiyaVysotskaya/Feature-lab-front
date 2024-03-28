@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC, useEffect, useRef, useState } from 'react';
 import 'react-multi-carousel/lib/styles.css';
-import { TEmployee } from '../../../types/data';
+import { TEmployee } from '../../../types/publicData';
 import s from './TeamSlide.module.scss';
 
 type IProps = {

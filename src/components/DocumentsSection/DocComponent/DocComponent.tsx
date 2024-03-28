@@ -1,6 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
-import { TDocument } from '../../../types/data';
+import { TDocument } from '../../../types/profileData';
 import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import s from './DocComponent.module.scss';
 

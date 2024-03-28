@@ -7,17 +7,14 @@ import {
   PostChangedPasswordResponse,
   PostRegDataResponse,
 } from '../types/apiResponses';
+import { LoginFormData, RegFormData, TChangedPwdData } from '../types/forms';
+import { TDocument, TProjectFullInfo, TProjectShortInfo, TUserProfile } from '../types/profileData';
 import {
   TCompetenceFullInfo,
   TCompetenceShortInfo,
-  TDocument,
   TProductFullInfo,
   TProductShortInfo,
-  TProjectFullInfo,
-  TProjectShortInfo,
-  TUserProfile,
-} from '../types/data';
-import { LoginFormData, RegFormData, TChangedPwdData } from '../types/forms';
+} from '../types/publicData';
 import { privateAPI } from './privateApiConfig';
 import { publicAPI } from './publicApiConfig';
 

@@ -1,6 +1,6 @@
 import cl from 'classnames';
 import { FC } from 'react';
-import { TProjectStage } from '../../../types/data';
+import { TProjectStage } from '../../../types/profileData';
 import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import { Text } from '../../ui/Text/Text';
 import s from './CurrentStage.module.scss';
