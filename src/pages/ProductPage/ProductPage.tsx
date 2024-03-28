@@ -27,7 +27,7 @@ export const ProductPage: FC = () => {
 
   const leadSectionData = {
     description: product.description,
-    detailed_description: product.description,
+    detailed_description: product.detailed_description,
     properties: product.properties,
 
     product_type: product.product_type,

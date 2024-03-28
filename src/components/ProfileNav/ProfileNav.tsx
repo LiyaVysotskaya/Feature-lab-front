@@ -8,11 +8,11 @@ import {
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../constants/routesConstants';
+import { PopupConfirmLogout } from '../PopupConfirmLogout/PopupConfirmLogout';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../ui/icons';
 import { ProfileNavLink } from './ProfileNavLink/ProfileNavLink';
 import { ProfileProjectsNav } from './ProfileProjectsNav/ProfileProjectsNav';
 import s from './ProfileNav.module.scss';
-import { PopupConfirmLogout } from '../PopupConfirmLogout/PopupConfirmLogout';
 
 export const ProfileNav: FC = () => {
   const [isPopupConfirmLogoutOpen, setPopupConfirmLogoutOpen] = useState(false);

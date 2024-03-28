@@ -1,7 +1,7 @@
 import cl from 'classnames';
 import { FC, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TProductStage } from '../../../types/data';
+import { TProductStage } from '../../../types/publicData';
 import { PlusIcon } from '../../ui/icons';
 import s from './ProductStage.module.scss';
 

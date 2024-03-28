@@ -1,6 +1,6 @@
 import cl from 'classnames';
-import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useProjectsQuery } from '../../../api/queries';
 import {
   ROUTE_PROFILE,
@@ -9,10 +9,10 @@ import {
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../../constants/routesConstants';
+import { PopupConfirmLogout } from '../../PopupConfirmLogout/PopupConfirmLogout';
 import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
 import { ProfileNavLink } from '../ProfileNavLink/ProfileNavLink';
 import s from './ProfileNavMobile.module.scss';
-import { PopupConfirmLogout } from '../../PopupConfirmLogout/PopupConfirmLogout';
 
 export const ProfileNavMobile: React.FC = () => {
   const [isPopupConfirmLogoutOpen, setPopupConfirmLogoutOpen] = useState(false);

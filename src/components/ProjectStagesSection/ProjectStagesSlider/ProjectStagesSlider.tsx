@@ -2,7 +2,7 @@ import cl from 'classnames';
 import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { TProjectStage } from '../../../types/data';
+import { TProjectStage } from '../../../types/profileData';
 import { ArrowInCircleIcon } from '../../ui/icons';
 import { ProjectStage } from '../ProjectStage/ProjectStage';
 import s from './ProjectStagesSlider.module.scss';

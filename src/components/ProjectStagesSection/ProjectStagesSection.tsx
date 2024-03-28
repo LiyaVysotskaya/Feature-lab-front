@@ -1,6 +1,6 @@
 import cl from 'classnames';
 import { FC, useEffect, useState } from 'react';
-import { TProjectStage } from '../../types/data';
+import { TProjectStage } from '../../types/profileData';
 import { CurrentStage } from './CurrentStage/CurrentStage';
 import { ProjectStagesSlider } from './ProjectStagesSlider/ProjectStagesSlider';
 import s from './ProjectStagesSection.module.scss';
