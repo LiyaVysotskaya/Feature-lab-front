@@ -8,7 +8,8 @@
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  // width: 100%;
+  width: 90%;
   margin: 0;
 
   color: var(--dark-blue, #002d63);
@@ -44,7 +45,9 @@
     width: 100%;
 
     font-family: Germano, sans-serif;
-    font-size: 140px;
+
+    // font-size: 140px;
+    font-size: calc(140px * 0.5);
     font-weight: 300;
     font-style: normal;
     line-height: 0.86; // 120px; /* 85.714% */
@@ -56,7 +59,9 @@
     max-width: 760px;
 
     font-family: 'GOST type B', sans-serif;
-    font-size: 32px;
+
+    // font-size: 32px;
+    font-size: calc(32px * 0.6);
     font-weight: 400;
     font-style: normal;
     line-height: 1.19; // 38px; /* 118.75% */
@@ -71,7 +76,9 @@
     width: 100%;
 
     font-family: 'GOST type B', sans-serif;
-    font-size: 24px;
+
+    // font-size: 24px;
+    font-size: calc(24px * 0.7);
     font-weight: 400;
     font-style: normal;
     line-height: 1.17; // 28px; /* 116.667% */
