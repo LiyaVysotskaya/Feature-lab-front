@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Outlet, useMatch } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
 import { ROUTE_COMPETENCIES } from '../../constants/routesConstants';
-import { GridSection } from './GridSection/GridSection';
+import { CompetenceList } from './CompetenceList/CompetenceList';
 import s from './CompetenciesPage.module.scss';
 
 export const CompetenciesPage: FC = () => {
@@ -16,7 +16,7 @@ export const CompetenciesPage: FC = () => {
           <p className={s.subTitle}>Наши компетенции</p>
         </div>
 
-        <GridSection />
+        <CompetenceList />
       </Main>
     );
   }
