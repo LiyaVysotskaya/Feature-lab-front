@@ -5,11 +5,11 @@ import s from './PageTitle.module.scss';
 
 type IProps = {
   pageTitle: string;
-  subTitle: string;
+  subTitle?: string;
   className?: string;
 };
 
-export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle }) => {
+export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = '' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
 
