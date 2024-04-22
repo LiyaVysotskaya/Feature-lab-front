@@ -1,7 +1,9 @@
 .form {
   position: relative;
 
-  display: flex;
+  display: grid;
+  grid-template-areas: 'title fieldset btn';
+  grid-template-columns: min-content auto auto;
   column-gap: 53px;
 
   box-sizing: border-box;
@@ -23,11 +25,13 @@
 }
 
 .formTitle {
-  max-width: 565px;
+  grid-area: title;
+
+  // max-width: 565px;
   margin-top: 86px;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 140px;
+  font-size: 80px;
   font-weight: 300;
   line-height: 0.86; // 120px;
   color: var(--white, #fff);
@@ -68,6 +72,7 @@
   z-index: 1;
 
   display: flex;
+  grid-area: fieldset;
   flex-direction: column;
   row-gap: 28px;
 
@@ -258,8 +263,9 @@
 }
 
 .footerButton {
-  min-width: 400px;
-  min-height: 400px;
+  grid-area: btn;
+  min-width: 300px;
+  min-height: 300px;
   margin: 20px 0 0 auto;
 
   @media screen and (width <= 1600px) {

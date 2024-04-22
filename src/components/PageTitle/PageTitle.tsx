@@ -29,10 +29,16 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
     };
 
     window.addEventListener('resize', resizeFont);
+
     resizeFont();
+
+    // const timeoutId = setTimeout(() => {
+    //   resizeFont();
+    // }, 100);
 
     return () => {
       window.removeEventListener('resize', resizeFont);
+      // clearTimeout(timeoutId);
     };
   }, [containerRef, textRef, location]);
 

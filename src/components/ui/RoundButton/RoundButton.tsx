@@ -38,7 +38,11 @@ export const RoundButton: FC<IProps> = ({
             onClick={onClick}
             type={type}
             className={cl(s.btn, s.promoBtn)}>
-            {!isLoading ? text : <SpinnerIcon theme="white" />}
+            {!isLoading ? (
+              <span className={cl(s.btnText)}>{text}</span>
+            ) : (
+              <SpinnerIcon theme="white" />
+            )}
           </button>
         </div>
       )}
@@ -54,7 +58,11 @@ export const RoundButton: FC<IProps> = ({
               [s.radiantBtn_white]: theme === 'white',
               [s.radiantBtn_blue]: theme === 'blue',
             })}>
-            {!isLoading ? text : <SpinnerIcon theme={spinnerColor()} />}
+            {!isLoading ? (
+              <span className={cl(s.btnText)}>{text}</span>
+            ) : (
+              <SpinnerIcon theme={spinnerColor()} />
+            )}
           </button>
         </div>
       )}

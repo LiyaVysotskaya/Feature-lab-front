@@ -52,7 +52,7 @@
 }
 
 .dummyPlus {
-  width: 80px;
+  width: 70px;
 }
 
 .text {
@@ -77,22 +77,6 @@
 
 @media screen and (width <= 1920px) {
   .stage {
-    &Number {
-      font-size: calc(100px + (128 - 100) * ((100vw - 1280px) / (1920 - 1280)));
-    }
-
-    &TextWrap {
-      max-width: calc(862px + (1290 - 862) * ((100vw - 1280px) / (1920 - 1280)));
-    }
-
-    &Title {
-      font-size: calc(100px + (140 - 100) * ((100vw - 1280px) / (1920 - 1280)));
-    }
-  }
-}
-
-@media screen and (width <= 1280px) {
-  .stage {
     &Wrapper {
       row-gap: 0;
       padding-top: 10px;
@@ -100,22 +84,18 @@
     }
 
     &Number {
-      max-width: calc(100px + (200 - 100) * ((100vw - 768px) / (1280 - 768)));
-      font-size: calc(66px + (100 - 66) * ((100vw - 768px) / (1280 - 768)));
+      max-width: calc(100px + (200 - 100) * ((var(--page-max-width) - 768px) / (1280 - 768)));
+      font-size: calc(66px + (100 - 66) * ((var(--page-max-width) - 768px) / (1280 - 768)));
     }
 
     &TextWrap {
-      max-width: calc(535px + (862 - 535) * ((100vw - 768px) / (1280 - 768)));
+      max-width: calc(535px + (862 - 535) * ((var(--page-max-width) - 768px) / (1280 - 768)));
     }
 
     &Title {
-      font-size: calc(64px + (100 - 64) * ((100vw - 768px) / (1280 - 768)));
+      font-size: calc(64px + (100 - 64) * ((var(--page-max-width) - 768px) / (1280 - 768)));
       line-height: 1.2;
     }
-  }
-
-  .dummyPlus {
-    width: 70px;
   }
 
   .active {

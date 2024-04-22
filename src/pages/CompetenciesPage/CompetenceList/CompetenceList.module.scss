@@ -1,9 +1,7 @@
 .section {
   box-sizing: border-box;
   width: 100%;
-
-  // max-width: var(--el-max-width);
-  max-width: 1280px;
+  max-width: var(--el-max-width);
   margin: 0 0 20px;
   padding: 0;
 

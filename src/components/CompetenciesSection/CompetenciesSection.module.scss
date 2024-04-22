@@ -18,17 +18,13 @@
 .list {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
 
   width: 100%;
-  max-width: var(--el-max-width);
-  margin: 100px 0 0;
+  max-width: 100%;
+  margin: 80px 0 0;
 
   border-top: 2px solid var(--dark-blue, #002d63);
-
-  @media screen and (width <= 1500px) {
-    margin-top: 80px;
-  }
 
   @media screen and (width <= 768px) {
     margin-top: 52px;
@@ -50,12 +46,12 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: 260px max-content auto;
+  grid-template-columns: 260px auto min-content;
   grid-template-rows: min-content;
-  column-gap: 48px;
+  column-gap: 24px;
 
   width: 100%;
-  padding: 30px 0 0;
+  padding: 24px var(--offset-from-edge) 0;
 
   background: var(--white, #fff);
   border-bottom: 2px solid var(--dark-blue, #002d63);
@@ -106,6 +102,7 @@
     line-height: 0.85;
     color: var(--dark-blue, #002d63);
     text-align: left;
+    white-space: nowrap;
 
     // @media screen and (width <= 1880px) {
     //   font-size: 100px;
@@ -152,14 +149,14 @@
 
     -webkit-text-stroke: 3.5px var(--dark-blue);
 
-    @media screen and (width <= 1830px) {
-      font-size: 120px;
-    }
+    // @media screen and (width <= 1830px) {
+    //   font-size: 120px;
+    // }
 
-    @media screen and (width <= 1700px) {
-      font-size: 100px;
-      line-height: 0.83;
-    }
+    // @media screen and (width <= 1700px) {
+    //   font-size: 100px;
+    //   line-height: 0.83;
+    // }
 
     @media screen and (width <= 1275px) {
       font-size: 7vw;

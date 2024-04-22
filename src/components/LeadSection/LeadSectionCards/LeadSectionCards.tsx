@@ -30,10 +30,9 @@ export const LeadSectionCards: FC<IProps> = ({ properties, url = '', productType
 
       {properties.map((card) => {
         const { name, value } = card;
-        const regex = /^(\d+)\s+(.*)$/;
-        const match = name.match(regex);
-        const titleBig = match ? match[1] : '';
-        const titleSmall = match ? match[2] : name;
+        const words = name.split(' ');
+        const titleBig = words[0];
+        const titleSmall = words.slice(1).join(' ');
 
         return (
           <li className={cl(s.card)} key={uuidv4()}>

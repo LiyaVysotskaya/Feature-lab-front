@@ -1,9 +1,9 @@
 import cl from 'classnames';
 import { FC, useState } from 'react';
+import { PageTitle } from '../PageTitle/PageTitle';
 import { PopupContact } from '../PopupContact/PopupContact';
 import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './PromoSection.module.scss';
-import { PageTitle } from '../PageTitle/PageTitle';
 
 type IProps = {
   className?: string;
@@ -20,15 +20,14 @@ export const PromoSection: FC<IProps> = ({ className = '' }) => {
     <section aria-label="Promo" className={cl(s.promo, className)}>
       <div className={s.bg_blue} />
 
-      {/* <h1 className={s.title}>фичлаб</h1> */}
       <PageTitle className={s.title} pageTitle="Фичлаб" />
-      {/* <div className={s.divider} /> */}
 
       <div className={s.headlines}>
         <p className={s.headline}>Разрабатываем IT&#8209;проекты любой сложности</p>
         <p className={s.headline}>Обучаем специалистов</p>
         <p className={s.headline}>Создаём продукты</p>
       </div>
+
       <RoundButton
         className={s.promoBtn}
         onClick={() => setPopupContactIsOpen(true)}

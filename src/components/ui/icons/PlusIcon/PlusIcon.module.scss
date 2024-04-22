@@ -1,8 +1,8 @@
 .plusIcon {
   cursor: pointer;
 
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 
   line-height: 0;
 
@@ -33,15 +33,8 @@
 
 @media screen and (width <= 1920px) {
   .plusIcon {
-    width: calc(70px + (80 - 70) * ((100vw - 1280px) / (1920 - 1280)));
-    height: calc(70px + (80 - 70) * ((100vw - 1280px) / (1920 - 1280)));
-  }
-}
-
-@media screen and (width <= 1280px) {
-  .plusIcon {
-    width: calc(45px + (70 - 45) * ((100vw - 768px) / (1280 - 768)));
-    height: calc(45px + (70 - 45) * ((100vw - 768px) / (1280 - 768)));
+    width: calc(45px + (70 - 45) * ((var(--page-max-width) - 768px) / (1280 - 768)));
+    height: calc(45px + (70 - 45) * ((var(--page-max-width) - 768px) / (1280 - 768)));
   }
 }
 

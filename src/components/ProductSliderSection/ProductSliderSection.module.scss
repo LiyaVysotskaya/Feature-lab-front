@@ -5,6 +5,7 @@
 
   box-sizing: border-box;
   width: 100%;
+  max-width: var(--page-max-width);
   margin: 0;
   padding: 0 0 100px;
 
@@ -17,7 +18,7 @@
 
 .slider {
   --slide-width: 55%;
-  --slide-height: 680px;
+  --slide-height: calc(0.36 * var(--page-max-width));
   --slide-side-offset: 10%;
 
   position: relative;
@@ -30,10 +31,6 @@
   width: 100%;
   min-height: var(--slide-height);
   margin: 100px 0 0;
-
-  @media screen and (width <= 1940px) {
-    --slide-height: 35vw;
-  }
 
   @media screen and (width <= 1280px) {
     margin: 80px 0 0;
