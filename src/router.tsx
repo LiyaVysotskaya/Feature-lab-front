@@ -38,17 +38,24 @@ import { PasswordChangePage } from './pages/auth/PasswordChangePage/PasswordChan
 import { PasswordResetPage } from './pages/auth/PasswordResetPage/PasswordResetPage';
 import { PasswordRestorePage } from './pages/auth/PasswordRestorePage/PasswordRestorePage';
 import { RegisterPage } from './pages/auth/RegisterPage/RegisterPage';
+import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 
 export const AppRouter: FC = () => {
   return (
     <Routes>
       <Route path={ROUTE_HOME} element={<Home />} />
+
       <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
         <Route path={`${ROUTE_COMPETENCIES}/:competenceSlug`} element={<CompetencePage />} />
       </Route>
+
       <Route path={ROUTE_ED_TECH} element={<LabPage />} />
       <Route path={ROUTE_CONTACT} element={<ContactPage />} />
-      <Route path={`${ROUTE_PRODUCTS}/:productSlug`} element={<ProductPage />} />
+
+      <Route path={ROUTE_PRODUCTS} element={<ProductsPage />}>
+        <Route path={`${ROUTE_PRODUCTS}/:productSlug`} element={<ProductPage />} />
+      </Route>
+
       <Route
         path={ROUTE_LOGIN}
         element={<ProtectedRouteElement onlyUnAuth element={<LoginPage />} />}

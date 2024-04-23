@@ -40,6 +40,10 @@
   }
 }
 
+.listItem {
+  width: 100%;
+}
+
 .card {
   cursor: pointer;
 
@@ -264,7 +268,7 @@
   @media screen and (width <= 1500px) {
     grid-template-columns: 280px max-content auto;
     column-gap: 24px;
-    padding: 24px 0 0;
+    padding: 24px var(--offset-from-edge) 0;
   }
 
   @media screen and (width <= 1275px) {
@@ -278,12 +282,12 @@
   }
 
   @media screen and (width <= 768px) {
-    padding: 12px 0 0;
+    padding: 12px var(--offset-from-edge) 0;
   }
 
   @media screen and (width <= 650px) {
     column-gap: 8px;
-    padding: 12px 0 0;
+    padding: 12px var(--offset-from-edge) 0;
   }
 
   @media screen and (width <= 460px) {

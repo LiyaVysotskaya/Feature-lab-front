@@ -1,14 +1,15 @@
 import cl from 'classnames';
 import { FC } from 'react';
-import { useCompetenciesQuery } from '../../../api/queries';
+import { useCompetenciesQuery } from '../../api/queries';
 import { ListEl } from '../ListEl/ListEl';
-import s from './CompetenceList.module.scss';
+import { ROUTE_COMPETENCIES } from '../../constants/routesConstants';
+import s from './ListCompetencies.module.scss';
 
 type IProps = {
   className?: string;
 };
 
-export const CompetenceList: FC<IProps> = ({ className = '' }) => {
+export const ListCompetencies: FC<IProps> = ({ className = '' }) => {
   const { data: competencies, isLoading } = useCompetenciesQuery();
 
   if (isLoading || !competencies) {
@@ -28,7 +29,7 @@ export const CompetenceList: FC<IProps> = ({ className = '' }) => {
               title={competency.name}
               text={competency.description}
               desription={competency.description_on_main}
-              slug={competency.slug}
+              link={`${ROUTE_COMPETENCIES}/${competency.slug}`}
             />
           );
         })}

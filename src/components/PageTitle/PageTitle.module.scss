@@ -5,13 +5,12 @@
 
 .pageTitleWrap {
   width: var(--el-max-width);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .pageTitle {
   box-sizing: border-box;
   width: fit-content;
-  margin-left: -0.035em;
 
   font-family: Molot, sans-serif;
   font-size: 1000;

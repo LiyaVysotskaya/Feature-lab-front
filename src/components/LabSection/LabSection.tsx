@@ -1,7 +1,9 @@
 import cl from 'classnames';
 import { FC } from 'react';
+import { useMatch } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { LAB_PROJECT_URL } from '../../constants/externalLinks';
+import { ROUTE_ED_TECH } from '../../constants/routesConstants';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './LabSection.module.scss';
@@ -15,9 +17,11 @@ export const LabSection: FC<IProps> = ({ className = '' }) => {
     window.open(LAB_PROJECT_URL, '_blank');
   };
 
+  const isLabPage = useMatch(ROUTE_ED_TECH);
+
   return (
     <section className={cl(s.labSection, className)}>
-      <SectionTitle text="Ed-tech" />
+      {!isLabPage && <SectionTitle text="Ed-tech" className={s.title} />}
 
       <div className={s.sectionContent}>
         <ul className={s.list}>

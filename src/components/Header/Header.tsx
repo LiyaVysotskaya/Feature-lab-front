@@ -16,9 +16,9 @@ import {
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
-import s from './Header.module.scss';
 import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
 import { ProductsSubMenu } from './SubMenu/ProductsSubMenu';
+import s from './Header.module.scss';
 
 export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
@@ -100,12 +100,14 @@ export const Header: React.FC = () => {
                 className={cl(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={handleProductsOnMouseEnter}
                 onMouseLeave={handleProductsOnMouseLeave}>
-                <span
-                  className={cl({
+                <NavLink
+                  to={ROUTE_PRODUCTS}
+                  className={cl(s.link, {
                     [s.linkActive]: isProductsPage,
                   })}>
                   Продукты
-                </span>
+                </NavLink>
+
                 <ProductsSubMenu isVisible={isProductsVisible} />
               </li>
 

@@ -3,7 +3,6 @@ import { FC } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CarouselProps, ResponsiveType } from 'react-multi-carousel/lib/types';
-import { useMediaQuery } from 'react-responsive';
 import { v4 as uuidv4 } from 'uuid';
 import { TEmployee } from '../../types/publicData';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
@@ -18,8 +17,6 @@ type IProps = {
 };
 
 export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-
   const responsive: ResponsiveType = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1921 },
@@ -31,7 +28,7 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     },
     smallDesktop: {
       breakpoint: { max: 1280, min: 1070 },
-      items: 3,
+      items: 2,
     },
     1070: {
       breakpoint: { max: 1069, min: 769 },
@@ -55,11 +52,9 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     additionalTransfrom: 0,
     itemClass: s.item,
     arrows: true,
-    centerMode: !isMobile,
     draggable: false,
     focusOnSelect: false,
     infinite: team.length > 1,
-    keyBoardControl: true,
     customLeftArrow: <CarouselBtn direction="left" />,
     customRightArrow: <CarouselBtn direction="right" />,
     responsive,
@@ -73,7 +68,6 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     additionalTransfrom: 0,
     itemClass: s.item,
     arrows: true,
-    centerMode: !isMobile,
     draggable: false,
     focusOnSelect: false,
     infinite: team.length > 1,

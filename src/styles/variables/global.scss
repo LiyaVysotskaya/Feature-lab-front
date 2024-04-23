@@ -46,7 +46,7 @@
   // --page-max-width: calc(768px + (1280 - 768) * ((100vw - 1280px) / (1920 - 1280)));\
 
   @media screen and (width <= 1920px) {
-    --page-max-width: calc(768px + (1280 - 768) * ((100vw - 1280px) / (1920 - 1280)));
+    // --page-max-width: calc(768px + (1280 - 768) * ((100vw - 1280px) / (1920 - 1280)));
 
     // --el-max-width: calc(1180px + (1720 - 1180) * ((100vw - 1280px) / (1920 - 1280)));
 

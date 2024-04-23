@@ -2,22 +2,21 @@ import cl from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './ListEl.module.scss';
-import { ROUTE_COMPETENCIES } from '../../../constants/routesConstants';
 
 type IProps = {
   className?: string;
-  slug: string;
   index: number;
   title: string;
   text: string;
   desription: string;
+  link: string;
 };
 
-export const ListEl: FC<IProps> = ({ className = '', index, title, desription, text, slug }) => {
+export const ListEl: FC<IProps> = ({ className = '', index, title, desription, text, link }) => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    navigate(`${ROUTE_COMPETENCIES}/${slug}`);
+    navigate(link);
   };
   const placement = (index + 1) % 3 === 0 || (index + 1) % 3 === 1 ? 'right' : 'left';
 

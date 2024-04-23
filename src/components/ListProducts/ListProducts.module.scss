@@ -1,0 +1,18 @@
+.section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--el-max-width);
+  margin: 0 0 20px;
+  padding: 0;
+
+  @media screen and (width <= 1280px) {
+    gap: 20px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  box-sizing: border-box;
+}

@@ -12,18 +12,11 @@ export const ROUTE_CONTACT = '/contact';
 export const ROUTE_ERROR_500 = '/error500';
 export const ROUTE_ERROR_404 = '/error404';
 
-// COMPETENCIES subroutes
-export const SUBROUTE_GAMEDEV = `gamedev`;
-
 // PROFILE subroutes
 export const SUBROUTE_DASHBOARD = `dashboard`;
 export const SUBROUTE_SETTINGS = `settings`;
 export const SUBROUTE_DOCS = `docs`;
 export const SUBROUTE_PROJECTS = `projects`;
-
-// full route paths for subroutes
-// _COMPETENCIES:
-export const ROUTE_GAMEDEV = `${ROUTE_COMPETENCIES}/${SUBROUTE_GAMEDEV}`;
 
 // _PROFILE:
 export const ROUTE_PROFILE_DASHBOARD = `${ROUTE_PROFILE}/${SUBROUTE_DASHBOARD}`;
