@@ -8,15 +8,10 @@
 
   box-sizing: border-box;
   width: 100%;
-  max-width: 1920px;
-  padding: 140px 0 100px;
+  max-width: 100%;
+  padding: 100px 0 80px;
 
   background: var(--darkblue, #002d63);
-
-  @media screen and (width <= 1280px) {
-    max-width: 1280px;
-    padding: 100px 0 80px;
-  }
 
   @media screen and (width <= 768px) {
     max-width: 768px;
@@ -43,7 +38,8 @@
 .basementContainer {
   z-index: 2;
 
-  display: flex;
+  display: grid;
+  grid-template-areas: 'address company email phone';
   justify-content: space-between;
 
   box-sizing: border-box;
@@ -51,44 +47,51 @@
   max-width: var(--el-max-width);
 
   @media screen and (width <= 768px) {
-    flex-wrap: wrap;
+    grid-template-areas:
+      'address email'
+      'company phone';
+    row-gap: 24px;
+    justify-content: stretch;
+  }
+
+  @media screen and (width <= 450px) {
+    grid-template-areas:
+      'address'
+      'phone'
+      'email'
+      'company';
     row-gap: 24px;
   }
 }
 
-.firstContainer,
-.secondContainer {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+.areaAddress {
+  grid-area: address;
+}
 
-  @media screen and (width <= 768px) {
-    gap: 24px;
-  }
+.areaCompany {
+  grid-area: company;
+}
 
-  @media screen and (width <= 690px) {
-    .firstContainer {
-      margin-bottom: 24px;
-    }
-  }
+.areaEmail {
+  grid-area: email;
+}
+
+.areaPhone {
+  grid-area: phone;
 }
 
 .basementElement {
   width: max-content;
 
   font-family: 'GOST type B', sans-serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(20px, 1.8vw, 24px);
   font-weight: 400;
   line-height: 1.18;
   color: var(--white, #fff);
   text-align: left;
 
   @media screen and (width <= 1280px) {
-    font-size: clamp(20px, 1.8vw, 24px);
-  }
-
-  @media screen and (width <= 768px) {
-    font-size: clamp(20px, 3.2vw, 24px);
+    font-size: 20px;
   }
 
   @media screen and (width <= 690px) {

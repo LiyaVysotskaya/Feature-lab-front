@@ -1,27 +1,12 @@
 .doc {
   display: grid;
   grid-template-columns: 200px auto min-content;
-  gap: 4px 60px;
+  gap: 4px 24px;
 
   width: 100%;
-  padding-right: 60px;
+  padding-right: 30px;
 
   font-family: 'GOST type B', sans-serif;
-
-  @media screen and (width <= 1700px) {
-    column-gap: 24px;
-    padding-right: 30px;
-  }
-
-  @media screen and (width <= 1480px) {
-    column-gap: 16px;
-    padding-right: 10px;
-  }
-
-  @media screen and (width <= 1280px) {
-    column-gap: 24px;
-    padding-right: 30px;
-  }
 
   @media screen and (width <= 1120px) {
     grid-template-columns: 160px auto min-content;

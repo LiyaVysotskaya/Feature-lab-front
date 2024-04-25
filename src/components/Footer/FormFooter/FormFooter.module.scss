@@ -10,16 +10,33 @@
   width: 100%;
   margin-bottom: 102px;
 
+  @media screen and (width <= 1280px) {
+    grid-template-areas:
+      'title title'
+      'fieldset btn';
+    grid-template-columns: auto auto;
+    row-gap: 20px;
+  }
+
   @media screen and (width <= 1200px) {
     column-gap: 20px;
   }
 
   @media screen and (width <= 970px) {
-    display: grid;
     grid-template-columns: auto auto;
   }
 
-  @media screen and (width <= 460px) {
+  @media screen and (width <= 768px) {
+    grid-template-areas:
+      'title fieldset'
+      'btn btn';
+  }
+
+  @media screen and (width <= 480px) {
+    grid-template-areas:
+      'title'
+      'fieldset'
+      'btn';
     grid-template-columns: auto;
   }
 }
@@ -27,7 +44,6 @@
 .formTitle {
   grid-area: title;
 
-  // max-width: 565px;
   margin-top: 86px;
 
   font-family: Germano-Regular, sans-serif;
@@ -47,10 +63,14 @@
     letter-spacing: -0.04em;
   }
 
+  @media screen and (width <= 1280px) {
+    width: 100%;
+    font-size: 48px;
+  }
+
   @media screen and (width <= 768px) {
-    width: 284px;
+    width: 240px;
     margin-top: 42px;
-    font-size: 64px;
     letter-spacing: 0;
   }
 
@@ -82,7 +102,7 @@
   padding: 0;
 
   @media screen and (width <= 1280px) {
-    max-width: 414px;
+    max-width: 100%;
   }
 
   @media screen and (width <= 360px) {
@@ -147,7 +167,7 @@
   }
 
   @media screen and (width <= 1280px) {
-    --input-font-sizee: 24px;
+    --input-font-size: 24px;
 
     line-height: 1.17; // 28px;
   }
@@ -264,18 +284,18 @@
 
 .footerButton {
   grid-area: btn;
+
+  width: 300px;
   min-width: 300px;
+  height: 300px;
   min-height: 300px;
   margin: 20px 0 0 auto;
 
-  @media screen and (width <= 1600px) {
-    width: 300px;
-    min-width: 300px;
-    height: 300px;
-    min-height: 300px;
-  }
-
   @media screen and (width <= 1280px) {
+    width: 240px;
+    min-width: 240px;
+    height: 240px;
+    min-height: 240px;
     margin: 40px 40px 0 auto;
   }
 
@@ -283,20 +303,12 @@
     margin-right: 0;
   }
 
-  @media screen and (width <= 970px) {
-    grid-column: 1 / span 2;
+  @media screen and (width <= 768px) {
     justify-self: center;
-    margin: 0;
-    margin-top: 100px;
-  }
-
-  @media screen and (width <= 460px) {
-    grid-column: 1 / span 1;
+    margin: 80px 0 0;
   }
 
   @media screen and (width <= 360px) {
-    grid-column: 1 / span 1;
-
     width: 240px;
     min-width: 240px;
     height: 240px;

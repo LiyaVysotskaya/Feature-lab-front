@@ -152,10 +152,6 @@
   display: block;
 
   min-height: 100%;
-
-  // margin-top: 0.10em;
-
-  // min-height: var(--input-min-height);
   padding-top: 2%;
 
   &::-webkit-scrollbar {
@@ -167,8 +163,6 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
-    // line-height: 0;
 
     @media screen and (width <= 1280px) {
       padding-top: 0;

@@ -54,9 +54,9 @@
   }
 
   @media screen and (width <= 1280px) {
-    --page-max-width: calc(360px + (768 - 360) * ((100vw - 360px) / (768 - 360)));
+    // --page-max-width: calc(360px + (768 - 360) * ((100vw - 360px) / (768 - 360)));
 
-    // --page-max-width: 768px;
+    --page-max-width: 768px;
 
     // --el-max-width: calc(704px + (1180 - 704) * ((var(--page-max-width) - 768px) / (1280 - 768)));
     --section-title-font-size: calc(48px + (64 - 48) * ((100vw - 768px) / (1280 - 768)));

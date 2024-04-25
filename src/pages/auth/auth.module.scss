@@ -30,9 +30,6 @@
   line-height: 1;
   color: var(--dark-blue, #002d63);
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     margin-bottom: 60px;
   }
@@ -56,11 +53,7 @@
 // form styles
 
 .form {
-  // --text-container-width: 17.6%; // 250px
-  // --grid-column-gap: 40px;
-  // --input-side-padding: 12.6%;
-  // --input-min-height: 200px;
-  --number-font-size: min(128px, 6.2vw);
+  --number-font-size: min(128px, calc(var(--page-max-width) * 0.062));
   --text-container-width: 15.8%;
   --grid-column-gap: 20px;
   --input-min-height: 180px;
@@ -74,9 +67,6 @@
 
   box-sizing: border-box;
   width: 100%;
-
-  @media screen and (width <= 1280px) {
-  }
 
   @media screen and (width <= 768px) {
     --text-container-width: 17.1%;
@@ -198,9 +188,6 @@
     -webkit-text-fill-color: var(--dark-blue, #002d63);
   }
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     --input-font-size: 64px;
     --input-font-size-min: 32px;
@@ -239,9 +226,6 @@
     color: var(--error, #bf1700) !important;
 
     -webkit-text-stroke: unset;
-  }
-
-  @media screen and (width <= 1280px) {
   }
 
   @media screen and (width <= 768px) {

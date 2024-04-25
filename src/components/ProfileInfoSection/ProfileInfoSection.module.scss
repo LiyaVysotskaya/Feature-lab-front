@@ -27,16 +27,12 @@
   margin-bottom: 40px;
 
   font-family: Germano, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   line-height: 1;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 8px;
-
-  @media screen and (width <= 1280px) {
-    font-size: 48px;
-  }
 
   @media screen and (width <= 768px) {
     margin-bottom: 32px;
@@ -61,7 +57,7 @@
 
 .item {
   display: flex;
-  column-gap: 100px;
+  column-gap: 40px;
   align-items: center;
 
   width: 100%;
@@ -71,10 +67,6 @@
   font-weight: 400;
 
   border-bottom: 1px solid var(--dark-blue, #002d63);
-
-  @media screen and (width <= 1280px) {
-    column-gap: 40px;
-  }
 
   @media screen and (width <= 900px) {
     flex-direction: column;
@@ -110,13 +102,8 @@
 }
 
 .itemValue {
-  font-size: 32px;
-  line-height: 1.19; // 38px
-
-  @media screen and (width <= 1280px) {
-    font-size: 24px;
-    line-height: 1.17; // 28px
-  }
+  font-size: 24px;
+  line-height: 1.17;
 }
 
 .btn {

@@ -1,13 +1,6 @@
+import cl from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-  ROUTE_CHANGE_PASSWORD,
-  ROUTE_ERROR_404,
-  ROUTE_ERROR_500,
-  ROUTE_PROFILE,
-} from '../../constants/routesConstants';
-import s from './Footer.module.scss';
-import { FormFooter } from './FormFooter/FormFooter';
 import {
   COMPANY_ADDRESS_FIRST_RAW,
   COMPANY_ADDRESS_SECOND_RAW,
@@ -18,6 +11,14 @@ import {
   COMPANY_NAME,
   COMPANY_PHONE,
 } from '../../constants/companyDetails';
+import {
+  ROUTE_CHANGE_PASSWORD,
+  ROUTE_ERROR_404,
+  ROUTE_ERROR_500,
+  ROUTE_PROFILE,
+} from '../../constants/routesConstants';
+import s from './Footer.module.scss';
+import { FormFooter } from './FormFooter/FormFooter';
 
 const Footer: FC = () => {
   const [showFooter, setShowFooter] = useState(true);
@@ -47,26 +48,25 @@ const Footer: FC = () => {
       </div>
 
       <div className={s.basementContainer}>
-        <div className={s.firstContainer}>
-          <p className={s.basementElement}>
-            {COMPANY_ADDRESS_FIRST_RAW}
-            <br />
-            {COMPANY_ADDRESS_SECOND_RAW}
-            <br />
-            {COMPANY_ADDRESS_THIRD_RAW}
-          </p>
-          <p className={s.basementElement}>
-            {COMPANY_NAME}
-            <br />
-            {COMPANY_INN}
-            <br />
-            {COMPANY_KPP}
-          </p>
-        </div>
-        <div className={s.secondContainer}>
-          <p className={s.basementElement}>{COMPANY_EMAIL}</p>
-          <p className={s.basementElement}>{COMPANY_PHONE}</p>
-        </div>
+        <p className={cl(s.basementElement, s.areaAddress)}>
+          {COMPANY_ADDRESS_FIRST_RAW}
+          <br />
+          {COMPANY_ADDRESS_SECOND_RAW}
+          <br />
+          {COMPANY_ADDRESS_THIRD_RAW}
+        </p>
+
+        <p className={cl(s.basementElement, s.areaCompany)}>
+          {COMPANY_NAME}
+          <br />
+          {COMPANY_INN}
+          <br />
+          {COMPANY_KPP}
+        </p>
+
+        <p className={cl(s.basementElement, s.areaEmail)}>{COMPANY_EMAIL}</p>
+
+        <p className={cl(s.basementElement, s.areaPhone)}>{COMPANY_PHONE}</p>
       </div>
     </footer>
   );
