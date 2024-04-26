@@ -59,17 +59,12 @@
   }
 
   @media screen and (width <= 1500px) {
-    grid-template-columns: 280px max-content auto;
+    grid-template-columns: 280px auto min-content;
     column-gap: 24px;
     padding: 24px var(--offset-from-edge) 0;
   }
 
-  @media screen and (width <= 1275px) {
-    grid-template-columns: 240px max-content auto;
-    column-gap: 20px;
-  }
-
-  @media screen and (width <= 1020px) {
+  @media screen and (width <= 1280px) {
     grid-template-columns: auto min-content;
     column-gap: 12px;
   }
@@ -103,20 +98,7 @@
   color: var(--dark-blue, #002d63);
   text-align: left;
 
-  @media screen and (width <= 1700px) {
-    padding: 4px 0 0;
-  }
-
-  @media screen and (width <= 1400px) {
-    padding: 18px 0;
-  }
-
-  @media screen and (width <= 1200px) {
-    padding: 5px 0 0;
-    font-size: 15px;
-  }
-
-  @media screen and (width <= 1020px) {
+  @media screen and (width <= 1280px) {
     display: none;
   }
 }
@@ -125,9 +107,6 @@
   align-self: end;
 
   font-family: Germano, sans-serif;
-
-  // font-size: 120px;
-
   font-size: var(--title-font-size);
   font-weight: 300;
   font-style: normal;
@@ -136,40 +115,22 @@
   text-align: left;
   white-space: nowrap;
 
-  // @media screen and (width <= 1880px) {
-  //   font-size: 100px;
-  // }
+  @media screen and (width <= 1280px) {
+    font-size: calc(var(--page-max-width) * 0.083);
+    letter-spacing: normal;
+  }
 
-  // @media screen and (width <= 1700px) {
-  //   font-size: 80px;
-  // }
+  @media screen and (width <= 760px) {
+    font-size: 8vw; // 64px;
+  }
 
-  // @media screen and (width <= 1400px) {
-  //   letter-spacing: -3.2px;
-  // }
-
-  // @media screen and (width <= 1275px) {
-  //   font-size: 6.4vw;
-  // }
-
-  // @media screen and (width <= 768px) {
-  //   font-size: 8.3vw; // 64px;
-  //   letter-spacing: normal;
-  // }
-
-  // @media screen and (width <= 760px) {
-  //   font-size: 8vw; // 64px;
-  // }
-
-  // @media screen and (width <= 360px) {
-  //   font-size: 6.6vw; // 64px;
-  // }
+  @media screen and (width <= 360px) {
+    font-size: 6.6vw; // 64px;
+  }
 }
 
 .cardNumber {
   font-family: Molot-Regular, sans-serif;
-
-  // font-size: 128px;
   font-size: var(--title-font-size);
   font-weight: 400;
   font-style: normal;
@@ -179,27 +140,10 @@
 
   transition: all 0.2s ease;
 
-  -webkit-text-stroke: 3.5px var(--dark-blue);
+  -webkit-text-stroke: 2px var(--dark-blue);
 
-  // @media screen and (width <= 1830px) {
-  //   font-size: 120px;
-  // }
-
-  // @media screen and (width <= 1700px) {
-  //   font-size: 100px;
-  //   line-height: 0.83;
-  // }
-
-  @media screen and (width <= 1275px) {
-    font-size: 7vw;
-  }
-
-  @media screen and (width <= 1150px) {
-    -webkit-text-stroke: 2px var(--dark-blue);
-  }
-
-  @media screen and (width <= 768px) {
-    font-size: 8.5vw; // 66px;
+  @media screen and (width <= 1280px) {
+    font-size: calc(var(--page-max-width) * 0.085); // 66px;
     line-height: 0.9; /* 100% */
   }
 
@@ -216,7 +160,7 @@
   max-height: 0;
   transition: max-height 0.3s;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     display: flex;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
@@ -229,8 +173,6 @@
   grid-row: 2 / span 1;
 
   box-sizing: border-box;
-
-  // max-width: 800px;
   max-width: 60%;
   padding: 40px 0 80px;
 
@@ -238,7 +180,7 @@
   font-size: 32px;
   font-weight: 400;
   font-style: normal;
-  line-height: 1.18; // 38px; 118.75%
+  line-height: 1.18;
   color: var(--dark-blue, #002d63);
   text-align: left;
 
@@ -252,7 +194,7 @@
 
   @media screen and (width <= 1150px) {
     font-size: 20px;
-    line-height: 1.2; /* 120% 24px */
+    line-height: 1.2;
   }
 
   @media screen and (width <= 768px) {

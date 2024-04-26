@@ -37,7 +37,7 @@ export const CompetenciesSection: FC<IProps> = ({ className = '' }) => {
             <h3 className={s.cardTitle}>{item.name.toUpperCase()}</h3>
             <div className={cl(s.cardNumber)}>{(index + 1).toString().padStart(2, '0')}</div>
             <div className={s.cardFooter}>
-              <div className={s.cardDescription}>{item.description}</div>
+              <div className={s.cardDescription}>{item.description_on_main}</div>
 
               <button
                 type="button"
