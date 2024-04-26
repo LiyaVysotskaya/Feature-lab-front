@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { postLoginData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
 import queryClient from '../query-client';
-import { LoginFormData } from '../types/publicData';
+import { LoginFormData } from '../types/forms';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,
@@ -10,7 +10,7 @@ import {
 } from '../utils/localStorageHelpers';
 
 // Custom hook for handling authentication
-const useAuth = () => {
+export const useAuth = () => {
   const [, setIsAuth] = useAtom(isAuthAtom);
 
   const signOut = () => {
@@ -39,5 +39,3 @@ const useAuth = () => {
   // Return authentication status and user profile data
   return { signOut, signIn };
 };
-
-export default useAuth;

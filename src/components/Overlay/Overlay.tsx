@@ -9,7 +9,7 @@ type IOverlayProps = {
   children: React.ReactNode;
 };
 
-const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
+export const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
   const popupRoot = document.getElementById('root');
   React.useEffect(() => {
     const handleEscClose = (e: KeyboardEvent) => {
@@ -39,5 +39,3 @@ const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
     popupRoot,
   );
 };
-
-export default Overlay;

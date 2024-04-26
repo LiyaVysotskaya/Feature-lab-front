@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import Overlay from '../Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
+import { CrossInCircleIcon } from '../ui/icons';
 import { FormContact } from './FormContact/FormContact';
 import s from './PopupContact.module.scss';
-import { CrossInCircleIcon } from '../ui/icons';
 
 type IPopupProps = {
   onClose: () => void;
