@@ -15,17 +15,11 @@ export type IProps = {
 export const CompetenciesSection: FC<IProps> = ({ className = '' }) => {
   const navigate = useNavigate();
 
-  const handlePlusBtnClick = (url: string) => {
+  const handleOnBtnClick = (url: string) => {
     navigate(`${ROUTE_COMPETENCIES}/${url}`);
   };
 
   const { data: competencies, isLoading } = useCompetenciesQuery();
-
-  const handleOnClick = (slug: string) => {
-    if (window.innerWidth > 768) {
-      navigate(`${ROUTE_COMPETENCIES}/${slug}`);
-    }
-  };
 
   if (isLoading || !competencies) {
     return null;
@@ -38,22 +32,20 @@ export const CompetenciesSection: FC<IProps> = ({ className = '' }) => {
       <SectionTitle text="Компетенции" />
       <ul className={s.list}>
         {sortedCompetencies.map((item, index) => (
-          <li className={s.listItem} key={uuidv4()}>
-            <button type="button" className={s.card} onClick={() => handleOnClick(item.slug)}>
-              <div className={s.cardInfo}>{item.description}</div>
-              <h3 className={s.cardTitle}>{item.name.toUpperCase()}</h3>
-              <div className={cl(s.cardNumber)}>{(index + 1).toString().padStart(2, '0')}</div>
-              <div className={s.cardFooter}>
-                <div className={s.cardDescription}>{item.description}</div>
+          <li className={s.card} key={uuidv4()}>
+            <div className={s.cardInfo}>{item.description}</div>
+            <h3 className={s.cardTitle}>{item.name.toUpperCase()}</h3>
+            <div className={cl(s.cardNumber)}>{(index + 1).toString().padStart(2, '0')}</div>
+            <div className={s.cardFooter}>
+              <div className={s.cardDescription}>{item.description}</div>
 
-                <button
-                  type="button"
-                  className={s.cardPlusBtn}
-                  onClick={() => handlePlusBtnClick(item.slug)}>
-                  <PlusIcon />
-                </button>
-              </div>
-            </button>
+              <button
+                type="button"
+                className={s.cardBtn}
+                onClick={() => handleOnBtnClick(item.slug)}>
+                <PlusIcon />
+              </button>
+            </div>
           </li>
         ))}
       </ul>
