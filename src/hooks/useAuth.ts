@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import { postLoginData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
+import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
 import queryClient from '../query-client';
 import { LoginFormData } from '../types/forms';
 import {
@@ -31,11 +32,9 @@ export const useAuth = () => {
         signOut();
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      // Handle error
+      InfoToastContainer('Что-то пошло не так');
     }
   };
 
-  // Return authentication status and user profile data
   return { signOut, signIn };
 };
