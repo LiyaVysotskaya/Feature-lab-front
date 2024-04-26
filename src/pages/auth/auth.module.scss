@@ -257,9 +257,6 @@
     color: var(--error, #bf1700);
   }
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     font-size: 32px;
   }
@@ -294,9 +291,6 @@
   color: var(--error, #bf1700);
   word-wrap: break-word;
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     font-size: 32px;
   }
@@ -327,9 +321,6 @@
   margin-top: 24px;
   margin-bottom: 622px;
   padding: 0;
-
-  @media screen and (width <= 1280px) {
-  }
 
   @media screen and (width <= 768px) {
     column-gap: 20px;
@@ -373,9 +364,6 @@
   line-height: 1.2;
   color: var(--dark-blue, #002d63);
   text-align: left;
-
-  @media screen and (width <= 1280px) {
-  }
 
   @media screen and (width <= 768px) {
     font-size: 32px;
@@ -449,9 +437,6 @@
   margin: 16px auto 590px;
   padding: 0 var(--input-side-padding);
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     margin-bottom: 500px;
   }
@@ -499,9 +484,6 @@
     opacity: 0.6;
   }
 
-  @media screen and (width <= 1280px) {
-  }
-
   @media screen and (width <= 768px) {
     font-size: 32px;
     text-underline-offset: 9px;
@@ -540,12 +522,20 @@
 
 .responseText {
   font-family: Germano-Regular, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   line-height: 1; // 64px
   color: var(--dark-blue, #002d63);
   text-align: center;
   letter-spacing: 0;
+
+  @media screen and (width <= 768px) {
+    font-size: 40px;
+  }
+
+  @media screen and (width <= 360px) {
+    font-size: 24px;
+  }
 }
 
 .tooltip {
@@ -564,9 +554,6 @@
   box-shadow: 0 10px 20px 0 #002d634d;
 
   transition: all 0.5s ease-in-out;
-
-  @media screen and (width <= 1280px) {
-  }
 
   @media screen and (width <= 768px) {
     top: 80px;
