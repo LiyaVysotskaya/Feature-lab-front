@@ -74,16 +74,14 @@
     letter-spacing: 0;
   }
 
-  @media screen and (width <= 610px) and (width > 460px) {
+  @media screen and (width <= 610px) {
     width: fit-content;
-    font-size: 9vw;
+    font-size: max(40px, 9vw);
   }
 
   @media screen and (width <= 360px) {
-    width: 292px;
     margin-top: 0;
     margin-right: 0;
-    font-size: 40px;
   }
 }
 
