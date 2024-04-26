@@ -35,6 +35,10 @@
     border-width: 0 0 2px;
     border-radius: 2px;
     box-shadow: var(--shadow-box-shadow, 0 10px 20px 0 rgb(0 45 99 / 30%));
+
+    @media screen and (width <= 1280px) {
+      margin: 50px 10px 15px 30px;
+    }
   }
 
   &Item {
@@ -55,19 +59,15 @@
     line-height: 1.17; // 28px;
     color: var(--dark-blue, #002d63);
     text-align: left;
+
+    @media screen and (width <= 1280px) {
+      font-size: 16px;
+    }
   }
 
   &LinkActive {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
-  }
-}
-
-@media screen and (width <= 1060px) {
-  .submenu {
-    &Link {
-      font-size: 19px;
-    }
   }
 }
