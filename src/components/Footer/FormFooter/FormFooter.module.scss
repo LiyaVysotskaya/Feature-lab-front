@@ -159,7 +159,7 @@
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    box-shadow: 0 0 0 1000px var(--darkblue, #002d63) inset;
+    box-shadow: 0 0 0 1000px var(--darkblue) inset;
 
     -webkit-text-fill-color: var(--white, #fff);
   }

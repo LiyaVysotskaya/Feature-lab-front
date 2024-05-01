@@ -28,7 +28,7 @@
   font-size: calc(0.07 * var(--page-max-width));
   font-weight: 400;
   line-height: 1;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 768px) {
     margin-bottom: 60px;
@@ -43,10 +43,10 @@
 .unhighlightedTitle {
   color: var(--white, #fff);
 
-  -webkit-text-stroke: 3px var(--dark-blue, #002d63);
+  -webkit-text-stroke: 3px var(--dark-blue);
 
   @media screen and (width <= 360px) {
-    -webkit-text-stroke: 2px var(--dark-blue, #002d63);
+    -webkit-text-stroke: 2px var(--dark-blue);
   }
 }
 
@@ -130,7 +130,7 @@
   min-height: var(--input-min-height);
   padding: 0 var(--input-side-padding);
 
-  border: solid var(--dark-blue, #002d63);
+  border: solid var(--dark-blue);
   border-width: 0 0 2px;
 
   &:first-of-type {
@@ -163,7 +163,7 @@
   font-size: var(--input-font-size);
   font-weight: 400;
   line-height: 1.2;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   background-color: transparent;
   border: none;
@@ -185,7 +185,7 @@
   &:-webkit-autofill:focus {
     box-shadow: 0 0 0 1000px #fff inset;
 
-    -webkit-text-fill-color: var(--dark-blue, #002d63);
+    -webkit-text-fill-color: var(--dark-blue);
   }
 
   @media screen and (width <= 768px) {
@@ -247,7 +247,7 @@
   font-size: 40px;
   font-weight: 300;
   line-height: 1; // 32px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   opacity: 0;
 
@@ -362,7 +362,7 @@
   font-weight: 300;
   font-style: normal; // magnification to better match the layout
   line-height: 1.2;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: left;
 
   @media screen and (width <= 768px) {
@@ -412,7 +412,7 @@
 .input:not(:placeholder-shown) + .textContainer {
   .textNumber {
     font-size: calc(var(--number-font-size) * 0.625);
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     -webkit-text-stroke: unset;
   }
@@ -473,7 +473,7 @@
   font-weight: 300;
   font-style: normal;
   line-height: 1.2;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 13px;
@@ -516,7 +516,7 @@
   margin-bottom: 100px;
   padding: 30px 0 40px;
 
-  border: solid var(--dark-blue, #002d63);
+  border: solid var(--dark-blue);
   border-width: 2px 0;
 }
 
@@ -525,7 +525,7 @@
   font-size: 48px;
   font-weight: 300;
   line-height: 1; // 64px
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: center;
   letter-spacing: 0;
 

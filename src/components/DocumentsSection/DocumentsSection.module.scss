@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 768px) {
     max-width: var(--el-max-width);

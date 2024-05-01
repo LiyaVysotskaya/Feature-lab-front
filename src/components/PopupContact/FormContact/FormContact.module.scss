@@ -83,7 +83,7 @@
   min-height: var(--input-min-height);
   padding: 0 var(--input-side-padding);
 
-  border: solid var(--dark-blue, #002d63);
+  border: solid var(--dark-blue);
   border-width: 0 0 2px;
 
   &:first-of-type {
@@ -108,7 +108,7 @@
   font-size: var(--input-font-size);
   font-weight: 400;
   line-height: 1; // 80px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   background-color: transparent;
   border: none;
@@ -130,7 +130,7 @@
   &:-webkit-autofill:focus {
     box-shadow: 0 0 0 1000px #fff inset;
 
-    -webkit-text-fill-color: var(--dark-blue, #002d63);
+    -webkit-text-fill-color: var(--dark-blue);
   }
 
   @media screen and (width <= 768px) {
@@ -197,7 +197,7 @@
 
   transition: all 0.2s ease;
 
-  -webkit-text-stroke: 3.5px var(--dark-blue, #002d63);
+  -webkit-text-stroke: 3.5px var(--dark-blue);
 
   &Error {
     color: var(--error, #bf1700) !important;
@@ -226,7 +226,7 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 1; // 32px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   opacity: 0;
 
@@ -354,7 +354,7 @@
   font-weight: 400;
   font-style: normal;
   line-height: 1.18; // 38px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 768px) {
     font-size: 20px;
@@ -389,7 +389,7 @@
 .input:focus + .textContainer,
 .input:not(:placeholder-shown) + .textContainer {
   .textNumber {
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     -webkit-text-stroke: unset;
   }

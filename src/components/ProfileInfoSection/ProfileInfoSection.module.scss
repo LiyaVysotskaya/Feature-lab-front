@@ -11,7 +11,7 @@
   width: 100%;
   margin: 0;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 768px) {
     max-width: var(--el-max-width);
@@ -66,7 +66,7 @@
   font-family: 'GOST type B', sans-serif;
   font-weight: 400;
 
-  border-bottom: 1px solid var(--dark-blue, #002d63);
+  border-bottom: 1px solid var(--dark-blue);
 
   @media screen and (width <= 900px) {
     flex-direction: column;

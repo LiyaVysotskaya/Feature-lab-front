@@ -38,7 +38,7 @@
   font-size: 32px;
   font-weight: 300;
   line-height: 1;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: left;
   letter-spacing: 0;
 
@@ -71,14 +71,14 @@
 .button {
   color: var(--white, #fff);
 
-  -webkit-text-stroke: 3.5px var(--dark-blue, #002d63);
+  -webkit-text-stroke: 3.5px var(--dark-blue);
 
   @media screen and (width <= 768px) {
-    -webkit-text-stroke: 2.8px var(--dark-blue, #002d63);
+    -webkit-text-stroke: 2.8px var(--dark-blue);
   }
 
   @media screen and (width <= 690px) {
-    -webkit-text-stroke: 1.5px var(--dark-blue, #002d63);
+    -webkit-text-stroke: 1.5px var(--dark-blue);
   }
 }
 

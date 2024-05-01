@@ -50,8 +50,8 @@
   }
 
   &:active {
-    color: var(--dark-blue, #002d63);
-    border: 2px solid var(--dark-blue, #002d63);
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
   }
 
   &:disabled {
@@ -139,11 +139,11 @@
   }
 
   &_white {
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
     background: var(--white, #fff);
 
     &:active {
-      border: 2px solid var(--dark-blue, #002d63);
+      border: 2px solid var(--dark-blue);
 
       &:disabled {
         border: none;
@@ -153,7 +153,7 @@
 
   &_blue {
     color: var(--white, #fff);
-    background: var(--dark-blue, #002d63);
+    background: var(--dark-blue);
 
     &:active {
       border: 2px solid var(--white, #fff);

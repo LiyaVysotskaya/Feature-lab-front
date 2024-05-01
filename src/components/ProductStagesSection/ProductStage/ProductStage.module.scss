@@ -1,6 +1,6 @@
 .stage {
-  color: var(--dark-blue, #002d63);
-  border-top: 2px solid var(--dark-blue, #002d63);
+  color: var(--dark-blue);
+  border-top: 2px solid var(--dark-blue);
 
   &Wrapper {
     display: flex;
@@ -33,7 +33,7 @@
     -webkit-text-stroke: 3.5px var(--dark-blue);
 
     &__filled {
-      color: var(--dark-blue, #002d63);
+      color: var(--dark-blue);
 
       -webkit-text-stroke: initial;
     }

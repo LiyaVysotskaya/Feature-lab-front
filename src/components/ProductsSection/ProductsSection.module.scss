@@ -11,7 +11,7 @@
   width: 100%;
   margin: 0;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 }
 
 .list {
@@ -37,7 +37,7 @@
     display: flex;
     column-gap: 30px;
     align-items: center;
-    border-bottom: 1px solid var(--dark-blue, #002d63);
+    border-bottom: 1px solid var(--dark-blue);
   }
 
   &Title {

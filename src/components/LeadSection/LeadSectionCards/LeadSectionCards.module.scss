@@ -41,7 +41,7 @@
     width: 100%;
     padding: 4px 0;
 
-    border-bottom: 1px solid var(--dark-blue, #002d63);
+    border-bottom: 1px solid var(--dark-blue);
   }
 
   &TitleBig {
@@ -50,7 +50,7 @@
     font-weight: 400;
     font-style: normal;
     line-height: 1; // 100px; /* 100% */
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     @media screen and (width <= 1100px) {
       font-size: 40px;
@@ -65,7 +65,7 @@
     font-weight: 300;
     font-style: normal;
     line-height: 1; // 48px; /* 100% */
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     @media screen and (width <= 1100px) {
       margin: 0 0 2px;
@@ -79,7 +79,7 @@
     font-weight: 400;
     font-style: normal; // 38px; /* 118.75% */
     line-height: 1.17; // 28px; /* 116.667% */
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     @media screen and (width <= 1100px) {
       font-size: 20px;

@@ -30,7 +30,7 @@
     padding: 20px 20px 28px;
 
     background: var(--white, #fff);
-    border-color: var(--dark-blue, #002d63);
+    border-color: var(--dark-blue);
     border-style: solid;
     border-width: 0 0 2px;
     border-radius: 2px;
@@ -57,7 +57,7 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 1.17; // 28px;
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
     text-align: left;
 
     @media screen and (width <= 1280px) {

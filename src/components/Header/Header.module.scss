@@ -91,7 +91,7 @@
 
   &WithBorder {
     @media screen and (width > 768px) {
-      border-color: var(--dark-blue, #002d63);
+      border-color: var(--dark-blue);
       border-style: solid;
       border-width: 0 0 2px;
     }
@@ -121,7 +121,7 @@
   font-family: GostTypeB-Standard, sans-serif;
   font-size: 24px;
   line-height: 1.17;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 1280px) {
     font-size: 16px;
