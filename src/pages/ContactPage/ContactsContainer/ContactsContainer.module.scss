@@ -11,7 +11,7 @@
   max-width: var(--el-max-width);
   margin-bottom: 228px;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     gap: 44px 46px;
     margin-bottom: 127px;
   }
@@ -62,7 +62,7 @@
   text-align: left;
   letter-spacing: 0;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     margin-bottom: 14px;
     font-size: 40px;
   }
@@ -91,11 +91,6 @@
   border-top: 1px solid var(--dark-blue, #002d63);
 
   @media screen and (width <= 1280px) {
-    font-size: 24px;
-    line-height: 1.16;
-  }
-
-  @media screen and (width <= 870px) {
     font-size: 20px;
     line-height: 1.2;
   }
@@ -116,7 +111,7 @@
   column-gap: 48px;
   margin-bottom: 16px;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     column-gap: 28px;
   }
 }
@@ -125,7 +120,7 @@
   width: 80px;
   height: 80px;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     width: 60px;
     height: 60px;
   }
