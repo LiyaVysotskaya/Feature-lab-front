@@ -6,58 +6,63 @@
   box-sizing: border-box;
   padding: 20px;
 
-  background: var(--white, #fff);
-  border: 2px solid var(--dark-blue, #002d63);
+  background: var(--white);
+  border: 2px solid var(--dark-blue);
 
   transition: all 0.2s ease;
 
-  &Title {
-    font-family: Germano, sans-serif;
-    font-size: 48px;
-    font-weight: 300;
-    font-style: normal;
-    line-height: 1; // 64px; /* 100% */
-    color: var(--dark-blue, #002d63);
-
-    @media screen and (width <= 768px) {
-      font-size: 32px;
-    }
-  }
-
-  &Text {
-    max-width: 100%;
-
-    font-family: 'GOST type B', sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.19; // 38px;
-    color: var(--white);
-    white-space: pre-wrap;
-
-    @media screen and (width <= 768px) {
-      font-size: 20px;
-      line-height: 1.2; // 24px;
-    }
-
-    @media screen and (width <= 690px) {
-      color: var(--white-60);
-    }
-  }
-
-  &:hover {
-    background: var(--dark-blue, #002d63);
-  }
-
-  &:hover &Title {
-    color: var(--white, #fff);
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 8px;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     row-gap: 12px;
     padding: 12px;
+  }
+}
+
+.cardTitle {
+  font-family: Germano, sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1;
+  color: var(--dark-blue);
+
+  @media screen and (width <= 1280px) {
+    font-size: 32px;
+  }
+}
+
+.cardText {
+  max-width: 100%;
+
+  font-family: 'GOST type B', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.19; // 38px;
+  color: var(--white);
+  white-space: pre-wrap;
+
+  @media screen and (width <= 1280px) {
+    font-size: 20px;
+    line-height: 1.2; // 24px;
+  }
+
+  @media screen and (width <= 690px) {
+    color: var(--white-60);
+  }
+}
+
+.card:hover {
+  background: var(--dark-blue);
+}
+
+.card:hover .cardTitle {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 8px;
+
+  @media screen and (width <= 1280px) {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
 }

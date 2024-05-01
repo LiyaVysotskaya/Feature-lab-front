@@ -3,7 +3,7 @@
   margin-bottom: 80px;
   white-space: nowrap;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     margin-bottom: 52px;
   }
 
@@ -15,7 +15,7 @@
 .pageSection {
   margin-bottom: 200px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     margin-bottom: 120px;
   }
 }
