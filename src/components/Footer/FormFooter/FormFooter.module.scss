@@ -159,7 +159,7 @@
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    box-shadow: 0 0 0 1000px var(--darkblue) inset;
+    box-shadow: 0 0 0 1000px var(--dark-blue) inset;
 
     -webkit-text-fill-color: var(--white, #fff);
   }
@@ -201,7 +201,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--darkblue-50, #8096b1);
+  color: var(--dark-blue-50, #8096b1);
   text-align: left;
 
   &Error {

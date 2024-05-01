@@ -53,7 +53,7 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 1.19; // 38px;
-  color: var(--darkblue);
+  color: var(--dark-blue);
 }
 
 .popupPrivacyPolicy__content {
@@ -84,7 +84,7 @@
         font-size: 80px;
         font-weight: 400;
         line-height: 1; // 80px;
-        color: var(--darkblue);
+        color: var(--dark-blue);
       }
 
       &_text {
@@ -95,7 +95,7 @@
         font-size: 80px;
         font-weight: 300;
         line-height: 1; // 80px;
-        color: var(--darkblue);
+        color: var(--dark-blue);
         letter-spacing: -3.2px;
       }
     }
@@ -111,7 +111,7 @@
       font-size: 32px;
       font-weight: 400;
       line-height: 1.19; // 38px;
-      color: var(--darkblue);
+      color: var(--dark-blue);
       white-space: pre-wrap;
 
       &.one_column {
