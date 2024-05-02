@@ -11,7 +11,7 @@ export const CompetenciesPage: FC = () => {
   const isCompetenciesDefaultPage = useMatch(ROUTE_COMPETENCIES);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  if (isMobile) {
+  if (isMobile && isCompetenciesDefaultPage) {
     return <Navigate to={ROUTE_HOME} />;
   }
 

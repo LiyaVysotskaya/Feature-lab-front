@@ -11,7 +11,7 @@ export const ProductsPage: FC = () => {
   const isProductsDefaultPage = useMatch(ROUTE_PRODUCTS);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  if (isMobile) {
+  if (isMobile && isProductsDefaultPage) {
     return <Navigate to={ROUTE_HOME} />;
   }
 
