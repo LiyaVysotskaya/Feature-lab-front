@@ -22,8 +22,8 @@
 
   @media screen and (width <= 500px) {
     grid-template:
-      'info' auto / auto
-      'cards' auto / auto
+      'info' auto
+      'cards' auto
       'description' auto / auto;
     row-gap: 32px;
   }
