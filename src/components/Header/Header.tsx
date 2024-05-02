@@ -19,6 +19,7 @@ import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobil
 import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
 import { ProductsSubMenu } from './SubMenu/ProductsSubMenu';
 import s from './Header.module.scss';
+import { ProfileTabsNav } from '../ProfileNav/ProfileTabsNav/ProfileTabsNav';
 
 export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
@@ -55,6 +56,9 @@ export const Header: React.FC = () => {
     setProductsVisible(false);
   };
 
+  const isHomePage = location.pathname === ROUTE_HOME;
+  const isProfilePage = location.pathname.includes(ROUTE_PROFILE);
+
   return (
     <header
       className={cl(s.header, {
@@ -62,7 +66,8 @@ export const Header: React.FC = () => {
       })}>
       <div
         className={cl(s.headerContainer, {
-          [s.headerContainer_bg_white]: currentScrollY > 1,
+          [s.headerContainer_bg_white]: currentScrollY > 1 || !isHomePage,
+          [s.headerContainer_with_shadow]: currentScrollY > 1,
         })}>
         <div className={cl(s.content)}>
           <Link to={ROUTE_HOME} className={s.logo}>
@@ -72,7 +77,7 @@ export const Header: React.FC = () => {
           <nav
             aria-label="Основное меню"
             className={cl(s.nav, {
-              [s.navWithBorder]: currentScrollY < 3 && location.pathname !== ROUTE_HOME,
+              [s.navWithBorder]: currentScrollY < 3 && !isHomePage && !isProfilePage,
             })}>
             <ul className={cl(s.list)}>
               <li
@@ -134,6 +139,7 @@ export const Header: React.FC = () => {
         <ProfileNavMobile />
         <MobileMenu />
       </div>
+      <ProfileTabsNav />
     </header>
   );
 };
