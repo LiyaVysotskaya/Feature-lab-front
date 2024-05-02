@@ -1,75 +1,64 @@
 .lead {
   display: grid;
-  grid-template-columns: auto auto max-content;
-  column-gap: 30px;
+  grid-template-areas: 'info description cards';
+  grid-template-columns: 240px auto minmax(320px, 340px);
+  column-gap: 60px;
 
   box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
   margin: 0 auto;
 
-  @media screen and (width <= 1000px) {
-    grid-template-columns: 320px auto;
-    row-gap: 52px;
-  }
-
-  @media screen and (width <= 768px) {
-    column-gap: 24px;
+  @media screen and (width <= 1280px) {
+    grid-template:
+      'info description' 1fr
+      'cards description' 4fr / 320px auto;
+    gap: 52px 24px;
   }
 
   @media screen and (width <= 700px) {
     grid-template-columns: auto auto;
   }
 
-  @media screen and (width <= 430px) {
-    grid-template-columns: auto;
+  @media screen and (width <= 500px) {
+    grid-template:
+      'info' auto / auto
+      'cards' auto / auto
+      'description' auto / auto;
     row-gap: 32px;
-  }
-
-  @media screen and (width <= 360px) {
-    grid-template-columns: auto;
-    grid-template-rows: max-content max-content max-content;
   }
 }
 
 .info {
-  max-width: 355px;
+  grid-area: info;
 
   font-family: 'GOST type B', sans-serif;
   font-size: 24px;
   font-weight: 400;
-  font-style: normal; // 38px; /* 118.75% */
+  font-style: normal;
   line-height: 1.17; //  28px; /* 116.667% */
   color: var(--dark-blue);
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 20px;
-    line-height: 1.2; // 24px; /* 120% */
+    line-height: 1.2;
   }
 }
 
 .description {
   display: flex;
+  grid-area: description;
   flex-direction: column;
-  row-gap: 20px;
-
-  max-width: 360px;
+  row-gap: 30px;
 
   font-family: 'GOST type B', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  font-style: normal; // 28px; /* 116.667% */
-  line-height: 1.2; // 24px; /* 120% */
+  font-style: normal;
+  line-height: 1.2;
   color: var(--dark-blue);
 
-  @media screen and (width <= 1000px) {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 2;
-  }
-
-  @media screen and (width <= 430px) {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
+  @media screen and (width <= 500px) {
     row-gap: 16px;
   }
 }
