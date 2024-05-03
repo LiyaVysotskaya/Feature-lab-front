@@ -54,16 +54,6 @@
   background: var(--white, #fff);
   border-bottom: 2px solid var(--dark-blue);
 
-  @media screen and (width <= 1700px) {
-    column-gap: 32px;
-  }
-
-  @media screen and (width <= 1500px) {
-    grid-template-columns: 280px auto min-content;
-    column-gap: 24px;
-    padding: 24px var(--offset-from-edge) 0;
-  }
-
   @media screen and (width <= 1280px) {
     grid-template-columns: auto min-content;
     column-gap: 12px;
@@ -75,7 +65,6 @@
 
   @media screen and (width <= 650px) {
     column-gap: 8px;
-    padding: 12px var(--offset-from-edge) 0;
   }
 
   @media screen and (width <= 460px) {
@@ -107,7 +96,7 @@
   align-self: end;
 
   font-family: Germano, sans-serif;
-  font-size: var(--title-font-size);
+  font-size: 70px;
   font-weight: 300;
   font-style: normal;
   line-height: 0.85;
@@ -116,7 +105,7 @@
   white-space: nowrap;
 
   @media screen and (width <= 1280px) {
-    font-size: calc(var(--page-max-width) * 0.083);
+    font-size: 60px;
     letter-spacing: normal;
   }
 
@@ -131,7 +120,7 @@
 
 .cardNumber {
   font-family: Molot-Regular, sans-serif;
-  font-size: var(--title-font-size);
+  font-size: 90px;
   font-weight: 400;
   font-style: normal;
   line-height: 0.7; /* 100% */
@@ -140,10 +129,15 @@
 
   transition: all 0.2s ease;
 
-  -webkit-text-stroke: 2px var(--dark-blue);
+  -webkit-text-stroke: 3px var(--dark-blue);
 
   @media screen and (width <= 1280px) {
-    font-size: calc(var(--page-max-width) * 0.085); // 66px;
+    font-size: 62px;
+    line-height: 0.9; /* 100% */
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: calc(var(--page-max-width) * 0.085);
     line-height: 0.9; /* 100% */
   }
 
