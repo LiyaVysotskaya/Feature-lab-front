@@ -8,12 +8,8 @@
 
   border-bottom: 1px solid var(--dark-blue);
 
-  @media screen and (width <= 1120px) {
-    grid-template-columns: auto;
-  }
-
-  @media screen and (width <= 768px) {
-    grid-template-columns: 24vw auto;
+  @media screen and (width <= 1280px) {
+    grid-template-columns: 24% auto;
     column-gap: 12px;
   }
 
@@ -31,7 +27,7 @@
   line-height: 1;
   letter-spacing: 0;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 24px;
   }
 

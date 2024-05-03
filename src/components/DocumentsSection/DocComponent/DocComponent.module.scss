@@ -8,14 +8,10 @@
 
   font-family: 'GOST type B', sans-serif;
 
-  @media screen and (width <= 1120px) {
+  @media screen and (width <= 1280px) {
     grid-template-columns: 160px auto min-content;
     column-gap: 16px;
     padding-right: 0;
-  }
-
-  @media screen and (width <= 768px) {
-    column-gap: 16px;
   }
 
   @media screen and (width <= 590px) {
@@ -35,22 +31,17 @@
 
   @media screen and (width <= 1280px) {
     font-size: 20px;
-    line-height: 1.2; // 24px;
+    line-height: 1.2;
   }
 }
 
 .docDescription {
   align-self: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.12; // 24px;
+  line-height: 1.13; // 18px;
 
   @media screen and (width <= 1280px) {
-    font-size: 16px;
-    line-height: 1.13; // 18px;
-  }
-
-  @media screen and (width <= 768px) {
     font-size: 14px;
     line-height: 1;
   }
@@ -62,16 +53,11 @@
 }
 
 .docDate {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.17; // 28px;
+  line-height: 1.2; // 24px;
 
   @media screen and (width <= 1280px) {
-    font-size: 20px;
-    line-height: 1.2; // 24px;
-  }
-
-  @media screen and (width <= 768px) {
     font-size: 16px;
     line-height: 1.13; // 18px;
   }

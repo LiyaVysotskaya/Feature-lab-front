@@ -29,7 +29,7 @@
   text-decoration-thickness: 3px;
   text-underline-offset: 12px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 40px;
     text-decoration-thickness: 2px;
     text-underline-offset: 8px;
@@ -47,7 +47,7 @@
   row-gap: 80px;
   width: 100%;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     row-gap: 40px;
   }
 }
