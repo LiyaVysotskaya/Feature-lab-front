@@ -19,11 +19,13 @@ export const ProfileProject: FC<IProps> = ({ className = '' }) => {
     return null;
   }
 
+  const sortedStages = project?.stages.sort((a, b) => a.stage_num - b.stage_num);
+
   return (
     <div className={cl(s.project, className)}>
       <ProjectInfoSection project={project} className={s.projectSection} />
 
-      <ProjectStagesSection projectStages={project.stages} className={s.projectSection} />
+      <ProjectStagesSection projectStages={sortedStages} className={s.projectSection} />
 
       <DocumentsSection
         title={`Документы по ${project.name}`}
