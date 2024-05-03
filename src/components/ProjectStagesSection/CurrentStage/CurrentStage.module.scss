@@ -4,11 +4,7 @@
   width: 100%;
   max-width: 1040px;
 
-  @media screen and (width <= 1000px) and (width > 768px) {
-    flex-direction: column;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     max-width: var(--el-max-width);
   }
 
@@ -35,7 +31,7 @@
   font-size: 48px;
   line-height: 1; // 48px
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 40px;
     text-decoration-thickness: 1px;
     text-underline-offset: 5px;

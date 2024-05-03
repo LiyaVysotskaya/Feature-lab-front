@@ -10,14 +10,7 @@
 
   color: var(--dark-blue);
 
-  @media screen and (width <= 950px) {
-    grid-template-areas:
-      'title title'
-      'manager logo'
-      'description description';
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     grid-template-areas:
       'title logo'
       'manager logo'
@@ -50,7 +43,7 @@
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     min-width: 100%;
     font-size: 40px;
     text-decoration-thickness: 1px;
@@ -90,7 +83,7 @@
   font-size: 20px;
   line-height: 1.2; // 24px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     padding-top: 28px;
   }
 }
@@ -105,7 +98,7 @@
   min-width: 160px;
   max-width: 160px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     min-width: 182px;
     max-width: 182px;
     margin-right: 62px;

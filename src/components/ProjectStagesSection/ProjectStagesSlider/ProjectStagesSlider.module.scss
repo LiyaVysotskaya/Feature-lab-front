@@ -3,10 +3,6 @@
   box-sizing: border-box;
   width: 100%;
   min-height: 150px;
-
-  @media screen and (width <= 768px) {
-    width: 100vw;
-  }
 }
 
 .stages {
@@ -24,8 +20,8 @@
   min-height: 145px;
   padding: 40px 0 0;
 
-  @media screen and (width <= 768px) {
-    min-width: 100vw;
+  @media screen and (width <= 1280px) {
+    min-width: 100%;
     padding: 40px 0 0;
     padding-right: var(--offset-from-edge);
     padding-left: var(--offset-from-edge);
@@ -64,7 +60,7 @@
     opacity: 1;
   }
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     width: var(--offset-from-edge);
   }
 }
