@@ -30,7 +30,7 @@ export const FormLogin: FC = () => {
   const { signIn } = useAuth();
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    resizeInputFont(e);
+    // resizeInputFont(e);
     handleChange(e);
   };
 

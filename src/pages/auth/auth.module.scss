@@ -43,7 +43,7 @@
 .unhighlightedTitle {
   color: var(--white, #fff);
 
-  -webkit-text-stroke: 3px var(--dark-blue);
+  -webkit-text-stroke: 2px var(--dark-blue);
 
   @media screen and (width <= 360px) {
     -webkit-text-stroke: 2px var(--dark-blue);
@@ -56,7 +56,7 @@
   --number-font-size: min(128px, calc(var(--page-max-width) * 0.062));
   --text-container-width: 15.8%;
   --grid-column-gap: 20px;
-  --input-min-height: 180px;
+  --input-min-height: 170px;
   --input-side-padding: 9.5%; // 120px;
 
   position: relative;
@@ -68,7 +68,7 @@
   box-sizing: border-box;
   width: 100%;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     --text-container-width: 17.1%;
     --grid-column-gap: 13px;
     --input-side-padding: 7.7%; // 60px;
@@ -104,6 +104,7 @@
   left: 50%;
   transform: translateX(-50%);
 
+  font-size: 48px;
   line-height: 1;
   white-space: pre-wrap;
 
@@ -147,7 +148,7 @@
 }
 
 .input {
-  --input-font-size: 100px;
+  --input-font-size: 80px;
   --input-font-size-min: 40px;
 
   grid-area: input;
@@ -162,7 +163,7 @@
   font-family: Germano-Regular, sans-serif;
   font-size: var(--input-font-size);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1;
   color: var(--dark-blue);
 
   background-color: transparent;
@@ -182,7 +183,9 @@
 
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus {
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-webkit-autofill::first-line {
     box-shadow: 0 0 0 1000px #fff inset;
 
     -webkit-text-fill-color: var(--dark-blue);
