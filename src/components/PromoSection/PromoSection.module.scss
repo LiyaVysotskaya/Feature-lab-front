@@ -21,11 +21,11 @@
   }
 
   @media screen and (width <= 768px) {
-    min-height: 963px;
+    min-height: 768px;
   }
 
   @media screen and (width <= 360px) {
-    min-height: 760px;
+    min-height: 678px;
   }
 }
 
@@ -120,7 +120,6 @@
 
   @media screen and (width <= 500px) {
     max-width: 100%;
-    font-size: 40px;
   }
 }
 
