@@ -19,7 +19,7 @@
   text-decoration-thickness: 2.5px;
   text-underline-offset: 8px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 40px;
   }
 
@@ -47,7 +47,7 @@
     text-underline-offset: 4px;
   }
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 20px;
     line-height: 1.2;
   }
@@ -64,11 +64,7 @@
   right: 10%;
   transform: translateY(-50%);
 
-  @media screen and (width <= 900px) {
-    right: 0;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     right: 10%;
   }
 
