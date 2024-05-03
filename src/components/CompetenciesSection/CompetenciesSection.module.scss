@@ -45,7 +45,6 @@
 
   display: grid;
   grid-template-columns: 260px auto min-content;
-  grid-template-rows: min-content;
   column-gap: 24px;
 
   width: 100%;
@@ -167,8 +166,8 @@
   grid-row: 2 / span 1;
 
   box-sizing: border-box;
-  max-width: 60%;
-  padding: 40px 0 80px;
+  max-width: 80%;
+  padding: 40px 0;
 
   font-family: 'GOST type B', sans-serif;
   font-size: 32px;
@@ -177,10 +176,6 @@
   line-height: 1.18;
   color: var(--dark-blue);
   text-align: left;
-
-  @media screen and (width <= 1700px) {
-    max-width: 51vw;
-  }
 
   @media screen and (width <= 1275px) {
     font-size: 24px;
@@ -251,7 +246,7 @@
 .card:hover .cardFooter,
 .card .cardFooter:hover {
   overflow-y: visible;
-  max-height: 270px;
+  max-height: 320px;
 
   @media screen and (width <= 1280px) {
     max-height: 300px;
