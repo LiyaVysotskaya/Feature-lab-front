@@ -1,7 +1,6 @@
 import { useAtom } from 'jotai';
 import { postLoginData } from '../api/api';
 import { isAuthAtom } from '../atoms/isAuthAtom';
-import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
 import queryClient from '../query-client';
 import { LoginFormData } from '../types/forms';
 import {
@@ -32,7 +31,8 @@ export const useAuth = () => {
         signOut();
       }
     } catch (error) {
-      InfoToastContainer('Что-то пошло не так');
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   };
 
