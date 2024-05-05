@@ -59,12 +59,6 @@ export const ProfileNav: FC = () => {
             </li>
           )}
 
-          {PojectsCount && (
-            <li className={cl(s.submenu)}>
-              <ProfileProjectsNav projects={projects} />
-            </li>
-          )}
-
           <li className={cl(s.listItem)}>
             <ProfileNavLink to={ROUTE_PROFILE_DOCS} icon={<FolderOpenIcon />} text="Документы" />
           </li>
