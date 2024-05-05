@@ -2,6 +2,10 @@
 @import './variables/global';
 @import '../assets/fonts/fonts.css';
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ul,
 li {
   display: flex; // remove extra space from bottom and top
