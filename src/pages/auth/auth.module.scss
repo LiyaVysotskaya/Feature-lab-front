@@ -6,11 +6,11 @@
   width: 100%;
   max-width: var(--el-max-width);
   margin: 0 auto;
-  padding: 200px 0;
+  padding: 200px 0 0;
 
   @media screen and (width <= 768px) {
     max-width: 100%;
-    padding: 150px 0 180px;
+    padding: 150px 0 0;
   }
 
   @media screen and (width <= 360px) {
@@ -56,7 +56,7 @@
   --number-font-size: min(128px, calc(var(--page-max-width) * 0.062));
   --text-container-width: 15.8%;
   --grid-column-gap: 20px;
-  --input-min-height: 170px;
+  --input-min-height: 160px;
   --input-side-padding: 9.5%; // 120px;
 
   position: relative;
@@ -98,24 +98,6 @@
   border: none;
 }
 
-.button {
-  position: absolute;
-  bottom: 210px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-size: 48px;
-  line-height: 1;
-  white-space: pre-wrap;
-
-  @media screen and (width <= 768px) {
-    bottom: 180px;
-    max-width: 240px;
-    max-height: 240px;
-    font-size: 40px;
-  }
-}
-
 .inputContainer {
   position: relative;
 
@@ -125,6 +107,7 @@
     '. error .';
   grid-template-columns: var(--text-container-width) auto min-content;
   column-gap: var(--grid-column-gap);
+  align-content: center;
 
   box-sizing: border-box;
   width: 100%;
@@ -189,6 +172,11 @@
     box-shadow: 0 0 0 1000px #fff inset;
 
     -webkit-text-fill-color: var(--dark-blue);
+  }
+
+  @media screen and (width <= 1280px) {
+    --input-font-size: 55px;
+    --input-font-size-min: 32px;
   }
 
   @media screen and (width <= 768px) {
@@ -291,10 +279,10 @@
   font-size: 40px;
   font-weight: 400;
   line-height: 1;
-  color: var(--error, #bf1700);
+  color: var(--error);
   word-wrap: break-word;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 32px;
   }
 
@@ -440,7 +428,7 @@
   margin: 16px auto 590px;
   padding: 0 var(--input-side-padding);
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     margin-bottom: 500px;
   }
 
@@ -487,7 +475,7 @@
     opacity: 0.6;
   }
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 32px;
     text-underline-offset: 9px;
   }
@@ -497,6 +485,24 @@
     line-height: 1.13;
     text-decoration-thickness: 1px;
     text-underline-offset: 6px;
+  }
+}
+
+.button {
+  position: absolute;
+  bottom: 210px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 48px;
+  line-height: 1;
+  white-space: pre-wrap;
+
+  @media screen and (width <= 1280px) {
+    bottom: 180px;
+    max-width: 240px;
+    max-height: 240px;
+    font-size: 40px;
   }
 }
 
