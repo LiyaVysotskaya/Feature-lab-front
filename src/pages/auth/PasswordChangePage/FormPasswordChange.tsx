@@ -3,7 +3,7 @@ import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../../api/api';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
-import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/constants';
+import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/formConstants';
 import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';

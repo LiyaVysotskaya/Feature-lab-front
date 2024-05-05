@@ -10,7 +10,7 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
-} from '../../../constants/constants';
+} from '../../../constants/formConstants';
 import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../ui/RoundButton/RoundButton';

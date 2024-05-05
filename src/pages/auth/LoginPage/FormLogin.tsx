@@ -9,7 +9,7 @@ import {
   MAX_LENGTH_PASSWORD,
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
-} from '../../../constants/constants';
+} from '../../../constants/formConstants';
 import { ROUTE_RESTORE_PASSWORD } from '../../../constants/routesConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import { useAuth } from '../../../hooks/useAuth';
