@@ -5,14 +5,21 @@
   box-sizing: border-box;
 }
 
+.button {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 
   box-sizing: border-box;
+  width: 47%;
   min-width: 47%;
-  max-width: 47%;
   min-height: 280px;
   padding: 20px;
 
@@ -20,19 +27,33 @@
   border: 2px solid var(--dark-blue);
 
   transition: all 0.2s ease;
-
-  @media screen and (width <= 1280px) {
-    box-sizing: content-box;
-    width: max-content;
-    min-width: 47;
-    max-width: none;
-  }
 }
 
 .cardTitle {
   display: flex;
   align-items: flex-start;
+  box-sizing: border-box;
+}
 
+.cardTitleNumber {
+  margin-right: 10px;
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 66px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  color: var(--white, #fff);
+  text-align: right;
+
+  -webkit-text-stroke: 2px var(--dark-blue);
+
+  @media screen and (width <= 1280px) {
+    font-size: 42px;
+  }
+}
+
+.cardTitleText {
   box-sizing: border-box;
 
   font-family: Germano, sans-serif;
@@ -44,31 +65,11 @@
   text-align: left;
 
   @media screen and (width <= 1280px) {
-    font-size: 48px;
-  }
-}
-
-.cardNumber {
-  margin-right: 10px;
-
-  font-family: Molot-Regular, sans-serif;
-  font-size: 66px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1;
-  color: var(--white, #fff);
-  text-align: right;
-
-  -webkit-text-stroke: 3.5px var(--dark-blue);
-
-  @media screen and (width <= 1280px) {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 
 .cardText {
-  max-width: 100%;
-
   font-family: 'GOST type B', sans-serif;
   font-size: 32px;
   font-weight: 400;
@@ -85,8 +86,6 @@
 }
 
 .text {
-  width: 100%;
-
   font-family: Germano, sans-serif;
   font-size: 40px;
   font-weight: 300;
@@ -101,21 +100,15 @@
   }
 }
 
-.button {
-  display: flex;
-  column-gap: 20px;
-  box-sizing: border-box;
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 0 0 var(--dark-blue);
+}
 
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 3px 0 0 var(--dark-blue);
-  }
+.button:hover .card {
+  background: var(--dark-blue);
+}
 
-  &:hover .card {
-    background: var(--dark-blue);
-  }
-
-  &:hover .cardTitle {
-    color: var(--white, #fff);
-  }
+.button:hover .cardTitleText {
+  color: var(--white, #fff);
 }

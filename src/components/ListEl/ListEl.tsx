@@ -32,8 +32,8 @@ export const ListEl: FC<IProps> = ({ className = '', index, title, desription, t
 
         <div className={cl(s.card)}>
           <h3 className={cl(s.cardTitle)}>
-            <span className={cl(s.cardNumber)}>{(index + 1).toString().padStart(2, '0')}</span>
-            {title.toUpperCase()}
+            <span className={cl(s.cardTitleNumber)}>{(index + 1).toString().padStart(2, '0')}</span>
+            <span className={cl(s.cardTitleText)}>{title.toUpperCase()}</span>
           </h3>
           <p className={cl(s.cardText)}>{text}</p>
         </div>
