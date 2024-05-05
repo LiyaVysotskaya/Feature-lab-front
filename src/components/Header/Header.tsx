@@ -63,10 +63,11 @@ export const Header: React.FC = () => {
     <header
       className={cl(s.header, {
         [s.header_hidden]: scrollDirection === 'down',
+        [s.header_bg_white]: !isHomePage,
       })}>
       <div
         className={cl(s.headerContainer, {
-          [s.headerContainer_bg_white]: currentScrollY > 1 || !isHomePage,
+          [s.headerContainer_bg_white]: currentScrollY > 1,
           [s.headerContainer_with_shadow]: currentScrollY > 1,
         })}>
         <div className={cl(s.content)}>
