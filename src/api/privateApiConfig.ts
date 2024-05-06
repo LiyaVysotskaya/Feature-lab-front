@@ -2,7 +2,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
 import { API_BASE_URL } from '../constants/externalLinks';
-import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import {
   clearAllStoredTokens,
   getStoredAccessToken,
@@ -83,8 +82,8 @@ privateAPI.interceptors.response.use(
           break;
 
         case 500:
-          window.location.href = ROUTE_ERROR_500;
           break;
+
         default:
           notifySomethingWrong();
       }

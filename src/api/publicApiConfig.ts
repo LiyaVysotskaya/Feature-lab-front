@@ -34,8 +34,8 @@ publicAPI.interceptors.response.use(
           break;
 
         case 500:
-          window.location.href = ROUTE_ERROR_500;
           break;
+
         default:
           notifySomethingWrong();
       }

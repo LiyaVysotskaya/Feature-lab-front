@@ -9,7 +9,7 @@ import {
   QK_REG,
   QK_USER_PROFILE,
 } from '../constants/TanStackQueryKeys';
-import { ROUTE_ERROR_404 } from '../constants/routesConstants';
+import { ROUTE_ERROR_404, ROUTE_ERROR_500 } from '../constants/routesConstants';
 import queryClient from '../query-client';
 import { getStoredAccessToken } from '../utils/localStorageHelpers';
 import {
@@ -95,6 +95,9 @@ export const useCompetenceQuery = (competenceSlug: string | undefined) => {
         if (isAxiosError(error) && error.response?.status === 404) {
           navigate(ROUTE_ERROR_404, { replace: true });
         }
+        if (isAxiosError(error) && error.response?.status === 500) {
+          navigate(ROUTE_ERROR_500, { replace: true });
+        }
       }
       return undefined;
     },
@@ -119,6 +122,9 @@ export const useProductQuery = (productSlug: string | undefined) => {
         if (isAxiosError(error) && error.response?.status === 404) {
           navigate(ROUTE_ERROR_404, { replace: true });
         }
+        if (isAxiosError(error) && error.response?.status === 500) {
+          navigate(ROUTE_ERROR_500, { replace: true });
+        }
       }
       return undefined;
     },
@@ -142,6 +148,9 @@ export const useProjectQuery = (projectId: string | undefined) => {
       } catch (error) {
         if (isAxiosError(error) && error.response?.status === 404) {
           navigate(ROUTE_ERROR_404, { replace: true });
+        }
+        if (isAxiosError(error) && error.response?.status === 500) {
+          navigate(ROUTE_ERROR_500, { replace: true });
         }
       }
       return undefined;
