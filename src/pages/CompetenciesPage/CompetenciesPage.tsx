@@ -20,7 +20,7 @@ export const CompetenciesPage: FC = () => {
       <Main>
         <PageTitle className={s.pageTitle} pageTitle="О нас" subTitle="Наши компетенции" />
 
-        <ListCompetencies />
+        <ListCompetencies className={s.pageSection} />
       </Main>
     );
   }

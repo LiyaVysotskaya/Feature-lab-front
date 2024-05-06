@@ -20,7 +20,7 @@ export const ProductsPage: FC = () => {
       <Main>
         <PageTitle className={s.pageTitle} pageTitle="Продукты" subTitle="Наши разработки" />
 
-        <ListProducts />
+        <ListProducts className={s.pageSection} />
       </Main>
     );
   }

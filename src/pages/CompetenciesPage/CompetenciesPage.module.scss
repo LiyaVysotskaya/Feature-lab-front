@@ -16,3 +16,11 @@
     margin-bottom: 32px;
   }
 }
+
+.pageSection {
+  margin-bottom: 200px;
+
+  @media screen and (width <= 1280px) {
+    margin-bottom: 160px;
+  }
+}
