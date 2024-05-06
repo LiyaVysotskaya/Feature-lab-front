@@ -31,24 +31,17 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
   };
 
   useEffect(() => {
-    window.addEventListener('resize', resizeFont);
+    const onFontLoad = () => {
+      window.addEventListener('resize', resizeFont);
+      resizeFont();
+    };
 
-    resizeFont();
+    document.fonts.ready.then(onFontLoad);
 
     return () => {
       window.removeEventListener('resize', resizeFont);
     };
   }, [containerRef, textRef, location]);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      resizeFont();
-    }, 100);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
 
   return (
     <div className={cl(s.pageTitleWrap, className)} ref={containerRef}>
