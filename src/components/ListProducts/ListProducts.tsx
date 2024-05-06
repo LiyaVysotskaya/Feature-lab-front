@@ -16,10 +16,16 @@ export const ListProducts: FC<IProps> = ({ className = '' }) => {
     return null;
   }
 
+  const notCustomerProducts = products.filter((item) => !item.is_custom_product);
+
+  if (notCustomerProducts.length === 0) {
+    return null;
+  }
+
   return (
     <section className={cl(s.section, className)}>
       <ul className={s.list}>
-        {products.map((product, index) => {
+        {notCustomerProducts.map((product, index) => {
           return (
             <ListEl
               index={index}

@@ -18,10 +18,15 @@ export const ProductsMobSubMenu: FC<IProps> = ({ className = '', isVisible }) =>
     return null;
   }
 
+  const notCustomerProducts = products.filter((item) => !item.is_custom_product);
+
+  if (notCustomerProducts.length === 0) {
+    return null;
+  }
+
   return (
     <nav
       aria-label="Продукты"
-      id="productsSubMenu"
       className={cl(
         s.submenu,
         {
@@ -30,7 +35,7 @@ export const ProductsMobSubMenu: FC<IProps> = ({ className = '', isVisible }) =>
         className,
       )}>
       <ul className={cl(s.submenuList)}>
-        {products.map((item) => (
+        {notCustomerProducts.map((item) => (
           <li className={s.submenuItem} key={uuidv4()}>
             <NavLink
               to={`${ROUTE_PRODUCTS}/${item.slug}`}

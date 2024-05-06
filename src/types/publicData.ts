@@ -38,6 +38,7 @@ export type TProductShortInfo = {
   description: string;
   url: string;
   tags: string[];
+  is_custom_product: boolean;
 };
 
 type TEmployeePosition = {

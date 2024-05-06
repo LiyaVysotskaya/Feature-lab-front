@@ -3,6 +3,7 @@
 import cl from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { useMediaQuery } from 'react-responsive';
 import { MobileNav } from './MobileNav/MobileNav';
 import s from './MobileMenu.module.scss';
 
@@ -10,12 +11,19 @@ type Props = {};
 
 const MobileMenu: FC<Props> = () => {
   const [isNavMobileOpen, setIsNavMobileOpen] = useState(true);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const location = useLocation();
 
   useEffect(() => {
     // Close the menu when the location changes
     setIsNavMobileOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsNavMobileOpen(false);
+    }
+  }, [isMobile]);
 
   // Add class to body to disable scrollbar when the popup is open
   useEffect(() => {
@@ -24,7 +32,7 @@ const MobileMenu: FC<Props> = () => {
     } else {
       document.body.classList.remove(s.bodyNoScroll);
     }
-  }, [isNavMobileOpen]);
+  }, [isNavMobileOpen, isMobile]);
 
   const handleBurgerBtnClick = () => {
     setIsNavMobileOpen(!isNavMobileOpen);
