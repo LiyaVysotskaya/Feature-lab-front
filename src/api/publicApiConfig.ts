@@ -2,10 +2,9 @@
 import axios from 'axios';
 import { EMAIL_ALREADY_EXISTS, NO_ACTIVE_ACCOUNT } from '../constants/errors';
 import { API_BASE_URL } from '../constants/externalLinks';
-import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import {
-  notifySignInError,
   notifyEmailAlreadyExists,
+  notifySignInError,
   notifySomethingWrong,
 } from '../utils/toastHelpers';
 
