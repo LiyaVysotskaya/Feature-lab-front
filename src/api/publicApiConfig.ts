@@ -26,11 +26,13 @@ publicAPI.interceptors.response.use(
             notifyEmailAlreadyExists();
           }
           break;
+
         case 401:
           if (data.detail === NO_ACTIVE_ACCOUNT) {
             notifySignInError();
           }
           break;
+
         case 500:
           window.location.href = ROUTE_ERROR_500;
           break;

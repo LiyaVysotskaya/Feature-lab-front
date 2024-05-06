@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TProperty } from '../../types/publicData';
@@ -20,10 +20,10 @@ type IProps = {
 
 export const LeadSection: FC<IProps> = ({ className = '', data }) => {
   return (
-    <section className={cl(s.lead, className)}>
-      <p className={cl(s.info)}>{data.description}</p>
+    <section className={cn(s.lead, className)}>
+      <p className={cn(s.info)}>{data.description}</p>
 
-      <div className={cl(s.description)}>
+      <div className={cn(s.description)}>
         {data.detailed_description.split('\n').map((item) => (
           <p key={uuidv4()}>{item}</p>
         ))}

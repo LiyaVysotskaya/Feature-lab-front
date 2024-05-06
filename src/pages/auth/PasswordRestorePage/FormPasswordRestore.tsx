@@ -1,11 +1,11 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
 import { MAX_LENGTH_EMAIL, MIN_LENGTH_EMAIL } from '../../../constants/formConstants';
 import { EMAIL_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { resizeInputFont } from '../../../utils/formHelpers';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
@@ -61,11 +61,11 @@ export const FormPasswordRestore: FC<IProps> = () => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cl(s.inputError)}>{errors.email}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cn(s.inputError)}>{errors.email}</span>
             </div>
             <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />

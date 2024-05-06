@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import s from './PageTitle.module.scss';
@@ -44,7 +44,7 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
   }, [containerRef, textRef, location]);
 
   return (
-    <div className={cl(s.pageTitleWrap, className)} ref={containerRef}>
+    <div className={cn(s.pageTitleWrap, className)} ref={containerRef}>
       <h1 className={s.pageTitle} ref={textRef}>
         {pageTitle}
       </h1>

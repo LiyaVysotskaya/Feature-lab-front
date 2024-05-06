@@ -1,13 +1,13 @@
 import { useAtom } from 'jotai';
-import { postLoginData } from '../api/api';
-import { isAuthAtom } from '../atoms/isAuthAtom';
-import queryClient from '../query-client';
-import { LoginFormData } from '../types/forms';
+import { postLoginData } from '../../api/api';
+import { isAuthAtom } from '../../atoms/isAuthAtom';
+import queryClient from '../../query-client';
+import { LoginFormData } from '../../types/forms';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,
   setStoredRefreshToken,
-} from '../utils/localStorageHelpers';
+} from '../localStorageHelpers';
 
 // Custom hook for handling authentication
 export const useAuth = () => {

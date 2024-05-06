@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
@@ -12,8 +12,8 @@ import {
 } from '../../../constants/formConstants';
 import { ROUTE_RESTORE_PASSWORD } from '../../../constants/routesConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useAuth } from '../../../hooks/useAuth';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useAuth } from '../../../utils/hooks/useAuth';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { resizeInputFont } from '../../../utils/formHelpers';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
@@ -67,11 +67,11 @@ export const FormLogin: FC = () => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cl(s.inputError)}>{errors.email}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cn(s.inputError)}>{errors.email}</span>
             </div>
             <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
@@ -92,11 +92,11 @@ export const FormLogin: FC = () => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-              <span className={cl(s.inputError)}>{errors.password}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+              <span className={cn(s.inputError)}>{errors.password}</span>
             </div>
             <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />

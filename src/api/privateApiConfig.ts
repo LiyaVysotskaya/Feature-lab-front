@@ -67,6 +67,7 @@ privateAPI.interceptors.response.use(
       switch (status) {
         case 400:
           break;
+
         case 401:
           if (data.detail === NO_ACTIVE_ACCOUNT) {
             notifyAuthError(); // Notify user about authentication error
@@ -80,6 +81,7 @@ privateAPI.interceptors.response.use(
             }
           }
           break;
+
         case 500:
           window.location.href = ROUTE_ERROR_500;
           break;

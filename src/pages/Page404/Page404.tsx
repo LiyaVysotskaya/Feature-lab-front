@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
@@ -14,8 +14,8 @@ export const Page404: FC<Page404Props> = ({ className = '' }) => {
   const navigate = useNavigate();
 
   return (
-    <Main className={cl(s.main, className)}>
-      <div className={cl(s.mainContent)}>
+    <Main className={cn(s.main, className)}>
+      <div className={cn(s.mainContent)}>
         <h1 className={s.pageTitle}>404 error</h1>
         <p className={s.subTitle}>страница не найдена</p>
         <p className={s.errorText}>Упс! Ошибочка вышла!...</p>

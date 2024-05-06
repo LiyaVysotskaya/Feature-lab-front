@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -27,19 +27,19 @@ export const ProductsSubMenu: FC<IProps> = ({ className = '', isVisible }) => {
   return (
     <nav
       aria-label="Продукты"
-      className={cl(
+      className={cn(
         s.submenu,
         {
           [s.submenuVisible]: isVisible,
         },
         className,
       )}>
-      <ul className={cl(s.submenuList)}>
+      <ul className={cn(s.submenuList)}>
         {notCustomerProducts.map((item) => (
           <li className={s.submenuItem} key={uuidv4()}>
             <NavLink
               to={`${ROUTE_PRODUCTS}/${item.slug}`}
-              className={({ isActive }) => cl(s.submenuLink, { [s.submenuLinkActive]: isActive })}>
+              className={({ isActive }) => cn(s.submenuLink, { [s.submenuLinkActive]: isActive })}>
               {item.name}
             </NavLink>
           </li>

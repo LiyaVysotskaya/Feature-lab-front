@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useCompetenciesQuery } from '../../api/queries';
 import { ListEl } from '../ListEl/ListEl';
@@ -19,7 +19,7 @@ export const ListCompetencies: FC<IProps> = ({ className = '' }) => {
   const sortedCompetencies = competencies.sort((a, b) => a.priority - b.priority);
 
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <ul className={s.list}>
         {sortedCompetencies.map((competency, index) => {
           return (

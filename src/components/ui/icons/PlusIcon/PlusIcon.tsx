@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useState } from 'react';
 import s from './PlusIcon.module.scss';
 
@@ -15,9 +15,9 @@ export const PlusIcon: FC<IProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={cl(className && className, s.plusIcon)}>
+    <div className={cn(className && className, s.plusIcon)}>
       <svg
-        className={cl(isPressed && s.pressed, isPressed === false && s.unpressed)}
+        className={cn(isPressed && s.pressed, isPressed === false && s.unpressed)}
         onClick={handleClick}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 80 80"

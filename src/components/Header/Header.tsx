@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
@@ -13,13 +13,13 @@ import {
   ROUTE_PRODUCTS,
   ROUTE_PROFILE,
 } from '../../constants/routesConstants';
-import { useScrollDirection } from '../../hooks/useScrollDirection';
+import { useScrollDirection } from '../../utils/hooks/useScrollDirection';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { ProfileNavMobile } from '../ProfileNav/ProfileNavMobile/ProfileNavMobile';
+import { ProfileTabsNav } from '../ProfileNav/ProfileTabsNav/ProfileTabsNav';
 import { CompetenciesSubMenu } from './SubMenu/CompetenciesSubMenu';
 import { ProductsSubMenu } from './SubMenu/ProductsSubMenu';
 import s from './Header.module.scss';
-import { ProfileTabsNav } from '../ProfileNav/ProfileTabsNav/ProfileTabsNav';
 
 export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
@@ -61,54 +61,54 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={cl(s.header, {
+      className={cn(s.header, {
         [s.header_hidden]: scrollDirection === 'down',
         [s.header_bg_white]: !isHomePage,
       })}>
       <div
-        className={cl(s.headerContainer, {
+        className={cn(s.headerContainer, {
           [s.headerContainer_bg_white]: currentScrollY > 1,
           [s.headerContainer_with_shadow]: currentScrollY > 1,
         })}>
-        <div className={cl(s.content)}>
+        <div className={cn(s.content)}>
           <Link to={ROUTE_HOME} className={s.logo}>
             <img title="Вернуться на главную" className={s.logo} src={Logo} alt="Logo" />
           </Link>
 
           <nav
             aria-label="Основное меню"
-            className={cl(s.nav, {
+            className={cn(s.nav, {
               [s.navWithBorder]: currentScrollY < 3 && !isHomePage && !isProfilePage,
             })}>
-            <ul className={cl(s.list)}>
+            <ul className={cn(s.list)}>
               <li
-                className={cl(s.listItem, s.listItemSubMenu)}
+                className={cn(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={handleCompetenciesOnMouseEnter}
                 onMouseLeave={handleCompetenciesOnMouseLeave}>
                 <NavLink
                   to={ROUTE_COMPETENCIES}
-                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
+                  className={({ isActive }) => cn(s.link, { [s.linkActive]: isActive })}>
                   Компетенции
                 </NavLink>
 
                 <CompetenciesSubMenu isVisible={isCompetenciesVisible} />
               </li>
 
-              <li className={cl(s.listItem)}>
+              <li className={cn(s.listItem)}>
                 <NavLink
                   to={ROUTE_ED_TECH}
-                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
+                  className={({ isActive }) => cn(s.link, { [s.linkActive]: isActive })}>
                   Лаборатория
                 </NavLink>
               </li>
 
               <li
-                className={cl(s.listItem, s.listItemSubMenu)}
+                className={cn(s.listItem, s.listItemSubMenu)}
                 onMouseEnter={handleProductsOnMouseEnter}
                 onMouseLeave={handleProductsOnMouseLeave}>
                 <NavLink
                   to={ROUTE_PRODUCTS}
-                  className={cl(s.link, {
+                  className={cn(s.link, {
                     [s.linkActive]: isProductsPage,
                   })}>
                   Продукты
@@ -117,18 +117,18 @@ export const Header: React.FC = () => {
                 <ProductsSubMenu isVisible={isProductsVisible} />
               </li>
 
-              <li className={cl(s.listItem)}>
+              <li className={cn(s.listItem)}>
                 <NavLink
                   to={ROUTE_CONTACT}
-                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
+                  className={({ isActive }) => cn(s.link, { [s.linkActive]: isActive })}>
                   Контакты
                 </NavLink>
               </li>
 
-              <li className={cl(s.listItem)}>
+              <li className={cn(s.listItem)}>
                 <NavLink
                   to={ROUTE_PROFILE}
-                  className={({ isActive }) => cl(s.link, { [s.linkActive]: isActive })}>
+                  className={({ isActive }) => cn(s.link, { [s.linkActive]: isActive })}>
                   {isAuth && userProfile
                     ? `${userProfile.last_name} ${userProfile.first_name[0]}.`
                     : 'Личный кабинет'}

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './Main.module.scss';
 
@@ -8,5 +8,5 @@ type IProps = {
 };
 
 export const Main: FC<IProps> = ({ children = null, className = '' }) => {
-  return <main className={cl(s.main, className)}>{children}</main>;
+  return <main className={cn(s.main, className)}>{children}</main>;
 };

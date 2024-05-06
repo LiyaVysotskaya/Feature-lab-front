@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './Icon.module.scss';
 import { IconProps } from './Icon.types';
@@ -11,7 +11,7 @@ const pathProperties: React.SVGProps<SVGPathElement> = {
 
 export const CubeIcon: FC<IconProps> = ({ filled = false, className = '' }) => {
   return (
-    <div className={cl(s.icon, className && className)}>
+    <div className={cn(s.icon, className && className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"

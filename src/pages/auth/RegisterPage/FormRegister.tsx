@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
@@ -13,7 +13,7 @@ import {
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/formConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { resizeInputFont } from '../../../utils/formHelpers';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
@@ -90,11 +90,11 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cl(s.inputError)}>{errors.email}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cn(s.inputError)}>{errors.email}</span>
             </div>
             <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
@@ -115,11 +115,11 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-              <span className={cl(s.inputError)}>{errors.password}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+              <span className={cn(s.inputError)}>{errors.password}</span>
             </div>
 
             <InfoTooltip content={PASSWORD_HINT_TEXT}>
@@ -141,18 +141,18 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
                 02.1
               </span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
                 Пароль
               </span>
             </div>
             <div
-              className={cl(s.inputErrorWrap, {
+              className={cn(s.inputErrorWrap, {
                 [s.inputErrorWrapVisible]: errors.repeatPassword,
               })}>
-              <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
+              <span className={cn(s.inputError)}>{errors.repeatPassword}</span>
             </div>
             <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './CheckBoxIcon.module.scss';
 
@@ -10,7 +10,7 @@ type IProps = {
 
 export const CheckBoxIcon: FC<IProps> = ({ className = '', isChecked, color = 'blue' }) => {
   return (
-    <div className={cl(s.checkbox, { [s.checkbox_white]: color === 'white' }, className)}>
+    <div className={cn(s.checkbox, { [s.checkbox_white]: color === 'white' }, className)}>
       <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="56" height="56" rx="2" strokeWidth="4" />
         {isChecked && <path d="M26 48.9707L47 12.5976" strokeWidth="4" strokeLinecap="round" />}

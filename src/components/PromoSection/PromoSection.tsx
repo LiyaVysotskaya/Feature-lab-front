@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useState } from 'react';
 import { PageTitle } from '../PageTitle/PageTitle';
 import { PopupContact } from '../PopupContact/PopupContact';
@@ -17,7 +17,7 @@ export const PromoSection: FC<IProps> = ({ className = '' }) => {
   };
 
   return (
-    <section aria-label="Promo" className={cl(s.promo, className)}>
+    <section aria-label="Promo" className={cn(s.promo, className)}>
       <div className={s.bg_blue} />
 
       <PageTitle className={s.title} pageTitle="Фичлаб" />

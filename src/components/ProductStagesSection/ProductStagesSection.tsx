@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TProductStage } from '../../types/publicData';
@@ -16,7 +16,7 @@ export const ProductStagesSection: FC<IProps> = ({ className = '', stages }) => 
   const sortedStages = stages.slice().sort((a, b) => a.phase_num - b.phase_num);
 
   return (
-    <section className={cl(s.stages, className)}>
+    <section className={cn(s.stages, className)}>
       <SectionTitle text="Этапы работы" className={s.stagesTitle} />
       <ul className={s.list}>
         {sortedStages.map((stage) => (

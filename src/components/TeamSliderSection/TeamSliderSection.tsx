@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -58,7 +58,7 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     customLeftArrow: <CarouselBtn direction="left" />,
     customRightArrow: <CarouselBtn direction="right" />,
     responsive,
-    className: cl(s.slider),
+    className: cn(s.slider),
     slidesToSlide: 1,
     swipeable: false,
     children: '',
@@ -75,17 +75,17 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     customLeftArrow: <CarouselBtn customId="TeamSliderBtnLeft" />,
     customRightArrow: <CarouselBtn customId="TeamSliderBtnRight" />,
     responsive,
-    className: cl(s.slider, s.sliderWithGradient),
+    className: cn(s.slider, s.sliderWithGradient),
     slidesToSlide: 1,
     swipeable: false,
     children: '',
   };
 
   return (
-    <section className={cl(s.TeamSliderSection, className)}>
+    <section className={cn(s.TeamSliderSection, className)}>
       <SectionTitle text="Команда" />
       <div className={s.sectionContent}>
-        <div className={cl(s.whiteOverlay, s.whiteOverlay_left)} />
+        <div className={cn(s.whiteOverlay, s.whiteOverlay_left)} />
 
         <Carousel {...carouselProps}>
           {team.map((person) => (
@@ -99,7 +99,7 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
           ))}
         </Carousel>
 
-        <div className={cl(s.whiteOverlay, s.whiteOverlay_right)} />
+        <div className={cn(s.whiteOverlay, s.whiteOverlay_right)} />
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useAllUserDocsQuery } from '../../../api/queries';
 import { DocumentsSection } from '../../../components/DocumentsSection/DocumentsSection';
@@ -16,7 +16,7 @@ export const ProfileDocs: FC<IProps> = ({ className = '' }) => {
   }
 
   return (
-    <div className={cl(s.docs, className)}>
+    <div className={cn(s.docs, className)}>
       <DocumentsSection title="Документы" docs={docs} />
     </div>
   );

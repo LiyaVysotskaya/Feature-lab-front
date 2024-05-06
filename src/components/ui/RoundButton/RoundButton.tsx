@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { SpinnerIcon } from '../icons';
 import s from './RoundButton.module.scss';
@@ -32,12 +32,12 @@ export const RoundButton: FC<IProps> = ({
   return (
     <>
       {theme === 'promo' && (
-        <div className={cl(s.promoBtnWrapper, className)}>
+        <div className={cn(s.promoBtnWrapper, className)}>
           <button
             disabled={disabled}
             onClick={onClick}
             type={type}
-            className={cl(s.btn, s.promoBtn)}>
+            className={cn(s.btn, s.promoBtn)}>
             {!isLoading ? <span>{text}</span> : <SpinnerIcon theme="white" />}
           </button>
         </div>
@@ -45,12 +45,12 @@ export const RoundButton: FC<IProps> = ({
 
       {(theme === 'white' || theme === 'blue') && (
         <div
-          className={cl(s.radiantBtnWrapper, { [s.radiantBtnWrapper_gray]: disabled }, className)}>
+          className={cn(s.radiantBtnWrapper, { [s.radiantBtnWrapper_gray]: disabled }, className)}>
           <button
             disabled={disabled}
             onClick={onClick}
             type={type}
-            className={cl(s.btn, s.radiantBtn, {
+            className={cn(s.btn, s.radiantBtn, {
               [s.radiantBtn_white]: theme === 'white',
               [s.radiantBtn_blue]: theme === 'blue',
             })}>

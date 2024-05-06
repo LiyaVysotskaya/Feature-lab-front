@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { LabCard } from '../LabCard/LabCard';
 import { LabText } from '../LabText/LabText';
@@ -10,7 +10,7 @@ type IProps = {
 
 export const LabBottomGridSection: FC<IProps> = ({ className = '' }) => {
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <LabCard
         title="ПОЧЕМУ МЫ?"
         text={`Мы сами прошли путь от обучения на онлайн-курсах до успешного трудоустройства и знаем, что теории недостаточно для старта успешной карьеры в новой отрасли\n\n`}

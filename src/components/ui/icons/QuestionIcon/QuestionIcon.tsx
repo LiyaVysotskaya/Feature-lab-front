@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './QuestionIcon.module.scss';
 
@@ -9,8 +9,8 @@ type IProps = {
 
 export const QuestionIcon: FC<IProps> = ({ className = '', onClick }) => {
   return (
-    <div className={cl(s.questionIcon, className)} onClick={onClick}>
-      <button className={cl(s.questionIcon__sign)} type="button">
+    <div className={cn(s.questionIcon, className)} onClick={onClick}>
+      <button className={cn(s.questionIcon__sign)} type="button">
         ?
       </button>
     </div>

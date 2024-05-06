@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import Checkmark from './checkmark.svg?svgr';
@@ -28,7 +28,7 @@ export const ProgressCircle: FC<IProps> = ({
   }, []);
 
   return (
-    <div className={cl(s.progressWrap, className)}>
+    <div className={cn(s.progressWrap, className)}>
       <CircularProgressbarWithChildren
         className={s.progress}
         value={progressValue}

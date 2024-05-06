@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
@@ -17,8 +17,8 @@ import {
   ROUTE_ERROR_500,
   ROUTE_PROFILE,
 } from '../../constants/routesConstants';
-import s from './Footer.module.scss';
 import { FormFooter } from './FormFooter/FormFooter';
+import s from './Footer.module.scss';
 
 const Footer: FC = () => {
   const [showFooter, setShowFooter] = useState(true);
@@ -48,7 +48,7 @@ const Footer: FC = () => {
       </div>
 
       <div className={s.basementContainer}>
-        <p className={cl(s.basementElement, s.areaAddress)}>
+        <p className={cn(s.basementElement, s.areaAddress)}>
           {COMPANY_ADDRESS_FIRST_RAW}
           <br />
           {COMPANY_ADDRESS_SECOND_RAW}
@@ -56,7 +56,7 @@ const Footer: FC = () => {
           {COMPANY_ADDRESS_THIRD_RAW}
         </p>
 
-        <p className={cl(s.basementElement, s.areaCompany)}>
+        <p className={cn(s.basementElement, s.areaCompany)}>
           {COMPANY_NAME}
           <br />
           {COMPANY_INN}
@@ -64,9 +64,9 @@ const Footer: FC = () => {
           {COMPANY_KPP}
         </p>
 
-        <p className={cl(s.basementElement, s.areaEmail)}>{COMPANY_EMAIL}</p>
+        <p className={cn(s.basementElement, s.areaEmail)}>{COMPANY_EMAIL}</p>
 
-        <p className={cl(s.basementElement, s.areaPhone)}>{COMPANY_PHONE}</p>
+        <p className={cn(s.basementElement, s.areaPhone)}>{COMPANY_PHONE}</p>
       </div>
     </footer>
   );

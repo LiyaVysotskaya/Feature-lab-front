@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './HamburgerBtn.module.scss';
 
@@ -14,7 +14,7 @@ type IProps = {
 
 export const HamburgerBtn: FC<IProps> = ({ onClick = () => {}, isChecked, positionY }) => {
   return (
-    <div className={cl(s.burger)} style={{ top: 12 + positionY }}>
+    <div className={cn(s.burger)} style={{ top: 12 + positionY }}>
       <input
         id="burgerToggle"
         type="checkbox"
@@ -22,10 +22,10 @@ export const HamburgerBtn: FC<IProps> = ({ onClick = () => {}, isChecked, positi
         checked={isChecked}
         onChange={() => {}}
       />
-      <label onClick={onClick} htmlFor="burgerToggle" className={cl(s.button_type_hamburger)}>
-        <div className={cl(s['top-bun'], s.button__part)} />
-        <div className={cl(s.meat, s.button__part)} />
-        <div className={cl(s['bottom-bun'], s.button__part)} />
+      <label onClick={onClick} htmlFor="burgerToggle" className={cn(s.button_type_hamburger)}>
+        <div className={cn(s['top-bun'], s.button__part)} />
+        <div className={cn(s.meat, s.button__part)} />
+        <div className={cn(s['bottom-bun'], s.button__part)} />
       </label>
     </div>
   );

@@ -1,7 +1,7 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { API_BASE_URL } from '../../constants/externalLinks';
-import { TProjectFullInfo } from '../../types/profileData';
+import { TProjectFullInfo } from '../../types/privateData';
 import s from './ProjectInfoSection.module.scss';
 
 type IProps = {
@@ -15,7 +15,7 @@ export const ProjectInfoSection: FC<IProps> = ({ className = '', project }) => {
   const logoLink = `${API_BASE_URL.slice(0, -1)}${project.logo}`;
 
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <h1 className={s.title}>{project.name}</h1>
 
       <div className={s.manager}>

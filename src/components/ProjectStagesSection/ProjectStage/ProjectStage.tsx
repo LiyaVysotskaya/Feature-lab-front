@@ -1,6 +1,6 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useRef, useState } from 'react';
-import { TProjectStage } from '../../../types/publicData';
+import { TProjectStage } from '../../../types/privateData';
 import { convertDateToLongFormat } from '../../../utils/dateConvertHelpers';
 import { Text } from '../../ui/Text/Text';
 import { EllipseIcon } from '../../ui/icons';
@@ -43,18 +43,18 @@ export const ProjectStage: FC<ProjectStageProps> = ({
   };
 
   return (
-    <div className={cl(s.stageWrapper, className)} ref={stageRef}>
+    <div className={cn(s.stageWrapper, className)} ref={stageRef}>
       {!isLineHidden && (
         <div
-          className={cl(s.line, {
+          className={cn(s.line, {
             [s.line_notStarted]: status === 'new',
             [s.line_size_half]: status === 'in_progress',
           })}
         />
       )}
-      <div className={cl(s.stage)} onClick={handleOnClick} onTouchEnd={handleStageOnTouchEnd}>
+      <div className={cn(s.stage)} onClick={handleOnClick} onTouchEnd={handleStageOnTouchEnd}>
         <EllipseIcon status={status} />
-        <p className={cl(s.stage__text, { [s.stage__text_active]: status !== 'new' })}>
+        <p className={cn(s.stage__text, { [s.stage__text_active]: status !== 'new' })}>
           Этап {stage.stage_num}
         </p>
       </div>

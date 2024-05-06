@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useProductsQuery } from '../../api/queries';
 import { ROUTE_PRODUCTS } from '../../constants/routesConstants';
@@ -23,7 +23,7 @@ export const ListProducts: FC<IProps> = ({ className = '' }) => {
   }
 
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <ul className={s.list}>
         {notCustomerProducts.map((product, index) => {
           return (

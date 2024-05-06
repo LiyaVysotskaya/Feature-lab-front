@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import { API_BASE_URL } from '../../../constants/externalLinks';
@@ -15,10 +15,10 @@ export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
   const photoInactiveLink = `${API_BASE_URL.slice(0, -1)}${person.photo_inactive}`;
 
   return (
-    <div className={cl(s.card, className)}>
+    <div className={cn(s.card, className)}>
       <div className={s.imgContainer}>
-        <img src={photoActiveLink} alt="Фото" className={cl(s.img)} />
-        <img src={photoInactiveLink} alt="Фото" className={cl(s.img, s.img_inactive)} />
+        <img src={photoActiveLink} alt="Фото" className={cn(s.img)} />
+        <img src={photoInactiveLink} alt="Фото" className={cn(s.img, s.img_inactive)} />
       </div>
 
       <h3 className={s.cardName}>{`${person.first_name} ${person.last_name}`}</h3>

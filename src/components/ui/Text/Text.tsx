@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { memo } from 'react';
 import s from './Text.module.scss';
 
@@ -43,7 +43,7 @@ const TextWithoutMemo: React.FC<TextProps> = ({
 
   return (
     <Tag
-      className={cl(
+      className={cn(
         s.text,
         s[`text__view-${view}`],
         line && s.text__line,

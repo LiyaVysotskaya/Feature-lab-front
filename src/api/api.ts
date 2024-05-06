@@ -8,7 +8,7 @@ import {
   PostRegDataResponse,
 } from '../types/apiResponses';
 import { LoginFormData, RegFormData, TChangedPwdData } from '../types/forms';
-import { TDocument, TProjectFullInfo, TProjectShortInfo, TUserProfile } from '../types/profileData';
+import { TDocument, TProjectFullInfo, TProjectShortInfo, TUserProfile } from '../types/privateData';
 import {
   TCompetenceFullInfo,
   TCompetenceShortInfo,

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
@@ -11,7 +11,7 @@ import {
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
 } from '../../../constants/formConstants';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
@@ -98,11 +98,11 @@ export const FormContact: FC = () => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.name })}>01</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.name })}>Имя</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
-              <span className={cl(s.inputError)}>{errors.name}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.name })}>
+              <span className={cn(s.inputError)}>{errors.name}</span>
             </div>
           </div>
 
@@ -122,18 +122,18 @@ export const FormContact: FC = () => {
             />
 
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>02</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>
                 Email / телефон
               </span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cl(s.inputError)}>{errors.email}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cn(s.inputError)}>{errors.email}</span>
             </div>
           </div>
           <div className={s.inputContainer}>
             <TextareaAutosize
-              className={cl(s.input, s.textarea)}
+              className={cn(s.input, s.textarea)}
               aria-label="Textarea project"
               value={values.project}
               onChange={handleChange}
@@ -144,13 +144,13 @@ export const FormContact: FC = () => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.project })}>03</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.project })}>
                 О проекте
               </span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
-              <span className={cl(s.inputError)}>{errors.project}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.project })}>
+              <span className={cn(s.inputError)}>{errors.project}</span>
             </div>
           </div>
         </fieldset>

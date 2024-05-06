@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './LabText.module.scss';
 
@@ -8,5 +8,5 @@ type IProps = {
 };
 
 export const LabText: FC<IProps> = ({ className = '', text }) => {
-  return <p className={cl(s.labText, className)}>{text}</p>;
+  return <p className={cn(s.labText, className)}>{text}</p>;
 };
