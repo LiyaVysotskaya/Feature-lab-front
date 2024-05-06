@@ -80,7 +80,7 @@ privateAPI.interceptors.response.use(
             }
           }
           break;
-        case error.response.status >= 500:
+        case 500:
           window.location.href = ROUTE_ERROR_500;
           break;
         default:
