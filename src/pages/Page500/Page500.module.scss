@@ -13,7 +13,7 @@
   height: 100vh;
   max-height: 1080px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     grid-template-areas:
       'title title'
       'subtitle subtitle'
@@ -25,27 +25,16 @@
 .pageTitle {
   grid-area: title;
 
+  padding-bottom: 30px;
+
   font-family: Molot, sans-serif;
-  font-size: 180px;
+  font-size: 130px;
   font-weight: 400;
-  line-height: 0.71; // 128px;
+  line-height: 0.71;
   color: var(--dark-blue-50);
 
-  @media screen and (width < 1920px) {
-    font-size: 9.3vw;
-  }
-
   @media screen and (width <= 1280px) {
-    padding-bottom: 30px;
-    font-size: 130px;
-  }
-
-  @media screen and (width <= 1050px) {
-    font-size: 10vw;
-  }
-
-  @media screen and (width <= 768px) {
-    font-size: 16.9vw; // 130px;
+    font-size: calc(0.16 * var(--page-max-width));
   }
 
   @media screen and (width <= 360px) {
@@ -58,21 +47,13 @@
   grid-area: subtitle;
 
   font-family: Molot, sans-serif;
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 1;
   color: var(--dark-blue);
 
-  @media screen and (width <= 1620px) {
-    font-size: 40px;
-  }
-
-  @media screen and (width <= 1050px) {
-    font-size: 3.8vw;
-  }
-
-  @media screen and (width <= 768px) {
-    font-size: 5.2vw; // 40px;
+  @media screen and (width <= 1280px) {
+    font-size: 5.2vw;
   }
 
   @media screen and (width <= 360px) {
@@ -84,7 +65,7 @@
   grid-area: text;
 
   font-family: Germano, sans-serif;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 300;
   line-height: 1;
   color: var(--dark-blue-50);
@@ -92,11 +73,7 @@
   text-decoration-thickness: 3px;
   letter-spacing: -0.04em;
 
-  @media screen and (width <= 1620px) {
-    font-size: 40px;
-  }
-
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     padding-top: 90px;
   }
 
@@ -109,26 +86,17 @@
 .errorDescription {
   grid-area: description;
 
-  padding-top: 80px;
+  padding-top: 50px;
 
   font-family: 'GOST type B', sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 1.19; // 38px;
+  font-size: 24px;
+  font-weight: 400; // 38px;
+  line-height: 1.17; // 28px;
   color: var(--dark-blue);
   text-align: left;
   letter-spacing: 0;
 
-  @media screen and (width <= 1620px) {
-    font-size: 24px;
-    line-height: 1.17; // 28px;
-  }
-
   @media screen and (width <= 1280px) {
-    padding-top: 50px;
-  }
-
-  @media screen and (width <= 768px) {
     padding-top: 85px;
   }
 
