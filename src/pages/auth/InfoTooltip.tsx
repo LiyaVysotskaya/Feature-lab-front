@@ -20,7 +20,7 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
       {children &&
         React.cloneElement(children as ReactElement, {
           onClick: () => {
-            setIsTooltipOpen(true);
+            setIsTooltipOpen((state) => !state);
           },
         })}
       <div className={cn(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
