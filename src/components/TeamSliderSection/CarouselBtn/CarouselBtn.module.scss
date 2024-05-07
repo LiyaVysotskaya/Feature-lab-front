@@ -1,8 +1,9 @@
 .btn {
-  --side-offset: 50px;
+  --side-offset: 0px;
   --size: 80px;
 
   position: absolute;
+  z-index: 2;
   top: 60%;
   transform: translateY(-50%);
 
@@ -29,4 +30,23 @@
 
 .isHidden {
   opacity: 0;
+}
+
+.whiteOverlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+
+  width: 50px;
+  height: 100%;
+
+  &_left {
+    left: 0;
+    background: linear-gradient(to left, transparent, #fff);
+  }
+
+  &_right {
+    right: 0;
+    background: linear-gradient(to right, transparent, #fff);
+  }
 }

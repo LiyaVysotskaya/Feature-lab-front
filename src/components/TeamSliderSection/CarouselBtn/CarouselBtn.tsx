@@ -32,14 +32,22 @@ export const CarouselBtn: FC<IProps> = ({
   };
 
   return (
-    <button onClick={onBtnClick} type="button" id={customId}>
-      <ArrowInCircleIcon
-        reverse={direction === 'left'}
-        className={cn(s.btn, {
-          [s.btnLeft]: direction === 'left',
-          [s.btnRight]: direction === 'right',
+    <>
+      <button onClick={onBtnClick} type="button" id={customId}>
+        <ArrowInCircleIcon
+          reverse={direction === 'left'}
+          className={cn(s.btn, {
+            [s.btnLeft]: direction === 'left',
+            [s.btnRight]: direction === 'right',
+          })}
+        />
+      </button>
+      <div
+        className={cn(s.whiteOverlay, {
+          [s.whiteOverlay_left]: direction === 'left',
+          [s.whiteOverlay_right]: direction === 'right',
         })}
       />
-    </button>
+    </>
   );
 };
