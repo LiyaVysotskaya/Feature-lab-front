@@ -39,6 +39,7 @@ export const RegisterPage: FC = () => {
             </div>
 
             <RoundButton
+              className={s.button}
               type="button"
               theme="white"
               text="На главную"

@@ -194,7 +194,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
           type="submit"
           theme="white"
           text="Регистрация"
-          disabled={!isValid || !isChecked || isEmpty()}
+          disabled={!isValid || !isChecked || isEmpty() || isPending}
           isLoading={isPending}
         />
       </form>

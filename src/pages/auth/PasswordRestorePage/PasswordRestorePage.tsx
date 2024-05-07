@@ -32,6 +32,7 @@ export const PasswordRestorePage: FC = () => {
             </div>
 
             <RoundButton
+              className={s.button}
               type="button"
               theme="white"
               text="На главную"

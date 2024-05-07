@@ -114,7 +114,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
         type="submit"
         theme="white"
         text={`Сменить\nпароль`}
-        disabled={!isValid || isEmpty()}
+        disabled={!isValid || isEmpty() || isLoading}
         isLoading={isLoading}
       />
     </form>

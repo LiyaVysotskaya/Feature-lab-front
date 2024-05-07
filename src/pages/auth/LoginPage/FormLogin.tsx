@@ -117,7 +117,7 @@ export const FormLogin: FC = () => {
           type="submit"
           theme="white"
           text="Вход"
-          disabled={!isValid || isEmpty()}
+          disabled={!isValid || isEmpty() || isLoading}
           isLoading={isLoading}
         />
       </form>
