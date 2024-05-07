@@ -23,7 +23,7 @@ export const ProductsSection: FC<IProps> = ({ className = '', title, competenceI
   // filter products by competenceId
   const filteredProducts = products.filter((product) => {
     if (competenceId === '') {
-      return product;
+      return product.is_custom_product === false ? product : null;
     }
     return product.competence === competenceId ? product : null;
   });
