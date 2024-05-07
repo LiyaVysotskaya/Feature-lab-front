@@ -34,15 +34,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={s.generalWrapper} id="generalWrapper">
-      <Header />
+    <div className={s.rootWrapper}>
+      <div className={s.generalWrapper} id="generalWrapper">
+        <Header />
 
-      <AppRouter />
+        <AppRouter />
 
-      <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
+        <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
 
+        <CookiesToastContainer />
+      </div>
       {!isFetching && <Footer />}
-      <CookiesToastContainer />
     </div>
   );
 };
