@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useIsFetching } from '@tanstack/react-query';
 import { useUserProfileQuery } from '../../api/queries';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
 import { AppRouter } from '../../router';
@@ -14,6 +15,7 @@ const App: React.FC = () => {
   const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = useState(false);
   const [, setIsAuth] = useAtom(isAuthAtom);
   const { pathname } = useLocation();
+  const isFetching = useIsFetching();
 
   const { data: userData } = useUserProfileQuery();
 
@@ -39,7 +41,7 @@ const App: React.FC = () => {
 
       <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
 
-      <Footer />
+      {!isFetching && <Footer />}
       <CookiesToastContainer />
     </div>
   );
