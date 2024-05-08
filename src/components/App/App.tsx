@@ -23,11 +23,12 @@ const App: React.FC = () => {
   const { pathname } = useLocation();
   const isFetching = useIsFetching();
 
-  const isFooterVisible = !(
+  const isFooterHidden = !(
     pathname === ROUTE_CHANGE_PASSWORD ||
     pathname.startsWith(ROUTE_PROFILE) ||
     pathname === ROUTE_ERROR_500 ||
-    pathname === ROUTE_ERROR_404
+    pathname === ROUTE_ERROR_404 ||
+    isFetching
   );
 
   const { data: userData } = useUserProfileQuery();
@@ -57,7 +58,7 @@ const App: React.FC = () => {
 
         <CookiesToastContainer />
       </div>
-      {!isFetching && isFooterVisible && <Footer />}
+      {isFooterHidden && <Footer />}
     </div>
   );
 };
