@@ -26,6 +26,7 @@ export const RegisterPage: FC = () => {
             Вход
           </Link>
         </h1>
+
         {email ? (
           <div className={s.responseContainer}>
             <div className={s.responseTextContainer}>
