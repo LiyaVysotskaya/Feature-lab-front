@@ -32,7 +32,7 @@ export const ListProducts: FC<IProps> = ({ className = '' }) => {
               key={product.id}
               title={product.name}
               text={product.description}
-              desription=""
+              desription={product.description_on_main}
               link={`${ROUTE_PRODUCTS}/${product.slug}`}
             />
           );

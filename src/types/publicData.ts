@@ -36,6 +36,7 @@ export type TProductShortInfo = {
   competence: string;
   name: string;
   description: string;
+  description_on_main: string;
   url: string;
   tags: string[];
   is_custom_product: boolean;
