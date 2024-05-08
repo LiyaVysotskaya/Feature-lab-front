@@ -33,8 +33,11 @@
     margin-bottom: 60px;
   }
 
-  @media screen and (width <= 360px) {
+  @media screen and (width <= 690px) {
     gap: 4px;
+  }
+
+  @media screen and (width <= 360px) {
     margin-bottom: 32px;
   }
 }
