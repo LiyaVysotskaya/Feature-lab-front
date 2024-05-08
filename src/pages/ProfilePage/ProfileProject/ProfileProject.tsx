@@ -19,7 +19,7 @@ export const ProfileProject: FC<IProps> = ({ className = '' }) => {
     return null;
   }
 
-  const sortedStages = project?.stages.sort((a, b) => a.stage_num - b.stage_num);
+  const sortedStages = project.stages.sort((a, b) => a.stage_num - b.stage_num);
 
   return (
     <div className={cn(s.project, className)}>
