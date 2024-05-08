@@ -17,17 +17,20 @@ export const ProjectCard: FC<IProps> = ({ className = '', project }) => {
   const navigate = useNavigate();
   const { stages } = project;
 
-  const completedStages = stages.filter((stage) => stage.stage_status === 'completed');
-  const сompletedStagesCount = completedStages.length;
-  const lastCompletedStage = completedStages[stages.length - 1];
+  const sortedStages = stages.sort((a, b) => a.stage_num - b.stage_num);
 
-  const stageInProgressCount = stages.filter(
+  const firstNewStageNum = sortedStages.find((stage) => stage.stage_status === 'new')?.stage_num;
+
+  const completedStages = sortedStages.filter((stage) => stage.stage_status === 'completed');
+  const сompletedStagesCount = completedStages.length;
+  const lastCompletedStage = completedStages[sortedStages.length - 1];
+
+  const stageInProgressCount = sortedStages.filter(
     (stage) => stage.stage_status === 'in_progress',
   ).length;
 
-  const stageInProgress = stages.find((stage) => stage.stage_status === 'in_progress');
-  const stageInProgressIndex =
-    stages.findIndex((stage) => stage.stage_status === 'in_progress') + 1;
+  const stageInProgress = sortedStages.find((stage) => stage.stage_status === 'in_progress');
+  const stageInProgressNum = stageInProgress?.stage_num;
 
   const handleOnCardClick = () => {
     if (window.innerWidth > 768) {
@@ -56,26 +59,24 @@ export const ProjectCard: FC<IProps> = ({ className = '', project }) => {
       <Text view="gost-2" className={cn(s.value)}>
         {`${project.manager.last_name} ${project.manager.first_name}`}
       </Text>
-      {сompletedStagesCount < stages.length && (
+      {сompletedStagesCount < sortedStages.length && (
         <>
           {stageInProgress && (
             <Text view="gost-4" className={cn(s.label)}>
-              Этап {stageInProgressIndex}:
+              Этап {stageInProgressNum}:
             </Text>
           )}
           <Text view="gost-2" className={cn(s.value, { [s.valuePlaceholder]: !stageInProgress })}>
-            {stageInProgress
-              ? stageInProgress.name
-              : `ожидание начала этапа ${сompletedStagesCount + 1}`}
+            {stageInProgress ? stageInProgress.name : `ожидание начала этапа ${firstNewStageNum}`}
           </Text>
         </>
       )}
-      {stageInProgress && сompletedStagesCount < stages.length && (
+      {stageInProgress && сompletedStagesCount < sortedStages.length && (
         <Text view="gost-4" className={cn(s.label)}>
           Срок выполнения:
         </Text>
       )}
-      {сompletedStagesCount === stages.length && (
+      {сompletedStagesCount === sortedStages.length && (
         <Text view="gost-4" className={cn(s.label)}>
           Закончен:
         </Text>
@@ -87,7 +88,7 @@ export const ProjectCard: FC<IProps> = ({ className = '', project }) => {
       <ProgressCircle
         stagesInProgress={stageInProgressCount}
         stagesCompleted={сompletedStagesCount}
-        max={stages.length}
+        max={sortedStages.length}
         className={s.progressBar}
       />
     </div>
