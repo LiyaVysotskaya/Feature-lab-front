@@ -18,12 +18,20 @@ type IProps = {
 
 export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
   const responsive: ResponsiveType = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1921 },
+      items: 3,
+    },
     desktop: {
-      breakpoint: { max: 5000, min: 1281 },
+      breakpoint: { max: 1920, min: 1281 },
       items: 3,
     },
     smallDesktop: {
-      breakpoint: { max: 1280, min: 769 },
+      breakpoint: { max: 1280, min: 1070 },
+      items: 2,
+    },
+    1070: {
+      breakpoint: { max: 1069, min: 769 },
       items: 2,
     },
     tablet_wide: {
@@ -77,6 +85,8 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
     <section className={cn(s.TeamSliderSection, className)}>
       <SectionTitle text="Команда" />
       <div className={s.sectionContent}>
+        <div className={cn(s.whiteOverlay, s.whiteOverlay_left)} />
+
         <Carousel {...carouselProps}>
           {team.map((person) => (
             <TeamSlide person={person} key={uuidv4()} />
@@ -88,6 +98,8 @@ export const TeamSliderSection: FC<IProps> = ({ className = '', team }) => {
             <TeamGradientSlide key={uuidv4()} />
           ))}
         </Carousel>
+
+        <div className={cn(s.whiteOverlay, s.whiteOverlay_right)} />
       </div>
     </section>
   );
