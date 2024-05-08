@@ -140,11 +140,13 @@
     line-height: 0.9; /* 100% */
   }
 
+  @media screen and (width <= 690px) {
+    -webkit-text-stroke: 1.5px var(--dark-blue);
+  }
+
   @media screen and (width <= 360px) {
     font-size: 30px;
     line-height: 0.7; /* 100% */
-
-    -webkit-text-stroke: 1.5px var(--dark-blue);
   }
 }
 
