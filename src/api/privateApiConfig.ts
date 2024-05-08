@@ -1,8 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import axios, { AxiosRequestConfig } from 'axios';
-import { API_BASE_URL } from '../constants/externalLinks';
-import { ROUTE_ERROR_500 } from '../constants/routesConstants';
 import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
+import { API_BASE_URL } from '../constants/externalLinks';
 import {
   clearAllStoredTokens,
   getStoredAccessToken,
@@ -10,15 +9,13 @@ import {
   setStoredAccessToken,
   setStoredRefreshToken,
 } from '../utils/localStorageHelpers';
-import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
+import { notifyAuthError, notifySomethingWrong } from '../utils/toastHelpers';
 
 type CustomAxiosRequestConfig = AxiosRequestConfig & {
   _retry?: boolean; // Add custom _retry field
 };
 
 let retry = 3; // Number of retry attempts for refreshing tokens
-
-const notifyAuthError = () => InfoToastContainer('Пыщь пыщь');
 
 // Create an instance of axios for API requests requiring a access token
 export const privateAPI = axios.create({
@@ -69,6 +66,7 @@ privateAPI.interceptors.response.use(
       switch (status) {
         case 400:
           break;
+
         case 401:
           if (data.detail === NO_ACTIVE_ACCOUNT) {
             notifyAuthError(); // Notify user about authentication error
@@ -82,11 +80,12 @@ privateAPI.interceptors.response.use(
             }
           }
           break;
-        case error.response.status >= 500:
-          window.location.href = ROUTE_ERROR_500;
+
+        case 500:
           break;
+
         default:
-        // Handle other cases
+          notifySomethingWrong();
       }
     }
     return Promise.reject(error);

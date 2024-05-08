@@ -1,8 +1,8 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { TProjectStage } from '../../../types/profileData';
+import { TProjectStage } from '../../../types/privateData';
 import { ArrowInCircleIcon } from '../../ui/icons';
 import { ProjectStage } from '../ProjectStage/ProjectStage';
 import s from './ProjectStagesSlider.module.scss';
@@ -87,20 +87,20 @@ export const ProjectStagesSlider: FC<IProps> = ({
   return (
     <div className={s.slider}>
       <div
-        className={cl(s.whiteOverlay, s.whiteOverlay_left, {
+        className={cn(s.whiteOverlay, s.whiteOverlay_left, {
           [s.whiteOverlay_visible]: showLeftOverlay,
         })}
       />
       <button
         type="button"
-        className={cl(s.btn, s.btn_left, {
+        className={cn(s.btn, s.btn_left, {
           [s.btn_hidden]: !showLeftOverlay,
         })}
         onClick={() => scrollInStagesUlElement(-200)}>
         <ArrowInCircleIcon className={s.btnIcon} />
       </button>
 
-      <ul className={cl(s.stages, className)} ref={stagesUlRef}>
+      <ul className={cn(s.stages, className)} ref={stagesUlRef}>
         {projectStages.map((stage, index, arr) => (
           <ProjectStage
             stage={stage}
@@ -126,7 +126,7 @@ export const ProjectStagesSlider: FC<IProps> = ({
 
       <button
         type="button"
-        className={cl(s.btn, s.btn_right, {
+        className={cn(s.btn, s.btn_right, {
           [s.btn_hidden]: !showRightOverlay,
         })}
         onClick={() => scrollInStagesUlElement(200)}>
@@ -134,7 +134,7 @@ export const ProjectStagesSlider: FC<IProps> = ({
       </button>
 
       <div
-        className={cl(s.whiteOverlay, s.whiteOverlay_right, {
+        className={cn(s.whiteOverlay, s.whiteOverlay_right, {
           [s.whiteOverlay_visible]: showRightOverlay,
         })}
       />

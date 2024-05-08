@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
@@ -11,9 +11,10 @@ import {
   MAX_LENGTH_PASSWORD,
   MIN_LENGTH_EMAIL,
   MIN_LENGTH_PASSWORD,
-} from '../../../constants/constants';
+} from '../../../constants/formConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
+import { resizeInputFont } from '../../../utils/formHelpers';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 
@@ -41,33 +42,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const { mutate: mutateRegData, isPending } = useRegQuery(onRegSuccess);
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = e.target;
-    const inputStyles = getComputedStyle(input);
-
-    // Access the value of the --input-font-size CSS variable
-    const originFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size'), 10);
-
-    // Access the value of the minimum font size CSS variable
-    const minFontSize = parseInt(inputStyles.getPropertyValue('--input-font-size-min'), 10);
-
-    // Retrieve the current font size
-    const currentFontSize = parseInt(inputStyles.fontSize, 10);
-
-    const textLength = input.value.length;
-
-    // Calculate the new font size based on text length
-    let newFontSize = currentFontSize;
-    if (textLength > 20) {
-      // Decrease font size smoothly, but ensure it doesn't go below the minimum
-      const fontSizeDifference = Math.max(textLength - 20, 0);
-      newFontSize = Math.max(originFontSize - fontSizeDifference, minFontSize);
-    } else {
-      newFontSize = originFontSize;
-    }
-
-    // Apply the new font size to the input
-    input.style.fontSize = `${newFontSize}px`;
-
+    resizeInputFont(e);
     handleChange(e);
   };
 
@@ -115,11 +90,11 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cl(s.inputError)}>{errors.email}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
+              <span className={cn(s.inputError)}>{errors.email}</span>
             </div>
             <InfoTooltip content={EMAIL_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
@@ -140,11 +115,11 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
             </div>
-            <div className={cl(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-              <span className={cl(s.inputError)}>{errors.password}</span>
+            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
+              <span className={cn(s.inputError)}>{errors.password}</span>
             </div>
 
             <InfoTooltip content={PASSWORD_HINT_TEXT}>
@@ -166,18 +141,18 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               required
             />
             <div className={s.textContainer}>
-              <span className={cl(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
+              <span className={cn(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
                 02.1
               </span>
-              <span className={cl(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
+              <span className={cn(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
                 Пароль
               </span>
             </div>
             <div
-              className={cl(s.inputErrorWrap, {
+              className={cn(s.inputErrorWrap, {
                 [s.inputErrorWrapVisible]: errors.repeatPassword,
               })}>
-              <span className={cl(s.inputError)}>{errors.repeatPassword}</span>
+              <span className={cn(s.inputError)}>{errors.repeatPassword}</span>
             </div>
             <InfoTooltip content={PASSWORD_HINT_TEXT}>
               <QuestionIcon className={s.hintIcon} />
@@ -219,7 +194,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
           type="submit"
           theme="white"
           text="Регистрация"
-          disabled={!isValid || !isChecked || isEmpty()}
+          disabled={!isValid || !isChecked || isEmpty() || isPending}
           isLoading={isPending}
         />
       </form>

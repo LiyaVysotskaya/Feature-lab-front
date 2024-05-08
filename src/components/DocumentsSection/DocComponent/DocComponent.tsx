@@ -1,6 +1,7 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
-import { TDocument } from '../../../types/profileData';
+import { Link } from 'react-router-dom';
+import { TDocument } from '../../../types/privateData';
 import { convertDateToShortFormat } from '../../../utils/dateConvertHelpers';
 import s from './DocComponent.module.scss';
 
@@ -11,11 +12,11 @@ type IProps = {
 
 export const DocComponent: FC<IProps> = ({ className = '', doc }) => {
   return (
-    <li className={cl(s.doc, className)}>
+    <li className={cn(s.doc, className)}>
       <div>
-        <a className={s.docName} href={doc.url}>
+        <Link className={s.docName} to={doc.url} target="_blank">
           {doc.name}
-        </a>
+        </Link>
       </div>
 
       <div className={s.docDescription}>{doc.description}</div>

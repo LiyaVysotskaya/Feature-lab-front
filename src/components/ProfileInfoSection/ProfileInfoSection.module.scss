@@ -11,9 +11,9 @@
   width: 100%;
   margin: 0;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     max-width: var(--el-max-width);
   }
 
@@ -27,7 +27,7 @@
   margin-bottom: 40px;
 
   font-family: Germano, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   line-height: 1;
   text-decoration: underline;
@@ -35,10 +35,6 @@
   text-underline-offset: 8px;
 
   @media screen and (width <= 1280px) {
-    font-size: 48px;
-  }
-
-  @media screen and (width <= 768px) {
     margin-bottom: 32px;
     font-size: 40px;
   }
@@ -61,7 +57,7 @@
 
 .item {
   display: flex;
-  column-gap: 100px;
+  column-gap: 40px;
   align-items: center;
 
   width: 100%;
@@ -70,19 +66,9 @@
   font-family: 'GOST type B', sans-serif;
   font-weight: 400;
 
-  border-bottom: 1px solid var(--dark-blue, #002d63);
+  border-bottom: 1px solid var(--dark-blue);
 
   @media screen and (width <= 1280px) {
-    column-gap: 40px;
-  }
-
-  @media screen and (width <= 900px) {
-    flex-direction: column;
-    row-gap: 4px;
-    align-items: flex-start;
-  }
-
-  @media screen and (width <= 768px) {
     flex-direction: row;
     column-gap: 40px;
     align-items: center;
@@ -110,13 +96,8 @@
 }
 
 .itemValue {
-  font-size: 32px;
-  line-height: 1.19; // 38px
-
-  @media screen and (width <= 1280px) {
-    font-size: 24px;
-    line-height: 1.17; // 28px
-  }
+  font-size: 24px;
+  line-height: 1.17;
 }
 
 .btn {

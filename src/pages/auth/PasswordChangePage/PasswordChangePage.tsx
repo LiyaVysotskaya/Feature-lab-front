@@ -25,6 +25,7 @@ export const PasswordChangePage: FC = () => {
             </div>
 
             <RoundButton
+              className={s.button}
               type="button"
               theme="white"
               text="К проектам"

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { useAtom } from 'jotai';
 import { FC, useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -14,9 +14,9 @@ import {
 } from '../../../constants/routesConstants';
 import { HamburgerBtn } from '../../Header/HamburgerBtn/HamburgerBtn';
 import { ArrowIcon } from '../../ui/icons';
-import s from './MobileNav.module.scss';
 import { CompetenciesMobSubMenu } from '../MobileSubMenu/CompetenciesMobSubMenu';
 import { ProductsMobSubMenu } from '../MobileSubMenu/ProductsMobSubMenu';
+import s from './MobileNav.module.scss';
 
 type Props = {
   isOpen: boolean;
@@ -93,31 +93,31 @@ export const MobileNav: FC<Props> = ({ isOpen, onBurgerClick }) => {
 
       <nav
         aria-label="Основное меню"
-        className={cl(s.nav, {
+        className={cn(s.nav, {
           [s.navMobileVisible]: isOpen,
         })}
         ref={mobileMenuRef}>
-        <ul className={cl(s.list)}>
-          <li className={cl(s.listItem, s.itemWithHover)}>
+        <ul className={cn(s.list)}>
+          <li className={cn(s.listItem, s.itemWithHover)}>
             <NavLink to={ROUTE_HOME} className={({ isActive }) => (isActive ? s.linkActive : '')}>
               Главная
             </NavLink>
           </li>
 
-          <li className={cl(s.listItem, s.listItemSubMenu)}>
+          <li className={cn(s.listItem, s.listItemSubMenu)}>
             <button
               type="button"
               onClick={handleCompetenciesBtnClick}
-              className={cl(s.btnSubmenu, {
+              className={cn(s.btnSubmenu, {
                 [s.linkActive]: isCompetenciesPage,
               })}>
               Компетенции
-              <ArrowIcon className={cl(s.arrow, { [s.arrow_rotate]: isCompetenciesVisible })} />
+              <ArrowIcon className={cn(s.arrow, { [s.arrow_rotate]: isCompetenciesVisible })} />
             </button>
             <CompetenciesMobSubMenu isVisible={isCompetenciesVisible} />
           </li>
 
-          <li className={cl(s.listItem, s.itemWithHover)}>
+          <li className={cn(s.listItem, s.itemWithHover)}>
             <NavLink
               to={ROUTE_ED_TECH}
               className={({ isActive }) => (isActive ? s.linkActive : '')}>
@@ -125,20 +125,20 @@ export const MobileNav: FC<Props> = ({ isOpen, onBurgerClick }) => {
             </NavLink>
           </li>
 
-          <li className={cl(s.listItem, s.listItemSubMenu)}>
+          <li className={cn(s.listItem, s.listItemSubMenu)}>
             <button
               type="button"
               onClick={handleProductsBtnClick}
-              className={cl(s.btnSubmenu, {
+              className={cn(s.btnSubmenu, {
                 [s.linkActive]: isProductsPage,
               })}>
               Продукты
-              <ArrowIcon className={cl(s.arrow, { [s.arrow_rotate]: isProductsVisible })} />
+              <ArrowIcon className={cn(s.arrow, { [s.arrow_rotate]: isProductsVisible })} />
             </button>
             <ProductsMobSubMenu isVisible={isProductsVisible} />
           </li>
 
-          <li className={cl(s.listItem, s.itemWithHover)}>
+          <li className={cn(s.listItem, s.itemWithHover)}>
             <NavLink
               to={ROUTE_CONTACT}
               className={({ isActive }) => (isActive ? s.linkActive : '')}>
@@ -146,7 +146,7 @@ export const MobileNav: FC<Props> = ({ isOpen, onBurgerClick }) => {
             </NavLink>
           </li>
 
-          <li className={cl(s.listItem, s.itemWithHover)}>
+          <li className={cn(s.listItem, s.itemWithHover)}>
             <NavLink
               to={ROUTE_PROFILE}
               className={({ isActive }) => (isActive ? s.linkActive : '')}>

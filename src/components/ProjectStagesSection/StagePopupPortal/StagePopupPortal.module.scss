@@ -31,7 +31,7 @@
 .popup {
   box-sizing: border-box;
   min-width: 300px;
-  max-width: 440px;
+  max-width: 400px;
   padding: 20px;
 
   background-color: var(--white);
@@ -52,10 +52,6 @@
     position: absolute;
     top: 0;
     right: 0;
-  }
-
-  @media screen and (width <= 1280px) {
-    max-width: 400px;
   }
 
   @media screen and (width <= 768px) {

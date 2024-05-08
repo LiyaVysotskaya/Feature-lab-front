@@ -1,31 +1,11 @@
 .cards {
   display: flex;
+  grid-area: cards;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 24px;
 
-  max-width: 400px;
-  margin: 0 0 0 30px;
-
-  @media screen and (width <= 1650px) {
-    row-gap: 20px;
-    max-width: 300px;
-    margin: 0 0 0 50px;
-  }
-
-  @media screen and (width <= 1100px) {
+  @media screen and (width <= 1280px) {
     max-width: 280px;
-    margin: 0;
-  }
-
-  @media screen and (width <= 768px) {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
-    max-width: 280px;
-    margin: 0;
-  }
-
-  @media screen and (width <= 430px) {
-    max-width: 100%;
   }
 
   @media screen and (width <= 360px) {
@@ -47,22 +27,18 @@
     width: 100%;
     padding: 4px 0;
 
-    border-bottom: 1px solid var(--dark-blue, #002d63);
+    border-bottom: 1px solid var(--dark-blue);
   }
 
   &TitleBig {
     font-family: Molot, sans-serif;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 400;
     font-style: normal;
     line-height: 1; // 100px; /* 100% */
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
-    @media screen and (width <= 1650px) {
-      font-size: 80px;
-    }
-
-    @media screen and (width <= 1100px) {
+    @media screen and (width <= 1280px) {
       font-size: 40px;
     }
   }
@@ -75,9 +51,9 @@
     font-weight: 300;
     font-style: normal;
     line-height: 1; // 48px; /* 100% */
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
-    @media screen and (width <= 1100px) {
+    @media screen and (width <= 1280px) {
       margin: 0 0 2px;
       font-size: 24px;
     }
@@ -85,18 +61,13 @@
 
   &Text {
     font-family: 'GOST type B', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
-    font-style: normal;
-    line-height: 1.19; // 38px; /* 118.75% */
-    color: var(--dark-blue, #002d63);
+    font-style: normal; // 38px; /* 118.75% */
+    line-height: 1.17; // 28px; /* 116.667% */
+    color: var(--dark-blue);
 
-    @media screen and (width <= 1650px) {
-      font-size: 24px;
-      line-height: 1.17; // 28px; /* 116.667% */
-    }
-
-    @media screen and (width <= 1100px) {
+    @media screen and (width <= 1280px) {
       font-size: 20px;
       line-height: 1.2; // 24px; /* 120% */
     }

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './Icon.module.scss';
 import { IconProps } from './Icon.types';
@@ -12,7 +12,7 @@ const pathProperties: React.SVGProps<SVGPathElement> = {
 export const FolderOpenIcon: FC<IconProps> = ({ filled = false, className = '' }) => {
   return (
     <svg
-      className={cl(s.icon, className && className)}
+      className={cn(s.icon, className && className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
       width="32"

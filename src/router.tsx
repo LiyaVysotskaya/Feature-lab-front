@@ -8,7 +8,6 @@ import {
   ROUTE_ED_TECH,
   ROUTE_ERROR_404,
   ROUTE_ERROR_500,
-  ROUTE_FORGOT_PASSWORD,
   ROUTE_HOME,
   ROUTE_LOGIN,
   ROUTE_PRODUCTS,
@@ -16,6 +15,7 @@ import {
   ROUTE_PROFILE_PROJECTS,
   ROUTE_REGISTER,
   ROUTE_RESET_PASSWORD,
+  ROUTE_RESTORE_PASSWORD,
   SUBROUTE_DASHBOARD,
   SUBROUTE_DOCS,
   SUBROUTE_SETTINGS,
@@ -28,6 +28,7 @@ import { LabPage } from './pages/LabPage/LabPage';
 import { Page404 } from './pages/Page404/Page404';
 import { Page500 } from './pages/Page500/Page500';
 import { ProductPage } from './pages/ProductPage/ProductPage';
+import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { ProfileDashboard } from './pages/ProfilePage/ProfileDashboard/ProfileDashboard';
 import { ProfileDocs } from './pages/ProfilePage/ProfileDocs/ProfileDocs';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
@@ -43,12 +44,18 @@ export const AppRouter: FC = () => {
   return (
     <Routes>
       <Route path={ROUTE_HOME} element={<Home />} />
+
       <Route path={ROUTE_COMPETENCIES} element={<CompetenciesPage />}>
         <Route path={`${ROUTE_COMPETENCIES}/:competenceSlug`} element={<CompetencePage />} />
       </Route>
+
       <Route path={ROUTE_ED_TECH} element={<LabPage />} />
       <Route path={ROUTE_CONTACT} element={<ContactPage />} />
-      <Route path={`${ROUTE_PRODUCTS}/:productSlug`} element={<ProductPage />} />
+
+      <Route path={ROUTE_PRODUCTS} element={<ProductsPage />}>
+        <Route path={`${ROUTE_PRODUCTS}/:productSlug`} element={<ProductPage />} />
+      </Route>
+
       <Route
         path={ROUTE_LOGIN}
         element={<ProtectedRouteElement onlyUnAuth element={<LoginPage />} />}
@@ -59,7 +66,7 @@ export const AppRouter: FC = () => {
       />
 
       <Route
-        path={ROUTE_FORGOT_PASSWORD}
+        path={ROUTE_RESTORE_PASSWORD}
         element={<ProtectedRouteElement onlyUnAuth element={<PasswordRestorePage />} />}
       />
       <Route

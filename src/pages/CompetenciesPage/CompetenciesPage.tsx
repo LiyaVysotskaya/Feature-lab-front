@@ -1,22 +1,26 @@
 import { FC } from 'react';
-import { Outlet, useMatch } from 'react-router-dom';
+import { Navigate, Outlet, useMatch } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Main } from '../../components/Main/Main';
-import { ROUTE_COMPETENCIES } from '../../constants/routesConstants';
-import { GridSection } from './GridSection/GridSection';
+import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { ROUTE_COMPETENCIES, ROUTE_HOME } from '../../constants/routesConstants';
+import { ListCompetencies } from '../../components/ListCompetencies/ListCompetencies';
 import s from './CompetenciesPage.module.scss';
 
 export const CompetenciesPage: FC = () => {
   const isCompetenciesDefaultPage = useMatch(ROUTE_COMPETENCIES);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
+  if (isMobile && isCompetenciesDefaultPage) {
+    return <Navigate to={ROUTE_HOME} />;
+  }
 
   if (isCompetenciesDefaultPage) {
     return (
       <Main>
-        <h1 className={s.pageTitle}>О нас</h1>
-        <div className={s.subTitleWrapper}>
-          <p className={s.subTitle}>Наши компетенции</p>
-        </div>
+        <PageTitle className={s.pageTitle} pageTitle="О нас" subTitle="Наши компетенции" />
 
-        <GridSection />
+        <ListCompetencies className={s.pageSection} />
       </Main>
     );
   }

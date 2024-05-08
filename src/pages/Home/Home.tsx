@@ -10,8 +10,11 @@ export const Home: FC = () => {
   return (
     <Main>
       <PromoSection className={s.promoSection} />
+
       <CompetenciesSection className={s.pageSection} />
+
       <LabSection className={s.pageSection} />
+
       <ProductsSection title="Продуктовая разработка" className={s.pageSection} />
     </Main>
   );

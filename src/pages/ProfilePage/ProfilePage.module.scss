@@ -7,7 +7,7 @@
   box-sizing: border-box;
   width: 100%;
   max-width: var(--el-max-width);
-  padding: 162px 0 0;
+  padding: 170px 0 0;
 
   &Content {
     display: flex;
@@ -19,7 +19,7 @@
   }
 
   @media screen and (width <= 1280px) {
-    padding-top: 134px;
+    padding-top: 170px;
   }
 
   @media screen and (width <= 768px) {

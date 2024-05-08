@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './CrossIcon.module.scss';
 
@@ -8,7 +8,7 @@ type IProps = {
 
 export const CrossIcon: FC<IProps> = ({ className = '' }) => {
   return (
-    <div className={cl(s.crossIcon, className)}>
+    <div className={cn(s.crossIcon, className)}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path
           d="M2 22.2129L22.5061 1.70679"

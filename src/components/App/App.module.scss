@@ -2,11 +2,11 @@ body {
   .generalWrapper {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-items: center;
 
     box-sizing: border-box;
     width: 100%;
-    max-width: 1920px;
     height: 100%;
     margin: 0 auto;
     padding: 0;
@@ -20,4 +20,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+.rootWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

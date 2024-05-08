@@ -1,0 +1,117 @@
+.listElement {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.button {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border-bottom: 3px solid var(--white);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  box-sizing: border-box;
+  width: 47%;
+  min-width: 47%;
+  min-height: 280px;
+  padding: 20px;
+
+  background: var(--white);
+  border: 2px solid var(--dark-blue);
+
+  transition: all 0.2s ease;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.cardTitleNumber {
+  margin-right: 10px;
+
+  font-family: Molot-Regular, sans-serif;
+  font-size: 66px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  color: var(--white, #fff);
+  text-align: right;
+
+  -webkit-text-stroke: 2px var(--dark-blue);
+
+  @media screen and (width <= 1280px) {
+    font-size: 42px;
+  }
+}
+
+.cardTitleText {
+  box-sizing: border-box;
+
+  font-family: Germano, sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1;
+  color: var(--dark-blue);
+  text-align: left;
+
+  @media screen and (width <= 1280px) {
+    font-size: 40px;
+  }
+}
+
+.cardText {
+  font-family: 'GOST type B', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.19; // 38px;
+  color: var(--white);
+  text-align: left;
+  white-space: pre-wrap;
+
+  @media screen and (width <= 1280px) {
+    font-size: 20px;
+    line-height: 1.2; // 24px;
+  }
+}
+
+.text {
+  font-family: Germano, sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1;
+  color: var(--dark-blue);
+  text-align: left;
+  white-space: pre-wrap;
+
+  @media screen and (width <= 1280px) {
+    font-size: 32px;
+  }
+}
+
+.button:hover {
+  cursor: pointer;
+  border-bottom: 3px solid var(--dark-blue);
+}
+
+.button:hover .card {
+  background: var(--dark-blue);
+}
+
+.button:hover .cardTitleText {
+  color: var(--white, #fff);
+}

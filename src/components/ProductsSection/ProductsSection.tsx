@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -23,7 +23,7 @@ export const ProductsSection: FC<IProps> = ({ className = '', title, competenceI
   // filter products by competenceId
   const filteredProducts = products.filter((product) => {
     if (competenceId === '') {
-      return product;
+      return product.is_custom_product === false ? product : null;
     }
     return product.competence === competenceId ? product : null;
   });
@@ -33,12 +33,12 @@ export const ProductsSection: FC<IProps> = ({ className = '', title, competenceI
   }
 
   return (
-    <section className={cl(s.productsSection, className)}>
+    <section className={cn(s.productsSection, className)}>
       <SectionTitle text={title} />
 
       <ul className={s.list}>
         {filteredProducts.map((product) => (
-          <li className={cl(s.product)} key={uuidv4()}>
+          <li className={cn(s.product)} key={uuidv4()}>
             <div className={s.productHeader}>
               <Link className={s.productTitle} to={`${ROUTE_PRODUCTS}/${product.slug}`}>
                 {product.name}

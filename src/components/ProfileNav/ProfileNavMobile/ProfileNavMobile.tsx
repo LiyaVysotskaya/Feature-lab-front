@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProjectsQuery } from '../../../api/queries';
@@ -40,10 +40,10 @@ export const ProfileNavMobile: React.FC = () => {
 
   return (
     <>
-      <nav aria-label="Меню личного кабинета" className={cl(s.nav)}>
-        <ul className={cl(s.list)}>
+      <nav aria-label="Меню личного кабинета" className={cn(s.nav)}>
+        <ul className={cn(s.list)}>
           {PojectsCount === 1 && (
-            <li className={cl(s.listItem)}>
+            <li className={cn(s.listItem)}>
               <ProfileNavLink
                 to={projectsPages[0]}
                 icon={<CardholderIcon />}
@@ -54,7 +54,7 @@ export const ProfileNavMobile: React.FC = () => {
           )}
 
           {PojectsCount > 1 && (
-            <li className={cl(s.listItem)}>
+            <li className={cn(s.listItem)}>
               <ProfileNavLink
                 to={ROUTE_PROFILE_DASHBOARD}
                 icon={<CardholderIcon />}
@@ -64,20 +64,20 @@ export const ProfileNavMobile: React.FC = () => {
             </li>
           )}
 
-          <li className={cl(s.listItem)}>
+          <li className={cn(s.listItem)}>
             <ProfileNavLink to={ROUTE_PROFILE_DOCS} icon={<FolderOpenIcon />} text="Документы" />
           </li>
 
-          <li className={cl(s.listItem)}>
+          <li className={cn(s.listItem)}>
             <ProfileNavLink to={ROUTE_PROFILE_SETTINGS} icon={<GearSixIcon />} text="Профиль" />
           </li>
 
-          <li className={cl(s.listItem)}>
+          <li className={cn(s.listItem)}>
             <button
               type="button"
-              className={cl(s.button)}
+              className={cn(s.button)}
               onClick={() => setPopupConfirmLogoutOpen(true)}>
-              <SkipForwardIcon /> <span className={cl(s.buttonText)}>Выход</span>
+              <SkipForwardIcon /> <span className={cn(s.buttonText)}>Выход</span>
             </button>
           </li>
         </ul>

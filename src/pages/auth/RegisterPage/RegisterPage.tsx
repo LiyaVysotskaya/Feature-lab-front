@@ -26,6 +26,7 @@ export const RegisterPage: FC = () => {
             Вход
           </Link>
         </h1>
+
         {email ? (
           <div className={s.responseContainer}>
             <div className={s.responseTextContainer}>
@@ -39,6 +40,7 @@ export const RegisterPage: FC = () => {
             </div>
 
             <RoundButton
+              className={s.button}
               type="button"
               theme="white"
               text="На главную"

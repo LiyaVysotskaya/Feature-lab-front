@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import brokenScreen from '../../assets/svg/broken_screen.svg';
@@ -66,7 +66,7 @@ export const ProductSliderSection: FC<IProps> = ({ className = '', imgLinks }) =
   if (!imgLinks.length) return null;
 
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <SectionTitle text="Результат" />
 
       <div className={s.slider}>
@@ -74,20 +74,20 @@ export const ProductSliderSection: FC<IProps> = ({ className = '', imgLinks }) =
 
         {isImgLoadingErr && (
           <ul className={s.slides}>
-            <li key={uuidv4()} className={cl(s.slide, s.slide_2)}>
+            <li key={uuidv4()} className={cn(s.slide, s.slide_2)}>
               <img className={s.slideImg} src={brokenScreen} alt="Превью" />
             </li>
           </ul>
         )}
 
-        {isImgLoading && <SpinnerIcon className={cl(s.spinner)} theme="white" />}
+        {isImgLoading && <SpinnerIcon className={cn(s.spinner)} theme="white" />}
 
         {isImgLoadingSuccess && (
           <ul className={s.slides}>
             {Array.from({ length: 5 }).map((_, index) => {
               const slideIndex = (currentSlide + index + totalSlides) % totalSlides;
               return (
-                <li key={uuidv4()} className={cl(s.slide, s[`slide_${index}`])}>
+                <li key={uuidv4()} className={cn(s.slide, s[`slide_${index}`])}>
                   <img className={s.slideImg} src={transformedImgLinks[slideIndex]} alt="Превью" />
                 </li>
               );
@@ -95,12 +95,12 @@ export const ProductSliderSection: FC<IProps> = ({ className = '', imgLinks }) =
           </ul>
         )}
 
-        <button className={cl(s.btn, s.btnLeft)} type="button" onClick={handleLeftClick}>
-          <ArrowInCircleIcon className={cl(s.btnIcon, s.btnIconLeft)} />
+        <button className={cn(s.btn, s.btnLeft)} type="button" onClick={handleLeftClick}>
+          <ArrowInCircleIcon className={cn(s.btnIcon, s.btnIconLeft)} />
         </button>
 
-        <button className={cl(s.btn, s.btnRight)} type="button" onClick={handleRightClick}>
-          <ArrowInCircleIcon className={cl(s.btnIcon)} />
+        <button className={cn(s.btn, s.btnRight)} type="button" onClick={handleRightClick}>
+          <ArrowInCircleIcon className={cn(s.btnIcon)} />
         </button>
       </div>
     </section>

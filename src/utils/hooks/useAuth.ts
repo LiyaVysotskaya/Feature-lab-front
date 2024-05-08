@@ -1,16 +1,16 @@
 import { useAtom } from 'jotai';
-import { postLoginData } from '../api/api';
-import { isAuthAtom } from '../atoms/isAuthAtom';
-import queryClient from '../query-client';
-import { LoginFormData } from '../types/publicData';
+import { postLoginData } from '../../api/api';
+import { isAuthAtom } from '../../atoms/isAuthAtom';
+import queryClient from '../../query-client';
+import { LoginFormData } from '../../types/forms';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,
   setStoredRefreshToken,
-} from '../utils/localStorageHelpers';
+} from '../localStorageHelpers';
 
 // Custom hook for handling authentication
-const useAuth = () => {
+export const useAuth = () => {
   const [, setIsAuth] = useAtom(isAuthAtom);
 
   const signOut = () => {
@@ -31,13 +31,10 @@ const useAuth = () => {
         signOut();
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      // Handle error
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   };
 
-  // Return authentication status and user profile data
   return { signOut, signIn };
 };
-
-export default useAuth;

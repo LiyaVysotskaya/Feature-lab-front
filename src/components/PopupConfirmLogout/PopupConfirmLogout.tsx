@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Overlay from '../Overlay/Overlay';
-import s from './PopupConfirmLogout.module.scss';
-import { CrossIcon } from '../ui/icons';
 import { ROUTE_HOME } from '../../constants/routesConstants';
-import useAuth from '../../hooks/useAuth';
+import { useAuth } from '../../utils/hooks/useAuth';
+import { Overlay } from '../Overlay/Overlay';
+import { CrossIcon } from '../ui/icons';
+import s from './PopupConfirmLogout.module.scss';
 
 type IPopupProps = {
   onClose: () => void;

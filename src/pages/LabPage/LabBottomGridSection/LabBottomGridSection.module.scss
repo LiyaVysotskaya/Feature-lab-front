@@ -12,22 +12,10 @@
   padding: 0;
 
   @media screen and (width <= 1280px) {
-    grid-template-columns: auto auto auto;
-  }
-
-  @media screen and (width <= 1000px) {
-    grid-template-areas:
-      'one one text'
-      'two two text'
-      'three three text';
-    grid-template-columns: auto auto;
-  }
-
-  @media screen and (width <= 768px) {
     grid-template-areas:
       'one one text'
       'two three text';
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 26% 26% auto;
     gap: 20px;
   }
 

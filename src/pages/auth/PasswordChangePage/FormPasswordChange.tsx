@@ -1,11 +1,11 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../../api/api';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { QuestionIcon } from '../../../components/ui/icons';
-import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/constants';
+import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/formConstants';
 import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 
@@ -59,18 +59,18 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             required
           />
           <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.currentPassword })}>
+            <span className={cn(s.textNumber, { [s.textNumberError]: errors.currentPassword })}>
               01
             </span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.currentPassword })}>
+            <span className={cn(s.textClue, { [s.textClueError]: errors.currentPassword })}>
               Старый
             </span>
           </div>
           <div
-            className={cl(s.inputErrorWrap, {
+            className={cn(s.inputErrorWrap, {
               [s.inputErrorWrapVisible]: errors.currentPassword,
             })}>
-            <span className={cl(s.inputError)}>{errors.currentPassword}</span>
+            <span className={cn(s.inputError)}>{errors.currentPassword}</span>
           </div>
           <InfoTooltip content={PASSWORD_HINT_TEXT}>
             <QuestionIcon className={s.hintIcon} />
@@ -91,16 +91,16 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             required
           />
           <div className={s.textContainer}>
-            <span className={cl(s.textNumber, { [s.textNumberError]: errors.newPassword })}>
+            <span className={cn(s.textNumber, { [s.textNumberError]: errors.newPassword })}>
               02
             </span>
-            <span className={cl(s.textClue, { [s.textClueError]: errors.newPassword })}>Новый</span>
+            <span className={cn(s.textClue, { [s.textClueError]: errors.newPassword })}>Новый</span>
           </div>
           <div
-            className={cl(s.inputErrorWrap, {
+            className={cn(s.inputErrorWrap, {
               [s.inputErrorWrapVisible]: errors.newPassword,
             })}>
-            <span className={cl(s.inputError)}>{errors.newPassword}</span>
+            <span className={cn(s.inputError)}>{errors.newPassword}</span>
           </div>
           <InfoTooltip content={PASSWORD_HINT_TEXT}>
             <QuestionIcon className={s.hintIcon} />
@@ -114,7 +114,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
         type="submit"
         theme="white"
         text={`Сменить\nпароль`}
-        disabled={!isValid || isEmpty()}
+        disabled={!isValid || isEmpty() || isLoading}
         isLoading={isLoading}
       />
     </form>

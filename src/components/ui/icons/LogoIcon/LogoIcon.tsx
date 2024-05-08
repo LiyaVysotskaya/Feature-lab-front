@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './LogoIcon.module.scss';
 
@@ -8,7 +8,7 @@ type IProps = {
 
 export const LogoIcon: FC<IProps> = ({ className = '' }) => {
   return (
-    <div className={cl(s.logoIcon, className)}>
+    <div className={cn(s.logoIcon, className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="70"

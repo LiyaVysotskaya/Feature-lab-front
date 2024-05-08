@@ -1,18 +1,18 @@
 .btn,
 .btn * {
+  --btn-size: 450px;
+
   box-sizing: border-box;
 }
 
 .promoBtnWrapper {
-  --btn-size: 450px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  width: var(--btn-size); // 450px;
-  height: var(--btn-size); // 450px;
+  width: var(--btn-size);
+  height: var(--btn-size);
 
   font-family: Germano-Regular, sans-serif;
   font-size: 64px;
@@ -50,8 +50,8 @@
   }
 
   &:active {
-    color: var(--dark-blue, #002d63);
-    border: 2px solid var(--dark-blue, #002d63);
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
   }
 
   &:disabled {
@@ -62,7 +62,7 @@
 }
 
 .radiantBtnWrapper {
-  --btn-size: 400px;
+  --btn-size: 280px;
 
   position: relative;
 
@@ -87,9 +87,10 @@
     align-items: center;
     justify-content: center;
 
-    width: calc(2.5 * var(--btn-size)); // 1000px;
-    height: calc(2.5 * var(--btn-size)); // 1000px;
+    width: calc(2.3 * 100%);
+    height: calc(2.3 * 100%);
 
+    opacity: 0.6;
     background: var(
       --radial-blue,
       radial-gradient(closest-side, rgb(0 73 216 / 100%) 0%, rgb(255 255 255 / 0%) 100%)
@@ -138,11 +139,11 @@
   }
 
   &_white {
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
     background: var(--white, #fff);
 
     &:active {
-      border: 2px solid var(--dark-blue, #002d63);
+      border: 2px solid var(--dark-blue);
 
       &:disabled {
         border: none;
@@ -152,7 +153,7 @@
 
   &_blue {
     color: var(--white, #fff);
-    background: var(--dark-blue, #002d63);
+    background: var(--dark-blue);
 
     &:active {
       border: 2px solid var(--white, #fff);
@@ -175,11 +176,6 @@
     --btn-size: 300px;
 
     font-size: 48px;
-
-    &::before {
-      width: calc(2.33 * var(--btn-size)); // 700px;
-      height: calc(2.33 * var(--btn-size)); // 700px;
-    }
   }
 }
 

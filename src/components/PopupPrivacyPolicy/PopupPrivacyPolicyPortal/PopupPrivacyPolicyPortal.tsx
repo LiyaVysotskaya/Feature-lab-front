@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -41,7 +41,7 @@ const PopupPrivacyPolicyPortal: FC<PopupPrivacyPolicyPortalProps> = ({
   if (!popupRoot) return null;
   return ReactDOM.createPortal(
     <div
-      className={cl(s.overlay, { [s.overlayOpen]: isOpen })}
+      className={cn(s.overlay, { [s.overlayOpen]: isOpen })}
       onClick={(e) => {
         if (e.currentTarget === e.target) {
           onClose();

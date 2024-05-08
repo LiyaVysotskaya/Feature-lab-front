@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { LabCard } from '../LabCard/LabCard';
 import { LabText } from '../LabText/LabText';
@@ -10,8 +10,8 @@ type IProps = {
 
 export const LabTopGridSection: FC<IProps> = ({ className = '' }) => {
   return (
-    <section className={cl(s.section, className)}>
-      <h2 className={cl(s.sectionTitle, s.gridArea_title)}>
+    <section className={cn(s.section, className)}>
+      <h2 className={cn(s.sectionTitle, s.gridArea_title)}>
         Войди в&#160;IT с&#160;готовыми проектами и&#160;практическим опытом.
       </h2>
 
@@ -23,7 +23,7 @@ export const LabTopGridSection: FC<IProps> = ({ className = '' }) => {
 
       <LabCard
         title="МЕНТОРСТВО"
-        text="Поможем в развитии профессиональных навыков, достижении карьерных целей и обеспеченим гладкое вхождения в индустрию информационных технологий"
+        text="Освоишь функционал практической работы и положишь кейс в портфолио"
         className={s.gridArea_2}
       />
 

@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import s from './Overlay.module.scss';
@@ -9,7 +9,7 @@ type IOverlayProps = {
   children: React.ReactNode;
 };
 
-const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
+export const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
   const popupRoot = document.getElementById('root');
   React.useEffect(() => {
     const handleEscClose = (e: KeyboardEvent) => {
@@ -28,7 +28,7 @@ const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
   if (!popupRoot) return null;
   return ReactDOM.createPortal(
     <div
-      className={cl(s.overlay, { [s.overlayOpen]: isOpen })}
+      className={cn(s.overlay, { [s.overlayOpen]: isOpen })}
       onClick={(e) => {
         if (e.currentTarget === e.target) {
           onClose();
@@ -39,5 +39,3 @@ const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
     popupRoot,
   );
 };
-
-export default Overlay;

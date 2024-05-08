@@ -1,35 +1,42 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import s from './PageTitle.module.scss';
 
 type IProps = {
   pageTitle: string;
-  subTitle: string;
+  subTitle?: string;
   className?: string;
 };
 
-export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle }) => {
+export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = '' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
-
   const location = useLocation();
 
-  useEffect(() => {
-    const resizeFont = () => {
-      if (containerRef.current && textRef.current) {
-        let fontSize = 410;
-        textRef.current.style.fontSize = `${fontSize}px`;
+  const resizeFont = () => {
+    if (containerRef.current && textRef.current) {
+      textRef.current.style.marginLeft = '0'; // calculation should be without negative margins
 
-        while (textRef.current.offsetWidth > containerRef.current.offsetWidth) {
-          fontSize -= 1;
-          textRef.current.style.fontSize = `${fontSize}px`;
-        }
+      let fontSize = 410;
+      textRef.current.style.fontSize = `${fontSize}px`;
+
+      while (textRef.current.offsetWidth > containerRef.current.offsetWidth) {
+        fontSize -= 1;
+        textRef.current.style.fontSize = `${fontSize}px`;
       }
+
+      textRef.current.style.marginLeft = '-0.035em'; // compensate font white space before first char
+    }
+  };
+
+  useEffect(() => {
+    const onFontLoad = () => {
+      window.addEventListener('resize', resizeFont);
+      resizeFont();
     };
 
-    window.addEventListener('resize', resizeFont);
-    resizeFont();
+    document.fonts.ready.then(onFontLoad);
 
     return () => {
       window.removeEventListener('resize', resizeFont);
@@ -37,7 +44,7 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle }) =
   }, [containerRef, textRef, location]);
 
   return (
-    <div className={cl(s.pageTitleWrap, className)} ref={containerRef}>
+    <div className={cn(s.pageTitleWrap, className)} ref={containerRef}>
       <h1 className={s.pageTitle} ref={textRef}>
         {pageTitle}
       </h1>

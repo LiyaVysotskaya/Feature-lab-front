@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { CrossIcon } from '../../ui/icons';
@@ -95,7 +95,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
   return ReactDOM.createPortal(
     <div
       ref={popupRef}
-      className={cl(s.popupWrap, {
+      className={cn(s.popupWrap, {
         [s.popupWrap_visible]:
           isOpen &&
           popupPosition.top &&
@@ -107,7 +107,7 @@ const StagePopupPortal: React.FC<StagePopupPortalProps> = ({
       })}
       onMouseLeave={handleOnMouseLeave}
       style={{ top: popupPosition.top, left: popupPosition.left }}>
-      <div className={cl(s.popup)}>
+      <div className={cn(s.popup)}>
         <div className={s.popupContent}>
           {children}
           <button type="button" className={s.popupCloseBtn} onClick={() => onClose()}>

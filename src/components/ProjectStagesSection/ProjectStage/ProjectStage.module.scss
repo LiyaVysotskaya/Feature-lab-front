@@ -26,7 +26,7 @@
   }
 
   &__text_active {
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
   }
 }
 
@@ -38,7 +38,7 @@
   width: 80px;
   height: 4px;
 
-  background-color: var(--dark-blue, #002d63);
+  background-color: var(--dark-blue);
   border-radius: 1px;
 
   &_size_half {

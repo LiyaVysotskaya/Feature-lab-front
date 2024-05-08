@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from '../PlusIcon/PlusIcon.module.scss';
 
@@ -8,7 +8,7 @@ type IProps = {
 
 export const CrossInCircleIcon: FC<IProps> = ({ className = '' }) => {
   return (
-    <div className={cl(className && className, s.plusIcon)}>
+    <div className={cn(className && className, s.plusIcon)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 80 80"

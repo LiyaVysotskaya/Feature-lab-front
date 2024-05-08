@@ -1,4 +1,4 @@
-import { TDocument, TProjectShortInfo, TUserProfile } from './profileData';
+import { TDocument, TProjectShortInfo, TUserProfile } from './privateData';
 import { TCompetenceShortInfo } from './publicData';
 
 type GeneralApiResponse = {

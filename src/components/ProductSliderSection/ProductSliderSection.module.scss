@@ -5,10 +5,11 @@
 
   box-sizing: border-box;
   width: 100%;
+  max-width: var(--page-max-width);
   margin: 0;
   padding: 0 0 100px;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 1920px) {
     padding: 0 0 6vw;
@@ -17,7 +18,7 @@
 
 .slider {
   --slide-width: 55%;
-  --slide-height: 680px;
+  --slide-height: calc(0.36 * var(--page-max-width));
   --slide-side-offset: 10%;
 
   position: relative;
@@ -29,21 +30,15 @@
   box-sizing: border-box;
   width: 100%;
   min-height: var(--slide-height);
-  margin: 100px 0 0;
-
-  @media screen and (width <= 1940px) {
-    --slide-height: 35vw;
-  }
+  margin: 80px 0 0;
 
   @media screen and (width <= 1280px) {
-    margin: 80px 0 0;
+    margin: 52px 0 0;
   }
 
   @media screen and (width <= 768px) {
     --slide-width: 60%;
     --slide-height: 40vw;
-
-    margin: 52px 0 0;
   }
 
   @media screen and (width <= 420px) {
@@ -150,7 +145,7 @@
 }
 
 .btn {
-  --btn-side-offset: 100px;
+  --btn-side-offset: 50px;
 
   position: absolute;
   z-index: 4;
@@ -178,10 +173,6 @@
   }
 
   @media screen and (width <= 1280px) {
-    --btn-side-offset: 50px;
-  }
-
-  @media screen and (width <= 768px) {
     --btn-side-offset: 32px;
   }
 
@@ -191,6 +182,8 @@
 }
 
 .btnIcon {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
 
   &Left {

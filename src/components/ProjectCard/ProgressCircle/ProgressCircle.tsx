@@ -1,7 +1,7 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import { Text } from '../../ui/Text/Text';
+import Checkmark from './checkmark.svg?svgr';
 import s from './ProgressCircle.module.scss';
 
 type IProps = {
@@ -28,7 +28,7 @@ export const ProgressCircle: FC<IProps> = ({
   }, []);
 
   return (
-    <div className={cl(s.progressWrap, className)}>
+    <div className={cn(s.progressWrap, className)}>
       <CircularProgressbarWithChildren
         className={s.progress}
         value={progressValue}
@@ -43,13 +43,13 @@ export const ProgressCircle: FC<IProps> = ({
           trailColor: 'var(--white-60)',
         })}>
         {stagesCompleted < max ? (
-          <Text view="germano-5" className={s.progressText}>
+          <span className={s.progressText}>
             {stagesCompleted < max && `${stagesCompleted + stagesInProgress}/${max}`}
-          </Text>
+          </span>
         ) : (
-          <Text view="germano-4" className={s.progressText}>
-            ✔
-          </Text>
+          <span className={s.progressText}>
+            <Checkmark className={s.progressIcon} />
+          </span>
         )}
       </CircularProgressbarWithChildren>
     </div>

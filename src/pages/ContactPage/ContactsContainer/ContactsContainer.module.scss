@@ -4,29 +4,24 @@
     'adress telephones'
     'email media';
   grid-template-columns: repeat(2, minmax(328px, 720px));
-  gap: 68px 200px;
+  gap: 50px 60px;
   align-items: flex-end;
 
   width: 100%;
   max-width: var(--el-max-width);
-  margin-bottom: 234px;
+  margin-bottom: 228px;
 
   @media screen and (width <= 1280px) {
-    gap: 50px 60px;
-    margin-bottom: 228px;
-  }
-
-  @media screen and (width <= 870px) {
     gap: 44px 46px;
     margin-bottom: 127px;
   }
 
   @media screen and (width <= 730px) {
     grid-template-areas:
-    'adress'
-    'email'
-    'telephones'
-    'media';
+      'adress'
+      'email'
+      'telephones'
+      'media';
     grid-template-columns: 1fr;
   }
 
@@ -57,23 +52,17 @@
 }
 
 .text {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 
   font-family: Germano, sans-serif;
-  font-size: 80px;
+  font-size: 64px;
   font-weight: 300;
   line-height: 1.1;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: left;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 
   @media screen and (width <= 1280px) {
-    margin-bottom: 12px;
-    font-size: 64px;
-    letter-spacing: 0;
-  }
-
-  @media screen and (width <= 870px) {
     margin-bottom: 14px;
     font-size: 40px;
   }
@@ -96,17 +85,12 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 1.18;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: left;
 
-  border-top: 1px solid var(--dark-blue, #002d63);
+  border-top: 1px solid var(--dark-blue);
 
   @media screen and (width <= 1280px) {
-    font-size: 24px;
-    line-height: 1.16;
-  }
-
-  @media screen and (width <= 870px) {
     font-size: 20px;
     line-height: 1.2;
   }
@@ -127,7 +111,7 @@
   column-gap: 48px;
   margin-bottom: 16px;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     column-gap: 28px;
   }
 }
@@ -136,7 +120,7 @@
   width: 80px;
   height: 80px;
 
-  @media screen and (width <= 870px) {
+  @media screen and (width <= 1280px) {
     width: 60px;
     height: 60px;
   }

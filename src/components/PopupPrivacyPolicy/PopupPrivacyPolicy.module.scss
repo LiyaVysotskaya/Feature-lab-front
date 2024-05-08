@@ -3,9 +3,9 @@
   z-index: 1;
 
   width: 100%;
-  max-width: var(--el-max-width);
+  max-width: calc(100% - 2 * var(--offset-from-edge));
   height: fit-content;
-  margin: 100px 0 0;
+  margin: 100px 0;
 
   background-color: var(--white);
 
@@ -53,7 +53,7 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 1.19; // 38px;
-  color: var(--darkblue, #002d63);
+  color: var(--dark-blue);
 }
 
 .popupPrivacyPolicy__content {
@@ -68,8 +68,8 @@
     padding: 24px 50px 60px;
 
     background: var(--white, #fff);
-    border-top: 2px solid var(--dark-blue, #002d63);
-    border-bottom: 2px solid var(--dark-blue, #002d63);
+    border-top: 2px solid var(--dark-blue);
+    border-bottom: 2px solid var(--dark-blue);
 
     &_title {
       display: grid;
@@ -84,7 +84,7 @@
         font-size: 80px;
         font-weight: 400;
         line-height: 1; // 80px;
-        color: var(--darkblue, #002d63);
+        color: var(--dark-blue);
       }
 
       &_text {
@@ -95,7 +95,7 @@
         font-size: 80px;
         font-weight: 300;
         line-height: 1; // 80px;
-        color: var(--darkblue, #002d63);
+        color: var(--dark-blue);
         letter-spacing: -3.2px;
       }
     }
@@ -111,7 +111,7 @@
       font-size: 32px;
       font-weight: 400;
       line-height: 1.19; // 38px;
-      color: var(--darkblue, #002d63);
+      color: var(--dark-blue);
       white-space: pre-wrap;
 
       &.one_column {
@@ -294,8 +294,8 @@
     &_item {
       gap: 16px;
       padding: 16px 8px 24px;
-      border-top: 1px solid var(--dark-blue, #002d63);
-      border-bottom: 1px solid var(--dark-blue, #002d63);
+      border-top: 1px solid var(--dark-blue);
+      border-bottom: 1px solid var(--dark-blue);
 
       &_title {
         gap: 16px;

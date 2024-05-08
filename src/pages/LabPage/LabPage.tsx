@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { LabSection } from '../../components/LabSection/LabSection';
 import { Main } from '../../components/Main/Main';
+import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { LabBottomGridSection } from './LabBottomGridSection/LabBottomGridSection';
 import { LabTopGridSection } from './LabTopGridSection/LabTopGridSection';
 import s from './LabPage.module.scss';
@@ -8,8 +9,7 @@ import s from './LabPage.module.scss';
 export const LabPage: FC = () => {
   return (
     <Main>
-      <h1 className={s.pageTitle}>Ed-Tech</h1>
-      <p className={s.subTitle}>Образование</p>
+      <PageTitle className={s.pageTitle} pageTitle="Ed-Tech" subTitle="Образование" />
 
       <LabTopGridSection className={s.pageSection} />
 

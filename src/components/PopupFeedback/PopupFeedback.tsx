@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Overlay from '../Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
 import { Text } from '../ui/Text/Text';
 import { CrossIcon } from '../ui/icons';
 import s from './PopupFeedback.module.scss';

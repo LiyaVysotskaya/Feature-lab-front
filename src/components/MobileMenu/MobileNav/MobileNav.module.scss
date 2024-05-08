@@ -52,7 +52,7 @@
   font-family: GostTypeB-Standard, sans-serif;
   font-size: 32px;
   line-height: 1.19; // 38px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   @media screen and (width <= 1280px) {
     font-size: 24px;

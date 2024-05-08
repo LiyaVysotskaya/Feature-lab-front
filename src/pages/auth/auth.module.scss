@@ -4,47 +4,40 @@
   align-items: center;
 
   width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 200px 0;
-
-  @media screen and (width <= 1280px) {
-    max-width: 1280px;
-  }
+  max-width: var(--el-max-width);
+  padding: 200px 0 0;
 
   @media screen and (width <= 768px) {
-    max-width: 768px;
-    padding: 150px 0 180px;
+    max-width: 100%;
+    padding: 150px 0 0;
   }
 
   @media screen and (width <= 360px) {
-    max-width: 360px;
     padding: 84px 0;
   }
 }
 
 .title {
   display: flex;
-  gap: 40px;
+  gap: 32px;
 
   margin-bottom: 80px;
 
   font-family: Molot, sans-serif;
-  font-size: min(128px, 6.7vw);
+  font-size: calc(0.07 * var(--page-max-width));
   font-weight: 400;
-  line-height: 1; // 128px
-  color: var(--dark-blue, #002d63);
-
-  @media screen and (width <= 1280px) {
-    gap: 32px;
-  }
+  line-height: 1;
+  color: var(--dark-blue);
 
   @media screen and (width <= 768px) {
     margin-bottom: 60px;
   }
 
-  @media screen and (width <= 360px) {
+  @media screen and (width <= 690px) {
     gap: 4px;
+  }
+
+  @media screen and (width <= 360px) {
     margin-bottom: 32px;
   }
 }
@@ -52,21 +45,21 @@
 .unhighlightedTitle {
   color: var(--white, #fff);
 
-  -webkit-text-stroke: 3px var(--dark-blue, #002d63);
+  -webkit-text-stroke: 2px var(--dark-blue);
 
-  @media screen and (width <= 360px) {
-    -webkit-text-stroke: 2px var(--dark-blue, #002d63);
+  @media screen and (width <= 500px) {
+    -webkit-text-stroke: 1px var(--dark-blue);
   }
 }
 
 // form styles
 
 .form {
-  --text-container-width: 17.6%; // 250px
-  --grid-column-gap: 40px;
-  --input-side-padding: 12.6%;
-  --input-min-height: 200px;
-  --number-font-size: min(128px, 6.7vw);
+  --number-font-size: min(128px, calc(var(--page-max-width) * 0.062));
+  --text-container-width: 15.8%;
+  --grid-column-gap: 20px;
+  --input-min-height: 160px;
+  --input-side-padding: 9.5%; // 120px;
 
   position: relative;
 
@@ -78,13 +71,6 @@
   width: 100%;
 
   @media screen and (width <= 1280px) {
-    --text-container-width: 15.8%;
-    --grid-column-gap: 20px;
-    --input-min-height: 180px;
-    --input-side-padding: 9.5%; // 120px;
-  }
-
-  @media screen and (width <= 768px) {
     --text-container-width: 17.1%;
     --grid-column-gap: 13px;
     --input-side-padding: 7.7%; // 60px;
@@ -114,28 +100,6 @@
   border: none;
 }
 
-.button {
-  position: absolute;
-  bottom: 300px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  line-height: 1;
-  white-space: pre-wrap;
-
-  @media screen and (width <= 1280px) {
-    bottom: 210px;
-    font-size: 48px;
-  }
-
-  @media screen and (width <= 768px) {
-    bottom: 180px;
-    max-width: 240px;
-    max-height: 240px;
-    font-size: 40px;
-  }
-}
-
 .inputContainer {
   position: relative;
 
@@ -145,13 +109,14 @@
     '. error .';
   grid-template-columns: var(--text-container-width) auto min-content;
   column-gap: var(--grid-column-gap);
+  align-content: center;
 
   box-sizing: border-box;
   width: 100%;
   min-height: var(--input-min-height);
   padding: 0 var(--input-side-padding);
 
-  border: solid var(--dark-blue, #002d63);
+  border: solid var(--dark-blue);
   border-width: 0 0 2px;
 
   &:first-of-type {
@@ -168,8 +133,8 @@
 }
 
 .input {
-  --input-font-size: 140px;
-  --input-font-size-min: 48px;
+  --input-font-size: 80px;
+  --input-font-size-min: 40px;
 
   grid-area: input;
   align-self: stretch;
@@ -183,8 +148,8 @@
   font-family: Germano-Regular, sans-serif;
   font-size: var(--input-font-size);
   font-weight: 400;
-  line-height: 0.85; // 120px;
-  color: var(--dark-blue, #002d63);
+  line-height: 1;
+  color: var(--dark-blue);
 
   background-color: transparent;
   border: none;
@@ -203,17 +168,17 @@
 
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus {
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-webkit-autofill::first-line {
     box-shadow: 0 0 0 1000px #fff inset;
 
-    -webkit-text-fill-color: var(--dark-blue, #002d63);
+    -webkit-text-fill-color: var(--dark-blue);
   }
 
   @media screen and (width <= 1280px) {
-    --input-font-size: 100px;
-    --input-font-size-min: 40px;
-
-    line-height: 1.2; // 120px;
+    --input-font-size: 55px;
+    --input-font-size-min: 32px;
   }
 
   @media screen and (width <= 768px) {
@@ -248,18 +213,12 @@
 
   transition: all 0.2s ease;
 
-  -webkit-text-stroke: 3.5px var(--dark-blue);
+  -webkit-text-stroke: 2.5px var(--dark-blue);
 
   &Error {
     color: var(--error, #bf1700) !important;
 
     -webkit-text-stroke: unset;
-  }
-
-  @media screen and (width <= 1280px) {
-    --number-font-size: 6.2vw;
-
-    -webkit-text-stroke-width: 2px;
   }
 
   @media screen and (width <= 768px) {
@@ -278,10 +237,10 @@
   max-height: 1px;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 300;
   line-height: 1; // 32px;
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 
   opacity: 0;
 
@@ -289,10 +248,6 @@
 
   &Error {
     color: var(--error, #bf1700);
-  }
-
-  @media screen and (width <= 1280px) {
-    font-size: 40px;
   }
 
   @media screen and (width <= 768px) {
@@ -323,17 +278,13 @@
   max-width: 100%;
 
   font-family: Germano-Regular, sans-serif;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 1;
-  color: var(--error, #bf1700);
+  color: var(--error);
   word-wrap: break-word;
 
   @media screen and (width <= 1280px) {
-    font-size: 40px;
-  }
-
-  @media screen and (width <= 768px) {
     font-size: 32px;
   }
 
@@ -353,31 +304,31 @@
   z-index: 2;
 
   display: flex;
-  column-gap: 74px;
+  column-gap: 50px;
   align-items: center;
   justify-content: center;
 
   box-sizing: border-box;
-  width: 80%;
-  margin: 28px 0 800px;
+  width: 100%;
+  max-width: 80%;
+  margin: 28px 0 0;
+  margin-top: 24px;
   padding: 0;
 
   @media screen and (width <= 1280px) {
-    column-gap: 50px;
-    margin-top: 24px;
-    margin-bottom: 622px;
+    column-gap: 20px;
+    max-width: 85%;
   }
 
   @media screen and (width <= 768px) {
     column-gap: 20px;
+    max-width: var(--el-max-width);
     margin-top: 8px;
-    margin-bottom: 528px;
   }
 
   @media screen and (width <= 360px) {
     column-gap: 8px;
     margin-top: 12px;
-    margin-bottom: 500px;
   }
 }
 
@@ -393,7 +344,7 @@
   width: 60px;
   height: 60px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     width: 40px;
     height: 40px;
   }
@@ -404,19 +355,14 @@
   padding: 0;
 
   font-family: Germano, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
-  font-style: normal;
-  line-height: 1.3; // magnification to better match the layout
-  color: var(--dark-blue, #002d63);
+  font-style: normal; // magnification to better match the layout
+  line-height: 1.2;
+  color: var(--dark-blue);
   text-align: left;
 
   @media screen and (width <= 1280px) {
-    font-size: 48px;
-    line-height: 1.2;
-  }
-
-  @media screen and (width <= 768px) {
     font-size: 32px;
   }
 
@@ -437,7 +383,7 @@
 
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 17px;
+  text-underline-offset: 13px;
 
   transition: opacity 0.2s ease;
 
@@ -446,10 +392,6 @@
   }
 
   @media screen and (width <= 1280px) {
-    text-underline-offset: 13px;
-  }
-
-  @media screen and (width <= 768px) {
     text-underline-offset: 9px;
   }
 
@@ -467,7 +409,7 @@
 .input:not(:placeholder-shown) + .textContainer {
   .textNumber {
     font-size: calc(var(--number-font-size) * 0.625);
-    color: var(--dark-blue, #002d63);
+    color: var(--dark-blue);
 
     -webkit-text-stroke: unset;
   }
@@ -489,20 +431,10 @@
 
   box-sizing: border-box;
   width: 100%;
-  margin: 28px auto 800px;
+  margin: 16px auto 0;
   padding: 0 var(--input-side-padding);
 
-  @media screen and (width <= 1280px) {
-    margin-top: 16px;
-    margin-bottom: 590px;
-  }
-
-  @media screen and (width <= 768px) {
-    margin-bottom: 500px;
-  }
-
   @media screen and (width <= 690px) {
-    column-gap: 15px;
     margin-top: 8px;
   }
 }
@@ -529,14 +461,14 @@
   padding: 0;
 
   font-family: Germano, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   font-style: normal;
-  line-height: 1.3; // magnification to better match the layout
-  color: var(--dark-blue, #002d63);
+  line-height: 1.2;
+  color: var(--dark-blue);
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 17px;
+  text-underline-offset: 13px;
 
   transition: opacity 0.2s ease;
 
@@ -545,12 +477,6 @@
   }
 
   @media screen and (width <= 1280px) {
-    font-size: 48px;
-    line-height: 1.2;
-    text-underline-offset: 13px;
-  }
-
-  @media screen and (width <= 768px) {
     font-size: 32px;
     text-underline-offset: 9px;
   }
@@ -563,14 +489,28 @@
   }
 }
 
+.button {
+  position: relative;
+
+  margin: 100px 0 200px;
+
+  font-size: 48px;
+  line-height: 1;
+  white-space: pre-wrap;
+
+  @media screen and (width <= 1280px) {
+    max-width: 240px;
+    max-height: 240px;
+    font-size: 40px;
+  }
+}
+
 // response styles
 .responseContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
-  margin-bottom: 400px;
 }
 
 .responseTextContainer {
@@ -579,32 +519,39 @@
   align-items: center;
 
   width: 100%;
-  margin-bottom: 100px;
   padding: 30px 0 40px;
 
-  border: solid var(--dark-blue, #002d63);
+  border: solid var(--dark-blue);
   border-width: 2px 0;
 }
 
 .responseText {
   font-family: Germano-Regular, sans-serif;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 300;
   line-height: 1; // 64px
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
   text-align: center;
   letter-spacing: 0;
+
+  @media screen and (width <= 1280px) {
+    font-size: 40px;
+  }
+
+  @media screen and (width <= 360px) {
+    font-size: 24px;
+  }
 }
 
 .tooltip {
   position: absolute;
   z-index: 2;
-  top: 145px;
+  top: 130px;
   right: var(--input-side-padding);
 
   box-sizing: border-box;
-  max-width: 29vw;
-  padding: 32px;
+  max-width: calc(0.6 * var(--page-max-width));
+  padding: 28px;
 
   visibility: hidden;
   opacity: 0;
@@ -614,12 +561,6 @@
   transition: all 0.5s ease-in-out;
 
   @media screen and (width <= 1280px) {
-    top: 130px;
-    max-width: 60vw;
-    padding: 28px;
-  }
-
-  @media screen and (width <= 768px) {
     top: 80px;
     padding: 24px;
   }
@@ -643,7 +584,7 @@
   text-align: left;
   letter-spacing: 0;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <= 1280px) {
     font-size: 20px;
   }
 }

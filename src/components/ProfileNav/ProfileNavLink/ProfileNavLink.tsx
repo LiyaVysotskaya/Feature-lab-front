@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { FC, cloneElement } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './ProfileNavLink.module.scss';
@@ -15,9 +15,9 @@ export const ProfileNavLink: FC<IProps> = ({ to, icon, text, isIconFilled = fals
   const isActive = location.pathname === to;
 
   return (
-    <NavLink to={to} className={cl(s.link, { [s.linkActive]: isActive })}>
+    <NavLink to={to} className={cn(s.link, { [s.linkActive]: isActive })}>
       {cloneElement(icon, { filled: isIconFilled || isActive, className: s.navIcon })}
-      <span className={cl(s.linkText)}>{text}</span>
+      <span className={cn(s.linkText)}>{text}</span>
     </NavLink>
   );
 };

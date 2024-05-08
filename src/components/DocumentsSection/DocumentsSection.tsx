@@ -1,7 +1,7 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TDocument } from '../../types/profileData';
+import { TDocument } from '../../types/privateData';
 import { DocumentsCategory } from './DocumentsCategory/DocumentsCategory';
 import s from './DocumentsSection.module.scss';
 
@@ -12,6 +12,10 @@ type IProps = {
 };
 
 export const DocumentsSection: FC<IProps> = ({ className = '', title, docs }) => {
+  if (docs.length === 0) {
+    return null;
+  }
+
   // Group documents by their doctype
   const docCategories = docs.reduce(
     (acc, doc) => {
@@ -28,7 +32,7 @@ export const DocumentsSection: FC<IProps> = ({ className = '', title, docs }) =>
   const sortedCategoryNames = Object.keys(docCategories).toSorted();
 
   return (
-    <section className={cl(s.section, className)}>
+    <section className={cn(s.section, className)}>
       <h2 className={s.title}>{title}</h2>
       <ul className={s.categories}>
         {sortedCategoryNames.map((categoryName) => (

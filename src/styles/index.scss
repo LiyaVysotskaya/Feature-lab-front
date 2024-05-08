@@ -1,6 +1,10 @@
 @import './normalize.css';
-@import './variables/global';
+@import './variables';
 @import '../assets/fonts/fonts.css';
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 ul,
 li {

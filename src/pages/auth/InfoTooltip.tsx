@@ -1,7 +1,7 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import React, { PropsWithChildren, ReactElement, useState } from 'react';
-import s from './auth.module.scss';
 import { CrossIcon } from '../../components/ui/icons/CrossIcon/CrossIcon';
+import s from './auth.module.scss';
 
 type IInfoTooltip = {
   className?: string;
@@ -20,10 +20,10 @@ export const InfoTooltip: React.FC<PropsWithChildren<IInfoTooltip>> = ({
       {children &&
         React.cloneElement(children as ReactElement, {
           onClick: () => {
-            setIsTooltipOpen(true);
+            setIsTooltipOpen((state) => !state);
           },
         })}
-      <div className={cl(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
+      <div className={cn(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
         <div className={s.tooltipContent}>
           {content}
           <button

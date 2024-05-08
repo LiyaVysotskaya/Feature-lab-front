@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC } from 'react';
 import s from './Socials.module.scss';
 
@@ -8,7 +8,7 @@ type IProps = {
 
 export const TelegramIcon: FC<IProps> = ({ className = '' }) => {
   return (
-    <div className={cl(s.icon, className && className)}>
+    <div className={cn(s.icon, className && className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="80"

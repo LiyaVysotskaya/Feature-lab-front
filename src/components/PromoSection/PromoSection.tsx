@@ -1,5 +1,6 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { FC, useState } from 'react';
+import { PageTitle } from '../PageTitle/PageTitle';
 import { PopupContact } from '../PopupContact/PopupContact';
 import { RoundButton } from '../ui/RoundButton/RoundButton';
 import s from './PromoSection.module.scss';
@@ -16,19 +17,19 @@ export const PromoSection: FC<IProps> = ({ className = '' }) => {
   };
 
   return (
-    <section aria-label="Promo" className={cl(s.promo, className)}>
+    <section aria-label="Promo" className={cn(s.promo, className)}>
       <div className={s.bg_blue} />
 
-      <h1 className={s.title}>фичлаб</h1>
-      <div className={s.divider} />
+      <PageTitle className={s.title} pageTitle="Фичлаб" />
 
       <div className={s.headlines}>
         <p className={s.headline}>Разрабатываем IT&#8209;проекты любой сложности</p>
         <p className={s.headline}>Обучаем специалистов</p>
         <p className={s.headline}>Создаём продукты</p>
       </div>
+
       <RoundButton
-        className={s.promo__btn}
+        className={s.promoBtn}
         onClick={() => setPopupContactIsOpen(true)}
         theme="promo"
         text="Свяжитесь с&nbsp;нами"

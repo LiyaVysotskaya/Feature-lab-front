@@ -5,7 +5,8 @@
 
 .TeamSliderSection {
   width: 100%;
-  color: var(--dark-blue, #002d63);
+  max-width: var(--el-max-width);
+  color: var(--dark-blue);
 }
 
 .sectionContent {
@@ -19,7 +20,7 @@
   z-index: 2;
   top: 0;
 
-  width: 100px;
+  width: 50px;
   height: 100%;
 
   &_left {
@@ -31,14 +32,9 @@
     right: 0;
     background: linear-gradient(to right, transparent, #fff);
   }
-
-  @media screen and (width <= 1920px) {
-    display: none;
-  }
 }
 
 .slider {
-  width: 100%;
   padding-top: 80px;
 
   &WithGradient {
@@ -47,6 +43,7 @@
     top: 0;
     left: 0;
 
+    width: 100%;
     padding-bottom: 80px;
   }
 }
@@ -63,7 +60,7 @@
   }
 }
 
-@media screen and (width <= 768px) and (width > 690px) {
+@media screen and (width > 690px) and (width <= 768px) {
   [class*='react-multi-carousel-item--active'] .card {
     position: relative;
     left: 30px;
@@ -82,10 +79,5 @@
 @media screen and (width <= 360px) {
   .slider {
     padding-top: 32px;
-  }
-
-  .item {
-    opacity: 1;
-    filter: grayscale(0);
   }
 }

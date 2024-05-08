@@ -11,7 +11,7 @@
   width: 100%;
   margin: 0;
 
-  color: var(--dark-blue, #002d63);
+  color: var(--dark-blue);
 }
 
 .list {
@@ -22,7 +22,7 @@
 
   width: 100%;
   max-width: var(--el-max-width);
-  margin: 100px 0 0;
+  margin: 80px 0 0;
 }
 
 .product {
@@ -37,29 +37,29 @@
     display: flex;
     column-gap: 30px;
     align-items: center;
-    border-bottom: 1px solid var(--dark-blue, #002d63);
+    border-bottom: 1px solid var(--dark-blue);
   }
 
   &Title {
     width: 100%;
 
     font-family: Germano, sans-serif;
-    font-size: 140px;
+    font-size: 100px;
     font-weight: 300;
-    font-style: normal;
-    line-height: 0.86; // 120px; /* 85.714% */
+    font-style: normal; // 120px; /* 85.714% */
+    line-height: 1.2; // 120px; /* 120% */
     text-wrap: nowrap;
   }
 
   &Info {
     width: 100%;
-    max-width: 760px;
+    max-width: 490px;
 
     font-family: 'GOST type B', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
     font-style: normal;
-    line-height: 1.19; // 38px; /* 118.75% */
+    line-height: 1.17;
   }
 
   &Footer {
@@ -96,48 +96,7 @@
   }
 }
 
-@media screen and (width <= 1450px) {
-  .product {
-    &Title {
-      font-size: 100px;
-      line-height: 1.2; // 120px; /* 120% */
-    }
-
-    &Info {
-      max-width: 490px;
-      font-size: 24px;
-      line-height: 1.17; // 28px; /* 116.667% */
-    }
-  }
-}
-
 @media screen and (width <= 1280px) {
-  .list {
-    margin: 80px 0 0;
-  }
-}
-
-@media screen and (width <= 1000px) {
-  .product {
-    &Title {
-      font-size: 64px;
-      line-height: 1; // 64px; /* 100% */
-    }
-
-    &Info {
-      max-width: 252px;
-      font-size: 16px;
-      line-height: 1.13; // 18px; /* 112.5% */
-    }
-
-    &Footer {
-      font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
-    }
-  }
-}
-
-@media screen and (width <= 768px) {
   .list {
     margin: 32px 0 0;
   }
@@ -145,18 +104,18 @@
   .product {
     &Title {
       font-size: 64px;
-      line-height: 1; // 64px; /* 100% */
+      line-height: 1;
     }
 
     &Info {
       max-width: 252px;
       font-size: 16px;
-      line-height: 1.13; // 18px; /* 112.5% */
+      line-height: 1.13;
     }
 
     &Footer {
       font-size: 20px;
-      line-height: 1.2; // 24px; /* 120% */
+      line-height: 1.2;
     }
   }
 }

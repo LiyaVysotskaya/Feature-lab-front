@@ -1,4 +1,4 @@
-import cl from 'classnames';
+import cn from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {
@@ -10,8 +10,8 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
-} from '../../../constants/constants';
-import { useFormAndValidation } from '../../../hooks/useFormAndValidation';
+} from '../../../constants/formConstants';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { PopupPrivacyPolicy } from '../../PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../../ui/icons/CheckBoxIcon/CheckBoxIcon';
@@ -87,7 +87,7 @@ export const FormFooter: FC = () => {
         <h2 className={s.formTitle}>Свяжитесь c&#160;нами</h2>
 
         <div className={s.fieldset}>
-          <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.name })}>
+          <div className={cn(s.inputContainer, { [s.inputContainerError]: errors.name })}>
             <input
               className={s.input}
               aria-label="Input name"
@@ -101,11 +101,11 @@ export const FormFooter: FC = () => {
               pattern={NAME_REG_EX}
               required
             />
-            <span className={cl(s.textClue, { [s.textClueError]: errors.name })}>
+            <span className={cn(s.textClue, { [s.textClueError]: errors.name })}>
               {errors.name || 'Имя'}
             </span>
           </div>
-          <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.email })}>
+          <div className={cn(s.inputContainer, { [s.inputContainerError]: errors.email })}>
             <input
               className={s.input}
               aria-label="Input email"
@@ -119,13 +119,13 @@ export const FormFooter: FC = () => {
               pattern={EMAIL_PHONE_REG_EX}
               required
             />
-            <span className={cl(s.textClue, { [s.textClueError]: errors.email })}>
+            <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>
               {errors.email || 'Email / телефон'}
             </span>
           </div>
-          <div className={cl(s.inputContainer, { [s.inputContainerError]: errors.project })}>
+          <div className={cn(s.inputContainer, { [s.inputContainerError]: errors.project })}>
             <TextareaAutosize
-              className={cl(s.input, s.textarea)}
+              className={cn(s.input, s.textarea)}
               aria-label="Textarea project"
               value={values.project}
               onChange={handleChange}
@@ -135,7 +135,7 @@ export const FormFooter: FC = () => {
               maxLength={MAX_LENGTH_PROJECT}
               required
             />
-            <span className={cl(s.textClue, { [s.textClueError]: errors.project })}>
+            <span className={cn(s.textClue, { [s.textClueError]: errors.project })}>
               {errors.project || 'О проекте'}
             </span>
           </div>
