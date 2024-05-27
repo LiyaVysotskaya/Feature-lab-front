@@ -18,9 +18,9 @@
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
-  color: var(--white, #fff);
+  color: var(--white);
 
-  background: var(--white, #fff);
+  background: var(--white);
   border-radius: 50%;
 }
 
@@ -122,7 +122,7 @@
   border-radius: 50%;
 
   &:disabled {
-    color: var(--dark-blue-50, #8096b1);
+    color: var(--dark-blue-50);
   }
 
   &:hover {
@@ -140,7 +140,7 @@
 
   &_white {
     color: var(--dark-blue);
-    background: var(--white, #fff);
+    background: var(--white);
 
     &:active {
       border: 2px solid var(--dark-blue);
@@ -152,11 +152,11 @@
   }
 
   &_blue {
-    color: var(--white, #fff);
+    color: var(--white);
     background: var(--dark-blue);
 
     &:active {
-      border: 2px solid var(--white, #fff);
+      border: 2px solid var(--white);
 
       &:disabled {
         border: none;

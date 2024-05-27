@@ -89,7 +89,7 @@
   font-size: clamp(20px, 1.8vw, 24px);
   font-weight: 400;
   line-height: 1.18;
-  color: var(--white, #fff);
+  color: var(--white);
   text-align: left;
 
   @media screen and (width <= 1280px) {

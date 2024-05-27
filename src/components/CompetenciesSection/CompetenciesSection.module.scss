@@ -50,7 +50,7 @@
   width: 100%;
   padding: 24px var(--offset-from-edge) 0;
 
-  background: var(--white, #fff);
+  background: var(--white);
   border-bottom: 2px solid var(--dark-blue);
 
   @media screen and (width <= 1280px) {
@@ -123,7 +123,7 @@
   font-weight: 400;
   font-style: normal;
   line-height: 0.7; /* 100% */
-  color: var(--white, #fff);
+  color: var(--white);
   text-align: right;
 
   transition: all 0.2s ease;

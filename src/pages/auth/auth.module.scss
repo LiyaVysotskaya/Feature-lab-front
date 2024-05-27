@@ -43,7 +43,7 @@
 }
 
 .unhighlightedTitle {
-  color: var(--white, #fff);
+  color: var(--white);
 
   -webkit-text-stroke: 2px var(--dark-blue);
 
@@ -154,10 +154,10 @@
   background-color: transparent;
   border: none;
   outline: none;
-  caret-color: var(--electric, #0049d8);
+  caret-color: var(--electric);
 
   &::placeholder {
-    color: var(--dark-blue-50, #8096b1);
+    color: var(--dark-blue-50);
     text-align: left;
     letter-spacing: -0.04em;
 
@@ -208,7 +208,7 @@
   font-weight: 400;
   font-style: normal;
   line-height: 1; // 128px;
-  color: var(--white, #fff);
+  color: var(--white);
   text-align: left;
 
   transition: all 0.2s ease;
@@ -216,7 +216,7 @@
   -webkit-text-stroke: 2.5px var(--dark-blue);
 
   &Error {
-    color: var(--error, #bf1700) !important;
+    color: var(--error) !important;
 
     -webkit-text-stroke: unset;
   }
@@ -247,7 +247,7 @@
   transition: all 0.2s ease;
 
   &Error {
-    color: var(--error, #bf1700);
+    color: var(--error);
   }
 
   @media screen and (width <= 768px) {
