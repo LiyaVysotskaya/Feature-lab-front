@@ -17,17 +17,18 @@
   border-radius: 8px;
 
   @media screen and (width <= 768px) {
+    max-width: min(704px, 92vw);
     padding-top: 84px;
   }
 
   @media screen and (width <= 690px) {
     max-width: 100%;
+    min-height: 100vh;
     margin: 0;
     border-radius: 0;
   }
 
   @media screen and (width <= 360px) {
-    max-width: 360px;
     padding-top: 80px;
   }
 }
@@ -41,7 +42,7 @@
   line-height: 1;
   color: var(--dark-blue);
 
-  @media screen and (width <= 1060px) {
+  @media screen and (width <= 1230px) {
     margin-bottom: 60px;
     font-size: 66px;
   }
