@@ -24,6 +24,7 @@ export const PopupConfirmLogout: FC<IPopupProps> = ({ onClose, isOpen }) => {
             type="button"
             className={s.button}
             onClick={() => {
+              onClose();
               navigate(ROUTE_HOME);
               signOut();
             }}>

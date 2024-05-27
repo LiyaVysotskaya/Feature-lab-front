@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useUserProfileQuery } from '../../api/queries';
 import Logo from '../../assets/svg/logo.svg';
@@ -25,6 +26,7 @@ export const Header: React.FC = () => {
   const { scrollDirection, currentScrollY } = useScrollDirection();
   const [isCompetenciesVisible, setCompetenciesVisible] = useState(false);
   const [isProductsVisible, setProductsVisible] = useState(false);
+  const isLargeScreen = useMediaQuery({ minWidth: 1281 });
   const location = useLocation();
   const [isAuth] = useAtom(isAuthAtom);
 
@@ -58,6 +60,10 @@ export const Header: React.FC = () => {
 
   const isHomePage = location.pathname === ROUTE_HOME;
   const isProfilePage = location.pathname.includes(ROUTE_PROFILE);
+  const isNavWithBorder =
+    (isProfilePage && !isLargeScreen) ||
+    (currentScrollY < 3 && isProfilePage && isLargeScreen) ||
+    (currentScrollY < 3 && !isHomePage);
 
   return (
     <header
@@ -78,7 +84,7 @@ export const Header: React.FC = () => {
           <nav
             aria-label="Основное меню"
             className={cn(s.nav, {
-              [s.navWithBorder]: currentScrollY < 3 && !isHomePage && !isProfilePage,
+              [s.navWithBorder]: isNavWithBorder,
             })}>
             <ul className={cn(s.list)}>
               <li
