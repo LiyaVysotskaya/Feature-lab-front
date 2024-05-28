@@ -1,10 +1,9 @@
-import cn from 'classnames';
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
+import { FormInput } from '../../../components/FormInput/FormInput';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
-import { QuestionIcon } from '../../../components/ui/icons';
 import { CheckBoxIcon } from '../../../components/ui/icons/CheckBoxIcon/CheckBoxIcon';
 import {
   MAX_LENGTH_EMAIL,
@@ -13,9 +12,8 @@ import {
   MIN_LENGTH_PASSWORD,
 } from '../../../constants/formConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { resizeInputFont } from '../../../utils/formHelpers';
-import { InfoTooltip } from '../InfoTooltip';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import s from '../auth.module.scss';
 
 type IProps = {
@@ -76,88 +74,50 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input email"
-              value={values.email}
-              onChange={onInputChange}
-              name="email"
-              type="email"
-              placeholder="Email"
-              minLength={MIN_LENGTH_EMAIL}
-              maxLength={MAX_LENGTH_EMAIL}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
-            </div>
-            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cn(s.inputError)}>{errors.email}</span>
-            </div>
-            <InfoTooltip content={EMAIL_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
+          <FormInput
+            name="email"
+            type="email"
+            placeHolder="Email"
+            value={values.email}
+            error={errors.email}
+            onChange={onInputChange}
+            ariaLabel="Input email"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
+            labelNum="01"
+            labelText="Email"
+            hintText={EMAIL_HINT_TEXT}
+          />
 
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input password"
-              value={values.password}
-              onChange={handleChange}
-              name="password"
-              type="password"
-              placeholder="Пароль"
-              minLength={MIN_LENGTH_PASSWORD}
-              maxLength={MAX_LENGTH_PASSWORD}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
-            </div>
-            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-              <span className={cn(s.inputError)}>{errors.password}</span>
-            </div>
+          <FormInput
+            name="password"
+            type="password"
+            placeHolder="Пароль"
+            value={values.password}
+            error={errors.password}
+            onChange={handleChange}
+            ariaLabel="Input password"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            labelNum="02"
+            labelText="Пароль"
+            hintText={PASSWORD_HINT_TEXT}
+          />
 
-            <InfoTooltip content={PASSWORD_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
-
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input repeat password"
-              value={values.repeatPassword}
-              onChange={onRepeatPasswordChange}
-              name="repeatPassword"
-              type="password"
-              placeholder="Повторите пароль"
-              minLength={MIN_LENGTH_PASSWORD}
-              maxLength={MAX_LENGTH_PASSWORD}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.repeatPassword })}>
-                02.1
-              </span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.repeatPassword })}>
-                Пароль
-              </span>
-            </div>
-            <div
-              className={cn(s.inputErrorWrap, {
-                [s.inputErrorWrapVisible]: errors.repeatPassword,
-              })}>
-              <span className={cn(s.inputError)}>{errors.repeatPassword}</span>
-            </div>
-            <InfoTooltip content={PASSWORD_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
+          <FormInput
+            name="repeatPassword"
+            type="password"
+            placeHolder="Повторите пароль"
+            value={values.repeatPassword}
+            error={errors.repeatPassword}
+            onChange={onRepeatPasswordChange}
+            ariaLabel="Input repeat password"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            labelNum="02.1"
+            labelText="Пароль"
+            hintText={PASSWORD_HINT_TEXT}
+          />
         </fieldset>
 
         <div className={s.checkboxContainer}>

@@ -1,12 +1,11 @@
-import cn from 'classnames';
+import { AxiosError } from 'axios';
 import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../../api/api';
+import { FormInput } from '../../../components/FormInput/FormInput';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
-import { QuestionIcon } from '../../../components/ui/icons';
 import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/formConstants';
 import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
 import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
-import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 
 type IProps = {
@@ -36,7 +35,9 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
       responseToSuccessfulSumbit(values.newPassword);
       resetForm();
     } catch (error) {
-      console.error('Something wrong:', error);
+      if (error instanceof AxiosError) {
+        console.error('Something wrong:', error);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -45,68 +46,37 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   return (
     <form className={s.form} method="POST" onSubmit={handleSubmit}>
       <fieldset className={s.fieldset}>
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input currentPassword"
-            value={values.currentPassword}
-            onChange={handleChange}
-            name="currentPassword"
-            type="text"
-            placeholder="Старый пароль"
-            minLength={MIN_LENGTH_PASSWORD}
-            maxLength={MAX_LENGTH_PASSWORD}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cn(s.textNumber, { [s.textNumberError]: errors.currentPassword })}>
-              01
-            </span>
-            <span className={cn(s.textClue, { [s.textClueError]: errors.currentPassword })}>
-              Старый
-            </span>
-          </div>
-          <div
-            className={cn(s.inputErrorWrap, {
-              [s.inputErrorWrapVisible]: errors.currentPassword,
-            })}>
-            <span className={cn(s.inputError)}>{errors.currentPassword}</span>
-          </div>
-          <InfoTooltip content={PASSWORD_HINT_TEXT}>
-            <QuestionIcon className={s.hintIcon} />
-          </InfoTooltip>
-        </div>
+        <FormInput
+          name="currentPassword"
+          type="password"
+          placeHolder="Старый пароль"
+          value={values.currentPassword}
+          onChange={handleChange}
+          ariaLabel="Input currentPassword"
+          minLength={MIN_LENGTH_PASSWORD}
+          maxLength={MAX_LENGTH_PASSWORD}
+          error={errors.currentPassword}
+          labelNum="01"
+          labelText="Старый"
+          hintText={PASSWORD_HINT_TEXT}
+        />
 
-        <div className={s.inputContainer}>
-          <input
-            className={s.input}
-            aria-label="Input newPassword"
-            value={values.newPassword}
-            onChange={handleChange}
-            name="newPassword"
-            type="text"
-            placeholder="Новый пароль"
-            minLength={MIN_LENGTH_PASSWORD}
-            maxLength={MAX_LENGTH_PASSWORD}
-            required
-          />
-          <div className={s.textContainer}>
-            <span className={cn(s.textNumber, { [s.textNumberError]: errors.newPassword })}>
-              02
-            </span>
-            <span className={cn(s.textClue, { [s.textClueError]: errors.newPassword })}>Новый</span>
-          </div>
-          <div
-            className={cn(s.inputErrorWrap, {
-              [s.inputErrorWrapVisible]: errors.newPassword,
-            })}>
-            <span className={cn(s.inputError)}>{errors.newPassword}</span>
-          </div>
-          <InfoTooltip content={PASSWORD_HINT_TEXT}>
-            <QuestionIcon className={s.hintIcon} />
-          </InfoTooltip>
-        </div>
+        <FormInput
+          name="newPassword"
+          type="password"
+          placeHolder="Новый пароль"
+          value={values.newPassword}
+          onChange={handleChange}
+          ariaLabel="Input newPassword"
+          minLength={MIN_LENGTH_PASSWORD}
+          maxLength={MAX_LENGTH_PASSWORD}
+          error={errors.newPassword}
+          labelNum="02"
+          labelText="Новый"
+          hintText={PASSWORD_HINT_TEXT}
+        />
       </fieldset>
+
       <div className={s.filler} />
 
       <RoundButton

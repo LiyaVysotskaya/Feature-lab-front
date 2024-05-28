@@ -1,13 +1,11 @@
-import cn from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { FormInput } from '../../../components/FormInput/FormInput';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
-import { QuestionIcon } from '../../../components/ui/icons';
 import { MAX_LENGTH_EMAIL, MIN_LENGTH_EMAIL } from '../../../constants/formConstants';
 import { EMAIL_HINT_TEXT } from '../../../constants/tooltipContent';
-import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import { resizeInputFont } from '../../../utils/formHelpers';
-import { InfoTooltip } from '../InfoTooltip';
+import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
 import s from '../auth.module.scss';
 
 type IProps = {
@@ -47,30 +45,20 @@ export const FormPasswordRestore: FC<IProps> = () => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input email"
-              value={values.email}
-              onChange={onInputChange}
-              name="email"
-              type="email"
-              placeholder="Email"
-              minLength={MIN_LENGTH_EMAIL}
-              maxLength={MAX_LENGTH_EMAIL}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
-            </div>
-            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cn(s.inputError)}>{errors.email}</span>
-            </div>
-            <InfoTooltip content={EMAIL_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
+          <FormInput
+            name="email"
+            type="email"
+            placeHolder="Email"
+            value={values.email}
+            onChange={onInputChange}
+            ariaLabel="Input email"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
+            error={errors.email}
+            labelNum="01"
+            labelText="Email"
+            hintText={EMAIL_HINT_TEXT}
+          />
         </fieldset>
 
         <div className={s.pwdResetLinkPosition} />

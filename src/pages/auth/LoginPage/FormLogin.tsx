@@ -1,9 +1,8 @@
-import cn from 'classnames';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FormInput } from '../../../components/FormInput/FormInput';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
-import { QuestionIcon } from '../../../components/ui/icons';
 import {
   MAX_LENGTH_EMAIL,
   MAX_LENGTH_PASSWORD,
@@ -12,10 +11,9 @@ import {
 } from '../../../constants/formConstants';
 import { ROUTE_RESTORE_PASSWORD } from '../../../constants/routesConstants';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
+import { resizeInputFont } from '../../../utils/formHelpers';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useFormAndValidation } from '../../../utils/hooks/useFormAndValidation';
-import { resizeInputFont } from '../../../utils/formHelpers';
-import { InfoTooltip } from '../InfoTooltip';
 import s from '../auth.module.scss';
 
 export const FormLogin: FC = () => {
@@ -53,55 +51,35 @@ export const FormLogin: FC = () => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input email"
-              value={values.email}
-              onChange={onInputChange}
-              name="email"
-              type="email"
-              placeholder="Email"
-              minLength={MIN_LENGTH_EMAIL}
-              maxLength={MAX_LENGTH_EMAIL}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.email })}>01</span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.email })}>Email</span>
-            </div>
-            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.email })}>
-              <span className={cn(s.inputError)}>{errors.email}</span>
-            </div>
-            <InfoTooltip content={EMAIL_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
+          <FormInput
+            name="email"
+            type="email"
+            placeHolder="Email"
+            value={values.email}
+            error={errors.email}
+            onChange={onInputChange}
+            ariaLabel="Input email"
+            minLength={MIN_LENGTH_EMAIL}
+            maxLength={MAX_LENGTH_EMAIL}
+            labelNum="01"
+            labelText="Email"
+            hintText={EMAIL_HINT_TEXT}
+          />
 
-          <div className={s.inputContainer}>
-            <input
-              className={s.input}
-              aria-label="Input password"
-              value={values.password}
-              onChange={handleChange}
-              name="password"
-              type="password"
-              placeholder="Пароль"
-              minLength={MIN_LENGTH_PASSWORD}
-              maxLength={MAX_LENGTH_PASSWORD}
-              required
-            />
-            <div className={s.textContainer}>
-              <span className={cn(s.textNumber, { [s.textNumberError]: errors.password })}>02</span>
-              <span className={cn(s.textClue, { [s.textClueError]: errors.password })}>Пароль</span>
-            </div>
-            <div className={cn(s.inputErrorWrap, { [s.inputErrorWrapVisible]: errors.password })}>
-              <span className={cn(s.inputError)}>{errors.password}</span>
-            </div>
-            <InfoTooltip content={PASSWORD_HINT_TEXT}>
-              <QuestionIcon className={s.hintIcon} />
-            </InfoTooltip>
-          </div>
+          <FormInput
+            name="password"
+            type="password"
+            placeHolder="Пароль"
+            value={values.password}
+            error={errors.password}
+            onChange={handleChange}
+            ariaLabel="Input password"
+            minLength={MIN_LENGTH_PASSWORD}
+            maxLength={MAX_LENGTH_PASSWORD}
+            labelNum="02"
+            labelText="Пароль"
+            hintText={PASSWORD_HINT_TEXT}
+          />
         </fieldset>
 
         <div className={s.pwdResetLinkPosition}>

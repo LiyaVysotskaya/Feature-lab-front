@@ -16,13 +16,12 @@
 
   &__sign {
     position: absolute;
-    top: calc(50% - 30px);
-    left: calc(50% - 13px);
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
 
-    font-family: Molot-Regular, sans-serif;
-    font-size: 50px;
-    line-height: 60px;
-    color: var(--dark-blue);
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -33,10 +32,8 @@
     border-width: 2px;
 
     &__sign {
-      top: calc(50% - 12px);
-      left: calc(50% - 6px);
-      font-size: 24px;
-      line-height: 24px;
+      width: 24px;
+      height: 24px;
     }
   }
 }

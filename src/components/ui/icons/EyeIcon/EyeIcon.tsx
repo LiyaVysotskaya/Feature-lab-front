@@ -1,16 +1,17 @@
 import cn from 'classnames';
 import { FC } from 'react';
-import s from './QuestionIcon.module.scss';
+import ClosedEyeIcon from './Icon-EyeClosed.svg?svgr';
+import s from './EyeIcon.module.scss';
 
 type IProps = {
   className?: string;
   onClick?: VoidFunction;
 };
 
-export const QuestionIcon: FC<IProps> = ({ className = '', onClick }) => {
+export const EyeIcon: FC<IProps> = ({ className = '', onClick }) => {
   return (
     <button className={cn(s.questionIcon, className)} onClick={onClick} type="button">
-      <div className={cn(s.questionIcon__sign)}>?</div>
+      <ClosedEyeIcon className={cn(s.questionIcon__sign)} />
     </button>
   );
 };
