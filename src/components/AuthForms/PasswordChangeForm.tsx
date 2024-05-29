@@ -1,11 +1,13 @@
 import { AxiosError } from 'axios';
 import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../api/api';
-import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
-import { RoundButton } from '../_ui/RoundButton/RoundButton';
+import { INVALID_PASSWORD } from '../../constants/errors';
 import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../constants/formConstants';
 import { PASSWORD_HINT_TEXT } from '../../constants/tooltipContent';
 import { useFormAndValidation } from '../../utils/hooks/useFormAndValidation';
+import { notifySomethingWrong, notifyWrongOldPassword } from '../../utils/toastHelpers';
+import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
+import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import s from './AuthForms.module.scss';
 
 type IProps = {
@@ -36,7 +38,12 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
       resetForm();
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.error('Something wrong:', error);
+        const responseData = error.response?.data;
+        if (responseData && responseData.current_password?.includes(INVALID_PASSWORD)) {
+          notifyWrongOldPassword();
+        } else {
+          notifySomethingWrong();
+        }
       }
     } finally {
       setIsLoading(false);
