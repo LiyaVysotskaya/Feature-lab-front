@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormPasswordChange from '../../components/AuthForms/PasswordChangeForm';
 import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
-import FormPasswordChange from '../../components/AuthForms/PasswordChangeForm';
+import { ROUTE_PROFILE_SETTINGS } from '../../constants/routesConstants';
 import s from './AuthPages.module.scss';
 
 export const PasswordChangePage: FC = () => {
@@ -28,8 +29,8 @@ export const PasswordChangePage: FC = () => {
               className={s.button}
               type="button"
               theme="white"
-              text="К проектам"
-              onClick={() => navigate('/profile/dashboard', { replace: true })}
+              text="К профилю"
+              onClick={() => navigate(ROUTE_PROFILE_SETTINGS, { replace: true })}
             />
           </div>
         ) : (
