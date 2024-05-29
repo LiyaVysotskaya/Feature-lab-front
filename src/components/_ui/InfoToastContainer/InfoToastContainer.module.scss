@@ -1,6 +1,12 @@
 .infoToast {
   --toastify-font-family: 'GOST type B', sans-serif;
   --toastify-text-color-light: var(--error);
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    rgb(12 52 131 / 100%) 0%,
+    rgb(162 182 223 / 100%) 100%,
+    rgb(107 140 206 / 100%) 100%
+  );
 
   display: flex;
   gap: 44px;

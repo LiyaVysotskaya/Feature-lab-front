@@ -21,7 +21,7 @@ export const InfoToastContainer = (infoText: string) => {
     className: s.infoToast,
     bodyClassName: s.infoToastBody,
     position: 'bottom-center',
-    autoClose: false,
+    autoClose: 2500,
     closeOnClick: false,
     closeButton: ToastCloseButton,
   });
