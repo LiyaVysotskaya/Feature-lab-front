@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC, useState } from 'react';
 import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
 import { EyeIcon } from '../ui/icons/EyeIcon/EyeIcon';
-import s from './FormInput.module.scss';
+import s from './AuthFormInput.module.scss';
 
 type IProps = {
   name: string;
@@ -19,7 +19,7 @@ type IProps = {
   placeHolder: string;
 };
 
-export const FormInput: FC<IProps> = ({
+export const AuthFormInput: FC<IProps> = ({
   name,
   type,
   placeHolder,
@@ -71,7 +71,7 @@ export const FormInput: FC<IProps> = ({
 
       <div className={s.icons}>
         {type === 'password' && <EyeIcon onClick={handleEyeIconClick} />}
-        {type !== 'password' && <InfoTooltip content={hintText} />}
+        <InfoTooltip content={hintText} />
       </div>
     </div>
   );

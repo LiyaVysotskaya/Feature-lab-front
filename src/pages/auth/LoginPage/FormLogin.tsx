@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FormInput } from '../../../components/FormInput/FormInput';
+import { AuthFormInput } from '../../../components/AuthFormInput/AuthFormInput';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import {
@@ -51,7 +51,7 @@ export const FormLogin: FC = () => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <FormInput
+          <AuthFormInput
             name="email"
             type="email"
             placeHolder="Email"
@@ -66,7 +66,7 @@ export const FormLogin: FC = () => {
             hintText={EMAIL_HINT_TEXT}
           />
 
-          <FormInput
+          <AuthFormInput
             name="password"
             type="password"
             placeHolder="Пароль"

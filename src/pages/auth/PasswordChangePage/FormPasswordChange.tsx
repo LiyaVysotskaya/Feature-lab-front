@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { FC, FormEvent, useState } from 'react';
 import { postChangedPassword } from '../../../api/api';
-import { FormInput } from '../../../components/FormInput/FormInput';
+import { AuthFormInput } from '../../../components/AuthFormInput/AuthFormInput';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { MAX_LENGTH_PASSWORD, MIN_LENGTH_PASSWORD } from '../../../constants/formConstants';
 import { PASSWORD_HINT_TEXT } from '../../../constants/tooltipContent';
@@ -46,7 +46,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   return (
     <form className={s.form} method="POST" onSubmit={handleSubmit}>
       <fieldset className={s.fieldset}>
-        <FormInput
+        <AuthFormInput
           name="currentPassword"
           type="password"
           placeHolder="Старый пароль"
@@ -61,7 +61,7 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
           hintText={PASSWORD_HINT_TEXT}
         />
 
-        <FormInput
+        <AuthFormInput
           name="newPassword"
           type="password"
           placeHolder="Новый пароль"

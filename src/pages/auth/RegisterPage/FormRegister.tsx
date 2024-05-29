@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useRegQuery } from '../../../api/queries';
-import { FormInput } from '../../../components/FormInput/FormInput';
+import { AuthFormInput } from '../../../components/AuthFormInput/AuthFormInput';
 import { PopupAgreement } from '../../../components/PopupAgreement/PopupAgreement';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
@@ -74,7 +74,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <FormInput
+          <AuthFormInput
             name="email"
             type="email"
             placeHolder="Email"
@@ -89,7 +89,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             hintText={EMAIL_HINT_TEXT}
           />
 
-          <FormInput
+          <AuthFormInput
             name="password"
             type="password"
             placeHolder="Пароль"
@@ -104,7 +104,7 @@ export const FormRegister: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             hintText={PASSWORD_HINT_TEXT}
           />
 
-          <FormInput
+          <AuthFormInput
             name="repeatPassword"
             type="password"
             placeHolder="Повторите пароль"

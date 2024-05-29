@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { FormInput } from '../../../components/FormInput/FormInput';
+import { AuthFormInput } from '../../../components/AuthFormInput/AuthFormInput';
 import { PopupPrivacyPolicy } from '../../../components/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../../components/ui/RoundButton/RoundButton';
 import { MAX_LENGTH_EMAIL, MIN_LENGTH_EMAIL } from '../../../constants/formConstants';
@@ -45,7 +45,7 @@ export const FormPasswordRestore: FC<IProps> = () => {
     <>
       <form className={s.form} method="POST" onSubmit={handleSubmit}>
         <fieldset className={s.fieldset}>
-          <FormInput
+          <AuthFormInput
             name="email"
             type="email"
             placeHolder="Email"
