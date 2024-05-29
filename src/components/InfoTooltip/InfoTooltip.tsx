@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { useState } from 'react';
-import { QuestionIcon } from '../ui/icons';
-import { CrossIcon } from '../ui/icons/CrossIcon/CrossIcon';
+import { QuestionIcon } from '../_ui/icons';
+import { CrossIcon } from '../_ui/icons/CrossIcon/CrossIcon';
 import s from './InfoTooltip.module.scss';
 
 type IProps = {

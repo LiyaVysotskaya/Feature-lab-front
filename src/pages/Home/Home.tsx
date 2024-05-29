@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { CompetenciesSection } from '../../components/CompetenciesSection/CompetenciesSection';
-import { LabSection } from '../../components/LabSection/LabSection';
 import { Main } from '../../components/Main/Main';
-import { ProductsSection } from '../../components/ProductsSection/ProductsSection';
-import { PromoSection } from '../../components/PromoSection/PromoSection';
+import { CompetenciesSection } from '../../components/_sections/CompetenciesSection/CompetenciesSection';
+import { LabSection } from '../../components/_sections/LabSection/LabSection';
+import { ProductsSection } from '../../components/_sections/ProductsSection/ProductsSection';
+import { PromoSection } from '../../components/_sections/PromoSection/PromoSection';
 import s from './Home.module.scss';
 
 export const Home: FC = () => {

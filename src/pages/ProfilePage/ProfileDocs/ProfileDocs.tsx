@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { useAllUserDocsQuery } from '../../../api/queries';
-import { DocumentsSection } from '../../../components/DocumentsSection/DocumentsSection';
+import { DocumentsSection } from '../../../components/_sections/DocumentsSection/DocumentsSection';
 import s from './ProfileDocs.module.scss';
 
 type IProps = {

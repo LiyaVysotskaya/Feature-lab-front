@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { TelegramIcon } from '../../../components/ui/icons';
+import { TelegramIcon } from '../../../components/_ui/icons';
 import {
   COMPANY_ADDRESS_FIRST_RAW,
   COMPANY_ADDRESS_SECOND_RAW,

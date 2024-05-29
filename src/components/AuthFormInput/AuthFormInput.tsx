@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC, useState } from 'react';
 import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
-import { EyeIcon } from '../ui/icons/EyeIcon/EyeIcon';
+import { EyeIcon } from '../_ui/icons/EyeIcon/EyeIcon';
 import s from './AuthFormInput.module.scss';
 
 type IProps = {

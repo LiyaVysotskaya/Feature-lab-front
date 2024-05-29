@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTE_PROFILE_PROJECTS } from '../../constants/routesConstants';
 import { TProjectShortInfo } from '../../types/privateData';
 import { convertDateToShortFormat } from '../../utils/dateConvertHelpers';
-import { Text } from '../ui/Text/Text';
+import { Text } from '../_ui/Text/Text';
 import { ProgressCircle } from './ProgressCircle/ProgressCircle';
 import s from './ProjectCard.module.scss';
 

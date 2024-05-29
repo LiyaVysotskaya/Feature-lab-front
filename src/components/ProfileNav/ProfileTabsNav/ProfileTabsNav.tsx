@@ -9,8 +9,8 @@ import {
   ROUTE_PROFILE_PROJECTS,
   ROUTE_PROFILE_SETTINGS,
 } from '../../../constants/routesConstants';
-import { PopupConfirmLogout } from '../../PopupConfirmLogout/PopupConfirmLogout';
-import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../ui/icons';
+import { PopupConfirmLogout } from '../../_popups/PopupConfirmLogout/PopupConfirmLogout';
+import { CardholderIcon, FolderOpenIcon, GearSixIcon, SkipForwardIcon } from '../../_ui/icons';
 import { ProfileTabLink } from './ProfileTabLink/ProfileTabLink';
 import s from './ProfileTabsNav.module.scss';
 

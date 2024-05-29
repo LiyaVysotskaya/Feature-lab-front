@@ -13,7 +13,7 @@ import {
   ROUTE_PROFILE,
 } from '../../../constants/routesConstants';
 import { HamburgerBtn } from '../../Header/HamburgerBtn/HamburgerBtn';
-import { ArrowIcon } from '../../ui/icons';
+import { ArrowIcon } from '../../_ui/icons';
 import { CompetenciesMobSubMenu } from '../MobileSubMenu/CompetenciesMobSubMenu';
 import { ProductsMobSubMenu } from '../MobileSubMenu/ProductsMobSubMenu';
 import s from './MobileNav.module.scss';

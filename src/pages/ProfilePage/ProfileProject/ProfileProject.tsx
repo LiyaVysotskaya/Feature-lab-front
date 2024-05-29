@@ -2,9 +2,9 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProjectQuery } from '../../../api/queries';
-import { DocumentsSection } from '../../../components/DocumentsSection/DocumentsSection';
-import { ProjectInfoSection } from '../../../components/ProjectInfoSection/ProjectInfoSection';
-import { ProjectStagesSection } from '../../../components/ProjectStagesSection/ProjectStagesSection';
+import { DocumentsSection } from '../../../components/_sections/DocumentsSection/DocumentsSection';
+import { ProjectInfoSection } from '../../../components/_sections/ProjectInfoSection/ProjectInfoSection';
+import { ProjectStagesSection } from '../../../components/_sections/ProjectStagesSection/ProjectStagesSection';
 import s from './ProfileProject.module.scss';
 
 type IProps = {

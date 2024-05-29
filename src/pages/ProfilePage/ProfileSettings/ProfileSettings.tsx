@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC } from 'react';
-import { ProfileInfoSection } from '../../../components/ProfileInfoSection/ProfileInfoSection';
+import { ProfileInfoSection } from '../../../components/_sections/ProfileInfoSection/ProfileInfoSection';
 import s from './ProfileSettings.module.scss';
 
 type IProps = {

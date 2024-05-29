@@ -1,4 +1,4 @@
-import { InfoToastContainer } from '../components/ui/InfoToastContainer/InfoToastContainer';
+import { InfoToastContainer } from '../components/_ui/InfoToastContainer/InfoToastContainer';
 
 export const notifySignInError = () => InfoToastContainer('Неправильный логин или пароль');
 export const notifyEmailAlreadyExists = () =>

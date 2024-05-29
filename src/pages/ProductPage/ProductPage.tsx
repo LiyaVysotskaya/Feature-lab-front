@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { LeadSection } from '../../components/LeadSection/LeadSection';
+import { useProductQuery } from '../../api/queries';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { ProductSliderSection } from '../../components/ProductSliderSection/ProductSliderSection';
-import { ProductStagesSection } from '../../components/ProductStagesSection/ProductStagesSection';
+import { LeadSection } from '../../components/_sections/LeadSection/LeadSection';
+import { ProductSliderSection } from '../../components/_sections/ProductSliderSection/ProductSliderSection';
+import { ProductStagesSection } from '../../components/_sections/ProductStagesSection/ProductStagesSection';
 import s from './ProductPage.module.scss';
-import { useProductQuery } from '../../api/queries';
 
 export const ProductPage: FC = () => {
   const { productSlug } = useParams();
