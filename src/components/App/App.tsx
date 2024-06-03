@@ -13,8 +13,8 @@ import {
 import { AppRouter } from '../../router';
 import Footer from '../Footer/Footer';
 import { Header } from '../Header/Header';
-import { PopupFeedback } from '../PopupFeedback/PopupFeedback';
-import { CookiesToastContainer } from '../ui/CookiesToastContainer/CookiesToastContainer';
+import { PopupFeedback } from '../_popups/PopupFeedback/PopupFeedback';
+import { CookiesToastContainer } from '../_ui/CookiesToastContainer/CookiesToastContainer';
 import s from './App.module.scss';
 
 const App: React.FC = () => {

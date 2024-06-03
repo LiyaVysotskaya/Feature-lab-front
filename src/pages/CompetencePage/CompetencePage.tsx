@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useParams } from 'react-router';
 import { useCompetenceQuery } from '../../api/queries';
-import { LeadSection } from '../../components/LeadSection/LeadSection';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { ProductsSection } from '../../components/ProductsSection/ProductsSection';
-import { TeamSliderSection } from '../../components/TeamSliderSection/TeamSliderSection';
+import { LeadSection } from '../../components/_sections/LeadSection/LeadSection';
+import { ProductsSection } from '../../components/_sections/ProductsSection/ProductsSection';
+import { TeamSliderSection } from '../../components/_sections/TeamSliderSection/TeamSliderSection';
 import s from './CompetencePage.module.scss';
 
 export const CompetencePage: FC = () => {

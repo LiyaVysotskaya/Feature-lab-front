@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { postLoginData } from '../../api/api';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
 import queryClient from '../../query-client';
-import { LoginFormData } from '../../types/forms';
+import { TLoginFormData } from '../../types/forms';
 import {
   clearAllStoredTokens,
   setStoredAccessToken,
@@ -20,7 +20,7 @@ export const useAuth = () => {
     queryClient.removeQueries();
   };
 
-  const signIn = async (loginData: LoginFormData) => {
+  const signIn = async (loginData: TLoginFormData) => {
     try {
       const authResponse = await postLoginData(loginData);
       if (authResponse.access && authResponse.refresh) {

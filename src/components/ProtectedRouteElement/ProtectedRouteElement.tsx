@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { FC } from 'react';
 import { Navigate, RouteProps, useLocation } from 'react-router-dom';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
-import { ROUTE_LOGIN } from '../../constants/routesConstants';
+import { ROUTE_LOGIN, ROUTE_PROFILE } from '../../constants/routesConstants';
 
 type TProtectedRouteElementProps = RouteProps & {
   onlyUnAuth?: boolean;
@@ -18,9 +18,10 @@ export const ProtectedRouteElement: FC<TProtectedRouteElementProps> = ({
   const [isAuth] = useAtom(isAuthAtom);
 
   // Allow only UnAuth users here, if the user is Auth,
-  // redirect them to the page they came from or to the home page
+  // redirect them to the page they came from or to the profile page
   if (onlyUnAuth && isAuth) {
-    const { from } = location.state || { from: { pathname: '/' } };
+    const { from } = location.state || { from: { pathname: ROUTE_PROFILE } };
+
     return <Navigate to={from} replace />;
   }
 

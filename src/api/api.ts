@@ -7,7 +7,7 @@ import {
   PostChangedPasswordResponse,
   PostRegDataResponse,
 } from '../types/apiResponses';
-import { LoginFormData, RegFormData, TChangedPwdData } from '../types/forms';
+import { TLoginFormData, TRegFormData, TChangePwdFormData } from '../types/forms';
 import { TDocument, TProjectFullInfo, TProjectShortInfo, TUserProfile } from '../types/privateData';
 import {
   TCompetenceFullInfo,
@@ -18,18 +18,18 @@ import {
 import { privateAPI } from './privateApiConfig';
 import { publicAPI } from './publicApiConfig';
 
-export const postLoginData = async (loginData: LoginFormData): Promise<GetAuthResponse> => {
+export const postLoginData = async (loginData: TLoginFormData): Promise<GetAuthResponse> => {
   const response = await publicAPI.post<GetAuthResponse>('auth/jwt/create/', loginData);
   return response.data;
 };
 
-export const postRegData = async (regData: RegFormData): Promise<PostRegDataResponse> => {
+export const postRegData = async (regData: TRegFormData): Promise<PostRegDataResponse> => {
   const response = await publicAPI.post<PostRegDataResponse>('/auth/users/', regData);
   return response.data;
 };
 
 export const postChangedPassword = async (
-  changedPwdData: TChangedPwdData,
+  changedPwdData: TChangePwdFormData,
 ): Promise<PostChangedPasswordResponse> => {
   const response = await privateAPI.post<PostChangedPasswordResponse>(
     '/auth/users/set_password/',

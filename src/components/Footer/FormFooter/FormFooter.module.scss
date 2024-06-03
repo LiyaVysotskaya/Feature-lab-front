@@ -50,7 +50,7 @@
   font-size: 80px;
   font-weight: 300;
   line-height: 0.86; // 120px;
-  color: var(--white, #fff);
+  color: var(--white);
   text-align: left;
   text-transform: uppercase;
 
@@ -118,10 +118,10 @@
   width: 100%;
   min-height: 86px;
 
-  border-bottom: 3px solid var(--white, #fff);
+  border-bottom: 3px solid var(--white);
 
   &Error {
-    border-color: var(--error-for-dark, #fa391f);
+    border-color: var(--error-for-dark);
   }
 
   @media screen and (width <= 1280px) {
@@ -143,16 +143,16 @@
   font-size: var(--input-font-size);
   font-weight: 400;
   line-height: 1.19; // 38px;
-  color: var(--white, #fff);
+  color: var(--white);
   text-align: left;
 
   background-color: transparent;
   border: none;
   outline: none;
-  caret-color: var(--electric, #0049d8);
+  caret-color: var(--electric);
 
   &::placeholder {
-    color: var(--white-60, #a8bed8);
+    color: var(--white-60);
     text-align: left;
   }
 
@@ -161,7 +161,7 @@
   &:-webkit-autofill:focus {
     box-shadow: 0 0 0 1000px var(--dark-blue) inset;
 
-    -webkit-text-fill-color: var(--white, #fff);
+    -webkit-text-fill-color: var(--white);
   }
 
   @media screen and (width <= 1280px) {
@@ -201,11 +201,11 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--dark-blue-50, #8096b1);
+  color: var(--dark-blue-50);
   text-align: left;
 
   &Error {
-    color: var(--error-for-dark, #fa391f);
+    color: var(--error-for-dark);
   }
 }
 
@@ -247,7 +247,7 @@
   font-size: 24px;
   font-weight: 400;
   line-height: 1.17; // 28px;
-  color: var(--white-60, #a8bed8);
+  color: var(--white-60);
   text-align: left;
 
   @media screen and (width <= 1280px) {

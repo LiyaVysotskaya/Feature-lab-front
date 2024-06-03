@@ -24,12 +24,12 @@ import {
   postRegData,
 } from './api';
 
-export const useRegQuery = (onRegSuccess: () => void) => {
+export const useRegQuery = (onRegSuccess: (email: string) => void) => {
   return useMutation({
     mutationKey: [QK_REG],
     mutationFn: postRegData,
-    onSuccess: () => {
-      onRegSuccess();
+    onSuccess: (_, submitedData) => {
+      onRegSuccess(submitedData.email);
       queryClient.removeQueries({ queryKey: [QK_REG] });
     },
     retry: 0,

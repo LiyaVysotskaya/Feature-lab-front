@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { LabSection } from '../../components/LabSection/LabSection';
 import { Main } from '../../components/Main/Main';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
+import { LabSection } from '../../components/_sections/LabSection/LabSection';
 import { LabBottomGridSection } from './LabBottomGridSection/LabBottomGridSection';
 import { LabTopGridSection } from './LabTopGridSection/LabTopGridSection';
 import s from './LabPage.module.scss';

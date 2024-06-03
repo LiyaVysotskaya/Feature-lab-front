@@ -34,11 +34,11 @@ import { ProfileDocs } from './pages/ProfilePage/ProfileDocs/ProfileDocs';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { ProfileProject } from './pages/ProfilePage/ProfileProject/ProfileProject';
 import { ProfileSettings } from './pages/ProfilePage/ProfileSettings/ProfileSettings';
-import { LoginPage } from './pages/auth/LoginPage/LoginPage';
-import { PasswordChangePage } from './pages/auth/PasswordChangePage/PasswordChangePage';
-import { PasswordResetPage } from './pages/auth/PasswordResetPage/PasswordResetPage';
-import { PasswordRestorePage } from './pages/auth/PasswordRestorePage/PasswordRestorePage';
-import { RegisterPage } from './pages/auth/RegisterPage/RegisterPage';
+import { LoginPage } from './pages/auth/LoginPage';
+import { PasswordChangePage } from './pages/auth/PasswordChangePage';
+import { PasswordResetPage } from './pages/auth/PasswordResetPage';
+import { PasswordRestorePage } from './pages/auth/PasswordRestorePage';
+import { RegisterPage } from './pages/auth/RegisterPage';
 
 export const AppRouter: FC = () => {
   return (

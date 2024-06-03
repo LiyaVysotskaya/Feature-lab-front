@@ -1,0 +1,49 @@
+.infoToast {
+  --toastify-font-family: 'GOST type B', sans-serif;
+  --toastify-text-color-light: var(--error);
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    rgb(12 52 131 / 100%) 0%,
+    rgb(162 182 223 / 100%) 100%,
+    rgb(107 140 206 / 100%) 100%
+  );
+
+  display: flex;
+  gap: 44px;
+  align-items: center;
+
+  width: min-content;
+  max-width: auto;
+  min-height: min-content;
+  padding: 24px 40px;
+
+  box-shadow: 0 10px 20px 0 rgb(0 45 99 / 30%);
+
+  @media screen and (width <= 730px) {
+    gap: 16px;
+    padding: 8px 16px;
+  }
+
+  @media screen and (width <= 480px) {
+    border-radius: 4px;
+  }
+}
+
+.infoToastBody {
+  width: 30vw;
+  min-width: min-content;
+  margin: 0;
+  padding: 0;
+
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.17;
+  text-align: center;
+
+  @media screen and (width <= 730px) {
+    width: 180px;
+    font-size: 18px;
+    line-height: 1;
+  }
+}

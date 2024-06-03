@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
-import { RoundButton } from '../../components/ui/RoundButton/RoundButton';
+import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { ROUTE_HOME } from '../../constants/routesConstants';
 import s from './Page404.module.scss';
 

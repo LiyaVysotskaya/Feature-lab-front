@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC } from 'react';
-import { Text } from '../ui/Text/Text';
+import { Text } from '../_ui/Text/Text';
 import s from './SectionTitle.module.scss';
 
 type IProps = {
