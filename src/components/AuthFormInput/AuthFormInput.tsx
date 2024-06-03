@@ -1,5 +1,7 @@
 import cn from 'classnames';
-import { FC, useState } from 'react';
+import { ChangeEventHandler, FC, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { resizeInputFont } from '../../utils/formHelpers';
 import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
 import { EyeIcon } from '../_ui/icons/EyeIcon/EyeIcon';
 import s from './AuthFormInput.module.scss';
@@ -7,12 +9,7 @@ import s from './AuthFormInput.module.scss';
 type IProps = {
   name: string;
   type: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   ariaLabel: string;
-  minLength: number;
-  maxLength: number;
-  error: string;
   labelNum: string;
   labelText: string;
   hintText: string;
@@ -23,17 +20,24 @@ export const AuthFormInput: FC<IProps> = ({
   name,
   type,
   placeHolder,
-  value,
-  onChange,
   ariaLabel,
-  minLength,
-  maxLength,
-  error,
   labelNum,
   labelText,
   hintText,
 }) => {
   const [inputType, setInputType] = useState(type);
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const error = errors[name]?.message as string;
+  const { onChange, ...restRegisterProps } = register(name);
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    onChange(e); // Call the original react-hook-form handler to ensure validation works
+    resizeInputFont(e);
+  };
 
   const handleEyeIconClick = () => {
     if (inputType === 'password') {
@@ -46,16 +50,12 @@ export const AuthFormInput: FC<IProps> = ({
   return (
     <div className={s.inputContainer}>
       <input
+        onChange={handleChange}
+        {...restRegisterProps}
         className={s.input}
         aria-label={ariaLabel}
-        value={value}
-        onChange={onChange}
-        name={name}
         type={inputType}
         placeholder={placeHolder}
-        minLength={minLength}
-        maxLength={maxLength}
-        required
       />
       <div className={s.textContainer}>
         <span className={cn(s.textNumber, { [s.textNumberError]: error })}>{labelNum}</span>

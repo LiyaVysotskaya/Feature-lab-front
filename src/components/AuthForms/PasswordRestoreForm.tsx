@@ -1,8 +1,8 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { MAX_LENGTH_EMAIL, MIN_LENGTH_EMAIL } from '../../constants/formConstants';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { FC, FormEvent, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { EMAIL_HINT_TEXT } from '../../constants/tooltipContent';
-import { resizeInputFont } from '../../utils/formHelpers';
-import { useFormAndValidation } from '../../utils/hooks/useFormAndValidation';
+import { formWithEmailSchema } from '../../schemas/authSchemas';
 import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
 import { PopupPrivacyPolicy } from '../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
@@ -16,23 +16,22 @@ export const PasswordRestoreForm: FC<IProps> = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { values, handleChange, errors, isValid } = useFormAndValidation({
-    email: '',
+  const methods = useForm({
+    resolver: yupResolver(formWithEmailSchema),
+    defaultValues: {
+      email: '',
+    },
+    mode: 'onChange',
   });
+
+  const {
+    formState: { isValid },
+  } = methods;
 
   // const onSubmitSuccess = () => {
   //   responseToSuccessfulSumbit(values.email);
   //   resetForm();
   // };
-
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    resizeInputFont(e);
-    handleChange(e);
-  };
-
-  const isEmpty = () => {
-    return !values || !!Object.keys(values).filter((x: string) => !values[x]).length;
-  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,35 +42,32 @@ export const PasswordRestoreForm: FC<IProps> = () => {
 
   return (
     <>
-      <form className={s.form} method="POST" onSubmit={handleSubmit}>
-        <fieldset className={s.fieldset}>
-          <AuthFormInput
-            name="email"
-            type="email"
-            placeHolder="Email"
-            value={values.email}
-            onChange={onInputChange}
-            ariaLabel="Input email"
-            minLength={MIN_LENGTH_EMAIL}
-            maxLength={MAX_LENGTH_EMAIL}
-            error={errors.email}
-            labelNum="01"
-            labelText="Email"
-            hintText={EMAIL_HINT_TEXT}
+      <FormProvider {...methods}>
+        <form className={s.form} method="POST" onSubmit={handleSubmit}>
+          <fieldset className={s.fieldset}>
+            <AuthFormInput
+              name="email"
+              type="email"
+              placeHolder="Email"
+              ariaLabel="Input email"
+              labelNum="01"
+              labelText="Email"
+              hintText={EMAIL_HINT_TEXT}
+            />
+          </fieldset>
+
+          <div className={s.pwdResetLinkPosition} />
+
+          <RoundButton
+            className={s.button}
+            type="submit"
+            theme="white"
+            text={`Сменить\nпароль`}
+            disabled={!isValid || isLoading}
+            isLoading={isLoading}
           />
-        </fieldset>
-
-        <div className={s.pwdResetLinkPosition} />
-
-        <RoundButton
-          className={s.button}
-          type="submit"
-          theme="white"
-          text={`Сменить\nпароль`}
-          disabled={!isValid || isEmpty() || isLoading}
-          isLoading={isLoading}
-        />
-      </form>
+        </form>
+      </FormProvider>
       <PopupPrivacyPolicy
         isOpen={isPopupPrivacyPolicyOpen}
         onClose={() => setIsPopupPrivacyPolicyOpen(false)}
