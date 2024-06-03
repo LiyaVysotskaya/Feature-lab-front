@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FormPasswordChange from '../../components/AuthForms/PasswordChangeForm';
+import PasswordChangeForm from '../../components/AuthForms/PasswordChangeForm';
 import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { ROUTE_PROFILE_SETTINGS } from '../../constants/routesConstants';
@@ -34,7 +34,7 @@ export const PasswordChangePage: FC = () => {
             />
           </div>
         ) : (
-          <FormPasswordChange responseToSuccessfulSumbit={responseToSuccessfulSumbit} />
+          <PasswordChangeForm responseToSuccessfulSumbit={responseToSuccessfulSumbit} />
         )}
       </section>
     </Main>

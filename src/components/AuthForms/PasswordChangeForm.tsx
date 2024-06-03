@@ -16,7 +16,7 @@ type IProps = {
   responseToSuccessfulSumbit: (newPassword: string) => void;
 };
 
-const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
+const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const methods = useForm({
@@ -96,4 +96,4 @@ const FormPasswordChange: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   );
 };
 
-export default FormPasswordChange;
+export default PasswordChangeForm;
