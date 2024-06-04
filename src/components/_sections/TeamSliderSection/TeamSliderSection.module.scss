@@ -5,7 +5,7 @@
 
 .TeamSliderSection {
   width: 100%;
-  max-width: var(--el-max-width);
+  max-width: var(--page-max-width);
   color: var(--dark-blue);
 }
 
@@ -73,6 +73,12 @@
     position: relative;
     left: -30px;
     transition: left 0.5s ease;
+  }
+}
+
+@media screen and (width <= 690px) {
+  .whiteOverlay {
+    width: 30px;
   }
 }
 
