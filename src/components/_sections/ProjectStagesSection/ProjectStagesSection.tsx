@@ -22,22 +22,28 @@ export const ProjectStagesSection: FC<IProps> = ({ className = '', projectStages
   });
 
   useEffect(() => {
-    // Find the stage that is in progress
-    const stageInProgress = projectStages.find((stage) => stage.stage_status === 'in_progress');
+    if (projectStages.length > 0) {
+      // Find the stage that is in progress
+      const stageInProgress = projectStages.find((stage) => stage.stage_status === 'in_progress');
 
-    // Find the first stage that has not started
-    const stageNotStarted = projectStages.find((stage) => stage.stage_status === 'new');
+      // Find the first stage that has not started
+      const stageNotStarted = projectStages.find((stage) => stage.stage_status === 'new');
 
-    // Set the current stage based on the found stages
-    if (stageInProgress) {
-      setCurrentStage(stageInProgress);
-    } else if (stageNotStarted) {
-      setCurrentStage(stageNotStarted);
-    } else {
-      // If all stages have started or there are no stages, set the current stage to the last stage
-      setCurrentStage(projectStages[projectStages.length - 1]);
+      // Set the current stage based on the found stages
+      if (stageInProgress) {
+        setCurrentStage(stageInProgress);
+      } else if (stageNotStarted) {
+        setCurrentStage(stageNotStarted);
+      } else {
+        // If all stages have started or there are no stages, set the current stage to the last stage
+        setCurrentStage(projectStages[projectStages.length - 1]);
+      }
     }
   }, [projectStages]);
+
+  if (projectStages.length === 0) {
+    return null;
+  }
 
   return (
     <section className={cn(s.section, className)}>
