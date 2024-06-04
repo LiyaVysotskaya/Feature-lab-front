@@ -22,9 +22,9 @@ const passwordSchema = yup
   .max(MAX_LENGTH_PASSWORD, `Максимальная длина ${MAX_LENGTH_PASSWORD} символов`)
   .matches(hasLowerCase, 'Пароль должен содержать хотя бы одну строчную букву')
   .matches(hasUpperCase, 'Пароль должен содержать хотя бы одну заглавную букву')
-  .matches(isLatinOnly, 'Пароль должен содержать только латинские символы')
   .matches(hasNumber, 'Пароль должен содержать хотя бы одну цифру')
-  .matches(hasSpecialChar, 'Пароль должен содержать хотя бы один специальный символ');
+  .matches(hasSpecialChar, 'Пароль должен содержать хотя бы один специальный символ')
+  .matches(isLatinOnly, 'Пароль должен содержать только допустимые символы');
 
 const emailSchema = yup
   .string()
