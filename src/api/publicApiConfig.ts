@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 import axios from 'axios';
-import { EMAIL_ALREADY_EXISTS, NO_ACTIVE_ACCOUNT } from '../constants/errors';
+import { COMMON_PASSWORD, EMAIL_ALREADY_EXISTS, NO_ACTIVE_ACCOUNT } from '../constants/errors';
 import { API_BASE_URL } from '../constants/externalLinks';
 import {
   notifyEmailAlreadyExists,
+  notifyPasswordIsTooCommon,
   notifySignInError,
   notifySomethingWrong,
 } from '../utils/toastHelpers';
@@ -19,10 +20,17 @@ publicAPI.interceptors.response.use(
   async (error) => {
     if (error.response) {
       const { status, data } = error.response;
+
       switch (status) {
         case 400:
-          if (data.email[0] === EMAIL_ALREADY_EXISTS) {
+          if (data.email?.includes(EMAIL_ALREADY_EXISTS)) {
             notifyEmailAlreadyExists();
+          } else if (data.password?.includes(COMMON_PASSWORD)) {
+            notifyPasswordIsTooCommon();
+          } else if (data.new_password?.includes(COMMON_PASSWORD)) {
+            notifyPasswordIsTooCommon();
+          } else {
+            notifySomethingWrong();
           }
           break;
 

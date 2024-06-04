@@ -1,13 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { AxiosError } from 'axios';
 import { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { postChangedPassword } from '../../api/api';
-import { INVALID_PASSWORD } from '../../constants/errors';
 import { PASSWORD_HINT_TEXT } from '../../constants/tooltipContent';
 import { pwdChangeSchema } from '../../schemas/authSchemas';
 import { TChangePwdFormData } from '../../types/forms';
-import { notifySomethingWrong, notifyWrongOldPassword } from '../../utils/toastHelpers';
 import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import s from './AuthForms.module.scss';
@@ -43,14 +40,7 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
       responseToSuccessfulSumbit(values.new_password);
       reset();
     } catch (error) {
-      if (error instanceof AxiosError) {
-        const responseData = error.response?.data;
-        if (responseData && responseData.current_password?.includes(INVALID_PASSWORD)) {
-          notifyWrongOldPassword();
-        } else {
-          notifySomethingWrong();
-        }
-      }
+      // Error handling is already managed by Axios interceptors
     } finally {
       setIsLoading(false);
     }

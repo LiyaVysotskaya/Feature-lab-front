@@ -5,4 +5,6 @@ export const notifyEmailAlreadyExists = () =>
   InfoToastContainer('Пользователь с таким email уже существует');
 export const notifySomethingWrong = () => InfoToastContainer('Что-то пошло не так');
 export const notifyAuthError = () => InfoToastContainer('Ошибка авторизации');
-export const notifyWrongOldPassword = () => InfoToastContainer('Неправильный текущий пароль');
+export const notifyWrongCurrentPassword = () => InfoToastContainer('Неправильный текущий пароль');
+export const notifyPasswordIsTooCommon = () =>
+  InfoToastContainer('Пароль слишком простой. Выберите другой');
