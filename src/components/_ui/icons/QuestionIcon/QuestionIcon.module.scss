@@ -24,6 +24,11 @@
     line-height: 60px;
     color: var(--dark-blue);
   }
+
+  &_error {
+    color: var(--error);
+    border-color: var(--error);
+  }
 }
 
 @media screen and (width <= 1280px) {

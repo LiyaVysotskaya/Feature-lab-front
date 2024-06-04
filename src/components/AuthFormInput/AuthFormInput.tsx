@@ -70,8 +70,8 @@ export const AuthFormInput: FC<IProps> = ({
       </div>
 
       <div className={s.icons}>
-        {type === 'password' && <EyeIcon onClick={handleEyeIconClick} />}
-        <InfoTooltip content={hintText} />
+        {type === 'password' && <EyeIcon onClick={handleEyeIconClick} isRed={Boolean(error)} />}
+        <InfoTooltip content={hintText} isError={Boolean(error)} />
       </div>
     </div>
   );

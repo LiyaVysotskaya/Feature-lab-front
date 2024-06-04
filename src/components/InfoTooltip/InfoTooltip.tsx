@@ -7,9 +7,14 @@ import s from './InfoTooltip.module.scss';
 type IProps = {
   className?: string;
   content: React.ReactNode;
+  isError?: boolean;
 };
 
-export const InfoTooltip: React.FC<IProps> = ({ className = '', content = null }) => {
+export const InfoTooltip: React.FC<IProps> = ({
+  className = '',
+  content = null,
+  isError = false,
+}) => {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   return (
@@ -18,6 +23,7 @@ export const InfoTooltip: React.FC<IProps> = ({ className = '', content = null }
         onClick={() => {
           setIsTooltipOpen((state) => !state);
         }}
+        isRed={isError}
       />
 
       <div className={cn(s.tooltip, className, { [s.tooltipVisible]: isTooltipOpen })}>
