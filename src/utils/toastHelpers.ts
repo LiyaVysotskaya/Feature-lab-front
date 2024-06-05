@@ -8,3 +8,5 @@ export const notifyAuthError = () => InfoToastContainer('Ошибка автор
 export const notifyWrongCurrentPassword = () => InfoToastContainer('Неправильный текущий пароль');
 export const notifyPasswordIsTooCommon = () =>
   InfoToastContainer('Пароль слишком простой. Выберите другой');
+export const notifyPasswordSimilarToEmail = () =>
+  InfoToastContainer('Пароль слишком похож на email');

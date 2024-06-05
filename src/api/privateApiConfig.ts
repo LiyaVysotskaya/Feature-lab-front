@@ -1,7 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import axios, { AxiosRequestConfig } from 'axios';
-import { COMMON_PASSWORD, INVALID_PASSWORD, NO_ACTIVE_ACCOUNT } from '../constants/errors';
+import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
 import { API_BASE_URL } from '../constants/externalLinks';
+import { checkDataFieldsForErrors } from '../utils/errorHandlers';
 import {
   clearAllStoredTokens,
   getStoredAccessToken,
@@ -9,12 +10,7 @@ import {
   setStoredAccessToken,
   setStoredRefreshToken,
 } from '../utils/localStorageHelpers';
-import {
-  notifyAuthError,
-  notifyPasswordIsTooCommon,
-  notifySomethingWrong,
-  notifyWrongCurrentPassword,
-} from '../utils/toastHelpers';
+import { notifyAuthError, notifySomethingWrong } from '../utils/toastHelpers';
 
 type CustomAxiosRequestConfig = AxiosRequestConfig & {
   _retry?: boolean; // Add custom _retry field
@@ -70,13 +66,7 @@ privateAPI.interceptors.response.use(
 
       switch (status) {
         case 400:
-          if (data.current_password?.includes(INVALID_PASSWORD)) {
-            notifyWrongCurrentPassword();
-          } else if (data.new_password?.includes(COMMON_PASSWORD)) {
-            notifyPasswordIsTooCommon();
-          } else {
-            notifySomethingWrong();
-          }
+          checkDataFieldsForErrors(data);
           break;
 
         case 401:

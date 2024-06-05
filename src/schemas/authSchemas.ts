@@ -13,6 +13,7 @@ const hasNoSpaces = /^\S*$/;
 const hasSpecialChar = /[!#$%&‘*+—/=^_`{|}~.]/;
 const isLatinOnly = /^[A-Za-z0-9!#$%&‘*+—/=^_`{|}~.]*$/;
 const isEmailStartWithDot = /^[^.]/;
+const isEmailHasAtLeastOneDotAfterAt = /^[^@]+@[^@]+\.[^@]+$/;
 
 const passwordSchema = yup
   .string()
@@ -32,17 +33,31 @@ const emailSchema = yup
   .email('Некорректный email')
   .matches(hasNoSpaces, 'Пробелы не допускаются')
   .matches(isEmailStartWithDot, 'Некорректный email')
+  .matches(isEmailHasAtLeastOneDotAfterAt, 'Некорректный email')
   .min(MIN_LENGTH_EMAIL, `Минимальная длина ${MIN_LENGTH_EMAIL} символов`)
   .max(MAX_LENGTH_EMAIL, `Максимальная длина ${MAX_LENGTH_EMAIL} символов`);
 
 export const loginSchema = yup.object().shape({
   email: emailSchema,
-  password: passwordSchema,
+  password: passwordSchema.test(
+    'not-same-as-email',
+    'Пароль не должен совпадать с email',
+    function (value) {
+      return value !== this.parent.email;
+    },
+  ),
 });
 
 export const regSchema = yup.object().shape({
   email: emailSchema,
-  password: passwordSchema,
+  password: passwordSchema
+    .test('not-same-as-email', 'Пароль не должен совпадать с email', function (value) {
+      return value !== this.parent.email;
+    })
+    .test('not-similar-to-email', 'Пароль слишком похож на email', function (value) {
+      const emailPrefix = this.parent.email.split('@')[0];
+      return !value.includes(emailPrefix);
+    }),
   repeatPassword: passwordSchema.test('same-password', 'Пароли должны совпадать', function (value) {
     return value === this.parent.password;
   }),
