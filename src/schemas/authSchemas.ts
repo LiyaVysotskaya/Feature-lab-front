@@ -49,14 +49,21 @@ export const loginSchema = yup.object().shape({
 });
 
 export const regSchema = yup.object().shape({
-  email: emailSchema,
+  email: emailSchema.test(
+    'not-similar-to-email',
+    'Пароль слишком похож на email',
+    function (value) {
+      const emailPrefix = value.split('@')[0];
+      return emailPrefix !== this.parent.password;
+    },
+  ),
   password: passwordSchema
     .test('not-same-as-email', 'Пароль не должен совпадать с email', function (value) {
       return value !== this.parent.email;
     })
     .test('not-similar-to-email', 'Пароль слишком похож на email', function (value) {
       const emailPrefix = this.parent.email.split('@')[0];
-      return !value.includes(emailPrefix);
+      return value !== emailPrefix;
     }),
   repeatPassword: passwordSchema.test('same-password', 'Пароли должны совпадать', function (value) {
     return value === this.parent.password;
