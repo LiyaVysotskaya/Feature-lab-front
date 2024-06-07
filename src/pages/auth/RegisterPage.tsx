@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { ROUTE_LOGIN } from '../../constants/routesConstants';
-import { RegisterForm } from '../../components/AuthForms/RegisterForm';
+import { RegisterForm } from '../../components/_auth-forms/RegisterForm';
 import s from './AuthPages.module.scss';
 
 export const RegisterPage: FC = () => {

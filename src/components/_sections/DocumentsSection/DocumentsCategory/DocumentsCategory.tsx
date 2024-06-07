@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TDocument } from '../../../../types/privateData';
+import { TDocument } from '../../../../types/privateDataTypes';
 import { DocComponent } from '../DocComponent/DocComponent';
 import s from './DocumentsCategory.module.scss';
 

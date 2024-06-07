@@ -4,7 +4,7 @@ import {
   INVALID_PASSWORD,
   NO_ACTIVE_ACCOUNT,
   PWD_SIMILAR_TO_EMAIL,
-} from '../constants/errors';
+} from '../constants/backendErrorMessages';
 import {
   notifyEmailAlreadyExists,
   notifyPasswordIsTooCommon,

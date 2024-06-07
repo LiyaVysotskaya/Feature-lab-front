@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC, useRef, useState } from 'react';
-import { TProjectStage } from '../../../../types/privateData';
+import { TProjectStage } from '../../../../types/privateDataTypes';
 import { convertDateToLongFormat } from '../../../../utils/dateConvertHelpers';
 import { Text } from '../../../_ui/Text/Text';
 import { EllipseIcon } from '../../../_ui/icons';

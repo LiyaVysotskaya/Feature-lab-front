@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
-import { PasswordRestoreForm } from '../../components/AuthForms/PasswordRestoreForm';
+import { PasswordRestoreForm } from '../../components/_auth-forms/PasswordRestoreForm';
 import s from './AuthPages.module.scss';
 
 export const PasswordRestorePage: FC = () => {

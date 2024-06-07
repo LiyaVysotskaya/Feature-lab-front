@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE_PROFILE_PROJECTS } from '../../constants/routesConstants';
-import { TProjectShortInfo } from '../../types/privateData';
+import { TProjectShortInfo } from '../../types/privateDataTypes';
 import { convertDateToShortFormat } from '../../utils/dateConvertHelpers';
 import { Text } from '../_ui/Text/Text';
 import { ProgressCircle } from './ProgressCircle/ProgressCircle';

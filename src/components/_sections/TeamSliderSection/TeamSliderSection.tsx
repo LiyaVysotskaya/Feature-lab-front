@@ -4,7 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CarouselProps, ResponsiveType } from 'react-multi-carousel/lib/types';
 import { v4 as uuidv4 } from 'uuid';
-import { TEmployee } from '../../../types/publicData';
+import { TEmployee } from '../../../types/publicDataTypes';
 import { SectionTitle } from '../../SectionTitle/SectionTitle';
 import { CarouselBtn } from './CarouselBtn/CarouselBtn';
 import { TeamGradientSlide } from './TeamGradientSlide/TeamGradientSlide';

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { TDocument } from '../../../../types/privateData';
+import { TDocument } from '../../../../types/privateDataTypes';
 import { convertDateToShortFormat } from '../../../../utils/dateConvertHelpers';
 import s from './DocComponent.module.scss';
 

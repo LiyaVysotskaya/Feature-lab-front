@@ -1,41 +1,50 @@
 import * as yup from 'yup';
 import {
+  EMAIL_HAS_AT_LEAST_ONE_DOT_AFTER_AT,
+  EMAIL_START_WITH_DOT,
+  HAS_LOWER_CASE,
+  HAS_NO_SPACES,
+  HAS_NUMBER,
+  HAS_SPECIAL_CHAR,
+  HAS_UPPER_CASE,
   MAX_LENGTH_EMAIL,
+  MAX_LENGTH_NAME,
   MAX_LENGTH_PASSWORD,
+  MAX_LENGTH_PROJECT,
   MIN_LENGTH_EMAIL,
+  MIN_LENGTH_NAME,
   MIN_LENGTH_PASSWORD,
-} from '../constants/formConstants';
-
-const hasUpperCase = /[A-Z]/;
-const hasLowerCase = /[a-z]/;
-const hasNumber = /\d/;
-const hasNoSpaces = /^\S*$/;
-const hasSpecialChar = /[!#$%&‘*+—/=^_`{|}~.]/;
-const isLatinOnly = /^[A-Za-z0-9!#$%&‘*+—/=^_`{|}~.]*$/;
-const isEmailStartWithDot = /^[^.]/;
-const isEmailHasAtLeastOneDotAfterAt = /^[^@]+@[^@]+\.[^@]+$/;
+  MIN_LENGTH_PROJECT,
+  NAME_REG_EX,
+  PWD_HAS_ALLOWED_CHARS_ONLY,
+} from '../constants/validationConstants';
 
 const passwordSchema = yup
   .string()
   .required('Обязательное поле')
-  .matches(hasNoSpaces, 'Пробелы не допускаются')
+  .matches(HAS_NO_SPACES, 'Пробелы не допускаются')
   .min(MIN_LENGTH_PASSWORD, `Минимальная длина ${MIN_LENGTH_PASSWORD} символов`)
   .max(MAX_LENGTH_PASSWORD, `Максимальная длина ${MAX_LENGTH_PASSWORD} символов`)
-  .matches(hasLowerCase, 'Пароль должен содержать хотя бы одну строчную букву')
-  .matches(hasUpperCase, 'Пароль должен содержать хотя бы одну заглавную букву')
-  .matches(hasNumber, 'Пароль должен содержать хотя бы одну цифру')
-  .matches(hasSpecialChar, 'Пароль должен содержать хотя бы один специальный символ')
-  .matches(isLatinOnly, 'Пароль должен содержать только допустимые символы');
+  .matches(HAS_LOWER_CASE, 'Пароль должен содержать хотя бы одну строчную букву')
+  .matches(HAS_UPPER_CASE, 'Пароль должен содержать хотя бы одну заглавную букву')
+  .matches(HAS_NUMBER, 'Пароль должен содержать хотя бы одну цифру')
+  .matches(HAS_SPECIAL_CHAR, 'Пароль должен содержать хотя бы один специальный символ')
+  .matches(PWD_HAS_ALLOWED_CHARS_ONLY, 'Пароль должен содержать только допустимые символы');
 
 const emailSchema = yup
   .string()
   .required('Обязательное поле')
   .email('Некорректный email')
-  .matches(hasNoSpaces, 'Пробелы не допускаются')
-  .matches(isEmailStartWithDot, 'Некорректный email')
-  .matches(isEmailHasAtLeastOneDotAfterAt, 'Некорректный email')
+  .matches(HAS_NO_SPACES, 'Пробелы не допускаются')
+  .matches(EMAIL_START_WITH_DOT, 'Некорректный email')
+  .matches(EMAIL_HAS_AT_LEAST_ONE_DOT_AFTER_AT, 'Некорректный email')
   .min(MIN_LENGTH_EMAIL, `Минимальная длина ${MIN_LENGTH_EMAIL} символов`)
   .max(MAX_LENGTH_EMAIL, `Максимальная длина ${MAX_LENGTH_EMAIL} символов`);
+
+const phoneSchema = yup
+  .string()
+  .required('Обязательное поле')
+  .matches(/^[+0-9]+$/, 'Введите корректный номер телефона');
 
 export const loginSchema = yup.object().shape({
   email: emailSchema,
@@ -83,4 +92,41 @@ export const pwdChangeSchema = yup.object().shape({
 
 export const formWithEmailSchema = yup.object().shape({
   email: emailSchema,
+});
+
+export const contactFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required('Обязательное поле')
+    .min(MIN_LENGTH_NAME, `Минимальная длина ${MIN_LENGTH_NAME} символов`)
+    .max(MAX_LENGTH_NAME, `Максимальная длина ${MAX_LENGTH_NAME} символов`)
+    .matches(NAME_REG_EX, 'Разрешены только буквы, пробелы и дефис'),
+  emailOrPhone: yup
+    .string()
+    .required('Обязательное поле')
+    .min(MIN_LENGTH_EMAIL, `Минимальная длина ${MIN_LENGTH_EMAIL} символов`)
+    .max(MAX_LENGTH_EMAIL, `Максимальная длина ${MAX_LENGTH_EMAIL} символов`)
+    .test('email-or-phone', 'Введите корректный email или телефон', function (value) {
+      if (!value) return false;
+
+      try {
+        // First, try validating as an email
+        emailSchema.validateSync(value);
+        return true;
+      } catch (emailError) {
+        // If email validation fails, try phone validation
+        try {
+          phoneSchema.validateSync(value);
+          return true;
+        } catch (phoneError) {
+          // If both validations fail, return false
+          return false;
+        }
+      }
+    }),
+  message: yup
+    .string()
+    .required('Обязательное поле')
+    .min(MIN_LENGTH_PROJECT, `Минимальная длина ${MIN_LENGTH_PROJECT} символов`)
+    .max(MAX_LENGTH_PROJECT, `Максимальная длина ${MAX_LENGTH_PROJECT} символов`),
 });

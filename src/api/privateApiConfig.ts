@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import axios, { AxiosRequestConfig } from 'axios';
-import { NO_ACTIVE_ACCOUNT } from '../constants/errors';
+import { NO_ACTIVE_ACCOUNT } from '../constants/backendErrorMessages';
 import { API_BASE_URL } from '../constants/externalLinks';
 import { checkDataFieldsForErrors } from '../utils/errorHandlers';
 import {

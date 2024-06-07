@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TProductStage } from '../../../../types/publicData';
+import { TProductStage } from '../../../../types/publicDataTypes';
 import { PlusIcon } from '../../../_ui/icons';
 import s from './ProductStage.module.scss';
 

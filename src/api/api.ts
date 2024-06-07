@@ -6,15 +6,20 @@ import {
   GetUserProjectsListResponse,
   PostChangedPasswordResponse,
   PostRegDataResponse,
-} from '../types/apiResponses';
-import { TLoginFormData, TRegFormData, TChangePwdFormData } from '../types/forms';
-import { TDocument, TProjectFullInfo, TProjectShortInfo, TUserProfile } from '../types/privateData';
+} from '../types/apiResponsesTypes';
+import { TLoginFormData, TRegFormData, TChangePwdFormData } from '../types/formDataTypes';
+import {
+  TDocument,
+  TProjectFullInfo,
+  TProjectShortInfo,
+  TUserProfile,
+} from '../types/privateDataTypes';
 import {
   TCompetenceFullInfo,
   TCompetenceShortInfo,
   TProductFullInfo,
   TProductShortInfo,
-} from '../types/publicData';
+} from '../types/publicDataTypes';
 import { privateAPI } from './privateApiConfig';
 import { publicAPI } from './publicApiConfig';
 

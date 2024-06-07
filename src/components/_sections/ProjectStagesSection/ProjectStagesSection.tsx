@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
-import { TProjectStage } from '../../../types/privateData';
+import { TProjectStage } from '../../../types/privateDataTypes';
 import { CurrentStage } from './CurrentStage/CurrentStage';
 import { ProjectStagesSlider } from './ProjectStagesSlider/ProjectStagesSlider';
 import s from './ProjectStagesSection.module.scss';

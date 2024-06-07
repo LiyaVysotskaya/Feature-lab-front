@@ -10,14 +10,14 @@ import {
   COMPANY_NAME,
   COMPANY_PHONE,
 } from '../../constants/companyDetails';
-import { FormFooter } from './FormFooter/FormFooter';
+import { FooterForm } from '../_contact-forms/FooterForm/FooterForm';
 import s from './Footer.module.scss';
 
 const Footer: FC = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerContainer}>
-        <FormFooter />
+        <FooterForm />
       </div>
 
       <div className={s.basementContainer}>

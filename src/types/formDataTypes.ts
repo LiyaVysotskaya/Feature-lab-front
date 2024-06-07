@@ -13,3 +13,9 @@ export type TChangePwdFormData = {
   current_password: string;
   new_password: string;
 };
+
+export type TContactFormData = {
+  name: string;
+  emailOrPhone: string;
+  message: string;
+};

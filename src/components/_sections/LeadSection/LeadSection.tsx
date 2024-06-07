@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TProperty } from '../../../types/publicData';
+import { TProperty } from '../../../types/publicDataTypes';
 import { LeadSectionCards } from './LeadSectionCards/LeadSectionCards';
 import s from './LeadSection.module.scss';
 

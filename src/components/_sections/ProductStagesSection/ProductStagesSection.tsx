@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TProductStage } from '../../../types/publicData';
+import { TProductStage } from '../../../types/publicDataTypes';
 import { SectionTitle } from '../../SectionTitle/SectionTitle';
 import { ProductStage } from './ProductStage/ProductStage';
 import s from './ProductStagesSection.module.scss';

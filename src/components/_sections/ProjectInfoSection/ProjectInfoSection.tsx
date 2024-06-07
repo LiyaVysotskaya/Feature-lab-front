@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { API_BASE_URL } from '../../../constants/externalLinks';
-import { TProjectFullInfo } from '../../../types/privateData';
+import { TProjectFullInfo } from '../../../types/privateDataTypes';
 import s from './ProjectInfoSection.module.scss';
 
 type IProps = {

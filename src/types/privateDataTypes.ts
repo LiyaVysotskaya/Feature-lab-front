@@ -1,4 +1,4 @@
-import { TProperty } from './publicData';
+import { TProperty } from './publicDataTypes';
 
 export type TUserProfile = {
   id: string;

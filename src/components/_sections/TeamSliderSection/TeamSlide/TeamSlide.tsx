@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import { API_BASE_URL } from '../../../../constants/externalLinks';
-import { TEmployee } from '../../../../types/publicData';
+import { TEmployee } from '../../../../types/publicDataTypes';
 import s from './TeamSlide.module.scss';
 
 type IProps = {

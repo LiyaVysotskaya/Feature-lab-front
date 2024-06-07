@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PasswordChangeForm from '../../components/AuthForms/PasswordChangeForm';
+import PasswordChangeForm from '../../components/_auth-forms/PasswordChangeForm';
 import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { ROUTE_PROFILE_SETTINGS } from '../../constants/routesConstants';

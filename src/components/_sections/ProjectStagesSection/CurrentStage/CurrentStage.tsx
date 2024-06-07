@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC } from 'react';
-import { TProjectStage } from '../../../../types/privateData';
+import { TProjectStage } from '../../../../types/privateDataTypes';
 import { convertDateToShortFormat } from '../../../../utils/dateConvertHelpers';
 import { Text } from '../../../_ui/Text/Text';
 import s from './CurrentStage.module.scss';

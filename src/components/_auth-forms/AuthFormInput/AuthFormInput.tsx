@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import { ChangeEventHandler, FC, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { resizeInputFont } from '../../utils/formHelpers';
-import { InfoTooltip } from '../InfoTooltip/InfoTooltip';
-import { EyeIcon } from '../_ui/icons/EyeIcon/EyeIcon';
+import { resizeInputFont } from '../../../utils/formHelpers';
+import { InfoTooltip } from '../../InfoTooltip/InfoTooltip';
+import { EyeIcon } from '../../_ui/icons/EyeIcon/EyeIcon';
 import s from './AuthFormInput.module.scss';
 
 type IProps = {
@@ -50,12 +50,12 @@ export const AuthFormInput: FC<IProps> = ({
   return (
     <div className={s.inputContainer}>
       <input
-        onChange={handleChange}
         {...restRegisterProps}
-        className={s.input}
+        onChange={handleChange}
         aria-label={ariaLabel}
         type={inputType}
         placeholder={placeHolder}
+        className={s.input}
       />
       <div className={s.textContainer}>
         <span className={cn(s.textNumber, { [s.textNumberError]: error })}>{labelNum}</span>

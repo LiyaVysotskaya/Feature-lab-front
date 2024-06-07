@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { TProperty } from '../../../../types/publicData';
+import { TProperty } from '../../../../types/publicDataTypes';
 import s from './LeadSectionCards.module.scss';
 
 type IProps = {

@@ -1,5 +1,5 @@
-import { TDocument, TProjectShortInfo, TUserProfile } from './privateData';
-import { TCompetenceShortInfo } from './publicData';
+import { TDocument, TProjectShortInfo, TUserProfile } from './privateDataTypes';
+import { TCompetenceShortInfo } from './publicDataTypes';
 
 type GeneralApiResponse = {
   count: number;

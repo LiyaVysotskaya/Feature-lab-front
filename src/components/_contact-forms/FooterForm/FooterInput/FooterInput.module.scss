@@ -1,0 +1,107 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 86px;
+
+  border-bottom: 3px solid var(--white);
+
+  &Error {
+    border-color: var(--error-for-dark);
+  }
+
+  @media screen and (width <= 1280px) {
+    min-height: 68px;
+  }
+}
+
+.input {
+  --left-offset: 24px;
+  --input-font-size: 32px;
+  --input-font-size-min: 20px;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 var(--left-offset);
+
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: var(--input-font-size);
+  font-weight: 400;
+  line-height: 1.19; // 38px;
+  color: var(--white);
+  text-align: left;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  caret-color: var(--electric);
+
+  &::placeholder {
+    color: var(--white-60);
+    text-align: left;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px var(--dark-blue) inset;
+
+    -webkit-text-fill-color: var(--white);
+  }
+
+  @media screen and (width <= 1280px) {
+    --input-font-size: 24px;
+
+    line-height: 1.17; // 28px;
+  }
+
+  @media screen and (width <= 360px) {
+    --left-offset: 16px;
+    --input-font-size: 20px;
+
+    line-height: 1.2; // 24px;
+  }
+}
+
+.textarea {
+  resize: none;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::placeholder {
+    line-height: 1;
+  }
+}
+
+.textClue {
+  display: none;
+  flex: 0;
+
+  padding: 0 0 0 20px;
+
+  font-family: GostTypeB-Standard, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--dark-blue-50);
+  text-align: left;
+
+  &Error {
+    color: var(--error-for-dark);
+  }
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.input:focus + .textClue {
+  display: flex;
+}

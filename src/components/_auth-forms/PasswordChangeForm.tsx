@@ -4,8 +4,8 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { postChangedPassword } from '../../api/api';
 import { PASSWORD_HINT_TEXT } from '../../constants/tooltipContent';
 import { pwdChangeSchema } from '../../schemas/authSchemas';
-import { TChangePwdFormData } from '../../types/forms';
-import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
+import { TChangePwdFormData } from '../../types/formDataTypes';
+import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import s from './AuthForms.module.scss';
 

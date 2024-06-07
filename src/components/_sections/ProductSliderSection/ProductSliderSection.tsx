@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { API_BASE_URL } from '../../../constants/externalLinks';
-import { TProductImg } from '../../../types/publicData';
+import { TProductImg } from '../../../types/publicDataTypes';
 import { SectionTitle } from '../../SectionTitle/SectionTitle';
 import { ArrowInCircleIcon, SpinnerIcon } from '../../_ui/icons';
 import brokenScreen from '../../../assets/svg/broken_screen.svg';

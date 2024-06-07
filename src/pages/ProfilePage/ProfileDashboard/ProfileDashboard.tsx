@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useProjectsQuery } from '../../../api/queries';
 import { ProjectCard } from '../../../components/ProjectCard/ProjectCard';
 import { Text } from '../../../components/_ui/Text/Text';
-import { TProjectShortInfo } from '../../../types/privateData';
+import { TProjectShortInfo } from '../../../types/privateDataTypes';
 import s from './ProfileDashboard.module.scss';
 
 type IProps = {

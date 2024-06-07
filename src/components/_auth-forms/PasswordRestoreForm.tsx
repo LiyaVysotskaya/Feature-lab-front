@@ -3,7 +3,7 @@ import { FC, FormEvent, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { EMAIL_HINT_TEXT } from '../../constants/tooltipContent';
 import { formWithEmailSchema } from '../../schemas/authSchemas';
-import { AuthFormInput } from '../AuthFormInput/AuthFormInput';
+import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import { PopupPrivacyPolicy } from '../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import s from './AuthForms.module.scss';
