@@ -16,6 +16,7 @@ import {
   MIN_LENGTH_PASSWORD,
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
+  PHONE_REG_EX,
   PWD_HAS_ALLOWED_CHARS_ONLY,
 } from '../constants/validationConstants';
 
@@ -44,7 +45,7 @@ const emailSchema = yup
 const phoneSchema = yup
   .string()
   .required('Обязательное поле')
-  .matches(/^[+0-9]+$/, 'Введите корректный номер телефона');
+  .matches(PHONE_REG_EX, 'Введите корректный номер телефона');
 
 export const loginSchema = yup.object().shape({
   email: emailSchema,

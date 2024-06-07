@@ -10,8 +10,8 @@ export const MAX_LENGTH_PROJECT = 500;
 export const MIN_LENGTH_PASSWORD = 8;
 export const MAX_LENGTH_PASSWORD = 30;
 
-export const EMAIL_PHONE_REG_EX = /[+0-9]{1,4}[0-9]{1,10}$|(.*)@(.*)\\.[a-z]{2,6}/;
 export const NAME_REG_EX = /^[A-Za-zА-Яа-яЁё \\-]+$/;
+export const PHONE_REG_EX = /^[+0-9]+$/;
 
 export const HAS_LOWER_CASE = /[a-z]/;
 export const HAS_NUMBER = /\d/;
