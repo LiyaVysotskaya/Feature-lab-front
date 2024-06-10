@@ -32,7 +32,7 @@ const passwordSchema = yup
   .matches(HAS_SPECIAL_CHAR, 'Пароль должен содержать хотя бы один специальный символ')
   .matches(PWD_HAS_ALLOWED_CHARS_ONLY, 'Пароль должен содержать только допустимые символы');
 
-const emailSchema = yup
+export const emailSchema = yup
   .string()
   .required('Обязательное поле')
   .email('Некорректный email')
@@ -115,6 +115,7 @@ export const contactFormSchema = yup.object().shape({
         emailSchema.validateSync(value);
         return true;
       } catch (emailError) {
+        console.log(emailError);
         // If email validation fails, try phone validation
         try {
           phoneSchema.validateSync(value);

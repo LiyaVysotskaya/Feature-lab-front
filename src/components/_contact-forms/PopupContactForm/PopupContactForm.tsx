@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { contactFormSchema } from '../../../schemas/authSchemas';
+import { contactFormSchema, emailSchema } from '../../../schemas/authSchemas';
 import { TContactFormData } from '../../../types/formDataTypes';
 import { PopupPrivacyPolicy } from '../../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../_ui/RoundButton/RoundButton';
@@ -35,9 +35,24 @@ export const PopupContactForm: FC = () => {
   };
 
   const onSubmit = (data: TContactFormData) => {
-    console.log(data);
+    const transformedData = {
+      name: data.name,
+      email: '',
+      phone: '',
+      message: data.message,
+    };
+
+    try {
+      emailSchema.validateSync(data.emailOrPhone);
+      transformedData.email = data.emailOrPhone;
+    } catch (emailError) {
+      transformedData.phone = data.emailOrPhone;
+    }
+
+    console.log(transformedData);
     setIsLoading(true);
 
+    // Send `transformedData` to your backend instead of `data`
     reset();
   };
 
@@ -118,5 +133,3 @@ export const PopupContactForm: FC = () => {
     </>
   );
 };
-
-export default PopupContactForm;

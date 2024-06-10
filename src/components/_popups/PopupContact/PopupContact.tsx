@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { PopupContactForm } from '../../_contact-forms/PopupContactForm/PopupContactForm';
 import { CrossInCircleIcon } from '../../_ui/icons';
 import { Overlay } from '../Overlay/Overlay';
-import { PopupContactForm } from '../../_contact-forms/PopupContactForm/PopupContactForm';
 import s from './PopupContact.module.scss';
 
 type IPopupProps = {
