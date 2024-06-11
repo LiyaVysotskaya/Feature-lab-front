@@ -43,10 +43,11 @@ export const FooterForm: FC = () => {
       message: data.message,
     };
 
-    try {
-      emailSchema.validateSync(data.emailOrPhone);
+    if (emailSchema.isValidSync(data.emailOrPhone)) {
+      // If valid as an email
       transformedData.email = data.emailOrPhone;
-    } catch (emailError) {
+    } else {
+      // Otherwise, assume it's a valid phone number
       transformedData.phone = data.emailOrPhone;
     }
 
