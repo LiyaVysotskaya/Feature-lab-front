@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { FC } from 'react';
-import ClosedEyeIcon from '../../../../assets/svg/Icon-EyeClosed.svg?svgr';
+import ClosedEyeIcon from '../../../../assets/svg/Icon-EyeClosed.svg?react';
 import s from './EyeIcon.module.scss';
 
 type IProps = {

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import Checkmark from './checkmark.svg?svgr';
+import Checkmark from './checkmark.svg?react';
 import s from './ProgressCircle.module.scss';
 
 type IProps = {

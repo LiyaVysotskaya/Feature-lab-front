@@ -29,7 +29,7 @@ export const DocumentsSection: FC<IProps> = ({ className = '', title, docs }) =>
   );
 
   // Sort category names alphabetically
-  const sortedCategoryNames = Object.keys(docCategories).toSorted();
+  const sortedCategoryNames = Object.keys(docCategories).sort();
 
   return (
     <section className={cn(s.section, className)}>

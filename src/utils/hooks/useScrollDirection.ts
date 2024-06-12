@@ -7,7 +7,7 @@ export function useScrollDirection() {
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
-    let scrollTimeout: NodeJS.Timeout;
+    let scrollTimeout: number | undefined;
 
     const updateScrollDirection = () => {
       const { scrollY } = window;

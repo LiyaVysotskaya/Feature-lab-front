@@ -6,7 +6,7 @@ import { TProductImg } from '../../../types/publicDataTypes';
 import { SectionTitle } from '../../SectionTitle/SectionTitle';
 import { ArrowInCircleIcon, SpinnerIcon } from '../../_ui/icons';
 import brokenScreen from '../../../assets/svg/broken_screen.svg';
-import LapTop from '../../../assets/svg/laptop.svg?svgr';
+import LapTop from '../../../assets/svg/laptop.svg?react';
 import s from './ProductSliderSection.module.scss';
 
 type IProps = {

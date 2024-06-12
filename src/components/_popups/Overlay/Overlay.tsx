@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import s from './Overlay.module.scss';
 
@@ -11,7 +11,7 @@ type IOverlayProps = {
 
 export const Overlay: React.FC<IOverlayProps> = ({ onClose, isOpen, children }) => {
   const popupRoot = document.getElementById('root');
-  React.useEffect(() => {
+  useEffect(() => {
     const handleEscClose = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();

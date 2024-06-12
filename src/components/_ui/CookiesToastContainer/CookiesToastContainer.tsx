@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
-import { CloseButtonProps, ToastContainer, toast } from 'react-toastify';
+import { FC, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CrossIcon } from '../icons';
 import s from './CookiesToastContainer.module.scss';
 
-const ToastCloseButton: React.FC<CloseButtonProps> = ({ closeToast }) => {
+type CloseButtonProps = {
+  closeToast: (e: React.MouseEvent<HTMLElement>) => void;
+};
+
+const ToastCloseButton: FC<CloseButtonProps> = ({ closeToast }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     localStorage.setItem('cookiesAccepted', 'true');
     closeToast(e);
