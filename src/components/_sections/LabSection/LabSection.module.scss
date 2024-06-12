@@ -9,7 +9,7 @@
   align-items: center;
 
   width: 100%;
-  max-width: var(--el-max-width);
+  max-width: var(--page-max-width);
 
   @media screen and (width <= 768px) {
     overflow-x: hidden;
