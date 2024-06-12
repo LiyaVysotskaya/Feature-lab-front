@@ -10,6 +10,10 @@
 
   width: 100%;
   max-width: var(--el-max-width);
+
+  @media screen and (width <= 768px) {
+    overflow-x: hidden;
+  }
 }
 
 .title {
