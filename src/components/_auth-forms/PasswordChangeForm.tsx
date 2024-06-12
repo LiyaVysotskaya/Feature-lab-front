@@ -21,6 +21,7 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     defaultValues: {
       current_password: '',
       new_password: '',
+      re_new_password: '',
     },
     mode: 'onChange',
   });
@@ -33,10 +34,7 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const onSubmit = async (values: TChangePwdFormData) => {
     setIsLoading(true);
     try {
-      await postChangedPassword({
-        current_password: values.current_password,
-        new_password: values.new_password,
-      });
+      await postChangedPassword(values);
       responseToSuccessfulSumbit(values.new_password);
       reset();
     } catch (error) {
@@ -66,6 +64,16 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             placeHolder="Новый пароль"
             ariaLabel="Input newPassword"
             labelNum="02"
+            labelText="Новый"
+            hintText={PASSWORD_HINT_TEXT}
+          />
+
+          <AuthFormInput
+            name="re_new_password"
+            type="password"
+            placeHolder="Повторите пароль"
+            ariaLabel="Input repeat newPassword"
+            labelNum="03"
             labelText="Новый"
             hintText={PASSWORD_HINT_TEXT}
           />

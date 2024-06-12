@@ -75,7 +75,7 @@ export const regSchema = yup.object().shape({
       const emailPrefix = this.parent.email.split('@')[0];
       return value !== emailPrefix;
     }),
-  repeatPassword: passwordSchema.test('same-password', 'Пароли должны совпадать', function (value) {
+  re_password: passwordSchema.test('same-password', 'Пароли должны совпадать', function (value) {
     return value === this.parent.password;
   }),
 });
@@ -87,6 +87,13 @@ export const pwdChangeSchema = yup.object().shape({
     'Новый пароль не должен совпадать с текущим паролем',
     function (value) {
       return value !== this.parent.current_password;
+    },
+  ),
+  re_new_password: passwordSchema.test(
+    'same-password',
+    'Новые пароли должны совпадать',
+    function (value) {
+      return value === this.parent.new_password;
     },
   ),
 });

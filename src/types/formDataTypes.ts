@@ -1,7 +1,7 @@
 export type TRegFormData = {
   email: string;
   password: string;
-  repeatPassword?: string;
+  re_password: string;
 };
 
 export type TLoginFormData = {
@@ -12,6 +12,7 @@ export type TLoginFormData = {
 export type TChangePwdFormData = {
   current_password: string;
   new_password: string;
+  re_new_password: string;
 };
 
 export type TContactFormData = {

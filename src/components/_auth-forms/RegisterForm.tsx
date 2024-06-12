@@ -27,7 +27,7 @@ export const RegisterForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     defaultValues: {
       email: '',
       password: '',
-      repeatPassword: '',
+      re_password: '',
     },
     mode: 'onChange',
   });
@@ -49,7 +49,7 @@ export const RegisterForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   };
 
   const onSubmit = (values: TRegFormData) => {
-    mutateRegData({ email: values.email, password: values.password });
+    mutateRegData(values);
   };
 
   return (
@@ -78,7 +78,7 @@ export const RegisterForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             />
 
             <AuthFormInput
-              name="repeatPassword"
+              name="re_password"
               type="password"
               placeHolder="Повторите пароль"
               ariaLabel="Input repeat password"
