@@ -12,7 +12,7 @@ type IProps = {
   ariaLabel: string;
   labelNum: string;
   labelText: string;
-  hintText: string;
+  hintText?: string;
   placeHolder: string;
 };
 
@@ -23,7 +23,7 @@ export const AuthFormInput: FC<IProps> = ({
   ariaLabel,
   labelNum,
   labelText,
-  hintText,
+  hintText = '',
 }) => {
   const [inputType, setInputType] = useState(type);
   const {
@@ -71,7 +71,7 @@ export const AuthFormInput: FC<IProps> = ({
 
       <div className={s.icons}>
         {type === 'password' && <EyeIcon onClick={handleEyeIconClick} isRed={Boolean(error)} />}
-        <InfoTooltip content={hintText} isError={Boolean(error)} />
+        {hintText && <InfoTooltip content={hintText} isError={Boolean(error)} />}
       </div>
     </div>
   );

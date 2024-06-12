@@ -2,11 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { postChangedPassword } from '../../api/api';
-import { PASSWORD_HINT_TEXT } from '../../constants/tooltipContent';
 import { pwdChangeSchema } from '../../schemas/authSchemas';
 import { TChangePwdFormData } from '../../types/formDataTypes';
-import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
+import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import s from './AuthForms.module.scss';
 
 type IProps = {
@@ -55,7 +54,6 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             ariaLabel="Input currentPassword"
             labelNum="01"
             labelText="Старый"
-            hintText={PASSWORD_HINT_TEXT}
           />
 
           <AuthFormInput
@@ -65,7 +63,6 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             ariaLabel="Input newPassword"
             labelNum="02"
             labelText="Новый"
-            hintText={PASSWORD_HINT_TEXT}
           />
 
           <AuthFormInput
@@ -73,9 +70,8 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
             type="password"
             placeHolder="Повторите пароль"
             ariaLabel="Input repeat newPassword"
-            labelNum="03"
+            labelNum="02.1"
             labelText="Новый"
-            hintText={PASSWORD_HINT_TEXT}
           />
         </fieldset>
 
