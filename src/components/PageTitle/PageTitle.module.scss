@@ -4,6 +4,7 @@
 }
 
 .pageTitleWrap {
+  overflow-x: clip;
   width: var(--el-max-width);
   margin: 0;
 }
