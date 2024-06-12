@@ -28,6 +28,8 @@
   "scripts": {
     "build": "webpack --env mode=production",
     "dev": "webpack serve",
+    "serve": "http-server dist",
+    "start": "webpack serve --env mode=production",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --report-unused-disable-directives",
     "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
@@ -66,6 +68,7 @@
     "eslint-plugin-css-modules": "^2.12.0",
     "eslint-plugin-prettier": "^5.0.1",
     "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.1.0",
     "prop-types": "^15.8.1",
