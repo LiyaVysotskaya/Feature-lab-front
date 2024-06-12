@@ -111,7 +111,7 @@ export const MobileNav: FC<Props> = ({ isOpen, onBurgerClick }) => {
               className={cn(s.btnSubmenu, {
                 [s.linkActive]: isCompetenciesPage,
               })}>
-              Компетенции
+              <span className={s.btnText}>Компетенции</span>
               <ArrowIcon className={cn(s.arrow, { [s.arrow_rotate]: isCompetenciesVisible })} />
             </button>
             <CompetenciesMobSubMenu isVisible={isCompetenciesVisible} />
@@ -132,7 +132,7 @@ export const MobileNav: FC<Props> = ({ isOpen, onBurgerClick }) => {
               className={cn(s.btnSubmenu, {
                 [s.linkActive]: isProductsPage,
               })}>
-              Продукты
+              <span className={s.btnText}>Продукты</span>
               <ArrowIcon className={cn(s.arrow, { [s.arrow_rotate]: isProductsVisible })} />
             </button>
             <ProductsMobSubMenu isVisible={isProductsVisible} />

@@ -97,7 +97,9 @@
   justify-content: space-between;
 
   width: 100%;
+}
 
+.btnText {
   &:hover {
     background: var(
       --radial-blue-45,
