@@ -94,6 +94,8 @@
 }
 
 .cardNumber {
+  user-select: none;
+
   font-family: Molot, sans-serif;
   font-size: 100px;
   font-weight: 400;

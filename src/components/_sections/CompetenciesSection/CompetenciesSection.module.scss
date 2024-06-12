@@ -92,6 +92,8 @@
 }
 
 .cardTitle {
+  user-select: none;
+
   align-self: end;
 
   font-family: Germano, sans-serif;
@@ -118,6 +120,8 @@
 }
 
 .cardNumber {
+  user-select: none;
+
   font-family: Molot-Regular, sans-serif;
   font-size: 90px;
   font-weight: 400;
