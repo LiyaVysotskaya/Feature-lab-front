@@ -18,7 +18,18 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
     if (containerRef.current && textRef.current) {
       textRef.current.style.marginLeft = '0'; // calculation should be without negative margins
 
-      let fontSize = 410;
+      let initialMaxFontSize = 0;
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth > 1280) {
+        initialMaxFontSize = 410;
+      } else if (windowWidth > 768) {
+        initialMaxFontSize = 250;
+      } else {
+        initialMaxFontSize = windowWidth * 0.33; // 33% of window width
+      }
+
+      let fontSize = initialMaxFontSize;
       textRef.current.style.fontSize = `${fontSize}px`;
 
       while (textRef.current.offsetWidth > containerRef.current.offsetWidth) {
