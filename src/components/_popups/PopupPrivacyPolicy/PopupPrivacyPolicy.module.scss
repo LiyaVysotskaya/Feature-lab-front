@@ -36,6 +36,7 @@
 }
 
 .popupTitle {
+  padding-right: 60px;
   border-bottom: 4px solid #002d63;
 
   &__text {
@@ -218,6 +219,7 @@
   }
 
   .popupTitle {
+    padding-right: 30px;
     border-bottom: 3px solid #002d63;
 
     &__text {
@@ -331,7 +333,7 @@
   }
 }
 
-@media (width <= 544px) {
+@media (width <= 560px) {
   .closeButton {
     top: 4px;
     right: 4px;
