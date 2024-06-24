@@ -1,13 +1,9 @@
 import {
-  GetAllCompetenciesResponse,
-  GetAllUserDocsResponse,
-  GetAuthResponse,
-  GetUserProfileResponse,
-  GetUserProjectsListResponse,
+  TGetAuthResponse,
   PostChangedPasswordResponse,
-  PostRegDataResponse,
+  TPostRegDataResponse,
 } from '../types/apiResponsesTypes';
-import { TLoginFormData, TRegFormData, TChangePwdFormData } from '../types/formDataTypes';
+import { TChangePwdFormData, TLoginFormData, TRegFormData } from '../types/formDataTypes';
 import {
   TDocument,
   TProjectFullInfo,
@@ -23,13 +19,13 @@ import {
 import { privateAPI } from './privateApiConfig';
 import { publicAPI } from './publicApiConfig';
 
-export const postLoginData = async (loginData: TLoginFormData): Promise<GetAuthResponse> => {
-  const response = await publicAPI.post<GetAuthResponse>('auth/jwt/create/', loginData);
+export const postLoginData = async (loginData: TLoginFormData): Promise<TGetAuthResponse> => {
+  const response = await publicAPI.post<TGetAuthResponse>('auth/jwt/create/', loginData);
   return response.data;
 };
 
-export const postRegData = async (regData: TRegFormData): Promise<PostRegDataResponse> => {
-  const response = await publicAPI.post<PostRegDataResponse>('/auth/users/', regData);
+export const postRegData = async (regData: TRegFormData): Promise<TPostRegDataResponse> => {
+  const response = await publicAPI.post<TPostRegDataResponse>('/auth/users/', regData);
   return response.data;
 };
 
@@ -44,20 +40,18 @@ export const postChangedPassword = async (
 };
 
 export const getUserProfileData = async (): Promise<TUserProfile> => {
-  const response = await privateAPI.get<GetUserProfileResponse>('/api/v1/account/profile/');
-  return response.data.results[0];
+  const response = await privateAPI.get<TUserProfile[]>('/api/v1/account/profile/');
+  return response.data[0];
 };
 
 export const getUserAllProjects = async (): Promise<TProjectShortInfo[]> => {
-  const response = await privateAPI.get<GetUserProjectsListResponse>(
-    '/api/v1/account/my-projects/',
-  );
-  return response.data.results;
+  const response = await privateAPI.get<TProjectShortInfo[]>('/api/v1/account/my-projects/');
+  return response.data;
 };
 
 export const getUserAllDocs = async (): Promise<TDocument[]> => {
-  const response = await privateAPI.get<GetAllUserDocsResponse>('/api/v1/account/my-documents/');
-  return response.data.results;
+  const response = await privateAPI.get<TDocument[]>('/api/v1/account/my-documents/');
+  return response.data;
 };
 
 export const getProjectById = async (projectId: string): Promise<TProjectFullInfo> => {
@@ -78,8 +72,8 @@ export const getProductBySlug = async (slug: string): Promise<TProductFullInfo> 
 };
 
 export const getAllCompetencies = async (): Promise<TCompetenceShortInfo[]> => {
-  const response = await publicAPI.get<GetAllCompetenciesResponse>('/api/v1/competence/');
-  return response.data.results;
+  const response = await publicAPI.get<TCompetenceShortInfo[]>('/api/v1/competence/');
+  return response.data;
 };
 
 export const getCompetenceBySlug = async (slug: string): Promise<TCompetenceFullInfo> => {

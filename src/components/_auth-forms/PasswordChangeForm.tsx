@@ -1,7 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { isAxiosError } from 'axios';
 import { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { postChangedPassword } from '../../api/api';
+import { ROUTE_ERROR_500 } from '../../constants/routesConstants';
 import { pwdChangeSchema } from '../../schemas/authSchemas';
 import { TChangePwdFormData } from '../../types/formDataTypes';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
@@ -14,6 +17,7 @@ type IProps = {
 
 const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const methods = useForm({
     resolver: yupResolver(pwdChangeSchema),
@@ -37,7 +41,15 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
       responseToSuccessfulSumbit(values.new_password);
       reset();
     } catch (error) {
-      // Error handling is already managed by Axios interceptors
+      // 400 Error handling is already managed by Axios interceptors
+
+      console.log('error : ', error);
+      if (isAxiosError(error) && error.response?.status === 500) {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
+      if (isAxiosError(error) && error.message === 'Network Error') {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
     } finally {
       setIsLoading(false);
     }
