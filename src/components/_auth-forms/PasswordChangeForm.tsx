@@ -43,7 +43,6 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     } catch (error) {
       // 400 Error handling is already managed by Axios interceptors
 
-      console.log('error : ', error);
       if (isAxiosError(error) && error.response?.status === 500) {
         navigate(ROUTE_ERROR_500, { replace: true });
       }
