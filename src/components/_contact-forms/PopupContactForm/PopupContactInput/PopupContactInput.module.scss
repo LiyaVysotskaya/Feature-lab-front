@@ -82,30 +82,11 @@
 
   display: block;
 
-  min-height: 100%;
   padding-top: 2%;
+  padding-bottom: 2%; // additional space for not cut letters from below on iphone
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  &::placeholder {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-
-    @media screen and (width <= 1280px) {
-      padding-top: 0;
-    }
-
-    @media screen and (width <= 1060px) {
-      line-height: 64px;
-    }
-
-    @media screen and (width <= 690px) {
-      line-height: 52px;
-    }
   }
 }
 
