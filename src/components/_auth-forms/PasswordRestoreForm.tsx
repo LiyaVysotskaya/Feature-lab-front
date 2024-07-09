@@ -1,20 +1,26 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FC, FormEvent, useState } from 'react';
+import { isAxiosError } from 'axios';
+import { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { postPwdRestoreData } from '../../api/api';
+import { ROUTE_ERROR_500 } from '../../constants/routesConstants';
 import { EMAIL_HINT_TEXT } from '../../constants/tooltipContent';
 import { formWithEmailSchema } from '../../schemas/authSchemas';
-import { AuthFormInput } from './AuthFormInput/AuthFormInput';
+import { TPwdRestoreFormData } from '../../types/formDataTypes';
 import { PopupPrivacyPolicy } from '../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
+import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import s from './AuthForms.module.scss';
 
 type IProps = {
-  // responseToSuccessfulSumbit: (newEmail: string) => void;
+  handleSuccessfulSumbit: (submitedEmail: string) => void;
 };
 
-export const PasswordRestoreForm: FC<IProps> = () => {
+export const PasswordRestoreForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const methods = useForm({
     resolver: yupResolver(formWithEmailSchema),
@@ -26,24 +32,33 @@ export const PasswordRestoreForm: FC<IProps> = () => {
 
   const {
     formState: { isValid },
+    reset,
   } = methods;
 
-  // const onSubmitSuccess = () => {
-  //   responseToSuccessfulSumbit(values.email);
-  //   resetForm();
-  // };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = async (values: TPwdRestoreFormData) => {
     setIsLoading(true);
+    try {
+      await postPwdRestoreData(values);
+      handleSuccessfulSumbit(values.email);
+      reset();
+    } catch (error) {
+      // 400 Error handling is already managed by Axios interceptors
 
-    // mutateRestoreData({ email: values.email });
+      if (isAxiosError(error) && error.response?.status === 500) {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
+      if (isAxiosError(error) && error.message === 'Network Error') {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
       <FormProvider {...methods}>
-        <form className={s.form} method="POST" onSubmit={handleSubmit}>
+        <form className={s.form} method="POST" onSubmit={methods.handleSubmit(onSubmit)}>
           <fieldset className={s.fieldset}>
             <AuthFormInput
               name="email"

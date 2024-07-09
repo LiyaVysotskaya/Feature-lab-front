@@ -9,6 +9,10 @@ export type TLoginFormData = {
   password: string;
 };
 
+export type TPwdRestoreFormData = {
+  email: string;
+};
+
 export type TChangePwdFormData = {
   current_password: string;
   new_password: string;

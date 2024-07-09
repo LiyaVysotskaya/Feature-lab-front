@@ -1,18 +1,22 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
+import { PasswordRestoreForm } from '../../components/_auth-forms/PasswordRestoreForm';
+import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
+import s from './AuthPages.module.scss';
 
 export const PasswordRestorePage: FC = () => {
-  // const navigate = useNavigate();
-  // const [email, setEmail] = useState<string>();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState<string>();
 
-  // const responseToSuccessfulSumbit = (newEmail: string) => {
-  //   window.scrollTo(0, 0);
-  //   setEmail(newEmail);
-  // };
+  const handleSuccessfulSumbit = (newEmail: string) => {
+    window.scrollTo(0, 0);
+    setEmail(newEmail);
+  };
 
   return (
     <Main>
-      {/* <section className={s.contentContainer}>
+      <section className={s.contentContainer}>
         <h1 className={s.title}>Сброс Пароля</h1>
 
         {email ? (
@@ -36,11 +40,9 @@ export const PasswordRestorePage: FC = () => {
             />
           </div>
         ) : (
-          <PasswordRestoreForm
-          //  responseToSuccessfulSumbit={responseToSuccessfulSumbit}
-          />
+          <PasswordRestoreForm handleSuccessfulSumbit={handleSuccessfulSumbit} />
         )}
-      </section> */}
+      </section>
     </Main>
   );
 };

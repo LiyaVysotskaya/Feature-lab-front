@@ -1,9 +1,14 @@
 import {
-  TGetAuthResponse,
   PostChangedPasswordResponse,
+  TGetAuthResponse,
   TPostRegDataResponse,
 } from '../types/apiResponsesTypes';
-import { TChangePwdFormData, TLoginFormData, TRegFormData } from '../types/formDataTypes';
+import {
+  TChangePwdFormData,
+  TLoginFormData,
+  TPwdRestoreFormData,
+  TRegFormData,
+} from '../types/formDataTypes';
 import {
   TDocument,
   TProjectFullInfo,
@@ -37,6 +42,10 @@ export const postChangedPassword = async (
     changedPwdData,
   );
   return response.data;
+};
+
+export const postPwdRestoreData = async (restorePwdData: TPwdRestoreFormData): Promise<void> => {
+  await privateAPI.post<void>('/auth/users/reset_password/', restorePwdData);
 };
 
 export const getUserProfileData = async (): Promise<TUserProfile> => {
