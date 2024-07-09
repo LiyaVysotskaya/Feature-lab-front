@@ -8,4 +8,9 @@ export type TPostRegDataResponse = {
   email: string;
 };
 
-export type PostChangedPasswordResponse = {};
+export type TPwdResetData = {
+  uid: string;
+  token: string;
+  new_password: string;
+  re_new_password: string;
+};

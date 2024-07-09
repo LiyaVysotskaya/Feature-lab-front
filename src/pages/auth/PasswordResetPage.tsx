@@ -1,16 +1,43 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PasswordResetForm from '../../components/_auth-forms/PasswordResetForm';
+import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { Main } from '../../components/Main/Main';
+import { ROUTE_LOGIN } from '../../constants/routesConstants';
 import s from './AuthPages.module.scss';
 
 export const PasswordResetPage: FC = () => {
+  const navigate = useNavigate();
+
+  const [isPasswordChanged, setIsPasswordChanged] = useState<boolean>(false);
+
+  const handleSuccessfulSumbit = (isSuccess: boolean) => {
+    window.scrollTo(0, 0);
+    setIsPasswordChanged(isSuccess);
+  };
+
   return (
-    <Main className={s.auth}>
-      <h1>Смена пароля</h1>
-      <form className={s.form}>
-        <input type="password" placeholder="Новый пароль" />
-        <input type="password" placeholder="Повторите пароль" />
-        <button>Сменить пароль</button>
-      </form>
+    <Main>
+      <section className={s.contentContainer}>
+        <h1 className={s.title}>Смена пароля</h1>
+        {isPasswordChanged ? (
+          <div className={s.responseContainer}>
+            <div className={s.responseTextContainer}>
+              <p className={s.responseText}>Ваш пароль был успешно изменён.</p>
+            </div>
+
+            <RoundButton
+              className={s.button}
+              type="button"
+              theme="white"
+              text="Авторизоваться"
+              onClick={() => navigate(ROUTE_LOGIN, { replace: true })}
+            />
+          </div>
+        ) : (
+          <PasswordResetForm handleSuccessfulSumbit={handleSuccessfulSumbit} />
+        )}
+      </section>
     </Main>
   );
 };

@@ -98,6 +98,17 @@ export const pwdChangeSchema = yup.object().shape({
   ),
 });
 
+export const pwdResetSchema = yup.object().shape({
+  new_password: passwordSchema,
+  re_new_password: passwordSchema.test(
+    'same-password',
+    'Новые пароли должны совпадать',
+    function (value) {
+      return value === this.parent.new_password;
+    },
+  ),
+});
+
 export const formWithEmailSchema = yup.object().shape({
   email: emailSchema,
 });

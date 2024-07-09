@@ -59,7 +59,7 @@ export const PasswordRestoreForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
     <>
       <FormProvider {...methods}>
         <form className={s.form} method="POST" onSubmit={methods.handleSubmit(onSubmit)}>
-          <fieldset className={s.fieldset}>
+          <div className={s.fields}>
             <AuthFormInput
               name="email"
               type="email"
@@ -69,7 +69,7 @@ export const PasswordRestoreForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
               labelText="Email"
               hintText={EMAIL_HINT_TEXT}
             />
-          </fieldset>
+          </div>
 
           <div className={s.pwdResetLinkPosition} />
 

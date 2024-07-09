@@ -2,11 +2,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { isAxiosError } from 'axios';
 import { FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { postChangedPassword } from '../../api/api';
+import { useNavigate, useParams } from 'react-router-dom';
+import { postPwdResetData } from '../../api/api';
 import { ROUTE_ERROR_500 } from '../../constants/routesConstants';
-import { pwdChangeSchema } from '../../schemas/authSchemas';
-import { TChangePwdFormData } from '../../types/formDataTypes';
+import { pwdResetSchema } from '../../schemas/authSchemas';
+import { TPwdResetFormData } from '../../types/formDataTypes';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import s from './AuthForms.module.scss';
@@ -15,14 +15,14 @@ type IProps = {
   handleSuccessfulSumbit: (isSuccess: boolean) => void;
 };
 
-const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
+const PasswordResetForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { uid, token } = useParams<{ uid: string; token: string }>();
 
   const methods = useForm({
-    resolver: yupResolver(pwdChangeSchema),
+    resolver: yupResolver(pwdResetSchema),
     defaultValues: {
-      current_password: '',
       new_password: '',
       re_new_password: '',
     },
@@ -34,10 +34,15 @@ const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
     reset,
   } = methods;
 
-  const onSubmit = async (values: TChangePwdFormData) => {
+  if (!uid || !token) {
+    return null;
+  }
+
+  const onSubmit = async (values: TPwdResetFormData) => {
     setIsLoading(true);
+
     try {
-      await postChangedPassword(values);
+      await postPwdResetData({ uid, token, ...values });
       handleSuccessfulSumbit(true);
       reset();
     } catch (error) {
@@ -58,15 +63,6 @@ const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
     <FormProvider {...methods}>
       <form className={s.form} method="POST" onSubmit={methods.handleSubmit(onSubmit)}>
         <div className={s.fields}>
-          <AuthFormInput
-            name="current_password"
-            type="password"
-            placeHolder="Старый пароль"
-            ariaLabel="Input currentPassword"
-            labelNum="01"
-            labelText="Старый"
-          />
-
           <AuthFormInput
             name="new_password"
             type="password"
@@ -101,4 +97,4 @@ const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
   );
 };
 
-export default PasswordChangeForm;
+export default PasswordResetForm;

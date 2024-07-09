@@ -13,6 +13,11 @@ export type TPwdRestoreFormData = {
   email: string;
 };
 
+export type TPwdResetFormData = {
+  new_password: string;
+  re_new_password: string;
+};
+
 export type TChangePwdFormData = {
   current_password: string;
   new_password: string;

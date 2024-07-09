@@ -70,7 +70,7 @@ export const AppRouter: FC = () => {
         element={<ProtectedRouteElement onlyUnAuth element={<PasswordRestorePage />} />}
       />
       <Route
-        path={ROUTE_RESET_PASSWORD}
+        path={`${ROUTE_RESET_PASSWORD}/:uid/:token/`}
         element={<ProtectedRouteElement onlyUnAuth element={<PasswordResetPage />} />}
       />
 

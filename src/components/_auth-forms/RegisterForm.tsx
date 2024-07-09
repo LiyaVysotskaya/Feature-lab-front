@@ -5,11 +5,11 @@ import { useRegQuery } from '../../api/queries';
 import { EMAIL_HINT_TEXT, PASSWORD_HINT_TEXT } from '../../constants/tooltipContent';
 import { regSchema } from '../../schemas/authSchemas';
 import { TRegFormData } from '../../types/formDataTypes';
-import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import { PopupAgreement } from '../_popups/PopupAgreement/PopupAgreement';
 import { PopupPrivacyPolicy } from '../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../_ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../_ui/icons/CheckBoxIcon/CheckBoxIcon';
+import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import s from './AuthForms.module.scss';
 
 type IProps = {
@@ -56,7 +56,7 @@ export const RegisterForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     <>
       <FormProvider {...methods}>
         <form className={s.form} method="POST" onSubmit={methods.handleSubmit(onSubmit)}>
-          <fieldset className={s.fieldset}>
+          <div className={s.fields}>
             <AuthFormInput
               name="email"
               type="email"
@@ -86,7 +86,7 @@ export const RegisterForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
               labelText="Пароль"
               hintText={PASSWORD_HINT_TEXT}
             />
-          </fieldset>
+          </div>
 
           <div className={s.checkboxContainer}>
             <label className={s.checkboxLabel} htmlFor="checkboxRegistration">

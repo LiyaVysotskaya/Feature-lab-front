@@ -1,8 +1,4 @@
-import {
-  PostChangedPasswordResponse,
-  TGetAuthResponse,
-  TPostRegDataResponse,
-} from '../types/apiResponsesTypes';
+import { TGetAuthResponse, TPostRegDataResponse, TPwdResetData } from '../types/apiTypes';
 import {
   TChangePwdFormData,
   TLoginFormData,
@@ -34,18 +30,16 @@ export const postRegData = async (regData: TRegFormData): Promise<TPostRegDataRe
   return response.data;
 };
 
-export const postChangedPassword = async (
-  changedPwdData: TChangePwdFormData,
-): Promise<PostChangedPasswordResponse> => {
-  const response = await privateAPI.post<PostChangedPasswordResponse>(
-    '/auth/users/set_password/',
-    changedPwdData,
-  );
-  return response.data;
+export const postChangedPassword = async (changePwdData: TChangePwdFormData): Promise<void> => {
+  await privateAPI.post<void>('/auth/users/set_password/', changePwdData);
 };
 
-export const postPwdRestoreData = async (restorePwdData: TPwdRestoreFormData): Promise<void> => {
-  await privateAPI.post<void>('/auth/users/reset_password/', restorePwdData);
+export const postPwdRestoreData = async (pwdRestoreData: TPwdRestoreFormData): Promise<void> => {
+  await privateAPI.post<void>('/auth/users/reset_password/', pwdRestoreData);
+};
+
+export const postPwdResetData = async (pwdResetData: TPwdResetData): Promise<void> => {
+  await privateAPI.post<void>('/auth/users/reset_password_confirm/', pwdResetData);
 };
 
 export const getUserProfileData = async (): Promise<TUserProfile> => {
