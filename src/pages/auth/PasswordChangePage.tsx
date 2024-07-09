@@ -1,25 +1,26 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PasswordChangeForm from '../../components/_auth-forms/PasswordChangeForm';
-import { Main } from '../../components/Main/Main';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
+import { Main } from '../../components/Main/Main';
 import { ROUTE_PROFILE_SETTINGS } from '../../constants/routesConstants';
 import s from './AuthPages.module.scss';
 
 export const PasswordChangePage: FC = () => {
   const navigate = useNavigate();
 
-  const [password, setPassword] = useState<string>();
+  const [isPasswordChanged, setIsPasswordChanged] = useState<boolean>(false);
 
-  const responseToSuccessfulSumbit = (newPassword: string) => {
+  const handleSuccessfulSumbit = (isSuccess: boolean) => {
     window.scrollTo(0, 0);
-    setPassword(newPassword);
+    setIsPasswordChanged(isSuccess);
   };
+
   return (
     <Main>
       <section className={s.contentContainer}>
         <h1 className={s.title}>Смена пароля</h1>
-        {password ? (
+        {isPasswordChanged ? (
           <div className={s.responseContainer}>
             <div className={s.responseTextContainer}>
               <p className={s.responseText}>Ваш пароль был успешно изменён.</p>
@@ -34,7 +35,7 @@ export const PasswordChangePage: FC = () => {
             />
           </div>
         ) : (
-          <PasswordChangeForm responseToSuccessfulSumbit={responseToSuccessfulSumbit} />
+          <PasswordChangeForm handleSuccessfulSumbit={handleSuccessfulSumbit} />
         )}
       </section>
     </Main>

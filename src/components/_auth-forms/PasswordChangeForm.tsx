@@ -12,10 +12,10 @@ import { AuthFormInput } from './AuthFormInput/AuthFormInput';
 import s from './AuthForms.module.scss';
 
 type IProps = {
-  responseToSuccessfulSumbit: (newPassword: string) => void;
+  handleSuccessfulSumbit: (isSuccess: boolean) => void;
 };
 
-const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
+const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const PasswordChangeForm: FC<IProps> = ({ responseToSuccessfulSumbit }) => {
     setIsLoading(true);
     try {
       await postChangedPassword(values);
-      responseToSuccessfulSumbit(values.new_password);
+      handleSuccessfulSumbit(true);
       reset();
     } catch (error) {
       // 400 Error handling is already managed by Axios interceptors
