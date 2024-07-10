@@ -5,6 +5,7 @@ export const ROUTE_PRODUCTS = '/products';
 export const ROUTE_PROFILE = '/profile';
 export const ROUTE_LOGIN = '/login';
 export const ROUTE_REGISTER = '/register';
+export const ROUTE_ACTIVATE = '/activate';
 export const ROUTE_CHANGE_PASSWORD = '/password-change';
 export const ROUTE_RESTORE_PASSWORD = '/password-restore';
 export const ROUTE_RESET_PASSWORD = '/password-reset';

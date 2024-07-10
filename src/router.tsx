@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ProtectedRouteElement } from './components/ProtectedRouteElement/ProtectedRouteElement';
 import {
+  ROUTE_ACTIVATE,
   ROUTE_CHANGE_PASSWORD,
   ROUTE_COMPETENCIES,
   ROUTE_CONTACT,
@@ -34,6 +35,7 @@ import { ProfileDocs } from './pages/ProfilePage/ProfileDocs/ProfileDocs';
 import { ProfilePage } from './pages/ProfilePage/ProfilePage';
 import { ProfileProject } from './pages/ProfilePage/ProfileProject/ProfileProject';
 import { ProfileSettings } from './pages/ProfilePage/ProfileSettings/ProfileSettings';
+import { AccountActivatePage } from './pages/auth/AccountActivatePage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { PasswordChangePage } from './pages/auth/PasswordChangePage';
 import { PasswordResetPage } from './pages/auth/PasswordResetPage';
@@ -63,6 +65,10 @@ export const AppRouter: FC = () => {
       <Route
         path={ROUTE_REGISTER}
         element={<ProtectedRouteElement onlyUnAuth element={<RegisterPage />} />}
+      />
+      <Route
+        path={`${ROUTE_ACTIVATE}/:uid/:token/`}
+        element={<ProtectedRouteElement onlyUnAuth element={<AccountActivatePage />} />}
       />
 
       <Route

@@ -1,4 +1,9 @@
-import { TGetAuthResponse, TPostRegDataResponse, TPwdResetData } from '../types/apiTypes';
+import {
+  TAccActivationData,
+  TGetAuthResponse,
+  TPostRegDataResponse,
+  TPwdResetData,
+} from '../types/apiTypes';
 import {
   TChangePwdFormData,
   TLoginFormData,
@@ -28,6 +33,10 @@ export const postLoginData = async (loginData: TLoginFormData): Promise<TGetAuth
 export const postRegData = async (regData: TRegFormData): Promise<TPostRegDataResponse> => {
   const response = await publicAPI.post<TPostRegDataResponse>('/auth/users/', regData);
   return response.data;
+};
+
+export const postAccActivationData = async (activationData: TAccActivationData): Promise<void> => {
+  await publicAPI.post<void>('/auth/users/', activationData);
 };
 
 export const postChangedPassword = async (changePwdData: TChangePwdFormData): Promise<void> => {

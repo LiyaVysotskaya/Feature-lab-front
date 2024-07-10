@@ -14,3 +14,8 @@ export type TPwdResetData = {
   new_password: string;
   re_new_password: string;
 };
+
+export type TAccActivationData = {
+  uid: string;
+  token: string;
+};

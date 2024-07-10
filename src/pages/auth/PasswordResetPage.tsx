@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PasswordResetForm from '../../components/_auth-forms/PasswordResetForm';
 import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
 import { Main } from '../../components/Main/Main';
-import { ROUTE_LOGIN } from '../../constants/routesConstants';
+import { ROUTE_HOME } from '../../constants/routesConstants';
 import s from './AuthPages.module.scss';
 
 export const PasswordResetPage: FC = () => {
@@ -30,8 +30,8 @@ export const PasswordResetPage: FC = () => {
               className={s.button}
               type="button"
               theme="white"
-              text="Авторизоваться"
-              onClick={() => navigate(ROUTE_LOGIN, { replace: true })}
+              text="На главную"
+              onClick={() => navigate(ROUTE_HOME, { replace: true })}
             />
           </div>
         ) : (

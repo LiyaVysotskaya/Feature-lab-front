@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Main } from '../../components/Main/Main';
-import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
-import { ROUTE_LOGIN } from '../../constants/routesConstants';
 import { RegisterForm } from '../../components/_auth-forms/RegisterForm';
+import { RoundButton } from '../../components/_ui/RoundButton/RoundButton';
+import { ROUTE_HOME, ROUTE_LOGIN } from '../../constants/routesConstants';
 import s from './AuthPages.module.scss';
 
 export const RegisterPage: FC = () => {
@@ -44,7 +44,7 @@ export const RegisterPage: FC = () => {
               type="button"
               theme="white"
               text="На главную"
-              onClick={() => navigate('/', { replace: true })}
+              onClick={() => navigate(ROUTE_HOME, { replace: true })}
             />
           </div>
         ) : (
