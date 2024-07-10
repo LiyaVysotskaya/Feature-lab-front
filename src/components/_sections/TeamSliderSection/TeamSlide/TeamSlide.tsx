@@ -14,6 +14,8 @@ export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
   const photoActiveLink = `${API_BASE_URL.slice(0, -1)}${person.photo_active}`;
   const photoInactiveLink = `${API_BASE_URL.slice(0, -1)}${person.photo_inactive}`;
 
+  const hasPositions = person.positions.length > 0;
+
   return (
     <div className={cn(s.card, className)}>
       <div className={s.imgContainer}>
@@ -22,7 +24,7 @@ export const TeamSlide: FC<IProps> = ({ className = '', person }) => {
       </div>
 
       <h3 className={s.cardName}>{`${person.first_name} ${person.last_name}`}</h3>
-      <div className={s.cardRole}>{person.positions[0].name}</div>
+      <div className={s.cardRole}>{hasPositions && person.positions[0].name}</div>
       <div className={s.cardDescription}>{person.description}</div>
     </div>
   );
