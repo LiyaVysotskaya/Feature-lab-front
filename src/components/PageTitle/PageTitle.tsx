@@ -38,6 +38,7 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
       }
 
       textRef.current.style.marginLeft = '-0.035em'; // compensate font white space before first char
+      textRef.current.style.opacity = '1'; // make visible after resize
     }
   };
 
@@ -54,10 +55,14 @@ export const PageTitle: FC<IProps> = ({ className = '', pageTitle, subTitle = ''
     };
   }, [containerRef, textRef, location]);
 
+  const insertSoftHyphens = (text: string) => {
+    return text.replace(/-/g, '\u2011');
+  };
+
   return (
     <div className={cn(s.pageTitleWrap, className)} ref={containerRef}>
       <h1 className={s.pageTitle} ref={textRef}>
-        {pageTitle}
+        {insertSoftHyphens(pageTitle)}
       </h1>
       <p className={s.subTitle}>{subTitle}</p>
     </div>
