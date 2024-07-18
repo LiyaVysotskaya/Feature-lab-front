@@ -14,12 +14,19 @@ export const ArrowInCircleIcon: FC<IProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [touchActive, setTouchActive] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<number | null>(null);
 
   const handleTouchStart = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear previous timeout if exists
+    }
+
     setTouchActive(true);
-    setTimeout(() => {
+    const id = window.setTimeout(() => {
       setTouchActive(false);
     }, 600);
+
+    setTimeoutId(id); // Store the new timeout ID
   };
 
   return (
