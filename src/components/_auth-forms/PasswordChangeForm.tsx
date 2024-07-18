@@ -45,8 +45,7 @@ const PasswordChangeForm: FC<IProps> = ({ handleSuccessfulSumbit }) => {
 
       if (isAxiosError(error) && error.response?.status === 500) {
         navigate(ROUTE_ERROR_500, { replace: true });
-      }
-      if (isAxiosError(error) && error.message === 'Network Error') {
+      } else if (isAxiosError(error) && error.message === 'Network Error') {
         navigate(ROUTE_ERROR_500, { replace: true });
       }
     } finally {

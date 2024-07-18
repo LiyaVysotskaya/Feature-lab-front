@@ -25,12 +25,22 @@ import {
 } from './api';
 
 export const useRegQuery = (onRegSuccess: (email: string) => void) => {
+  const navigate = useNavigate();
   return useMutation({
     mutationKey: [QK_REG],
     mutationFn: postRegData,
     onSuccess: (_, submitedData) => {
       onRegSuccess(submitedData.email);
       queryClient.removeQueries({ queryKey: [QK_REG] });
+    },
+    onError: (error) => {
+      // 400 Error handling is already managed by Axios interceptors
+
+      if (isAxiosError(error) && error.response?.status === 500) {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      } else if (isAxiosError(error) && error.message === 'Network Error') {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
     },
     retry: 0,
     gcTime: 0, // cashed data will be deleted immediately
