@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, useRef, useState } from 'react';
 import cn from 'classnames';
 import s from './ArrowInCircleIcon.module.scss';
 
@@ -12,11 +12,23 @@ export const ArrowInCircleIcon: FC<IProps> = ({
   reverse = false,
   ...otherProps
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [touchActive, setTouchActive] = useState(false);
+
+  const handleTouchStart = () => {
+    setTouchActive(true);
+    setTimeout(() => {
+      setTouchActive(false);
+    }, 600);
+  };
+
   return (
     <div
       {...otherProps}
+      ref={ref}
       role="presentation"
-      className={cn(s.ArrowInCircleIcon, reverse && s.reverse, className)}>
+      className={cn(s.ArrowInCircleIcon, reverse && s.reverse, touchActive && s.touched, className)}
+      onTouchStart={handleTouchStart}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
         <rect x="1" y="1" width="138" height="138" rx="69" stroke="#002D63" strokeWidth="2" />
         <path d="M120 70L100 58.453V81.547L120 70ZM102 68L20 68V72L102 72V68Z" fill="#002D63" />
