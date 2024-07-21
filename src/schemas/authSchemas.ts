@@ -16,6 +16,7 @@ import {
   MIN_LENGTH_PASSWORD,
   MIN_LENGTH_PROJECT,
   NAME_REG_EX,
+  NO_CYRILLIC,
   PHONE_REG_EX,
   PWD_HAS_ALLOWED_CHARS_ONLY,
 } from '../constants/validationConstants';
@@ -24,6 +25,7 @@ const passwordSchema = yup
   .string()
   .required('Обязательное поле')
   .matches(HAS_NO_SPACES, 'Пробелы не допускаются')
+  .matches(NO_CYRILLIC, 'Пароль не должен содержать кириллицу')
   .min(MIN_LENGTH_PASSWORD, `Минимальная длина ${MIN_LENGTH_PASSWORD} символов`)
   .max(MAX_LENGTH_PASSWORD, `Максимальная длина ${MAX_LENGTH_PASSWORD} символов`)
   .matches(HAS_LOWER_CASE, 'Пароль должен содержать хотя бы одну строчную букву')

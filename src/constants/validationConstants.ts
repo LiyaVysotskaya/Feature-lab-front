@@ -21,3 +21,4 @@ export const HAS_SPECIAL_CHAR = /[!#$%&‘*+—/=^_`{|}~.]/;
 export const PWD_HAS_ALLOWED_CHARS_ONLY = /^[A-Za-z0-9!#$%&‘*+—/=^_`{|}~.]*$/;
 export const EMAIL_START_WITH_DOT = /^[^.]/;
 export const EMAIL_HAS_AT_LEAST_ONE_DOT_AFTER_AT = /^[^@]+@[^@]+\.[^@]+$/;
+export const NO_CYRILLIC = /^[^\u0400-\u04FF]*$/;
