@@ -1,26 +1,39 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useContactQuery } from '../../../api/queries';
+import { QK_CONTACT, QK_POPUP } from '../../../constants/TanStackQueryKeys';
+import queryClient from '../../../query-client';
 import { contactFormSchema, emailSchema } from '../../../schemas/authSchemas';
+import { TContactSubmitData } from '../../../types/apiTypes';
 import { TContactFormData } from '../../../types/formDataTypes';
 import { PopupPrivacyPolicy } from '../../_popups/PopupPrivacyPolicy/PopupPrivacyPolicy';
 import { RoundButton } from '../../_ui/RoundButton/RoundButton';
 import { CheckBoxIcon } from '../../_ui/icons/CheckBoxIcon/CheckBoxIcon';
-import { PopupContactInput } from './PopupContactInput/PopupContactInput';
 import s from './PopupContactForm.module.scss';
+import { PopupContactInput } from './PopupContactInput/PopupContactInput';
 
 export const PopupContactForm: FC = () => {
   const [isPopupPrivacyPolicyOpen, setIsPopupPrivacyPolicyOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const cachedData = queryClient.getQueryData([QK_CONTACT, QK_POPUP]) as
+    | TContactSubmitData
+    | undefined;
 
   const methods = useForm({
     resolver: yupResolver(contactFormSchema),
-    defaultValues: {
-      name: '',
-      emailOrPhone: '',
-      message: '',
-    },
+    defaultValues: cachedData
+      ? {
+          name: cachedData.name,
+          emailOrPhone: cachedData.email || cachedData.phone,
+          message: cachedData.message,
+        }
+      : {
+          name: '',
+          emailOrPhone: '',
+          message: '',
+        },
     mode: 'onChange',
   });
 
@@ -28,14 +41,35 @@ export const PopupContactForm: FC = () => {
     formState: { isValid },
     handleSubmit,
     reset,
+    watch,
   } = methods;
+
+  const formData = watch();
+
+  const onSuccessCallback = () => {
+    reset();
+  };
+  const { mutate: mutateContactData, isPending } = useContactQuery({
+    onSuccessCallback,
+    formType: QK_POPUP,
+  });
+
+  useEffect(() => {
+    const contactSubmitData: TContactSubmitData = {
+      name: formData.name,
+      email: formData.emailOrPhone,
+      phone: formData.emailOrPhone,
+      message: formData.message,
+    };
+    queryClient.setQueryData([QK_CONTACT, QK_POPUP], contactSubmitData);
+  }, [formData]);
 
   const onCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
   };
 
   const onSubmit = (data: TContactFormData) => {
-    const transformedData = {
+    const contactSubmitData = {
       name: data.name,
       email: '',
       phone: '',
@@ -44,17 +78,13 @@ export const PopupContactForm: FC = () => {
 
     if (emailSchema.isValidSync(data.emailOrPhone)) {
       // If valid as an email
-      transformedData.email = data.emailOrPhone;
+      contactSubmitData.email = data.emailOrPhone;
     } else {
       // Otherwise, assume it's a valid phone number
-      transformedData.phone = data.emailOrPhone;
+      contactSubmitData.phone = data.emailOrPhone;
     }
 
-    console.log(transformedData);
-    setIsLoading(true);
-
-    // Send `transformedData` to your backend instead of `data`
-    reset();
+    mutateContactData(contactSubmitData);
   };
 
   return (
@@ -121,8 +151,8 @@ export const PopupContactForm: FC = () => {
             type="submit"
             theme="white"
             text="Отправить"
-            disabled={!isValid || !isChecked || isLoading}
-            isLoading={isLoading}
+            disabled={!isValid || !isChecked || isPending}
+            isLoading={isPending}
           />
         </form>
       </FormProvider>

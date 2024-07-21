@@ -1,20 +1,23 @@
+import { useAtom } from 'jotai';
 import { FC } from 'react';
+import { isPopupContactOpenAtom } from '../../../atoms/popupAtoms';
 import { PopupContactForm } from '../../_contact-forms/PopupContactForm/PopupContactForm';
 import { CrossInCircleIcon } from '../../_ui/icons';
 import { Overlay } from '../Overlay/Overlay';
 import s from './PopupContact.module.scss';
 
-type IPopupProps = {
-  onClose: () => void;
-  isOpen: boolean;
-};
+export const PopupContact: FC = () => {
+  const [isOpen, setIsOpen] = useAtom(isPopupContactOpenAtom);
 
-export const PopupContact: FC<IPopupProps> = ({ onClose, isOpen }) => {
   return isOpen ? (
-    <Overlay onClose={onClose} isOpen={isOpen}>
+    <Overlay onClose={() => setIsOpen(false)} isOpen={isOpen}>
       <div className={s.popup}>
         <h2 className={s.popupTitle}>Свяжитесь с нами</h2>
-        <button className={s.closeButton} type="button" aria-label="Close popup" onClick={onClose}>
+        <button
+          className={s.closeButton}
+          type="button"
+          aria-label="Close popup"
+          onClick={() => setIsOpen(false)}>
           <CrossInCircleIcon />
         </button>
         <PopupContactForm />

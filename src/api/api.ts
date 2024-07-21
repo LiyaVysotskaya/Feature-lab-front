@@ -1,5 +1,6 @@
 import {
   TAccActivationData,
+  TContactSubmitData,
   TGetAuthResponse,
   TPostRegDataResponse,
   TPwdResetData,
@@ -37,6 +38,10 @@ export const postRegData = async (regData: TRegFormData): Promise<TPostRegDataRe
 
 export const postAccActivationData = async (activationData: TAccActivationData): Promise<void> => {
   await publicAPI.post<void>('/auth/users/', activationData);
+};
+
+export const postContactFormData = async (contactSubmitData: TContactSubmitData): Promise<void> => {
+  await publicAPI.post<void>('/api/v1/feedback/', contactSubmitData);
 };
 
 export const postChangedPassword = async (changePwdData: TChangePwdFormData): Promise<void> => {

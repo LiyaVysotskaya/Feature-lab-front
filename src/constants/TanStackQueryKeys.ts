@@ -4,3 +4,6 @@ export const QK_PROJECTS = 'projects';
 export const QK_DOCS = 'docs';
 export const QK_USER_PROFILE = 'userProfile';
 export const QK_REG = 'registration';
+export const QK_CONTACT = 'contactForm';
+export const QK_FOOTER = 'footer';
+export const QK_POPUP = 'popup';

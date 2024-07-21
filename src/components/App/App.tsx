@@ -1,6 +1,6 @@
 import { useIsFetching } from '@tanstack/react-query';
 import { useAtom } from 'jotai';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useUserProfileQuery } from '../../api/queries';
 import { isAuthAtom } from '../../atoms/isAuthAtom';
@@ -18,7 +18,6 @@ import { CookiesToastContainer } from '../_ui/CookiesToastContainer/CookiesToast
 import s from './App.module.scss';
 
 const App: React.FC = () => {
-  const [isPopupFeedbackOpen, setIsPopupFeedbackOpen] = useState(false);
   const [, setIsAuth] = useAtom(isAuthAtom);
   const { pathname } = useLocation();
   const isFetching = useIsFetching();
@@ -43,10 +42,6 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const closePopupFeedbackPopup = () => {
-    setIsPopupFeedbackOpen(false);
-  };
-
   return (
     <div className={s.rootWrapper}>
       <div className={s.generalWrapper} id="generalWrapper">
@@ -54,7 +49,7 @@ const App: React.FC = () => {
 
         <AppRouter />
 
-        <PopupFeedback isOpen={isPopupFeedbackOpen} onClose={closePopupFeedbackPopup} />
+        <PopupFeedback />
 
         <CookiesToastContainer />
       </div>

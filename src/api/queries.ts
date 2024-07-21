@@ -1,8 +1,10 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAtom } from 'jotai';
 import {
   QK_COMPETENCIES,
+  QK_CONTACT,
   QK_DOCS,
   QK_PRODUCTS,
   QK_PROJECTS,
@@ -21,8 +23,10 @@ import {
   getUserAllDocs,
   getUserAllProjects,
   getUserProfileData,
+  postContactFormData,
   postRegData,
 } from './api';
+import { isPopupContactOpenAtom, isPopupFeedbackOpenAtom } from '../atoms/popupAtoms';
 
 export const useRegQuery = (onRegSuccess: (email: string) => void) => {
   const navigate = useNavigate();
@@ -44,6 +48,41 @@ export const useRegQuery = (onRegSuccess: (email: string) => void) => {
     },
     retry: 0,
     gcTime: 0, // cashed data will be deleted immediately
+  });
+};
+
+type UseContactQueryOptions = {
+  onSuccessCallback?: () => void;
+  formType: string;
+};
+
+export const useContactQuery = ({ onSuccessCallback, formType }: UseContactQueryOptions) => {
+  const navigate = useNavigate();
+  const [, setIsPopupContactOpen] = useAtom(isPopupContactOpenAtom);
+  const [, setIsPopupFeedbackOpen] = useAtom(isPopupFeedbackOpenAtom);
+
+  return useMutation({
+    mutationKey: [QK_CONTACT, formType],
+    mutationFn: postContactFormData,
+    onSuccess: () => {
+      if (onSuccessCallback) {
+        onSuccessCallback();
+      }
+      setIsPopupContactOpen(false);
+      setIsPopupFeedbackOpen(true);
+
+      // queryClient.removeQueries({ queryKey: [QK_CONTACT] });
+    },
+    onError: (error) => {
+      // 400 Error handling is already managed by Axios interceptors
+
+      if (isAxiosError(error) && error.response?.status === 500) {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      } else if (isAxiosError(error) && error.message === 'Network Error') {
+        navigate(ROUTE_ERROR_500, { replace: true });
+      }
+    },
+    retry: 0,
   });
 };
 

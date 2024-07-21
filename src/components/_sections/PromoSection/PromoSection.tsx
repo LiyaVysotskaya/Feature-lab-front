@@ -1,5 +1,7 @@
 import cn from 'classnames';
-import { FC, useState } from 'react';
+import { useAtom } from 'jotai';
+import { FC } from 'react';
+import { isPopupContactOpenAtom } from '../../../atoms/popupAtoms';
 import { PageTitle } from '../../PageTitle/PageTitle';
 import { PopupContact } from '../../_popups/PopupContact/PopupContact';
 import { RoundButton } from '../../_ui/RoundButton/RoundButton';
@@ -10,11 +12,7 @@ type IProps = {
 };
 
 export const PromoSection: FC<IProps> = ({ className = '' }) => {
-  const [isPopupContactOpen, setPopupContactIsOpen] = useState(false);
-
-  const closePopupContactPopups = () => {
-    setPopupContactIsOpen(false);
-  };
+  const [, setIsOpen] = useAtom(isPopupContactOpenAtom);
 
   return (
     <section aria-label="Promo" className={cn(s.promo, className)}>
@@ -30,12 +28,12 @@ export const PromoSection: FC<IProps> = ({ className = '' }) => {
 
       <RoundButton
         className={s.promoBtn}
-        onClick={() => setPopupContactIsOpen(true)}
+        onClick={() => setIsOpen(true)}
         theme="promo"
         text="Свяжитесь с&nbsp;нами"
       />
 
-      <PopupContact isOpen={isPopupContactOpen} onClose={closePopupContactPopups} />
+      <PopupContact />
     </section>
   );
 };

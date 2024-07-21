@@ -19,3 +19,10 @@ export type TAccActivationData = {
   uid: string;
   token: string;
 };
+
+export type TContactSubmitData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
